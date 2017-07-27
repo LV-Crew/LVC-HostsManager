@@ -25,3 +25,9 @@ To-Dos:<br>
 - Redirected to any IP/Path (localhost, too)<br>
 - Hosts-Files-List (multiple sources)<br>
 - Line-Break in hosts-files<br>
+<br>
+Some ideas:<br>
+- Use Qt<br>
+- Use wget<br>
+- Load local files<br>
+- Tags and descriptions to sources<br>
