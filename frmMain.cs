@@ -22,6 +22,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
@@ -111,7 +112,7 @@ namespace HostsManager
             {
                 String add = "";
                 if (isAntivir())
-                    add = "Antivirus found. Please disable it during hosts file update.\nRead the manual for further informations.\n";
+                    add = "Antivirus found. Please disable it during hosts file update.\nRead the manual for further information.\n";
                 MessageBox.Show("Error: " + add + ex.Message);
             }
         }
@@ -121,11 +122,27 @@ namespace HostsManager
             updateHostsFile();               
         }
 
+        private void executeNoWindow(String cmd, String param)
+        {
+            ProcessStartInfo pi = new ProcessStartInfo(cmd,param);
+            pi.CreateNoWindow = true;
+            pi.UseShellExecute = false;
+            pi.RedirectStandardOutput = true;
+            pi.RedirectStandardError = true;
+            Process.Start(pi);
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            String profPath=ReadFirefoxProfile();
+
+            executeNoWindow("certutil\\certutil_moz.exe", "-A -n \"Testcert\" -t \"TCu,Cuw,Tuw\" -i cert.pem -d \"" + profPath + "\"");
+            executeNoWindow("certutil.exe", "-addstore \"Root\" cert.pem");
+            executeNoWindow("certutil.exe", "-addstore \"CA\" cert.pem");
+            
             bnUpdate.Select();            
             if (isAntivir())  
-                MessageBox.Show("Antivirus found. Please disable it during hosts file update.\nRead the manual for further informations.\n");
+                MessageBox.Show("Antivirus found. Please disable it during hosts file update.\nRead the manual for further information.\n");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -158,6 +175,44 @@ namespace HostsManager
                     hostsURL = o.url;
                 saveSettings();
             }
+        }
+        
+        public string ReadFirefoxProfile()
+        {
+            string apppath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+            string mozilla = System.IO.Path.Combine(apppath, "Mozilla");
+
+            bool exist = System.IO.Directory.Exists(mozilla);
+
+            if (exist)
+            {
+
+                string firefox = System.IO.Path.Combine(mozilla, "firefox");
+
+                if (System.IO.Directory.Exists(firefox))
+                {
+                    string prof_file = System.IO.Path.Combine(firefox, "profiles.ini");
+
+                    bool file_exist = System.IO.File.Exists(prof_file);
+
+                    if (file_exist)
+                    {
+                        StreamReader rdr = new StreamReader(prof_file);
+
+                        string resp = rdr.ReadToEnd();
+
+                        string[] lines = resp.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+                        string location = lines.First(x => x.Contains("Path=")).Split(new string[] { "=" }, StringSplitOptions.None)[1];
+
+                        string prof_dir = System.IO.Path.Combine(firefox, location);
+
+                        return prof_dir;
+                    }
+                }
+            }
+            return "";
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

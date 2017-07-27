@@ -12,7 +12,7 @@ namespace HostsManager
 {
     public partial class frmEditHosts : Form
     {
-        public string Text = "";
+        public string mText = "";
         public frmEditHosts()
         {
             InitializeComponent();
@@ -20,12 +20,12 @@ namespace HostsManager
 
         private void frmEditHosts_Load(object sender, EventArgs e)
         {
-            textBox1.Text = Text;
+            textBox1.Text = mText;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {            
-            Text = textBox1.Text;
+            mText = textBox1.Text;
             DialogResult = DialogResult.OK;
             this.Close();
         }
