@@ -6,7 +6,7 @@ Therfore you are protected from tracking and from spam ads and from whatever you
 <br>
 In long ...:<br>
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
-- The Hosts-Files-List is saved in the app.<br>
+- The Hosts-Files-List is saved by the app.<br>
 More to the hosts-file: https://en.wikipedia.org/wiki/Hosts_(file)<br>
 <br>
 <br>
@@ -36,10 +36,7 @@ More To-Dos Hosts-Files-List:<br>
 - Add Line-Breaks in hosts-files (CR+LF)<br>
 <br>
 To-Dos Windows Integration:<br>
-- NullSoft-Installer<br>
 - Register in Windows (system integration)<br>
-- Publisher is 'LV-Crew'<br>
-- Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
 - Place data in %PROGRAMDATA%\LV-Crew\HostsManager\<br>
 <br>
 To-Dos better Windows Integration:<br>
@@ -54,8 +51,6 @@ To-Dos Multi-Plattform:<br>
 - Linux-/macOS-/BSD-/Android-Port<br>
 <br>
 To-Dos Error-Server:<br>
-- Error-Page on http://34.213.32.36/<br>
-- Error-Page with SSL<br>
 - Counter for Error-Page<br>
 - Maybee Avira & Google-Ads<br>
 - Error-Pages per lists<br>
