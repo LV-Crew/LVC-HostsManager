@@ -48,3 +48,10 @@ Some more ideas:<br>
 - Use lists from Firefox<br>
 - Import whitelist into CCleaner (Registry/INI)<br>
 - Import whitelist into NoScript (SQLite)<br>
+- Monitor port-forrwards (UPnP) from routers (AVM)<br>
+- Bad-URLs-List from Avira<br>
+<br>
+Possible Hosts-Files:<br>
+https://github.com/StevenBlack/hosts<br>
+https://github.com/LV-Crew/hosts<br>
+<br>
