@@ -10,34 +10,58 @@ The Hosts-Files-List is saved in the app.<br>
 More to the hosts-file:<br>
 https://en.wikipedia.org/wiki/Hosts_(file)<br>
 <br>
-History:<br>
-2017-06-27 v1.0.0 - v1.1.0 by Dennis & Tobias<br>
-- First try
-- Logo
-- Menü
-- Separat options dialog
-- Download-URL saved in registry
-- Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
-Release: http://www116.zippyshare.com/v/v3MPZDxP/file.html<br>
 <br>
-To-Dos:<br>
-- Error-Page http://34.213.32.36/<br>
-- Redirected to any IP/Path (localhost, too)<br>
+Possible Hosts-Files:<br>
+https://github.com/StevenBlack/hosts<br>
+https://github.com/LV-Crew/hosts<br>
+<br>
+<br>
+Some ideas and a 'small' roadmap in a to-dos-stlye... ;-)<br>
+<br>
+To-Dos Branding:<br>
+- About Dialog<br>
+- Link to https://github.com/LV-Crew/HostsManager<br>
+- 'LV-Crew' as Publisher<br>
+- 'LV-Crew'-Logo<br>
+- Version Bump to 2017.xx.xxa (yyyy.mm.dd + letter)<br>
+<br>
+To-Dos Data Storage:<br>
 - Hosts-Files-List (multiple sources)<br>
-- Line-Break in hosts-files<br>
+- Load local files in Hosts-Files-List, too<br>
+- Use INI, CFG, SQLite<br>
+- Tags and descriptions to sources<br>
+- Redirects per list<br>
+- Redirected to any IP/Path (localhost, too)<br>
 <br>
-Some ideas:<br>
+More To-Dos Hosts-Files-List:<br>
+- Add Line-Breaks in hosts-files (CR+LF)<br>
+<br>
+To-Dos Windows Integration:<br>
+- NullSoft-Installer<br>
+- Register in Windows (system integration)<br>
+- Publisher is 'LV-Crew'<br>
+- Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
+- Place data in %PROGRAMDATA%\LV-Crew\HostsManager\<br>
+<br>
+To-Dos better Windows Integration:<br>
+- Systray-Icon<br>
+- Schedult System Task<br>
+- Start at boot<br>
+<br>
+To-Dos Multi-Plattform:<br>
 - Use Qt<br>
 - Use wget<br>
-- Use INI, CFG, SQLite<br>
-- Load local files<br>
-- Tags and descriptions to sources<br>
-- Schedult system task<br>
-- Start at boot<br>
-- Redirects per list<br>
-- Error-Page per list<br>
+- 64-bit-Version<br>
+- Linux-/macOS-/BSD-/Android-Port<br>
+<br>
+To-Dos Error-Server:<br>
+- Error-Page on http://34.213.32.36/<br>
 - Error-Page with SSL<br>
 - Counter for Error-Page<br>
+- Maybee Avira & Google-Ads<br>
+- Error-Pages per lists<br>
+<br>
+Some ideas:<br>
 - White-/Gray-/Blacklister read data e.g. from Cookies of Browsers<br>
 <br>
 Some more ideas:<br>
@@ -52,6 +76,24 @@ Some more ideas:<br>
 - Monitor port-forrwards (UPnP) from routers (AVM)<br>
 - Bad-URLs-List from Avira<br>
 <br>
-Possible Hosts-Files:<br>
-https://github.com/StevenBlack/hosts<br>
-https://github.com/LV-Crew/hosts<br>
+More notes for later:<br>
+- hosts temp off<br>
+- Textfeld für eigenes hosts<br>
+- Whitelist from Blacklist rauslöschen<br>
+- C:\Program Files\CCleaner\ccleaner.ini<br>
+- create backup for first run (.HostsManager)<br>
+- Thunderbird<br>
+- Monitising<br>
+- In-App Advertisment Avira<br>
+- Diladele.Squid.Service.exe<br>
+<br>
+<br>
+History:<br>
+2017-06-27 v1.0.0 - v1.1.0 by torify & Tobias-B-Besemer<br>
+- First try
+- Logo
+- Menü
+- Separat options dialog
+- Download-URL saved in registry
+- Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
+Release: http://www116.zippyshare.com/v/v3MPZDxP/file.html<br>
