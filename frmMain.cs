@@ -34,42 +34,14 @@ namespace HostsManager
     public partial class frmMain : Form
     {
         private String fileText = "";
-        private String hostsURL = "http://winhelp2002.mvps.org/hosts.txt";
+        public String ipFrom = "0.0.0.0";
+        public String ipTo = "0.0.0.0";
+        private String hostsURL = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
 
         public frmMain()
         {            
             InitializeComponent();
-
-            txtURL.GotFocus += (s, a) => { if (txtURL.ForeColor == Color.Gray) txtURL.Text = ""; };
-            txtFrom.GotFocus += (s, a) => { if (txtFrom.ForeColor == Color.Gray) txtFrom.Text = ""; };
-            txtTo.GotFocus += (s, a) => { if (txtTo.ForeColor == Color.Gray) txtTo.Text = ""; };
-
-            txtURL.LostFocus += (s, a) =>
-            {
-                if (txtURL.Text == "")
-                {
-                    txtURL.Text = "http://winhelp2002.mvps.org/hosts.txt";
-                    txtURL.ForeColor = Color.Gray;
-                }
-            };
-
-            txtFrom.LostFocus += (s, a) =>
-            {
-                if (txtFrom.Text == "")
-                {
-                    txtFrom.Text = "0.0.0.0";
-                    txtFrom.ForeColor = Color.Gray;
-                }
-            };
-
-            txtTo.LostFocus += (s, a) =>
-            {
-                if (txtTo.Text == "")
-                {
-                    txtTo.Text = "0.0.0.0";
-                    txtTo.ForeColor = Color.Gray;
-                }
-            };
+            loadSettings();
         }
 
         private bool isAntivir()
@@ -80,88 +52,117 @@ namespace HostsManager
                 return false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {            
-            String ipFrom = "0.0.0.0";
-            String ipTo = "0.0.0.0";
-
-            if (txtURL.Text != "")
-                hostsURL = txtURL.Text;
-            if (txtFrom.Text != "")
-                ipFrom = txtFrom.Text;
-            if (txtTo.Text != "")
-                ipTo = txtTo.Text;            
-
-            if ((txtFrom.ForeColor==Color.Gray  && txtTo.ForeColor== Color.Black) || (txtFrom.ForeColor == Color.Black && txtTo.ForeColor == Color.Gray))
-                MessageBox.Show("Please enter both \"From\" and \"To\" IP");
-            else
+        private void loadSettings()
+        {
+            Microsoft.Win32.RegistryKey mexampleRegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("HostsManager");
+            if (mexampleRegistryKey != null)
             {
-                try
-                {
-                    SecurityIdentifier id = new SecurityIdentifier("S-1-5-32-544");
-                    string adminGroupName = id.Translate(typeof(NTAccount)).Value;
-
-                    System.Net.WebClient wc = new System.Net.WebClient();
-                    if(fileText=="")
-                        fileText = wc.DownloadString(hostsURL);  // wc.DownloadFile(hostsURL, "hosts.tmp");                    
-                    fileText = fileText.Replace(ipTo, ipFrom);
-                    System.IO.File.Delete("hosts.tmp");
-                    System.IO.File.WriteAllText("hosts.tmp", fileText);
-
-                    FileSecurity fs = System.IO.File.GetAccessControl(Environment.GetEnvironmentVariable("windir")+"\\system32\\drivers\\etc\\hosts");
-                    fs.AddAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.FullControl, AccessControlType.Allow));
-                    fs.RemoveAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.Write, AccessControlType.Deny));
-                    System.IO.File.SetAccessControl(Environment.GetEnvironmentVariable("windir") +"\\system32\\drivers\\etc\\hosts", fs);
-
-                    System.IO.File.Copy("hosts.tmp", Environment.GetEnvironmentVariable("windir") +"\\system32\\drivers\\etc\\hosts", true);
-                    System.IO.File.Delete("hosts.tmp");
-
-                    fs.RemoveAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.FullControl, AccessControlType.Allow));
-                    fs.AddAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.Write, AccessControlType.Deny));
-
-                    MessageBox.Show("Hosts file updated.");
-
-                }catch(Exception ex) {
-                    String add = "";
-                    if (isAntivir())
-                        add = "Antivirus found. Prease disable it during hosts file update.\nRead the manual for further informations.\n";
-                    MessageBox.Show("Error: " + add+ ex.Message);
-                }
+                hostsURL = (String)mexampleRegistryKey.GetValue("URL");
+                if (hostsURL == null)
+                    hostsURL = "";
+                ipFrom = (String)mexampleRegistryKey.GetValue("ipFrom");
+                if (ipFrom == null)
+                    ipFrom = "";
+                ipTo = (String)mexampleRegistryKey.GetValue("ipTo");
+                if (ipTo == null)
+                    ipTo = "";
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void saveSettings()
         {
-            txtURL.ForeColor = Color.Black;
+            Microsoft.Win32.RegistryKey exampleRegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
+            exampleRegistryKey.SetValue("URL", hostsURL);
+            exampleRegistryKey.SetValue("ipFrom", ipFrom);
+            exampleRegistryKey.SetValue("ipTo", ipTo);
+            exampleRegistryKey.Close();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void updateHostsFile()
         {
-            txtTo.ForeColor = Color.Black;
+            try
+            {
+                toolStripProgressBar1.Visible = true;
+                SecurityIdentifier id = new SecurityIdentifier("S-1-5-32-544");
+                string adminGroupName = id.Translate(typeof(NTAccount)).Value;
+
+                System.Net.WebClient wc = new System.Net.WebClient();
+                if (fileText == "")
+                    fileText = wc.DownloadString(hostsURL);  // wc.DownloadFile(hostsURL, "hosts.tmp");                    
+                fileText = fileText.Replace(ipTo, ipFrom);
+                System.IO.File.Delete("hosts.tmp");
+                System.IO.File.WriteAllText("hosts.tmp", fileText);
+
+                FileSecurity fs = System.IO.File.GetAccessControl(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                fs.AddAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.FullControl, AccessControlType.Allow));
+                fs.RemoveAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.Write, AccessControlType.Deny));
+                System.IO.File.SetAccessControl(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", fs);
+
+                System.IO.File.Copy("hosts.tmp", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", true);
+                System.IO.File.Delete("hosts.tmp");                
+
+                fs.RemoveAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.FullControl, AccessControlType.Allow));
+                fs.AddAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.Write, AccessControlType.Deny));
+                toolStripProgressBar1.Visible = false;
+                MessageBox.Show("Hosts file updated.");
+
+            }
+            catch (Exception ex)
+            {
+                String add = "";
+                if (isAntivir())
+                    add = "Antivirus found. Please disable it during hosts file update.\nRead the manual for further informations.\n";
+                MessageBox.Show("Error: " + add + ex.Message);
+            }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            txtFrom.ForeColor = Color.Black;
+            updateHostsFile();               
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             bnUpdate.Select();            
             if (isAntivir())  
-                MessageBox.Show("Antivirus found. Prease disable it during hosts file update.\nRead the manual for further informations.\n");
+                MessageBox.Show("Antivirus found. Please disable it during hosts file update.\nRead the manual for further informations.\n");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            System.Net.WebClient wc = new System.Net.WebClient();
-            if (fileText == "")
-                fileText = wc.DownloadString(hostsURL);  // wc.DownloadFile(hostsURL, "hosts.tmp"); 
+         
+        }
 
-            frmEditHosts f = new frmEditHosts();
-            f.Text = fileText;
-            f.ShowDialog();
-            fileText = f.Text;
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            updateHostsFile();
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOptions o = new frmOptions();
+            o.fileText = fileText;
+            o.url = hostsURL;            
+            o.convFrom = ipFrom;
+            o.convTo = ipTo;
+            o.ShowDialog();
+            if(o.DialogResult==DialogResult.OK)
+            {
+                if (o.fileText != "")
+                    fileText = o.fileText;
+                if (o.convTo != "")
+                    ipTo = o.convTo;
+                if (o.convFrom != "")
+                    ipFrom = o.convFrom;
+                if (o.url != "")
+                    hostsURL = o.url;
+                saveSettings();
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            Application.Exit();
         }
     }
 }
