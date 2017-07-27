@@ -5,10 +5,9 @@ Therfore you are protected from tracking and from spam ads and from whatever you
 (In short...)<br>
 <br>
 In long ...:<br>
-The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
-The Hosts-Files-List is saved in the app.<br>
-More to the hosts-file:<br>
-https://en.wikipedia.org/wiki/Hosts_(file)<br>
+- The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
+- The Hosts-Files-List is saved in the app.<br>
+More to the hosts-file: https://en.wikipedia.org/wiki/Hosts_(file)<br>
 <br>
 <br>
 Possible Hosts-Files:<br>
@@ -90,10 +89,10 @@ More notes for later:<br>
 <br>
 History:<br>
 2017-06-27 v1.0.0 - v1.1.0 by torify & Tobias-B-Besemer<br>
-- First try
-- Logo
-- Menü
-- Separat options dialog
-- Download-URL saved in registry
+- First try<br>
+- Logo<br>
+- Menue<br>
+- Separat options dialog<br>
+- Download-URL saved in registry<br>
 - Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
 Release: http://www116.zippyshare.com/v/v3MPZDxP/file.html<br>
