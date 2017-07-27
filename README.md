@@ -17,7 +17,7 @@ History:<br>
 - Menü
 - Separat options dialog
 - Download-URL saved in registry
-- Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+- Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
 Release: www116.zippyshare.com/v/v3MPZDxP/file.html<br>
 <br>
 To-Dos:<br>
