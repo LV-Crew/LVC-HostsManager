@@ -29,6 +29,7 @@ To-Dos:<br>
 Some ideas:<br>
 - Use Qt<br>
 - Use wget<br>
+- Use INI, CFG, SQLite<br>
 - Load local files<br>
 - Tags and descriptions to sources<br>
 - Schedult system task<br>
@@ -45,4 +46,5 @@ Some more ideas:<br>
 - Work with squid<br>
 - Use blacklists from squid<br>
 - Use lists from Firefox<br>
-- Import whitelist into CCleaner<br>
+- Import whitelist into CCleaner (Registry/INI)<br>
+- Import whitelist into NoScript (SQLite)<br>
