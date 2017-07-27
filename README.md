@@ -31,3 +31,9 @@ Some ideas:<br>
 - Use wget<br>
 - Load local files<br>
 - Tags and descriptions to sources<br>
+- Schedult system task<br>
+- Start at boot<br>
+- Redirects per list<br>
+- Error-Page per list<br>
+- Error-Page with SSL<br>
+- Counter for Error-Page<br>
