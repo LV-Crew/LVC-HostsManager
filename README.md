@@ -48,6 +48,7 @@ To-Dos Multi-Plattform:<br>
 - Use Qt<br>
 - Use wget<br>
 - 64-bit-Version<br>
+- NullSoft-Installer<br>
 - Linux-/macOS-/BSD-/Android-Port<br>
 <br>
 To-Dos Error-Server:<br>
@@ -88,7 +89,14 @@ More notes for later:<br>
 <br>
 <br>
 History:<br>
-2017-06-27 v1.0.0 - v1.1.0 by torify & Tobias-B-Besemer<br>
+2017-07-27 v1.1.1 by torify<br>
+- Setup<br>
+- Publisher is 'LV-Crew'<br>
+- Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
+- Also: Error-Page on http://34.213.32.36/<br>
+- Also: Error-Page with SSL<br>
+<br>
+2017-07-27 v1.0.0 - v1.1.0 by torify & Tobias-B-Besemer<br>
 - First try<br>
 - Logo<br>
 - Menue<br>
