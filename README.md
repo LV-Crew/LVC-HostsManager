@@ -85,6 +85,11 @@ More notes for later:<br>
 - Monitising<br>
 - In-App Advertisment Avira<br>
 - Diladele.Squid.Service.exe<br>
+- Uninstaller<br>
+- Use VCRedist 2017<br>
+- Cookies & blocked sources (pages)<br>
+- wefisy<br>
+- Integrate LV-Crew/certgen<br>
 <br>
 <br>
 History:<br>
