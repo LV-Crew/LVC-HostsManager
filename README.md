@@ -39,9 +39,10 @@ Some ideas:<br>
 - Counter for Error-Page<br>
 <br>
 Some more ideas:<br>
-- Delete blacklisted domains from the Cookies of the browsers<br>
-- Delete blacklisted domains from the Java-/Flash-Cookies<br>
+- Delete blacklisted Domains from the Cookies of the Browsers<br>
+- Delete blacklisted Domains from the Java-/Flash-Cookies<br>
 - Block IP4 & IP6<br>
 - Work with squid<br>
 - Use blacklists from squid<br>
 - Use lists from Firefox<br>
+- Import whitelist into CCleaner<br>
