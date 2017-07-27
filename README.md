@@ -38,6 +38,7 @@ Some ideas:<br>
 - Error-Page per list<br>
 - Error-Page with SSL<br>
 - Counter for Error-Page<br>
+- White-/Gray-/Blacklister read data e.g. from Cookies of Browsers<br>
 <br>
 Some more ideas:<br>
 - Delete blacklisted Domains from the Cookies of the Browsers<br>
@@ -54,4 +55,3 @@ Some more ideas:<br>
 Possible Hosts-Files:<br>
 https://github.com/StevenBlack/hosts<br>
 https://github.com/LV-Crew/hosts<br>
-<br>
