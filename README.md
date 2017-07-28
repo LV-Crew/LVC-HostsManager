@@ -86,6 +86,8 @@ More notes for later:<br>
 - wefisy<br>
 - Integrate LV-Crew/certgen (https://github.com/LV-Crew/certgen)<br>
 - Better Antivirus detection and warning<br>
+- 2 counter für alles und seite<br>
+- 2x umbenennen zu LV-Crew.xxx<br>
 <br>
 <br>
 Changelog:<br>
@@ -105,7 +107,7 @@ Till v2017.07.28a by torify & Tobias-B-Besemer<br>
 - Download-URL saved in registry<br>
 - Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
 - Detects Avira Antivirus and warns<br>
-- Also: certutil already included (imports the SSL certificate in the Mozilla-Firefox certificate store)<br>
+- Also: certutil already included (imports the SSL certificate into the Mozilla-Firefox certificate store)<br>
 - Also: Error-Page on http://34.213.32.36/<br>
 - Also: Error-Page with SSL<br>
 Release: https://github.com/LV-Crew/HostsManager/releases/download/v1.1.1/setup.exe<br>
