@@ -35,8 +35,7 @@ To-Dos Data Storage:<br>
 More To-Dos Hosts-Files-List:<br>
 - Add Line-Breaks in hosts-files (CR+LF)<br>
 <br>
-To-Dos Windows Integration:<br>
-- Register in Windows (system integration)<br>
+To-Dos more Windows Integration:<br>
 - Place data in %PROGRAMDATA%\LV-Crew\HostsManager\<br>
 <br>
 To-Dos better Windows Integration:<br>
@@ -88,19 +87,22 @@ More notes for later:<br>
 - Integrate LV-Crew/certgen<br>
 <br>
 <br>
-History:<br>
-2017-07-27 v1.1.1 by torify<br>
-- Setup<br>
-- Publisher is 'LV-Crew'<br>
-- Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
-- Also: Error-Page on http://34.213.32.36/<br>
-- Also: Error-Page with SSL<br>
+Changelog:<br>
+v2017.07.28a by torify<br>
+- ...<br>
 <br>
-2017-07-27 v1.0.0 - v1.1.0 by torify & Tobias-B-Besemer<br>
-- First try<br>
-- Logo<br>
-- Menue<br>
-- Separat options dialog<br>
+Till v2017.07.28a by torify & Tobias-B-Besemer<br>
+- Initial Releases<br>
+- InstallForge-Installer (http://installforge.net/)<br>
+- Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
+- Register in Windows (system integration)<br>
+- Publisher in Windows is 'LV-Crew'<br>
+- Initial Branding with Logo<br>
+- First Menu<br>
+- Separate options dialog<br>
 - Download-URL saved in registry<br>
 - Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
-Release: http://www116.zippyshare.com/v/v3MPZDxP/file.html<br>
+- Also: certutil included<br>
+- Also: Error-Page on http://34.213.32.36/<br>
+- Also: Error-Page with SSL<br>
+Release: https://github.com/LV-Crew/HostsManager/releases/download/v1.1.1/setup.exe<br>
