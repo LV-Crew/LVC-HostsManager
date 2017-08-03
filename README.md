@@ -17,11 +17,20 @@ https://github.com/LV-Crew/hosts<br>
 <br>
 Some ideas and a 'small' roadmap in a to-dos-stlye... ;-)<br>
 <br>
+To-Dos:<br>
+- NSIS-Installer<br>
+- Internal Editor<br>
+- Web-Page<br>
+- DNS for URL 34.213.32.36<br>
+<br>
 To-Dos Branding:<br>
-- About Dialog<br>
 - Link to https://github.com/LV-Crew/HostsManager<br>
-- 'LV-Crew' as Publisher<br>
 - 'LV-Crew'-Logo<br>
+<br>
+To-Dos Beat:<br>
+- https://sourceforge.net/projects/hostsmanager/<br>
+- https://scottlerch.github.io/HostsFileEditor/<br>
+- http://hostsman2.it-mate.co.uk/<br>
 <br>
 To-Dos Data Storage:<br>
 - Hosts-Files-List (multiple sources)<br>
@@ -91,11 +100,17 @@ More notes for later:<br>
 <br>
 <br>
 Changelog:<br>
-v2017.07.28a by torify<br>
+v2017.08.03a by torify & Tobias-B-Besemer<br>
 - Version-Bump to 2017.xx.xxa (yyyy.mm.dd + letter)<br>
-- ...<br>
+- About Dialog<br>
+- 'LV-Crew' as Publisher<br>
+- External Editor Wordpad<br>
+- Styling<br>
+- Logo-Work<br>
+- Branding<br>
+- Also: http://HostsManager.LV-Crew.org -> http://34.213.32.36/<br>
 <br>
-Till v2017.07.28a by torify & Tobias-B-Besemer<br>
+Till v2017.08.03a by torify & Tobias-B-Besemer<br>
 - Initial Releases<br>
 - InstallForge-Installer (http://installforge.net/)<br>
 - Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
