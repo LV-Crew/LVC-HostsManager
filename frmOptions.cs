@@ -18,6 +18,7 @@ namespace HostsManager
         public String fileText="";
         public String convFrom = "";
         public String convTo = "";
+        public bool internalEditor = false;
 
         public frmOptions()
         {
@@ -60,6 +61,17 @@ namespace HostsManager
             txtFrom.GotFocus += (s, a) => { if (txtFrom.ForeColor == Color.Gray) txtFrom.Text = ""; };
             txtTo.GotFocus += (s, a) => { if (txtTo.ForeColor == Color.Gray) txtTo.Text = ""; };
 
+            if (internalEditor)
+            {
+                rbInternal.Checked = true;
+                rbExternal.Checked = false;
+            }
+            else
+            {
+                rbExternal.Checked = true;
+                rbInternal.Checked = false;
+            }
+
             txtURL.LostFocus += (s, a) =>
             {
                 if (txtURL.Text == "")
@@ -97,6 +109,12 @@ namespace HostsManager
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            if (rbInternal.Checked)
+                internalEditor = true;
+            else
+                internalEditor = false;
+
             if ((txtFrom.ForeColor == Color.Gray && txtTo.ForeColor == Color.Black) || (txtFrom.ForeColor == Color.Black && txtTo.ForeColor == Color.Gray))
                 MessageBox.Show("Please enter both \"From\" and \"To\" IP");
             else
@@ -163,16 +181,29 @@ namespace HostsManager
         {
             if (txtURL.Text != "")
                 url = txtURL.Text;
+            try
+            {
+             
+                System.Net.WebClient wc = new System.Net.WebClient();
+                if (fileText == "")
+                    foreach (String u in urls)
+                        fileText += wc.DownloadString(u) + "\r\n";
+                if (urls.Count == 0)
+                    fileText = wc.DownloadString("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
+                fileText.Replace(txtTo.Text, txtFrom.Text);
+                frmEditHosts f = new frmEditHosts();
+                f.mText = fileText;
+                f.ShowDialog();
+                fileText = f.mText;
+             
+                System.Diagnostics.Process.Start("wordpad.exe", Environment.GetEnvironmentVariable("windir")+"\\system32\\drivers\\etc\\hosts");
+            }
+            catch (Exception ex) { }
+        }
 
-            System.Net.WebClient wc = new System.Net.WebClient();
-            if (fileText == "")
-                foreach (String u in urls)
-                    fileText += wc.DownloadString(u) + "\r\n";
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-            frmEditHosts f = new frmEditHosts();
-            f.Text = fileText;
-            f.ShowDialog();
-            fileText = f.Text;
         }
     }
 }

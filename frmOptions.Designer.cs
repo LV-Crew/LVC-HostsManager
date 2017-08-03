@@ -37,31 +37,34 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFrom = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rbInternal = new System.Windows.Forms.RadioButton();
+            this.rbExternal = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.bnEditHosts);
+            this.groupBox1.Controls.Add(this.rbExternal);
+            this.groupBox1.Controls.Add(this.rbInternal);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.txtURL);
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtTo);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtFrom);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(309, 284);
+            this.groupBox1.Size = new System.Drawing.Size(309, 295);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Optional Settings";
@@ -70,7 +73,7 @@
             // bnEditHosts
             // 
             this.bnEditHosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnEditHosts.Location = new System.Drawing.Point(8, 247);
+            this.bnEditHosts.Location = new System.Drawing.Point(237, 468);
             this.bnEditHosts.Name = "bnEditHosts";
             this.bnEditHosts.Size = new System.Drawing.Size(288, 23);
             this.bnEditHosts.TabIndex = 29;
@@ -123,7 +126,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(164, 212);
+            this.label4.Location = new System.Drawing.Point(77, 211);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 23;
@@ -133,30 +136,22 @@
             // 
             this.txtTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTo.ForeColor = System.Drawing.Color.Gray;
-            this.txtTo.Location = new System.Drawing.Point(58, 209);
+            this.txtTo.Location = new System.Drawing.Point(147, 185);
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(100, 20);
             this.txtTo.TabIndex = 18;
             this.txtTo.Text = "0.0.0.0";
             this.txtTo.TextChanged += new System.EventHandler(this.txtTo_TextChanged);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 212);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Replace";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 199);
+            this.label2.Location = new System.Drawing.Point(12, 192);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(111, 13);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Overwrite IP";
+            this.label2.Text = "Overwrite IP: Replace";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -171,7 +166,7 @@
             // 
             this.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFrom.ForeColor = System.Drawing.Color.Gray;
-            this.txtFrom.Location = new System.Drawing.Point(199, 209);
+            this.txtFrom.Location = new System.Drawing.Point(147, 208);
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(100, 20);
             this.txtFrom.TabIndex = 21;
@@ -181,7 +176,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(246, 302);
+            this.button1.Location = new System.Drawing.Point(246, 317);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 26);
             this.button1.TabIndex = 23;
@@ -192,7 +187,7 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(165, 302);
+            this.button2.Location = new System.Drawing.Point(165, 317);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 26);
             this.button2.TabIndex = 22;
@@ -200,12 +195,47 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Enabled = false;
+            this.label3.Location = new System.Drawing.Point(12, 249);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Hosts file editor";
+            // 
+            // rbInternal
+            // 
+            this.rbInternal.AutoSize = true;
+            this.rbInternal.Enabled = false;
+            this.rbInternal.Location = new System.Drawing.Point(97, 249);
+            this.rbInternal.Name = "rbInternal";
+            this.rbInternal.Size = new System.Drawing.Size(60, 17);
+            this.rbInternal.TabIndex = 31;
+            this.rbInternal.Text = "Internal";
+            this.rbInternal.UseVisualStyleBackColor = true;
+            // 
+            // rbExternal
+            // 
+            this.rbExternal.AutoSize = true;
+            this.rbExternal.Checked = true;
+            this.rbExternal.Enabled = false;
+            this.rbExternal.Location = new System.Drawing.Point(97, 266);
+            this.rbExternal.Name = "rbExternal";
+            this.rbExternal.Size = new System.Drawing.Size(69, 17);
+            this.rbExternal.TabIndex = 32;
+            this.rbExternal.TabStop = true;
+            this.rbExternal.Text = "Wordpad";
+            this.rbExternal.UseVisualStyleBackColor = true;
+            // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(335, 339);
+            this.ClientSize = new System.Drawing.Size(332, 355);
+            this.Controls.Add(this.bnEditHosts);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -228,7 +258,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTo;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFrom;
@@ -239,5 +268,8 @@
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button bnEditHosts;
+        private System.Windows.Forms.RadioButton rbExternal;
+        private System.Windows.Forms.RadioButton rbInternal;
+        private System.Windows.Forms.Label label3;
     }
 }

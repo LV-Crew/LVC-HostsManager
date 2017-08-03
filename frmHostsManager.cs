@@ -42,6 +42,7 @@ namespace HostsManager
         public String ipTo = "34.213.32.36";
         private String hostsURL = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
         public ArrayList urls = new ArrayList();
+        private bool internalEditor = false;
 
         public frmMain()
         {            
@@ -71,6 +72,11 @@ namespace HostsManager
                 ipTo = (String)mexampleRegistryKey.GetValue("ipTo");
                 if (ipTo == null)
                     ipTo = "";
+                String b = (String)mexampleRegistryKey.GetValue("UseInternalEditor");
+                if (b == "TRUE")
+                    internalEditor = true;
+                else
+                    internalEditor = false;
             }
 
             try
@@ -89,10 +95,17 @@ namespace HostsManager
             exampleRegistryKey.SetValue("URL", hostsURL);
             exampleRegistryKey.SetValue("ipFrom", ipFrom);
             exampleRegistryKey.SetValue("ipTo", ipTo);
+            if (internalEditor)
+                exampleRegistryKey.SetValue("UseInternalEditor", "TRUE");
+            else
+                exampleRegistryKey.SetValue("UseInternalEditor", "FALSE");
             exampleRegistryKey.Close();
 
             var serializer = new XmlSerializer(typeof(ArrayList), new Type[] { typeof(String) });
-            serializer.Serialize(XmlWriter.Create("settings.xml"), urls);
+            try
+            {
+                serializer.Serialize(XmlWriter.Create("settings.xml"), urls);
+            }catch(Exception ex) { MessageBox.Show("Could not save settings."); }
 
         }
 
@@ -109,8 +122,8 @@ namespace HostsManager
                 if (fileText == "")
                     foreach(String u in urls)
                         fileText+=wc.DownloadString(u);
-
-
+                if (urls.Count == 0)
+                    fileText = wc.DownloadString("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
 
                 fileText = fileText.Replace(ipTo, ipFrom);
                 System.IO.File.Delete("hosts.tmp");
@@ -134,7 +147,7 @@ namespace HostsManager
             {
                 String add = "";
                 if (isAntivir())
-                    add = "Antivirus found. Please disable it during hosts file update.\nRead the manual for further information.\n";
+                    add = "Antivirus found!\n Please turn off hosts protection during hosts file update.\nRead the manual for further information.\n";
                 MessageBox.Show("Error: " + add + ex.Message);
             }
         }
@@ -164,7 +177,7 @@ namespace HostsManager
             
             bnUpdate.Select();            
             if (isAntivir())  
-                MessageBox.Show("Antivirus found. Please disable it during hosts file update.\nRead the manual for further information.\n");
+                MessageBox.Show("Antivirus found!\nPlease turn off hosts protection during hosts file update.\nRead the manual for further information.\n");
 
             this.Text = Branding.COMPANY + " "+Branding.PRODUCT;
             pictureBox1.ImageLocation = Branding.PRODUCTIMGPATH;
@@ -188,6 +201,7 @@ namespace HostsManager
             o.convFrom = ipFrom;
             o.convTo = ipTo;
             o.urls = urls;
+            o.internalEditor = internalEditor;
             o.ShowDialog();
             if(o.DialogResult==DialogResult.OK)
             {
@@ -257,6 +271,11 @@ namespace HostsManager
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            doEdit.edit(internalEditor, urls);
         }
     }
 }

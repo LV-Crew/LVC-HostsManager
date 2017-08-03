@@ -53,11 +53,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Branding.cs" />
+    <Compile Include="clsEditor.cs" />
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditor.Designer.cs">
+      <DependentUpon>frmEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHostsManager.cs">
       <SubType>Form</SubType>
@@ -81,6 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditor.resx">
+      <DependentUpon>frmEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHostsManager.resx">
       <DependentUpon>frmHostsManager.cs</DependentUpon>
