@@ -80,7 +80,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEditHosts";
-            this.Text = "frmEditHosts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit Hosts";
             this.Load += new System.EventHandler(this.frmEditHosts_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

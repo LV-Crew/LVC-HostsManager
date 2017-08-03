@@ -52,11 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmMain.cs">
+    <Compile Include="Branding.cs" />
+    <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHostsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHostsManager.Designer.cs">
+      <DependentUpon>frmHostsManager.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditHosts.cs">
       <SubType>Form</SubType>
@@ -72,8 +79,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHostsManager.resx">
+      <DependentUpon>frmHostsManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditHosts.resx">
       <DependentUpon>frmEditHosts.cs</DependentUpon>

@@ -30,14 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bnEdit = new System.Windows.Forms.Button();
+            this.bnEditHosts = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtURL = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFrom = new System.Windows.Forms.TextBox();
-            this.txtURL = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -45,36 +48,82 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.bnEdit);
+            this.groupBox1.Controls.Add(this.bnEditHosts);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.txtURL);
+            this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtTo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtFrom);
-            this.groupBox1.Controls.Add(this.txtURL);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(309, 98);
+            this.groupBox1.Size = new System.Drawing.Size(309, 284);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Optional Settings";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // bnEdit
+            // bnEditHosts
             // 
-            this.bnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnEdit.Location = new System.Drawing.Point(280, 31);
-            this.bnEdit.Name = "bnEdit";
-            this.bnEdit.Size = new System.Drawing.Size(18, 27);
-            this.bnEdit.TabIndex = 24;
-            this.bnEdit.Text = "E";
-            this.bnEdit.UseVisualStyleBackColor = true;
-            this.bnEdit.Click += new System.EventHandler(this.bnEdit_Click);
+            this.bnEditHosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnEditHosts.Location = new System.Drawing.Point(8, 247);
+            this.bnEditHosts.Name = "bnEditHosts";
+            this.bnEditHosts.Size = new System.Drawing.Size(288, 23);
+            this.bnEditHosts.TabIndex = 29;
+            this.bnEditHosts.Text = "Edit hosts file";
+            this.bnEditHosts.UseVisualStyleBackColor = true;
+            this.bnEditHosts.Click += new System.EventHandler(this.bnEditHosts_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(147, 131);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(26, 23);
+            this.button4.TabIndex = 28;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(115, 131);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(26, 23);
+            this.button3.TabIndex = 27;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // txtURL
+            // 
+            this.txtURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtURL.ForeColor = System.Drawing.Color.Gray;
+            this.txtURL.Location = new System.Drawing.Point(6, 155);
+            this.txtURL.Name = "txtURL";
+            this.txtURL.Size = new System.Drawing.Size(290, 20);
+            this.txtURL.TabIndex = 26;
+            this.txtURL.Text = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(5, 35);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(291, 95);
+            this.listBox1.TabIndex = 25;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(163, 71);
+            this.label4.Location = new System.Drawing.Point(164, 212);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 23;
@@ -84,7 +133,7 @@
             // 
             this.txtTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTo.ForeColor = System.Drawing.Color.Gray;
-            this.txtTo.Location = new System.Drawing.Point(57, 68);
+            this.txtTo.Location = new System.Drawing.Point(58, 209);
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(100, 20);
             this.txtTo.TabIndex = 18;
@@ -94,7 +143,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 71);
+            this.label3.Location = new System.Drawing.Point(14, 212);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 22;
@@ -103,7 +152,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 58);
+            this.label2.Location = new System.Drawing.Point(5, 199);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 20;
@@ -122,30 +171,19 @@
             // 
             this.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFrom.ForeColor = System.Drawing.Color.Gray;
-            this.txtFrom.Location = new System.Drawing.Point(198, 68);
+            this.txtFrom.Location = new System.Drawing.Point(199, 209);
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(100, 20);
             this.txtFrom.TabIndex = 21;
-            this.txtFrom.Text = "0.0.0.0";
+            this.txtFrom.Text = "34.213.32.36";
             this.txtFrom.TextChanged += new System.EventHandler(this.txtFrom_TextChanged);
-            // 
-            // txtURL
-            // 
-            this.txtURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtURL.ForeColor = System.Drawing.Color.Gray;
-            this.txtURL.Location = new System.Drawing.Point(7, 35);
-            this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(267, 20);
-            this.txtURL.TabIndex = 17;
-            this.txtURL.Text = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
-            this.txtURL.TextChanged += new System.EventHandler(this.txtURL_TextChanged);
             // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(235, 121);
+            this.button1.Location = new System.Drawing.Point(246, 302);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 26);
             this.button1.TabIndex = 23;
             this.button1.Text = "Abbrechen";
             this.button1.UseVisualStyleBackColor = true;
@@ -154,9 +192,9 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(154, 121);
+            this.button2.Location = new System.Drawing.Point(165, 302);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 26);
             this.button2.TabIndex = 22;
             this.button2.Text = "Speichern";
             this.button2.UseVisualStyleBackColor = true;
@@ -167,7 +205,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(334, 156);
+            this.ClientSize = new System.Drawing.Size(335, 339);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -176,7 +214,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmOptions";
-            this.Text = "frmOptions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LV-Crew HostsManager Options";
             this.Load += new System.EventHandler(this.frmOptions_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -187,15 +226,18 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button bnEdit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFrom;
-        private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtURL;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button bnEditHosts;
     }
 }
