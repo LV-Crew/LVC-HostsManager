@@ -24,7 +24,8 @@ To-Dos:<br>
 - DNS for URL 34.213.32.36<br>
 <br>
 To-Dos Branding:<br>
-- Link to https://github.com/LV-Crew/HostsManager<br>
+- Link to  http://HostsManager.LV-Crew.org<br>
+- Link http://HostsManager.LV-Crew.org to 34.213.32.36 to https://github.com/LV-Crew/HostsManager<br>
 - 'LV-Crew'-Logo<br>
 <br>
 To-Dos Beat:<br>
