@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bnEditHosts = new System.Windows.Forms.Button();
+            this.rbExternal = new System.Windows.Forms.RadioButton();
+            this.rbInternal = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.txtURL = new System.Windows.Forms.TextBox();
@@ -40,16 +42,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFrom = new System.Windows.Forms.TextBox();
+            this.bnEditHosts = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rbInternal = new System.Windows.Forms.RadioButton();
-            this.rbExternal = new System.Windows.Forms.RadioButton();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.rbExternal);
             this.groupBox1.Controls.Add(this.rbInternal);
             this.groupBox1.Controls.Add(this.label3);
@@ -64,22 +66,42 @@
             this.groupBox1.Controls.Add(this.txtFrom);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(309, 295);
+            this.groupBox1.Size = new System.Drawing.Size(309, 339);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Optional Settings";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // bnEditHosts
+            // rbExternal
             // 
-            this.bnEditHosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnEditHosts.Location = new System.Drawing.Point(237, 468);
-            this.bnEditHosts.Name = "bnEditHosts";
-            this.bnEditHosts.Size = new System.Drawing.Size(288, 23);
-            this.bnEditHosts.TabIndex = 29;
-            this.bnEditHosts.Text = "Edit hosts file";
-            this.bnEditHosts.UseVisualStyleBackColor = true;
-            this.bnEditHosts.Click += new System.EventHandler(this.bnEditHosts_Click);
+            this.rbExternal.AutoSize = true;
+            this.rbExternal.Checked = true;
+            this.rbExternal.Location = new System.Drawing.Point(97, 267);
+            this.rbExternal.Name = "rbExternal";
+            this.rbExternal.Size = new System.Drawing.Size(69, 17);
+            this.rbExternal.TabIndex = 32;
+            this.rbExternal.TabStop = true;
+            this.rbExternal.Text = "Wordpad";
+            this.rbExternal.UseVisualStyleBackColor = true;
+            // 
+            // rbInternal
+            // 
+            this.rbInternal.AutoSize = true;
+            this.rbInternal.Location = new System.Drawing.Point(97, 250);
+            this.rbInternal.Name = "rbInternal";
+            this.rbInternal.Size = new System.Drawing.Size(60, 17);
+            this.rbInternal.TabIndex = 31;
+            this.rbInternal.Text = "Internal";
+            this.rbInternal.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 252);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Hosts file editor:";
             // 
             // button4
             // 
@@ -113,7 +135,6 @@
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(290, 20);
             this.txtURL.TabIndex = 26;
-            this.txtURL.Text = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
             // 
             // listBox1
             // 
@@ -136,11 +157,11 @@
             // 
             this.txtTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTo.ForeColor = System.Drawing.Color.Gray;
-            this.txtTo.Location = new System.Drawing.Point(147, 185);
+            this.txtTo.Location = new System.Drawing.Point(138, 209);
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(100, 20);
             this.txtTo.TabIndex = 18;
-            this.txtTo.Text = "0.0.0.0";
+            this.txtTo.Text = "34.213.32.36";
             this.txtTo.TextChanged += new System.EventHandler(this.txtTo_TextChanged);
             // 
             // label2
@@ -166,17 +187,28 @@
             // 
             this.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFrom.ForeColor = System.Drawing.Color.Gray;
-            this.txtFrom.Location = new System.Drawing.Point(147, 208);
+            this.txtFrom.Location = new System.Drawing.Point(138, 190);
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(100, 20);
             this.txtFrom.TabIndex = 21;
-            this.txtFrom.Text = "34.213.32.36";
+            this.txtFrom.Text = "0.0.0.0";
             this.txtFrom.TextChanged += new System.EventHandler(this.txtFrom_TextChanged);
+            // 
+            // bnEditHosts
+            // 
+            this.bnEditHosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnEditHosts.Location = new System.Drawing.Point(237, 468);
+            this.bnEditHosts.Name = "bnEditHosts";
+            this.bnEditHosts.Size = new System.Drawing.Size(288, 23);
+            this.bnEditHosts.TabIndex = 29;
+            this.bnEditHosts.Text = "Edit hosts file";
+            this.bnEditHosts.UseVisualStyleBackColor = true;
+            this.bnEditHosts.Click += new System.EventHandler(this.bnEditHosts_Click);
             // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(246, 317);
+            this.button1.Location = new System.Drawing.Point(245, 362);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 26);
             this.button1.TabIndex = 23;
@@ -187,7 +219,7 @@
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(165, 317);
+            this.button2.Location = new System.Drawing.Point(164, 362);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 26);
             this.button2.TabIndex = 22;
@@ -195,46 +227,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label3
+            // checkBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Enabled = false;
-            this.label3.Location = new System.Drawing.Point(12, 249);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Hosts file editor";
-            // 
-            // rbInternal
-            // 
-            this.rbInternal.AutoSize = true;
-            this.rbInternal.Enabled = false;
-            this.rbInternal.Location = new System.Drawing.Point(97, 249);
-            this.rbInternal.Name = "rbInternal";
-            this.rbInternal.Size = new System.Drawing.Size(60, 17);
-            this.rbInternal.TabIndex = 31;
-            this.rbInternal.Text = "Internal";
-            this.rbInternal.UseVisualStyleBackColor = true;
-            // 
-            // rbExternal
-            // 
-            this.rbExternal.AutoSize = true;
-            this.rbExternal.Checked = true;
-            this.rbExternal.Enabled = false;
-            this.rbExternal.Location = new System.Drawing.Point(97, 266);
-            this.rbExternal.Name = "rbExternal";
-            this.rbExternal.Size = new System.Drawing.Size(69, 17);
-            this.rbExternal.TabIndex = 32;
-            this.rbExternal.TabStop = true;
-            this.rbExternal.Text = "Wordpad";
-            this.rbExternal.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(15, 306);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(199, 17);
+            this.checkBox1.TabIndex = 33;
+            this.checkBox1.Text = "Automatically update hosts file hourly";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // frmOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(332, 355);
+            this.ClientSize = new System.Drawing.Size(332, 398);
             this.Controls.Add(this.bnEditHosts);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -271,5 +280,6 @@
         private System.Windows.Forms.RadioButton rbExternal;
         private System.Windows.Forms.RadioButton rbInternal;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

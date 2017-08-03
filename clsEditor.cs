@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HostsManager
 {
@@ -25,24 +26,31 @@ namespace HostsManager
         public String doEditIntern(ArrayList urls)
         {
             String fileText = "";
-            System.Net.WebClient wc = new System.Net.WebClient();
-            if(urls.Count>0)
-                foreach (String u in urls)
-                    fileText += wc.DownloadString(u) + "\r\n";
-            else
-                fileText = wc.DownloadString("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
-
-            frmEditHosts f = new frmEditHosts();
-            f.mText = fileText;
-            f.ShowDialog();
-            fileText = f.mText;
-
+            try
+            {
+                String txt = System.IO.File.ReadAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                
+                frmEditHosts f = new frmEditHosts();
+                f.mText = txt;
+                f.ShowDialog();
+                if (f.DialogResult == DialogResult.OK)
+                {
+                    txt = f.mText;
+                    System.IO.File.WriteAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", txt);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show("Could not write hosts file!"); }
             return fileText;
         }
 
         public void doEditExtern()
         {
-            System.Diagnostics.Process.Start("wordpad.exe", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+            try
+            {
+                System.Diagnostics.Process p=System.Diagnostics.Process.Start("wordpad.exe", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                p.WaitForExit();
+            }
+            catch (Exception ex) { MessageBox.Show("Could not open external editor."); }
         }
     }
 }

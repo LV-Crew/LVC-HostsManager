@@ -60,12 +60,6 @@
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEditor.Designer.cs">
-      <DependentUpon>frmEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmHostsManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,9 +82,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEditor.resx">
-      <DependentUpon>frmEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHostsManager.resx">
       <DependentUpon>frmHostsManager.cs</DependentUpon>
@@ -128,6 +119,17 @@
   <ItemGroup>
     <Content Include="Arrioch-Senary-Drive-Drive-Server.ico" />
     <None Include="Resources\logo_hostfilemanager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="TaskScheduler">
+      <Guid>{E34CB9F1-C7F7-424C-BE29-027DCC09363A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

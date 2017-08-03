@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TaskScheduler;
 
 namespace HostsManager
 {
@@ -19,6 +23,7 @@ namespace HostsManager
         public String convFrom = "";
         public String convTo = "";
         public bool internalEditor = false;
+        public bool autoUpdate = false;
 
         public frmOptions()
         {
@@ -72,6 +77,15 @@ namespace HostsManager
                 rbInternal.Checked = false;
             }
 
+            if(autoUpdate)
+            {
+                checkBox1.Checked = true;
+            }
+            else
+            {
+                checkBox1.Checked = false;
+            }
+
             txtURL.LostFocus += (s, a) =>
             {
                 if (txtURL.Text == "")
@@ -109,6 +123,10 @@ namespace HostsManager
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (checkBox1.Checked)
+                autoUpdate = true;
+            else
+                autoUpdate = false;
 
             if (rbInternal.Checked)
                 internalEditor = true;
@@ -204,6 +222,33 @@ namespace HostsManager
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void setHostsFilePermissions()
+        {
+            try
+            {
+                SecurityIdentifier id = new SecurityIdentifier("S-1-5-32-544");
+                string adminGroupName = id.Translate(typeof(NTAccount)).Value;
+                FileSecurity fs = System.IO.File.GetAccessControl(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                fs.AddAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.FullControl, AccessControlType.Allow));
+                fs.RemoveAccessRule(new FileSystemAccessRule(adminGroupName, FileSystemRights.Write, AccessControlType.Deny));
+                System.IO.File.SetAccessControl(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", fs);
+            }
+            catch (Exception ex) { }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            setHostsFilePermissions();
+            System.Diagnostics.Process.Start("schtasks.exe", "/Delete /tn LV-Crew.HostsManager /F");                     
+            System.Diagnostics.Process.Start("schtasks.exe", "/Create /tn LV-Crew.HostsManager /tr \"" + System.Reflection.Assembly.GetEntryAssembly().Location  + "\" /sc DAILY");
+            MessageBox.Show("The auto-update has been added to the windows task scheduler.");
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }
