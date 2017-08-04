@@ -104,29 +104,29 @@ More notes for later:<br>
 <br>
 <br>
 Changelog:<br>
-v2017.08.03a by torify & Tobias-B-Besemer<br>
-- Version-Bump to 2017.xx.xxa (yyyy.mm.dd + letter)<br>
-- About Dialog<br>
-- 'LV-Crew' as Publisher<br>
-- External Editor Wordpad<br>
-- Styling<br>
-- Logo-Work<br>
-- Branding<br>
-- Also: http://HostsManager.LV-Crew.org -> http://34.213.32.36/<br>
+v2017.08.03b by torify<br>
+- File permissions are being reset after update<br>
+- Internal editor has been activated<br>
+- Added auto update<br>
+- Added CR/LF-Detection / addition<br>
 <br>
 Till v2017.08.03a by torify & Tobias-B-Besemer<br>
 - Initial Releases<br>
-- InstallForge-Installer (http://installforge.net/)<br>
-- Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
-- Register in Windows (system integration)<br>
-- Publisher in Windows is 'LV-Crew'<br>
-- Initial Branding with Logo<br>
-- First Menu<br>
+- Initial Branding with Logo & About Dialog<br>
+- Detects Antiviruses and warns<br>
 - Separate options dialog<br>
 - Download-URL saved in registry<br>
 - Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
-- Detects Avira Antivirus and warns<br>
-- Also: certutil already included (imports the SSL certificate into the Mozilla-Firefox certificate store)<br>
+- External Editor Wordpad<br>
 - Also: Error-Page on http://34.213.32.36/<br>
 - Also: Error-Page with SSL<br>
-Release: https://github.com/LV-Crew/HostsManager/releases/download/v1.1.1/setup.exe<br>
+- Also: certutil already included (imports the SSL certificate into the Mozilla-Firefox certificate store)<br>
+- Also: http://HostsManager.LV-Crew.org -> http://34.213.32.36/<br>
+- No more: InstallForge-Installer (http://installforge.net/)<br>
+- No more: Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
+- No more: Register in Windows (system integration)<br>
+- No more: Publisher in Windows is 'LV-Crew'<br>
+Release: https://github.com/LV-Crew/HostsManager/releases/download/2017.08.03a/LV-Crew.HostsManager.2017.08.03a.zip<br>
+<br>
+Some Dev notes:<br>
+- Version-Bump to 2017.xx.xxa (yyyy.mm.dd + letter)<br>
