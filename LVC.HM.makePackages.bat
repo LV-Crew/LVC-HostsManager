@@ -1,4 +1,4 @@
-@echo off
+// @echo off
 
 rem LVC.HM.Packages.bat
 
