@@ -29,44 +29,43 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditHosts));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtHostsFile = new System.Windows.Forms.TextBox();
+            this.bnCancel = new System.Windows.Forms.Button();
+            this.bnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtHostsFile
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.MaxLength = 999999999;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(560, 629);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtHostsFile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHostsFile.Location = new System.Drawing.Point(12, 12);
+            this.txtHostsFile.MaxLength = 999999999;
+            this.txtHostsFile.Multiline = true;
+            this.txtHostsFile.Name = "txtHostsFile";
+            this.txtHostsFile.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtHostsFile.Size = new System.Drawing.Size(560, 629);
+            this.txtHostsFile.TabIndex = 0;
             // 
-            // button1
+            // bnCancel
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(497, 647);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Abbrechen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnCancel.Location = new System.Drawing.Point(497, 647);
+            this.bnCancel.Name = "bnCancel";
+            this.bnCancel.Size = new System.Drawing.Size(75, 23);
+            this.bnCancel.TabIndex = 1;
+            this.bnCancel.Text = "Cancel";
+            this.bnCancel.UseVisualStyleBackColor = true;
+            this.bnCancel.Click += new System.EventHandler(this.bnCancel_Click);
             // 
-            // button2
+            // bnSave
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(416, 647);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Speichern";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.bnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnSave.Location = new System.Drawing.Point(416, 647);
+            this.bnSave.Name = "bnSave";
+            this.bnSave.Size = new System.Drawing.Size(75, 23);
+            this.bnSave.TabIndex = 2;
+            this.bnSave.Text = "Save";
+            this.bnSave.UseVisualStyleBackColor = true;
+            this.bnSave.Click += new System.EventHandler(this.bnSave_Click);
             // 
             // frmEditHosts
             // 
@@ -74,9 +73,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(584, 678);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.bnSave);
+            this.Controls.Add(this.bnCancel);
+            this.Controls.Add(this.txtHostsFile);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -92,8 +91,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtHostsFile;
+        private System.Windows.Forms.Button bnCancel;
+        private System.Windows.Forms.Button bnSave;
     }
 }

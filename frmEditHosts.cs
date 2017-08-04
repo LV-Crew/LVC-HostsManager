@@ -20,26 +20,23 @@ namespace HostsManager
 
         private void frmEditHosts_Load(object sender, EventArgs e)
         {
-            textBox1.Text = mText;
-            button2.Select();
+            txtHostsFile.Text = mText;
+            bnSave.Select();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        //Save
+        private void bnSave_Click(object sender, EventArgs e)
         {            
-            mText = textBox1.Text;
+            mText = txtHostsFile.Text;
             DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //Cancel
+        private void bnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-         
         }
     }
 }

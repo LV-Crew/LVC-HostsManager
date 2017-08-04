@@ -35,6 +35,8 @@ using System.Xml.Serialization;
 
 namespace HostsManager
 {
+
+    //-----------------Form Methods-------------------
     public partial class frmHostsManager : Form
     {
         private String fileText = "";
@@ -50,6 +52,7 @@ namespace HostsManager
             InitializeComponent();
             loadSettings();
 
+            //Check whether to run silently
             String[] arguments = Environment.GetCommandLineArgs();
             if (arguments.Length > 1)
             {
@@ -63,35 +66,157 @@ namespace HostsManager
             doAutoUpdate();
         }
 
+        //Start hosts file update
+        private void bnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                updateHostsFile();
+                MessageBox.Show("Hosts file updated.");
+            }
+            catch (Exception ex) { }
+        }
+
+        //Load main form
+        private void frmHostsManager_Load(object sender, EventArgs e)
+        {
+            //Import Certificate Authority
+            importCert();
+            bnUpdate.Select();
+            checkForSilentRun();
+        }
+
+        //Update hosts file
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                updateHostsFile();
+                MessageBox.Show("Hosts file updated.");
+            }
+            catch (Exception ex) { }
+        }
+
+        //Show options dialog
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOptions o = new frmOptions();
+            o.fileText = fileText;
+            o.url = hostsURL;
+            o.convFrom = ipFrom;
+            o.convTo = ipTo;
+            o.urls = urls;
+            o.internalEditor = internalEditor;
+            o.autoUpdate = autoUpdate;
+            o.ShowDialog();
+            if (o.DialogResult == DialogResult.OK)
+            {
+                if (o.fileText != "")
+                    fileText = o.fileText;
+                if (o.convTo != "")
+                    ipTo = o.convTo;
+                if (o.convFrom != "")
+                    ipFrom = o.convFrom;
+                if (o.url != "")
+                    hostsURL = o.url;
+                if (o.urls.Count > 0)
+                    urls = o.urls;
+                autoUpdate = o.autoUpdate;
+                internalEditor = o.internalEditor;
+
+                //Save settings to registry/XML
+                saveSettings();
+                //Create Task for auto update
+                doAutoUpdate();
+
+            }
+        }
+
+        //Exit
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //About dialog
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout f = new frmAbout();
+            f.ShowDialog();
+        }
+
+        //Edit hosts file dialog
+        private void bnEdit_Click(object sender, EventArgs e)
+        {
+            FileSecurity fs = setHostsFilePermissions();
+            doEdit.edit(internalEditor, urls);
+            resetHostsFilePermissions(fs);
+        }
+
+        //Show help file
+        private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("readme.txt");
+            }
+            catch (Exception ex) { }
+        }
+
+        //Edit hosts file
+        private void editHostsFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Set file security of hosts file to be editable by admins
+            FileSecurity fs = setHostsFilePermissions();
+            //Show editor
+            doEdit.edit(internalEditor, urls);
+            //Reset file security of hosts file
+            resetHostsFilePermissions(fs);
+        }
+
+        //Show homepage
+        private void pbPicture_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://hostsmanager.lv-crew.org");
+        }
+
+
+        //-----------------Generic Methods-------------------
+        
+        //Check for antivir
         private bool isAntivir()
         {
+            //Check porcesses for process names of antivirs
             if (Process.GetProcessesByName("avgnt").Length > 0 || Process.GetProcessesByName("inststub").Length > 0 || Process.GetProcessesByName("uiStub").Length > 0 || Process.GetProcessesByName("KLAgent").Length > 0 || Process.GetProcessesByName("vsserv").Length > 0 || Process.GetProcessesByName("VisthAux").Length > 0 || Process.GetProcessesByName("avastui").Length > 0)
                 return true;
             else
                 return false;
         }
 
+        //Load setings from registry and XML
         private void loadSettings()
         {
             Microsoft.Win32.RegistryKey mexampleRegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("HostsManager");
             if (mexampleRegistryKey != null)
             {
+                //depracted
                 hostsURL = (String)mexampleRegistryKey.GetValue("URL");
                 if (hostsURL == null)
                     hostsURL = "";
+                //IP overwrite settings
                 ipFrom = (String)mexampleRegistryKey.GetValue("ipFrom");
                 if (ipFrom == null)
                     ipFrom = "";
                 ipTo = (String)mexampleRegistryKey.GetValue("ipTo");
                 if (ipTo == null)
                     ipTo = "";
-
+                //Use internal editor?
                 String b = (String)mexampleRegistryKey.GetValue("UseInternalEditor");
                 if (b == "TRUE")
                     internalEditor = true;
                 else
                     internalEditor = false;
-
+                //Auto Update?
                 b = (String)mexampleRegistryKey.GetValue("AutoUpdate");
                 if (b == "TRUE")
                     autoUpdate = true;
@@ -99,6 +224,7 @@ namespace HostsManager
                     autoUpdate = false;                
             }
 
+            //Read URLs from settings.txt
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(ArrayList));
@@ -109,17 +235,21 @@ namespace HostsManager
             catch (Exception ex) { }
         }
 
+        //Save Settings to Registry and XML
         private void saveSettings()
         {
             Microsoft.Win32.RegistryKey exampleRegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
+            //depracted
             exampleRegistryKey.SetValue("URL", hostsURL);
+            //IP Overwrite settings
             exampleRegistryKey.SetValue("ipFrom", ipFrom);
             exampleRegistryKey.SetValue("ipTo", ipTo);
+            //Use internal editor?
             if (internalEditor)
                 exampleRegistryKey.SetValue("UseInternalEditor", "TRUE");
             else
                 exampleRegistryKey.SetValue("UseInternalEditor", "FALSE");
-
+            //AutoUpdate?
             if (autoUpdate)
                 exampleRegistryKey.SetValue("AutoUpdate", "TRUE");
             else
@@ -127,7 +257,7 @@ namespace HostsManager
 
 
             exampleRegistryKey.Close();
-
+            //Write ULRs to settings.xml
             var serializer = new XmlSerializer(typeof(ArrayList), new Type[] { typeof(String) });
             try
             {
@@ -136,6 +266,7 @@ namespace HostsManager
 
         }
 
+        //Set Permissions of hosts file to be writable by group admins
         private FileSecurity setHostsFilePermissions()
         {
             FileSecurity fs = null;
@@ -154,6 +285,7 @@ namespace HostsManager
             return fsold;
         }
 
+        //Restore hosts file permissions
         private void resetHostsFilePermissions(FileSecurity fs)
         {
             try
@@ -163,39 +295,46 @@ namespace HostsManager
             catch (Exception ex) { }
         }
 
-
+        //The update process
         private void updateHostsFile()
         {
             try
             {
                 toolStripProgressBar1.Visible = true;
+                //Get name of admin group
                 SecurityIdentifier id = new SecurityIdentifier("S-1-5-32-544");
                 string adminGroupName = id.Translate(typeof(NTAccount)).Value;
 
                 System.Net.WebClient wc = new System.Net.WebClient();
 
+                //Read hosts files from web
                 if (fileText == "")
                     foreach(String u in urls)
                         fileText+=wc.DownloadString(u)+ "\r\n";
                 if (urls.Count == 0)
                     fileText = wc.DownloadString("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
 
+                //IP Overwrite
                 fileText = fileText.Replace(ipFrom, ipTo);
+                //CR/LF detection
                 if (!fileText.Contains((char)13))
                     fileText=fileText.Replace("\n", "\r\n");
-                
+                //Write temp hosts file
                 System.IO.File.Delete("hosts.tmp");
                 System.IO.File.WriteAllText("hosts.tmp", fileText);
-
+                //Set permissions of hosts file to be writable by group admins
                 FileSecurity fs=setHostsFilePermissions();
+                //Copy hosts file to real hosts file
                 System.IO.File.Copy("hosts.tmp", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", true);
                 System.IO.File.Delete("hosts.tmp");
+                //Reset permissions
                 resetHostsFilePermissions(fs);
 
                 toolStripProgressBar1.Visible = false;                
             }
-            catch (Exception ex)
+            catch (Exception ex)//Hosts file update
             {
+                //generate error string
                 String add = "";
                 if (isAntivir())
                     add = "Antivirus found!\n Please turn off hosts protection during hosts file update.\nRead the manual for further information.\n";
@@ -203,16 +342,7 @@ namespace HostsManager
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                updateHostsFile();
-                MessageBox.Show("Hosts file updated.");
-            }
-            catch (Exception ex) { }
-        }
-
+        //Start external process with hidden window      
         private void executeNoWindow(String cmd, String param)
         {
             try
@@ -227,92 +357,11 @@ namespace HostsManager
             catch (Exception ex) { }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            String profPath=ReadFirefoxProfile();
-
-            executeNoWindow("certutil\\certutil_moz.exe", "-A -n \"Testcert\" -t \"TCu,Cuw,Tuw\" -i cert.pem -d \"" + profPath + "\"");
-            executeNoWindow("certutil.exe", "-addstore \"Root\" cert.pem");
-            executeNoWindow("certutil.exe", "-addstore \"CA\" cert.pem");
-            
-            bnUpdate.Select();
-
-            String[] arguments = Environment.GetCommandLineArgs();
-            if (arguments.Length > 1)
-            {
-                if (arguments[1] == "/auto")
-                {
-                    FileSecurity fs=setHostsFilePermissions();
-                    updateHostsFile();
-                    resetHostsFilePermissions(fs);
-                    CancelEventArgs a = new CancelEventArgs(false);
-                    Application.Exit(a);
-                }
-                else
-                {
-                    CancelEventArgs a = new CancelEventArgs(true);
-                    Application.Exit(a);
-                }
-            }
-            else
-            {
-                if (isAntivir())
-                    MessageBox.Show("Antivirus found!\nPlease turn off hosts protection during hosts file update.\nRead the manual for further information.\n");
-
-                this.Text = Branding.COMPANY + " " + Branding.PRODUCT+" v"+Branding.VERSION;
-                pictureBox1.ImageLocation = Branding.PRODUCTIMGPATH;
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                updateHostsFile();
-                MessageBox.Show("Hosts file updated.");
-            }
-            catch (Exception ex) { }
-        }
-
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmOptions o = new frmOptions();
-            o.fileText = fileText;
-            o.url = hostsURL;            
-            o.convFrom = ipFrom;
-            o.convTo = ipTo;
-            o.urls = urls;
-            o.internalEditor = internalEditor;
-            o.autoUpdate = autoUpdate;
-            o.ShowDialog();
-            if(o.DialogResult==DialogResult.OK)
-            {
-                if (o.fileText != "")
-                    fileText = o.fileText;
-                if (o.convTo != "")
-                    ipTo = o.convTo;
-                if (o.convFrom != "")
-                    ipFrom = o.convFrom;
-                if (o.url != "")
-                    hostsURL = o.url;
-                if (o.urls.Count > 0)
-                    urls = o.urls;
-                autoUpdate = o.autoUpdate;
-                internalEditor = o.internalEditor;
-
-                saveSettings();
-                doAutoUpdate();
       
-            }
-        }
-
+        //Create Task for auto update
         public void doAutoUpdate()
         {
+            //prepare ProcessStartInfo
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.UseShellExecute = false;
             psi.RedirectStandardOutput = true;
@@ -323,18 +372,20 @@ namespace HostsManager
 
             if (autoUpdate)
             {
-                setHostsFilePermissions();
-                //psi.Arguments = "/Delete /tn LV-Crew.HostsManager /F";
-                //System.Diagnostics.Process.Start(psi);
+                //Create task using schtasks.exe
+                //FileSecurity fs=setHostsFilePermissions(); !!! 080417DH - muss evtl wieder reingemacht werden.
                 psi.Arguments = "/Create /tn LV-Crew.HostsManager /tr \"" + System.Reflection.Assembly.GetEntryAssembly().Location + " /auto\" /sc HOURLY /RL HIGHEST";
-                System.Diagnostics.Process.Start(psi);
+                Process p=System.Diagnostics.Process.Start(psi);                                
             }
             else
             {
+                //Delete task using schtasks.exe
                 System.Diagnostics.Process.Start("schtasks.exe", "/Delete /tn LV-Crew.HostsManager /F");
             }
         }
-        
+
+        //Search for FireFox Profile. 
+        //080417DH - give credits
         public string ReadFirefoxProfile()
         {
             string apppath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -373,48 +424,54 @@ namespace HostsManager
             return "";
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-            Application.Exit();
+        private void importCert()
+        {
+            //Get Firefox profile path
+            String profPath = ReadFirefoxProfile();
+
+            //Import certificate to FF
+            executeNoWindow("certutil\\certutil_moz.exe", "-A -n \"Testcert\" -t \"TCu,Cuw,Tuw\" -i cert.pem -d \"" + profPath + "\"");
+            //Import certificate to Win
+            executeNoWindow("certutil.exe", "-addstore \"Root\" cert.pem");
+            executeNoWindow("certutil.exe", "-addstore \"CA\" cert.pem");
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAbout f = new frmAbout();
-            f.ShowDialog();
-        }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void checkForSilentRun()
         {
-            FileSecurity fs=setHostsFilePermissions();
-            doEdit.edit(internalEditor, urls);
-            resetHostsFilePermissions(fs);
-        }
-
-        private void viewHelpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
+            //Check whether to run silently
+            String[] arguments = Environment.GetCommandLineArgs();
+            if (arguments.Length > 1)
             {
-                System.Diagnostics.Process.Start("readme.txt");
+                if (arguments[1] == "/auto")
+                {
+                    //Set hosts file permissions to writable for group admins
+                    FileSecurity fs = setHostsFilePermissions();
+                    //Update hostsfile
+                    updateHostsFile();
+                    //Reset file permissions
+                    resetHostsFilePermissions(fs);
+                    CancelEventArgs a = new CancelEventArgs(false);
+                    Application.Exit(a);
+                }
+                else//bogus argument
+                {
+                    //Exit
+                    CancelEventArgs a = new CancelEventArgs(true);
+                    Application.Exit(a);
+                }
             }
-            catch (Exception ex) { }
-        }
+            else
+            {
+                //Check for Antivir
+                if (isAntivir())
+                    MessageBox.Show("Antivirus found!\nPlease turn off hosts protection during hosts file update.\nRead the manual for further information.\n");
 
-        private void editHostsFileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FileSecurity fs=setHostsFilePermissions();
-            doEdit.edit(internalEditor, urls);
-            resetHostsFilePermissions(fs);
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://hostsmanager.lv-crew.org");
+                //Branding
+                this.Text = Branding.COMPANY + " " + Branding.PRODUCT + " v" + Branding.VERSION;
+                pbPicture.ImageLocation = Branding.PRODUCTIMGPATH;
+            }
         }
     }
 }

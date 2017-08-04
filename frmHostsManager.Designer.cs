@@ -47,29 +47,29 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bnEdit = new System.Windows.Forms.Button();
+            this.pbPicture = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // bnUpdate
             // 
             this.bnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnUpdate.Location = new System.Drawing.Point(220, 115);
+            this.bnUpdate.Location = new System.Drawing.Point(220, 106);
             this.bnUpdate.Name = "bnUpdate";
             this.bnUpdate.Size = new System.Drawing.Size(309, 36);
             this.bnUpdate.TabIndex = 4;
             this.bnUpdate.Text = "Update hosts file";
             this.bnUpdate.UseVisualStyleBackColor = true;
-            this.bnUpdate.Click += new System.EventHandler(this.button1_Click);
+            this.bnUpdate.Click += new System.EventHandler(this.bnUpdate_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(217, 53);
+            this.label5.Location = new System.Drawing.Point(217, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(310, 13);
             this.label5.TabIndex = 25;
@@ -78,7 +78,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(217, 83);
+            this.label6.Location = new System.Drawing.Point(217, 76);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(279, 13);
             this.label6.TabIndex = 26;
@@ -87,7 +87,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(217, 69);
+            this.label7.Location = new System.Drawing.Point(217, 62);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(255, 13);
             this.label7.TabIndex = 27;
@@ -189,7 +189,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(581, 22);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // toolStripProgressBar1
             // 
@@ -206,27 +205,27 @@
             this.label8.Size = new System.Drawing.Size(169, 166);
             this.label8.TabIndex = 30;
             // 
-            // button1
+            // bnEdit
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(220, 157);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(309, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Edit hosts file";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.bnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnEdit.Location = new System.Drawing.Point(220, 148);
+            this.bnEdit.Name = "bnEdit";
+            this.bnEdit.Size = new System.Drawing.Size(309, 23);
+            this.bnEdit.TabIndex = 32;
+            this.bnEdit.Text = "Edit hosts file";
+            this.bnEdit.UseVisualStyleBackColor = true;
+            this.bnEdit.Click += new System.EventHandler(this.bnEdit_Click);
             // 
-            // pictureBox1
+            // pbPicture
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 146);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 31;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbPicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPicture.Location = new System.Drawing.Point(12, 32);
+            this.pbPicture.Name = "pbPicture";
+            this.pbPicture.Size = new System.Drawing.Size(146, 146);
+            this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPicture.TabIndex = 31;
+            this.pbPicture.TabStop = false;
+            this.pbPicture.Click += new System.EventHandler(this.pbPicture_Click);
             // 
             // frmHostsManager
             // 
@@ -234,8 +233,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(581, 208);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.bnEdit);
+            this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -251,12 +250,12 @@
             this.Name = "frmHostsManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LV-Crew HostsManager";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.frmHostsManager_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,11 +274,11 @@
         private System.Windows.Forms.ToolStripMenuItem extrasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbPicture;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bnEdit;
         private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editHostsFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
