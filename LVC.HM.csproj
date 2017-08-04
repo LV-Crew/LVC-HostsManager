@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Module.Branding.cls.cs" />
-    <Compile Include="Module.Bransing.INI.cls.cs" />
+    <Compile Include="Module.Branding.INI.cls.cs" />
     <Compile Include="Module.EditHosts.cls.cs" />
     <Compile Include="Module.About.frm.cs">
       <SubType>Form</SubType>
@@ -105,6 +105,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
+    <None Include="branding.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,6 +123,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_hostfilemanager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LV-Crew.HostsManager.Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LV-Crew.HostsManager.Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

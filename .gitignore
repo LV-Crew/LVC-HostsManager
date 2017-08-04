@@ -36,3 +36,11 @@ obj/Release/TempPE/Properties.Resources.Designer.cs.dll
 Readme.txt
 Readme.txt
 Readme.txt
+bin/Debug/branding.ini
+bin/Debug/LV-Crew.HostsManager.exe.config
+bin/Debug/LV-Crew.HostsManager.Logo.png
+bin/Debug/LV-Crew.HostsManager.pdb
+bin/Debug/LV-Crew.HostsManager.vshost.exe
+bin/Debug/LV-Crew.HostsManager.vshost.exe.config
+bin/Debug/LV-Crew.HostsManager.vshost.exe.manifest
+.vs/LVC.HM/v14/.suo

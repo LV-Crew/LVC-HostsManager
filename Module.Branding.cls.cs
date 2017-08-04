@@ -8,10 +8,10 @@ namespace HostsManager
 {
     public static class Branding
     {
-        public static String VERSION = "2017.08.04b";
+        public static String VERSION = "2017.08.04c";
         public static String COMPANY = "LV-Crew";
         public static String PRODUCT = "HostsManager";
-        public static String PRODUCTIMGPATH = "LV-Crew.HostsManager.Logo1.png";
+        public static String PRODUCTIMGPATH = "LV-Crew.HostsManager.Logo.png";
         public static String ICONPATH = "LV-Crew.HostsManager.Icon.ico";
     }
 }
