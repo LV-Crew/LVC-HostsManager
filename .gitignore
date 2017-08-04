@@ -1,6 +1,5 @@
 
 Branding/Arrioch-Senary-Drive-Drive-Server.ico
-*.ico
 .vs/LVC.HM/v15/.suo
 bin/Debug/LV-Crew.HostsManager.exe
 bin/Debug/LV-Crew.HostsManager.Logo1.png
@@ -44,3 +43,4 @@ bin/Debug/LV-Crew.HostsManager.vshost.exe
 bin/Debug/LV-Crew.HostsManager.vshost.exe.config
 bin/Debug/LV-Crew.HostsManager.vshost.exe.manifest
 .vs/LVC.HM/v14/.suo
+bin/Debug/LV-Crew.HostsManager.Icon.ico
