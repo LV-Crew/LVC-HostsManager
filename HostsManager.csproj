@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HostsManager</RootNamespace>
-    <AssemblyName>HostsManager</AssemblyName>
+    <AssemblyName>LV-Crew.HostsManager</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -36,7 +36,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Arrioch-Senary-Drive-Drive-Server.ico</ApplicationIcon>
+    <ApplicationIcon>LV-Crew.HostsManager.Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Arrioch-Senary-Drive-Drive-Server.ico" />
+    <Content Include="LV-Crew.HostsManager.Icon.ico" />
     <None Include="Resources\logo_hostfilemanager.png" />
   </ItemGroup>
   <ItemGroup>

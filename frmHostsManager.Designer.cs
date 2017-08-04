@@ -188,7 +188,7 @@
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(581, 22);
             this.statusStrip1.TabIndex = 29;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.Text = "statusStrip1";            
             // 
             // toolStripProgressBar1
             // 
@@ -219,6 +219,7 @@
             // pbPicture
             // 
             this.pbPicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPicture.InitialImage = null;
             this.pbPicture.Location = new System.Drawing.Point(12, 32);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(146, 146);
