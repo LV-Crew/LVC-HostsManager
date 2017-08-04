@@ -22,6 +22,7 @@ Settings<br>
 ![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")
 
 <br>
+
 Overwrite hosts file URLs:
 =================================================================
 This allows you to choose the URLs of the hosts files to be imported manually, overwriting the system setting.
