@@ -17,7 +17,7 @@ https://github.com/StevenBlack/hosts<br>
 https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
-Settings<br>
+<h3><b>Settings</b></h3><br>
 
 ![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")
 
