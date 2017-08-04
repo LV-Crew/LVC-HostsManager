@@ -35,7 +35,7 @@ Section "install" ;No components page, name is not important
   ; Put file there
   File "LVC.HM.Win-x86.Setup\LV-Crew.HostsManager.exe"
   File "LVC.HM.Win-x86.Setup\cert.pem"
-  File "LVC.HM.Win-x86.Setup\logo.ico"
+  File "LVC.HM.Win-x86.Setup\LV-Crew.HostsManager.Logo.ico"
   SetOutPath "$INSTDIR\certutil"
   File "LVC.HM.Win-x86.Setup\certutil\*.*"
   
