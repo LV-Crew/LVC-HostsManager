@@ -36,7 +36,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>LV-Crew.HostsManager.Icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,45 +53,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Branding.cs" />
-    <Compile Include="clsEditor.cs" />
-    <Compile Include="frmAbout.cs">
+    <Compile Include="Module.Branding.cls.cs" />
+    <Compile Include="Module.EditHosts.cls.cs" />
+    <Compile Include="Module.About.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <Compile Include="Module.About.frm.Designer.cs">
+      <DependentUpon>Module.About.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHostsManager.cs">
+    <Compile Include="Core.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHostsManager.Designer.cs">
-      <DependentUpon>frmHostsManager.cs</DependentUpon>
+    <Compile Include="Core.frm.Designer.cs">
+      <DependentUpon>Core.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditHosts.cs">
+    <Compile Include="Module.EditHosts.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditHosts.Designer.cs">
-      <DependentUpon>frmEditHosts.cs</DependentUpon>
+    <Compile Include="Module.EditHosts.frm.Designer.cs">
+      <DependentUpon>Module.EditHosts.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOptions.cs">
+    <Compile Include="Module.Options.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOptions.Designer.cs">
-      <DependentUpon>frmOptions.cs</DependentUpon>
+    <Compile Include="Module.Options.frm.Designer.cs">
+      <DependentUpon>Module.Options.frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <EmbeddedResource Include="Module.About.frm.resx">
+      <DependentUpon>Module.About.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHostsManager.resx">
-      <DependentUpon>frmHostsManager.cs</DependentUpon>
+    <EmbeddedResource Include="Core.frm.resx">
+      <DependentUpon>Core.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditHosts.resx">
-      <DependentUpon>frmEditHosts.cs</DependentUpon>
+    <EmbeddedResource Include="Module.EditHosts.frm.resx">
+      <DependentUpon>Module.EditHosts.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOptions.resx">
-      <DependentUpon>frmOptions.cs</DependentUpon>
+    <EmbeddedResource Include="Module.Options.frm.resx">
+      <DependentUpon>Module.Options.frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,8 +118,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Arrioch-Senary-Drive-Drive-Server.ico" />
-    <Content Include="LV-Crew.HostsManager.Icon.ico" />
     <None Include="Resources\logo_hostfilemanager.png" />
   </ItemGroup>
   <ItemGroup>
