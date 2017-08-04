@@ -96,7 +96,9 @@ To-Dos Error-Server:<br>
 - Maybee Avira & Google-Ads<br>
 - Error-Pages per lists<br>
 <br>
+
 # Ideas
+
 - White-/Gray-/Blacklister read data e.g. from Cookies of Browsers<br>
 <br>
 Some more ideas:<br>
