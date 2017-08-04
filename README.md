@@ -3,7 +3,9 @@ This program allows you to update your hosts-file with a blacklist.<br>
 The blacklisted traffic is being redirected to a IP/Path (localhost).<br>
 Therfore you are protected from tracking and from spam ads and from whatever you want.<br>
 (In short...)<br>
-<br>
+
+![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")
+
 In long ...:<br>
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
 - The Hosts-Files-List is saved by the app.<br>
@@ -15,6 +17,32 @@ https://github.com/StevenBlack/hosts<br>
 https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
+<h3><b>Settings</b></h3><br>
+
+![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")
+
+<br>
+
+Overwrite hosts file URLs:<br>
+=================================================================<br>
+This allows you to choose the URLs of the hosts files to be imported manually, overwriting the system setting.<br>
+<br>
+Overwrite IP:<br>
+=================================================================<br>
+Most host file are in the format 0.0.0.0 <hostname>, which redirects the traffic to localhost.<br>
+LV-Crew HostsManager allows you to overwrite this adress with an adress you choose.<br>
+By default, it redirects to a white page.<br>
+<br>
+Hosts file editor:<br>
+=================================================================<br>
+Choose whether to use the internal text editor or wordpad for editing the hosts file.<br>
+<br>
+Autmatically update hosts file hourly:<br>
+=================================================================<br>
+This allows you to automatically update the hosts file. <br>
+It creates a new task in windows' task planer.<br>
+<br>
+# Roundmap
 Some ideas and a 'small' roadmap in a to-dos-stlye... ;-)<br>
 <br>
 To-Dos:<br>
@@ -68,7 +96,9 @@ To-Dos Error-Server:<br>
 - Maybee Avira & Google-Ads<br>
 - Error-Pages per lists<br>
 <br>
-Some ideas:<br>
+
+# Ideas
+
 - White-/Gray-/Blacklister read data e.g. from Cookies of Browsers<br>
 <br>
 Some more ideas:<br>
@@ -104,13 +134,14 @@ More notes for later:<br>
 <br>
 <br>
 Changelog:<br>
-v2017.08.03b by torify<br>
+v2017.08.04b by Dennis M. Heine & Tobias B. Besemer<br>
 - File permissions are being reset after update<br>
 - Internal editor has been activated<br>
 - Added auto update<br>
-- Added CR/LF-Detection / addition<br>
+- Added CR/LF-Detection/Addition<br>
+- Better Branding<br>
 <br>
-Till v2017.08.03a by torify & Tobias-B-Besemer<br>
+Till v2017.08.03a by Dennis M. Heine & Tobias B. Besemer<br>
 - Initial Releases<br>
 - Initial Branding with Logo & About Dialog<br>
 - Detects Antiviruses and warns<br>
