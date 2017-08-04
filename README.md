@@ -3,7 +3,9 @@ This program allows you to update your hosts-file with a blacklist.<br>
 The blacklisted traffic is being redirected to a IP/Path (localhost).<br>
 Therfore you are protected from tracking and from spam ads and from whatever you want.<br>
 (In short...)<br>
-<br>
+
+<center>![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")</center>
+
 In long ...:<br>
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
 - The Hosts-Files-List is saved by the app.<br>
