@@ -4,7 +4,7 @@ The blacklisted traffic is being redirected to a IP/Path (localhost).<br>
 Therfore you are protected from tracking and from spam ads and from whatever you want.<br>
 (In short...)<br>
 
-<center>![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")</center>
+![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")
 
 In long ...:<br>
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
