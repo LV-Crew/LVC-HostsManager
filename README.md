@@ -17,6 +17,28 @@ https://github.com/StevenBlack/hosts<br>
 https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
+Settings<br>
+<center>![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")</center>
+<br>
+Overwrite hosts file URLs:
+=================================================================
+This allows you to choose the URLs of the hosts files to be imported manually, overwriting the system setting.
+
+Overwrite IP:
+=================================================================
+Most host file are in the format 0.0.0.0 <hostname>, which redirects the traffic to localhost.
+LV-Crew HostsManager allows you to overwrite this adress with an adress you choose.
+By default, it redirects to a white page.
+
+Hosts file editor:
+=================================================================
+Choose whether to use the internal text editor or wordpad for editing the hosts file.
+
+Autmatically update hosts file hourly:
+=================================================================
+This allows you to automatically update the hosts file. 
+It creates a new task in windows' task planer.
+<br>
 Some ideas and a 'small' roadmap in a to-dos-stlye... ;-)<br>
 <br>
 To-Dos:<br>
