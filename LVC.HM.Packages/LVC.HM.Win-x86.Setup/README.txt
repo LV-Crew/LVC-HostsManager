@@ -138,13 +138,14 @@ More notes for later:
 
 
 Changelog:
-v2017.08.03b by torify
+v2017.08.04b by Dennis M. Heine & Tobias B. Besemer
 - File permissions are being reset after update
 - Internal editor has been activated
 - Added auto update
-- Added CR/LF-Detection / addition
+- Added CR/LF-Detection/Addition
+- Better Branding
 
-Till v2017.08.03a by torify & Tobias-B-Besemer
+Till v2017.08.03a by Dennis M. Heine & Tobias B. Besemer
 - Initial Releases
 - Initial Branding with Logo & About Dialog
 - Detects Antiviruses and warns
