@@ -23,25 +23,26 @@ Settings<br>
 
 <br>
 
-Overwrite hosts file URLs:
-=================================================================
-This allows you to choose the URLs of the hosts files to be imported manually, overwriting the system setting.
-
-Overwrite IP:
-=================================================================
-Most host file are in the format 0.0.0.0 <hostname>, which redirects the traffic to localhost.
-LV-Crew HostsManager allows you to overwrite this adress with an adress you choose.
-By default, it redirects to a white page.
-
-Hosts file editor:
-=================================================================
-Choose whether to use the internal text editor or wordpad for editing the hosts file.
-
-Autmatically update hosts file hourly:
-=================================================================
-This allows you to automatically update the hosts file. 
-It creates a new task in windows' task planer.
+Overwrite hosts file URLs:<br>
+=================================================================<br>
+This allows you to choose the URLs of the hosts files to be imported manually, overwriting the system setting.<br>
 <br>
+Overwrite IP:<br>
+=================================================================<br>
+Most host file are in the format 0.0.0.0 <hostname>, which redirects the traffic to localhost.<br>
+LV-Crew HostsManager allows you to overwrite this adress with an adress you choose.<br>
+By default, it redirects to a white page.<br>
+<br>
+Hosts file editor:<br>
+=================================================================<br>
+Choose whether to use the internal text editor or wordpad for editing the hosts file.<br>
+<br>
+Autmatically update hosts file hourly:<br>
+=================================================================<br>
+This allows you to automatically update the hosts file. <br>
+It creates a new task in windows' task planer.<br>
+<br>
+# Roundmap
 Some ideas and a 'small' roadmap in a to-dos-stlye... ;-)<br>
 <br>
 To-Dos:<br>
@@ -95,7 +96,7 @@ To-Dos Error-Server:<br>
 - Maybee Avira & Google-Ads<br>
 - Error-Pages per lists<br>
 <br>
-Some ideas:<br>
+# Ideas:
 - White-/Gray-/Blacklister read data e.g. from Cookies of Browsers<br>
 <br>
 Some more ideas:<br>
