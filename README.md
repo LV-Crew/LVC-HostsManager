@@ -19,7 +19,7 @@ https://github.com/LV-Crew/hosts<br>
 <br>
 Settings<br>
 
-![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")
+![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")
 
 <br>
 Overwrite hosts file URLs:
