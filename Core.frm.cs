@@ -50,6 +50,7 @@ namespace HostsManager
         public frmHostsManager()
         {            
             InitializeComponent();
+            clsBrandingINI.readINI();
             loadSettings();
 
             //Check whether to run silently
@@ -61,8 +62,7 @@ namespace HostsManager
                     this.Opacity = 0;
                     this.ShowInTaskbar = false;
                 }
-            }
-
+            }            
             doAutoUpdate();
         }
 

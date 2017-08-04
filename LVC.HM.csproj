@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Module.Branding.cls.cs" />
+    <Compile Include="Module.Bransing.INI.cls.cs" />
     <Compile Include="Module.EditHosts.cls.cs" />
     <Compile Include="Module.About.frm.cs">
       <SubType>Form</SubType>
@@ -119,17 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo_hostfilemanager.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="TaskScheduler">
-      <Guid>{E34CB9F1-C7F7-424C-BE29-027DCC09363A}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
