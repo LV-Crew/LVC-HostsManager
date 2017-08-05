@@ -2,13 +2,14 @@
 
 
 // Make.Packages.bat
+// Version 2017.08.05a
 
 
 // Copy files together
-copy .\Branding.ini .\Packages\Win-x64.Archive
-copy .\Branding.ini .\Packages\Win-x64.Setup
-copy .\Branding.ini .\Packages\Win-x86.Archive
-copy .\Branding.ini .\Packages\Win-x86.Setup
+copy .\Branding\Branding.ini .\Packages\Win-x64.Archive
+copy .\Branding\Branding.ini .\Packages\Win-x64.Setup
+copy .\Branding\Branding.ini .\Packages\Win-x86.Archive
+copy .\Branding\Branding.ini .\Packages\Win-x86.Setup
 
 copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x64.Archive
 copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x64.Setup
