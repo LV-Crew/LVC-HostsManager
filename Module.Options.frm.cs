@@ -11,7 +11,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TaskScheduler;
+
 
 namespace HostsManager
 {
@@ -36,6 +36,11 @@ namespace HostsManager
             fillForm();
             //Branding
             this.Text = Branding.COMPANY + " "+Branding.PRODUCT+" Options";
+            try
+            {
+                this.Icon = new Icon(Branding.ICONPATH);
+            }
+            catch (Exception ex) { }
         }
 
         //OK

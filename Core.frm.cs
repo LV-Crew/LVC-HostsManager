@@ -50,6 +50,7 @@ namespace HostsManager
         public frmHostsManager()
         {            
             InitializeComponent();
+            clsBrandingINI.readINI();
             loadSettings();
 
             //Check whether to run silently
@@ -61,8 +62,7 @@ namespace HostsManager
                     this.Opacity = 0;
                     this.ShowInTaskbar = false;
                 }
-            }
-
+            }            
             doAutoUpdate();
         }
 
@@ -84,6 +84,11 @@ namespace HostsManager
             importCert();
             bnUpdate.Select();
             checkForSilentRun();
+            try
+            {
+                this.Icon = new Icon(Branding.ICONPATH);
+            }
+            catch (Exception ex) { }
         }
 
         //Update hosts file
@@ -158,7 +163,7 @@ namespace HostsManager
         {
             try
             {
-                System.Diagnostics.Process.Start("readme.txt");
+                System.Diagnostics.Process.Start("http://hostsmanager.lv-crew.org/readme.html");
             }
             catch (Exception ex) { }
         }
@@ -374,8 +379,8 @@ namespace HostsManager
             {
                 //Create task using schtasks.exe
                 //FileSecurity fs=setHostsFilePermissions(); !!! 080417DH - muss evtl wieder reingemacht werden.
-                psi.Arguments = "/Create /tn LV-Crew.HostsManager /tr \"" + System.Reflection.Assembly.GetEntryAssembly().Location + " /auto\" /sc HOURLY /RL HIGHEST";
-                Process p=System.Diagnostics.Process.Start(psi);                                
+                psi.Arguments = "/Create /tn LV-Crew.HostsManager /tr \"" + System.Reflection.Assembly.GetEntryAssembly().Location + " /auto\" /sc HOURLY /RL HIGHEST /F";
+                Process p=System.Diagnostics.Process.Start(psi);
             }
             else
             {
@@ -470,7 +475,11 @@ namespace HostsManager
 
                 //Branding
                 this.Text = Branding.COMPANY + " " + Branding.PRODUCT + " v" + Branding.VERSION;
-                pbPicture.ImageLocation = Branding.PRODUCTIMGPATH;
+                try
+                {
+                    pbPicture.ImageLocation = Branding.PRODUCTIMGPATH;
+                }
+                catch (Exception ex) { }
             }
         }
     }

@@ -22,6 +22,11 @@ namespace HostsManager
         {
             txtHostsFile.Text = mText;
             bnSave.Select();
+            try
+            {
+                this.Icon = new Icon(Branding.ICONPATH);
+            }
+            catch (Exception ex) { }
         }
 
         //Save

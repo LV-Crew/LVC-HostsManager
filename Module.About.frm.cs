@@ -21,22 +21,19 @@ namespace HostsManager
         private void frmAbout_Load(object sender, EventArgs e)
         {
             lblVersion.Text = "Version: "+Branding.VERSION;
-            lblName.Text = Branding.COMPANY + " "+Branding.PRODUCT;            
+            lblName.Text = Branding.COMPANY + " "+Branding.PRODUCT;
+            pbPicture.ImageLocation = Branding.PRODUCTIMGPATH;
+            try
+            {
+                this.Icon = new Icon(Branding.ICONPATH);
+                pbPicture.ImageLocation = Branding.PRODUCTIMGPATH;
+            }
+            catch (Exception ex) { }            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void lblName_Click(object sender, EventArgs e)
-        {
-            pictureBox1.ImageLocation = Branding.PRODUCTIMGPATH;
-        }
-
-        private void lblVersion_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

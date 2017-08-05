@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HostsManager</RootNamespace>
-    <AssemblyName>HostsManager</AssemblyName>
+    <AssemblyName>LV-Crew.HostsManager</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -36,7 +36,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Arrioch-Senary-Drive-Drive-Server.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,45 +53,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Branding.cs" />
-    <Compile Include="clsEditor.cs" />
-    <Compile Include="frmAbout.cs">
+    <Compile Include="Module.Branding.cls.cs" />
+    <Compile Include="Module.Branding.INI.cls.cs" />
+    <Compile Include="Module.EditHosts.cls.cs" />
+    <Compile Include="Module.About.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <Compile Include="Module.About.frm.Designer.cs">
+      <DependentUpon>Module.About.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHostsManager.cs">
+    <Compile Include="Core.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHostsManager.Designer.cs">
-      <DependentUpon>frmHostsManager.cs</DependentUpon>
+    <Compile Include="Core.frm.Designer.cs">
+      <DependentUpon>Core.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditHosts.cs">
+    <Compile Include="Module.EditHosts.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditHosts.Designer.cs">
-      <DependentUpon>frmEditHosts.cs</DependentUpon>
+    <Compile Include="Module.EditHosts.frm.Designer.cs">
+      <DependentUpon>Module.EditHosts.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOptions.cs">
+    <Compile Include="Module.Options.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOptions.Designer.cs">
-      <DependentUpon>frmOptions.cs</DependentUpon>
+    <Compile Include="Module.Options.frm.Designer.cs">
+      <DependentUpon>Module.Options.frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <EmbeddedResource Include="Module.About.frm.resx">
+      <DependentUpon>Module.About.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHostsManager.resx">
-      <DependentUpon>frmHostsManager.cs</DependentUpon>
+    <EmbeddedResource Include="Core.frm.resx">
+      <DependentUpon>Core.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditHosts.resx">
-      <DependentUpon>frmEditHosts.cs</DependentUpon>
+    <EmbeddedResource Include="Module.EditHosts.frm.resx">
+      <DependentUpon>Module.EditHosts.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOptions.resx">
-      <DependentUpon>frmOptions.cs</DependentUpon>
+    <EmbeddedResource Include="Module.Options.frm.resx">
+      <DependentUpon>Module.Options.frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,6 +105,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
+    <None Include="branding.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,19 +122,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Arrioch-Senary-Drive-Drive-Server.ico" />
     <None Include="Resources\logo_hostfilemanager.png" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="TaskScheduler">
-      <Guid>{E34CB9F1-C7F7-424C-BE29-027DCC09363A}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+    <Content Include="LV-Crew.HostsManager.Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LV-Crew.HostsManager.Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
