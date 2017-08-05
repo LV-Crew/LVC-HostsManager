@@ -2,37 +2,42 @@
 
 
 // Make.Packages.bat
-// Version 2017.08.05b
+// Version 2017.08.05c
 
 // For later
 // call .\Branding\Branding.bat
 
 
 // Copy files together
-copy .\Branding\Branding.ini .\Packages\Win-x64.Archive
-copy .\Branding\Branding.ini .\Packages\Win-x64.Setup
-copy .\Branding\Branding.ini .\Packages\Win-x86.Archive
-copy .\Branding\Branding.ini .\Packages\Win-x86.Setup
+copy .\Branding\Branding.ini .\Packages\Win-x64.Archive\
+copy .\Branding\Branding.ini .\Packages\Win-x64.Setup\
+copy .\Branding\Branding.ini .\Packages\Win-x86.Archive\
+copy .\Branding\Branding.ini .\Packages\Win-x86.Setup\
 
-copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x64.Archive
-copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x64.Setup
-copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x86.Archive
-copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x86.Setup
+copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x64.Archive\
+copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x64.Setup\
+copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x86.Archive\
+copy .\Branding\LV-Crew.HostsManager.Logo.ico .\Packages\Win-x86.Setup\
 
-copy .\Branding\LV-Crew.HostsManager.Logo.png .\Packages\Win-x64.Archive\LV-Crew.HostsManager.Logo.png
-copy .\Branding\LV-Crew.HostsManager.Logo.png .\Packages\Win-x64.Setup\LV-Crew.HostsManager.Logo.png
-copy .\Branding\LV-Crew.HostsManager.Logo.png .\Packages\Win-x86.Archive\LV-Crew.HostsManager.Logo.png
-copy .\Branding\LV-Crew.HostsManager.Logo.png .\Packages\Win-x86.Setup\LV-Crew.HostsManager.Logo.png
+copy .\Branding\LV-Crew.HostsManager.Logo.png .\Packages\Win-x64.Archive\
+copy .\Branding\LV-Crew.HostsManager.Logo.png .\Packages\Win-x64.Setup\
+copy .\Branding\LV-Crew.HostsManager.Logo.png .\Packages\Win-x86.Archive\
+copy .\Branding\LV-Crew.HostsManager.Logo.png .\Packages\Win-x86.Setup\
 
-copy .\Readme.txt .\Packages\Win-x64.Archive\Readme.txt
-copy .\Readme.txt .\Packages\Win-x64.Setup\Readme.txt
-copy .\Readme.txt .\Packages\Win-x86.Archive\Readme.txt
-copy .\Readme.txt .\Packages\Win-x86.Setup\Readme.txt
+copy .\Settings.xml .\Packages\Win-x64.Archive\
+copy .\Settings.xml .\Packages\Win-x64.Setup\
+copy .\Settings.xml .\Packages\Win-x86.Archive\
+copy .\Settings.xml .\Packages\Win-x86.Setup\
 
-copy .\License.rtf .\Packages\Win-x64.Archive\License.rtf
-copy .\License.rtf .\Packages\Win-x64.Setup\License.rtf
-copy .\License.rtf .\Packages\Win-x86.Archive\License.rtf
-copy .\License.rtf .\Packages\Win-x86.Setup\License.rtf
+copy .\Readme.txt .\Packages\Win-x64.Archive\
+copy .\Readme.txt .\Packages\Win-x64.Setup\
+copy .\Readme.txt .\Packages\Win-x86.Archive\
+copy .\Readme.txt .\Packages\Win-x86.Setup\
+
+copy .\License.rtf .\Packages\Win-x64.Archive\
+copy .\License.rtf .\Packages\Win-x64.Setup\
+copy .\License.rtf .\Packages\Win-x86.Archive\
+copy .\License.rtf .\Packages\Win-x86.Setup\
 
 
 // Make Packages
