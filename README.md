@@ -1,11 +1,12 @@
-# HostsManager
+# HostsManager<br>
 This program allows you to update your hosts-file with a blacklist.<br>
 The blacklisted traffic is being redirected to a IP/Path (localhost).<br>
 Therfore you are protected from tracking and from spam ads and from whatever you want.<br>
 (In short...)<br>
-
-![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")
-
+<br>
+![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")<br>
+<br>
+<br>
 In long ...:<br>
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
 - The Hosts-Files-List is saved by the app.<br>
@@ -18,31 +19,31 @@ https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
 <h3><b>Settings</b></h3><br>
-
-![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")
-
 <br>
-
+![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")<br>
+<br>
+<br>
 Overwrite hosts file URLs:<br>
-=================================================================<br>
+=======================================================================<br>
 This allows you to choose the URLs of the hosts files to be imported manually, overwriting the system setting.<br>
 <br>
 Overwrite IP:<br>
-=================================================================<br>
+=======================================================================<br>
 Most host file are in the format 0.0.0.0 <hostname>, which redirects the traffic to localhost.<br>
 LV-Crew HostsManager allows you to overwrite this adress with an adress you choose.<br>
 By default, it redirects to a white page.<br>
 <br>
 Hosts file editor:<br>
-=================================================================<br>
+=======================================================================<br>
 Choose whether to use the internal text editor or wordpad for editing the hosts file.<br>
 <br>
 Autmatically update hosts file hourly:<br>
-=================================================================<br>
+=======================================================================<br>
 This allows you to automatically update the hosts file. <br>
 It creates a new task in windows' task planer.<br>
 <br>
-# Roundmap
+<br>
+# Roundmap<br>
 Some ideas and a 'small' roadmap in a to-dos-stlye... ;-)<br>
 <br>
 To-Dos:<br>
@@ -96,9 +97,8 @@ To-Dos Error-Server:<br>
 - Maybee Avira & Google-Ads<br>
 - Error-Pages per lists<br>
 <br>
-
-# Ideas
-
+<br>
+# Ideas<br>
 - White-/Gray-/Blacklister read data e.g. from Cookies of Browsers<br>
 <br>
 Some more ideas:<br>
@@ -130,18 +130,13 @@ More notes for later:<br>
 - Integrate LV-Crew/certgen (https://github.com/LV-Crew/certgen)<br>
 - Better Antivirus detection and warning<br>
 - 2 counter für alles und seite<br>
-- 2x umbenennen zu LV-Crew.xxx<br>
 <br>
 <br>
-Changelog:<br>
-v2017.08.04b by Dennis M. Heine & Tobias B. Besemer<br>
-- File permissions are being reset after update<br>
-- Internal editor has been activated<br>
-- Added auto update<br>
-- Added CR/LF-Detection/Addition<br>
-- Better Branding<br>
+# Changelog:<br>
+v2017.08.06a by Dennis M. Heine & Tobias B. Besemer<br>
+- Branding is sved in INI<br>
 <br>
-Till v2017.08.03a by Dennis M. Heine & Tobias B. Besemer<br>
+Till v2017.08.04b by Dennis M. Heine & Tobias B. Besemer<br>
 - Initial Releases<br>
 - Initial Branding with Logo & About Dialog<br>
 - Detects Antiviruses and warns<br>
@@ -149,15 +144,22 @@ Till v2017.08.03a by Dennis M. Heine & Tobias B. Besemer<br>
 - Download-URL saved in registry<br>
 - Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
 - External Editor Wordpad<br>
+- Internal editor has been activated<br>
+- File permissions are being reset after update<br>
+- Added auto update<br>
+- Added CR/LF-Detection/Addition<br>
 - Also: Error-Page on http://34.213.32.36/<br>
 - Also: Error-Page with SSL<br>
 - Also: certutil already included (imports the SSL certificate into the Mozilla-Firefox certificate store)<br>
 - Also: http://HostsManager.LV-Crew.org -> http://34.213.32.36/<br>
-- No more: InstallForge-Installer (http://installforge.net/)<br>
-- No more: Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
-- No more: Register in Windows (system integration)<br>
-- No more: Publisher in Windows is 'LV-Crew'<br>
-Release: https://github.com/LV-Crew/HostsManager/releases/download/2017.08.03a/LV-Crew.HostsManager.2017.08.03a.zip<br>
+- InstallForge-Installer (http://installforge.net/)<br>
+- Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
+- Register in Windows (system integration)<br>
+- Publisher in Windows is 'LV-Crew'<br>
+Release: https://github.com/LV-Crew/HostsManager/releases/tag/v2017.08.04b<br>
+Release, older: https://github.com/LV-Crew/HostsManager/releases/download/2017.08.03a/LV-Crew.HostsManager.2017.08.03a.zip<br>
 <br>
-Some Dev notes:<br>
+<br>
+# Some Dev notes:<br>
 - Version-Bump to 2017.xx.xxa (yyyy.mm.dd + letter)<br>
+- File-Names are LV-Crew.HostsManager.xxx.xyz<br>
