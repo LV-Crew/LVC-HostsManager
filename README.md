@@ -7,18 +7,18 @@ Therfore you are protected from tracking and from spam ads and from whatever you
 ![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")<br>
 <br>
 <br>
-In long ...:<br>
+<h3><b>In long ...:</b></h3>
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
 - The Hosts-Files-List is saved by the app.<br>
 More to the hosts-file: https://en.wikipedia.org/wiki/Hosts_(file)<br>
 <br>
 <br>
-Possible Hosts-Files:<br>
+<h3><b>Possible Hosts-Files:</b></h3>
 https://github.com/StevenBlack/hosts<br>
 https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
-<h3><b>Settings</b></h3><br>
+<h3><b>Settings:</b></h3>
 ![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")<br>
 <br>
 <br>
@@ -42,7 +42,7 @@ This allows you to automatically update the hosts file. <br>
 It creates a new task in windows' task planer.<br>
 <br>
 <br>
-<h3><b>Roundmap</b></h3><br>
+<h3><b>Roundmap:</b></h3>
 Some ideas and a 'small' roadmap in a to-dos-stlye... ;-)<br>
 <br>
 To-Dos:<br>
@@ -97,7 +97,7 @@ To-Dos Error-Server:<br>
 - Error-Pages per lists<br>
 <br>
 <br>
-<h3><b>Ideas</b></h3><br>
+<h3><b>Ideas:</b></h3>
 - White-/Gray-/Blacklister read data e.g. from Cookies of Browsers<br>
 <br>
 Some more ideas:<br>
@@ -131,7 +131,7 @@ More notes for later:<br>
 - 2 counter für alles und seite<br>
 <br>
 <br>
-<h3><b>Changelog:</b></h3><br>
+<h3><b>Changelog:</b></h3>
 v2017.08.06a by Dennis M. Heine & Tobias B. Besemer<br>
 - Branding is sved in INI<br>
 <br>
@@ -159,6 +159,6 @@ Release: https://github.com/LV-Crew/HostsManager/releases/tag/v2017.08.04b<br>
 Release, older: https://github.com/LV-Crew/HostsManager/releases/download/2017.08.03a/LV-Crew.HostsManager.2017.08.03a.zip<br>
 <br>
 <br>
-<h3><b>Some Dev notes:</b></h3><br>
+<h3><b>Some Dev notes:</b></h3>
 - Version-Bump to 2017.xx.xxa (yyyy.mm.dd + letter)<br>
 - File-Names are LV-Crew.HostsManager.xxx.xyz<br>
