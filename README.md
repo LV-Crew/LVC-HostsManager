@@ -98,6 +98,7 @@ To-Dos Error-Server:<br>
 <br>
 <br>
 <h3><b>Ideas:</b></h3>
+Some ideas:<br>
 - White-/Gray-/Blacklister read data e.g. from Cookies of Browsers<br>
 <br>
 Some more ideas:<br>
@@ -133,7 +134,7 @@ More notes for later:<br>
 <br>
 <h3><b>Changelog:</b></h3>
 v2017.08.06a by Dennis M. Heine & Tobias B. Besemer<br>
-- Branding is sved in INI<br>
+- Branding is saved in INI<br>
 <br>
 Till v2017.08.04b by Dennis M. Heine & Tobias B. Besemer<br>
 - Initial Releases<br>
