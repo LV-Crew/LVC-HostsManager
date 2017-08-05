@@ -1,4 +1,4 @@
-# HostsManager<br>
+# HostsManager
 This program allows you to update your hosts-file with a blacklist.<br>
 The blacklisted traffic is being redirected to a IP/Path (localhost).<br>
 Therfore you are protected from tracking and from spam ads and from whatever you want.<br>
@@ -19,7 +19,6 @@ https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
 <h3><b>Settings</b></h3><br>
-<br>
 ![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")<br>
 <br>
 <br>
@@ -43,7 +42,7 @@ This allows you to automatically update the hosts file. <br>
 It creates a new task in windows' task planer.<br>
 <br>
 <br>
-# Roundmap<br>
+<h3><b>Roundmap</b></h3><br>
 Some ideas and a 'small' roadmap in a to-dos-stlye... ;-)<br>
 <br>
 To-Dos:<br>
@@ -98,7 +97,7 @@ To-Dos Error-Server:<br>
 - Error-Pages per lists<br>
 <br>
 <br>
-# Ideas<br>
+<h3><b>Ideas</b></h3><br>
 - White-/Gray-/Blacklister read data e.g. from Cookies of Browsers<br>
 <br>
 Some more ideas:<br>
@@ -132,7 +131,7 @@ More notes for later:<br>
 - 2 counter für alles und seite<br>
 <br>
 <br>
-# Changelog:<br>
+<h3><b>Changelog:</b></h3><br>
 v2017.08.06a by Dennis M. Heine & Tobias B. Besemer<br>
 - Branding is sved in INI<br>
 <br>
@@ -160,6 +159,6 @@ Release: https://github.com/LV-Crew/HostsManager/releases/tag/v2017.08.04b<br>
 Release, older: https://github.com/LV-Crew/HostsManager/releases/download/2017.08.03a/LV-Crew.HostsManager.2017.08.03a.zip<br>
 <br>
 <br>
-# Some Dev notes:<br>
+<h3><b>Some Dev notes:</b></h3><br>
 - Version-Bump to 2017.xx.xxa (yyyy.mm.dd + letter)<br>
 - File-Names are LV-Crew.HostsManager.xxx.xyz<br>
