@@ -2,7 +2,10 @@
 
 
 // Make.Packages.bat
-// Version 2017.08.05a
+// Version 2017.08.05b
+
+// For later
+// call .\Branding\Branding.bat
 
 
 // Copy files together
