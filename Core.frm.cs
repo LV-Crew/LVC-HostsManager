@@ -16,6 +16,7 @@
     
 */
 
+using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
@@ -46,10 +48,18 @@ namespace HostsManager
         public ArrayList urls = new ArrayList();
         private bool internalEditor = false;
         private bool autoUpdate = false;
-
+        [DllImport("Kernel32.dll", SetLastError = true)]
+        static extern Microsoft.Win32.SafeHandles.SafeFileHandle CreateFile(string filename, [MarshalAs(UnmanagedType.U4)]FileAccess fileaccess, [MarshalAs(UnmanagedType.U4)]FileShare fileshare, int securityattributes, [MarshalAs(UnmanagedType.U4)]FileMode creationdisposition, int flags, IntPtr template);
+        private Microsoft.Win32.SafeHandles.SafeFileHandle safeFileHandle;
         public frmHostsManager()
         {            
             InitializeComponent();
+
+
+
+
+
+
             clsBrandingINI.readINI();
             loadSettings();
 
@@ -329,10 +339,29 @@ namespace HostsManager
                 System.IO.File.WriteAllText("hosts.tmp", fileText);
                 //Set permissions of hosts file to be writable by group admins
                 FileSecurity fs=setHostsFilePermissions();
+
+
+                using (FileStream fileStream = new FileStream(
+         "c:\\windows\\system32\\drivers\\etc\\hosts", FileMode.OpenOrCreate,
+         FileAccess.Read, FileShare.None))
+                {
+                    SafeFileHandle safeFileHandle = CreateFile("c:\\windows\\system32\\drivers\\etc\\hosts", FileAccess.Read, FileShare.Read, 0, FileMode.Open, 0, IntPtr.Zero);
+                    safeFileHandle.DangerousRelease();
+
+
+                    //                FileInfo fi = new FileInfo("c:\\windows\\system32\\drivers\\etc\\hosts");
+                    //              fileStream.
+                    //            fileStream.Unlock(0, fi.Length);
+                    File.Delete("c:\\windows\\system32\\drivers\\etc\\hosts");
+                }
+
+
+
+                /*
                 //Copy hosts file to real hosts file
                 System.IO.File.Copy("hosts.tmp", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", true);
                 System.IO.File.Delete("hosts.tmp");
-                //Reset permissions
+                //Reset permissions*/
                 resetHostsFilePermissions(fs);
 
                 toolStripProgressBar1.Visible = false;                

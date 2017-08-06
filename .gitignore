@@ -44,3 +44,4 @@ bin/Debug/LV-Crew.HostsManager.vshost.exe.config
 bin/Debug/LV-Crew.HostsManager.vshost.exe.manifest
 .vs/LVC.HM/v14/.suo
 bin/Debug/LV-Crew.HostsManager.Icon.ico
+bin/Debug/hosts.tmp
