@@ -18,7 +18,7 @@ https://github.com/StevenBlack/hosts<br>
 https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
-<h3><b>Antivirus</b></h3>
+<h3><b>Antivirus:</b></h3>
 Many antivirus programs do block the hosts file in a way, that we can't unblock it.<br>
 Please refer to your antivirus program's manual to find out how to disable hosts file protection.<br>
 <br>
