@@ -18,6 +18,7 @@ namespace HostsManager
     public partial class frmOptions : Form
     {
         public ArrayList urls = new ArrayList();
+        public ArrayList hosts=new ArrayList();
         public String url = "";
         public String fileText="";
         public String convFrom = "";
@@ -125,6 +126,11 @@ namespace HostsManager
                 lbURLs.Items.Add(u);
             }
 
+            foreach (String h in hosts)
+            {
+                lbAddHosts.Items.Add(h);
+            }
+
 
             //Fancy form fill effects
             txtURL.GotFocus += (s, a) => { if (txtURL.ForeColor == Color.Gray) txtURL.Text = ""; };
@@ -200,9 +206,25 @@ namespace HostsManager
                 {
                     urls.Add(item);
                 }
+                foreach (String host in lbAddHosts.Items)
+                {
+                    hosts.Add(host);
+                }
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void bnAddHost_Click(object sender, EventArgs e)
+        {
+            if (txtAddHost.Text != "")
+                lbAddHosts.Items.Add(txtAddHost.Text);
+        }
+
+        private void bnRemoveHost_Click(object sender, EventArgs e)
+        {
+            if (lbAddHosts.SelectedIndex >= 0)
+                lbAddHosts.Items.Remove(lbAddHosts.SelectedItem);
         }
     }
 }

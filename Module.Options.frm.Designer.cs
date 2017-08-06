@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.bnRemoveHost = new System.Windows.Forms.Button();
+            this.bnAddHost = new System.Windows.Forms.Button();
+            this.txtAddHost = new System.Windows.Forms.TextBox();
+            this.lbAddHosts = new System.Windows.Forms.ListBox();
             this.cbAutoUpdate = new System.Windows.Forms.CheckBox();
             this.rbExternal = new System.Windows.Forms.RadioButton();
             this.rbInternal = new System.Windows.Forms.RadioButton();
@@ -50,6 +55,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.bnRemoveHost);
+            this.groupBox1.Controls.Add(this.bnAddHost);
+            this.groupBox1.Controls.Add(this.txtAddHost);
+            this.groupBox1.Controls.Add(this.lbAddHosts);
             this.groupBox1.Controls.Add(this.cbAutoUpdate);
             this.groupBox1.Controls.Add(this.rbExternal);
             this.groupBox1.Controls.Add(this.rbInternal);
@@ -65,15 +75,65 @@
             this.groupBox1.Controls.Add(this.txtFrom);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(309, 339);
+            this.groupBox1.Size = new System.Drawing.Size(633, 282);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Optional Settings";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(336, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Add hosts to blacklist";
+            // 
+            // bnRemoveHost
+            // 
+            this.bnRemoveHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnRemoveHost.BackgroundImage")));
+            this.bnRemoveHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bnRemoveHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnRemoveHost.Location = new System.Drawing.Point(479, 129);
+            this.bnRemoveHost.Name = "bnRemoveHost";
+            this.bnRemoveHost.Size = new System.Drawing.Size(26, 26);
+            this.bnRemoveHost.TabIndex = 37;
+            this.bnRemoveHost.UseVisualStyleBackColor = true;
+            this.bnRemoveHost.Click += new System.EventHandler(this.bnRemoveHost_Click);
+            // 
+            // bnAddHost
+            // 
+            this.bnAddHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnAddHost.BackgroundImage")));
+            this.bnAddHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bnAddHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnAddHost.Location = new System.Drawing.Point(454, 129);
+            this.bnAddHost.Name = "bnAddHost";
+            this.bnAddHost.Size = new System.Drawing.Size(26, 26);
+            this.bnAddHost.TabIndex = 36;
+            this.bnAddHost.UseVisualStyleBackColor = true;
+            this.bnAddHost.Click += new System.EventHandler(this.bnAddHost_Click);
+            // 
+            // txtAddHost
+            // 
+            this.txtAddHost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddHost.ForeColor = System.Drawing.Color.Black;
+            this.txtAddHost.Location = new System.Drawing.Point(338, 154);
+            this.txtAddHost.Name = "txtAddHost";
+            this.txtAddHost.Size = new System.Drawing.Size(290, 20);
+            this.txtAddHost.TabIndex = 35;
+            // 
+            // lbAddHosts
+            // 
+            this.lbAddHosts.FormattingEnabled = true;
+            this.lbAddHosts.Location = new System.Drawing.Point(337, 35);
+            this.lbAddHosts.Name = "lbAddHosts";
+            this.lbAddHosts.Size = new System.Drawing.Size(291, 95);
+            this.lbAddHosts.TabIndex = 34;
+            // 
             // cbAutoUpdate
             // 
             this.cbAutoUpdate.AutoSize = true;
-            this.cbAutoUpdate.Location = new System.Drawing.Point(15, 306);
+            this.cbAutoUpdate.Location = new System.Drawing.Point(15, 250);
             this.cbAutoUpdate.Name = "cbAutoUpdate";
             this.cbAutoUpdate.Size = new System.Drawing.Size(199, 17);
             this.cbAutoUpdate.TabIndex = 33;
@@ -84,7 +144,7 @@
             // 
             this.rbExternal.AutoSize = true;
             this.rbExternal.Checked = true;
-            this.rbExternal.Location = new System.Drawing.Point(97, 267);
+            this.rbExternal.Location = new System.Drawing.Point(419, 207);
             this.rbExternal.Name = "rbExternal";
             this.rbExternal.Size = new System.Drawing.Size(69, 17);
             this.rbExternal.TabIndex = 32;
@@ -95,7 +155,7 @@
             // rbInternal
             // 
             this.rbInternal.AutoSize = true;
-            this.rbInternal.Location = new System.Drawing.Point(97, 250);
+            this.rbInternal.Location = new System.Drawing.Point(419, 190);
             this.rbInternal.Name = "rbInternal";
             this.rbInternal.Size = new System.Drawing.Size(60, 17);
             this.rbInternal.TabIndex = 31;
@@ -105,7 +165,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 252);
+            this.label3.Location = new System.Drawing.Point(334, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 30;
@@ -138,7 +198,7 @@
             // txtURL
             // 
             this.txtURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtURL.ForeColor = System.Drawing.Color.Gray;
+            this.txtURL.ForeColor = System.Drawing.Color.Black;
             this.txtURL.Location = new System.Drawing.Point(6, 154);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(290, 20);
@@ -204,7 +264,7 @@
             // bnAbbrechen
             // 
             this.bnAbbrechen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnAbbrechen.Location = new System.Drawing.Point(245, 362);
+            this.bnAbbrechen.Location = new System.Drawing.Point(570, 300);
             this.bnAbbrechen.Name = "bnAbbrechen";
             this.bnAbbrechen.Size = new System.Drawing.Size(75, 26);
             this.bnAbbrechen.TabIndex = 23;
@@ -215,7 +275,7 @@
             // bnOK
             // 
             this.bnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnOK.Location = new System.Drawing.Point(164, 362);
+            this.bnOK.Location = new System.Drawing.Point(489, 300);
             this.bnOK.Name = "bnOK";
             this.bnOK.Size = new System.Drawing.Size(75, 26);
             this.bnOK.TabIndex = 22;
@@ -228,7 +288,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(332, 399);
+            this.ClientSize = new System.Drawing.Size(657, 333);
             this.Controls.Add(this.bnOK);
             this.Controls.Add(this.bnAbbrechen);
             this.Controls.Add(this.groupBox1);
@@ -264,5 +324,10 @@
         private System.Windows.Forms.RadioButton rbInternal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbAutoUpdate;
+        private System.Windows.Forms.Button bnRemoveHost;
+        private System.Windows.Forms.Button bnAddHost;
+        private System.Windows.Forms.TextBox txtAddHost;
+        private System.Windows.Forms.ListBox lbAddHosts;
+        private System.Windows.Forms.Label label5;
     }
 }

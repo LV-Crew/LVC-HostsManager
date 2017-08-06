@@ -44,6 +44,7 @@ namespace HostsManager
         public String ipTo = "34.213.32.36";
         private String hostsURL = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
         public ArrayList urls = new ArrayList();
+        public ArrayList addHosts=new ArrayList();
         private bool internalEditor = false;
         private bool autoUpdate = false;
         private bool isHidden = false;
@@ -115,6 +116,7 @@ namespace HostsManager
             o.convFrom = ipFrom;
             o.convTo = ipTo;
             o.urls = urls;
+            o.hosts = addHosts;
             o.internalEditor = internalEditor;
             o.autoUpdate = autoUpdate;
             o.ShowDialog();
@@ -128,8 +130,10 @@ namespace HostsManager
                     ipFrom = o.convFrom;
                 if (o.url != "")
                     hostsURL = o.url;
-                if (o.urls.Count > 0)
-                    urls = o.urls;
+                
+                urls = o.urls;
+                addHosts = o.hosts;
+                
                 autoUpdate = o.autoUpdate;
                 internalEditor = o.internalEditor;
 
@@ -233,12 +237,22 @@ namespace HostsManager
                     autoUpdate = false;                
             }
 
-            //Read URLs from settings.txt
+            //Read URLs from settings.xml
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(ArrayList));
                 StreamReader reader = new StreamReader("settings.xml");
                 urls = (ArrayList)serializer.Deserialize(reader);
+                reader.Close();
+            }
+            catch (Exception ex) { }
+
+            //Read aditional Hosts from blacklist.xml
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(ArrayList));
+                StreamReader reader = new StreamReader("blacklist.xml");
+                addHosts = (ArrayList)serializer.Deserialize(reader);
                 reader.Close();
             }
             catch (Exception ex) { }
@@ -273,6 +287,13 @@ namespace HostsManager
                 serializer.Serialize(XmlWriter.Create("settings.xml"), urls);
             }catch(Exception ex) { if(!isHidden) MessageBox.Show("Could not save settings."); }
 
+            //Write additional Hosts to blacklist.xml
+            var serializer1 = new XmlSerializer(typeof(ArrayList), new Type[] { typeof(String) });
+            try
+            {
+                serializer1.Serialize(XmlWriter.Create("blacklist.xml"), addHosts);
+            }
+            catch (Exception ex) { if (!isHidden) MessageBox.Show("Could not save settings."); }
         }
 
         //Set Permissions of hosts file to be writable by group admins
@@ -322,6 +343,9 @@ namespace HostsManager
                         fileText+=wc.DownloadString(u)+ "\r\n";
                 if (urls.Count == 0)
                     fileText = wc.DownloadString("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
+
+                foreach (String host in addHosts)
+                    fileText += ipTo + " " + host+"\r\n";
 
                 //IP Overwrite
                 fileText = fileText.Replace(ipFrom, ipTo);
@@ -480,7 +504,7 @@ namespace HostsManager
                         MessageBox.Show("Antivirus found!\nPlease turn off hosts protection during hosts file update.\nRead the manual for further information.\n");
 
                 //Branding
-                this.Text = Branding.COMPANY + " " + Branding.PRODUCT + " v" + Branding.VERSION;
+                this.Text = Branding.COMPANY + " " + Branding.PRODUCT + "v"+  Branding.VERSION;
                 try
                 {
                     pbPicture.ImageLocation = Branding.PRODUCTIMGPATH;
