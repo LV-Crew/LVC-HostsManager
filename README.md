@@ -142,7 +142,7 @@ More notes for later:<br>
 <br>
 <br>
 <h3><b>Changelog:</b></h3>
-v2017.08.06a by Dennis M. Heine & Tobias B. Besemer<br>
+v2017.08.06b by Dennis M. Heine & Tobias B. Besemer<br>
 - Branding is saved in INI<br>
 Release: https://github.com/LV-Crew/HostsManager/releases/latest<br>
 <br>
