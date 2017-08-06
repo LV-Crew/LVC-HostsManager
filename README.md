@@ -144,6 +144,7 @@ More notes for later:<br>
 <h3><b>Changelog:</b></h3>
 v2017.08.06a by Dennis M. Heine & Tobias B. Besemer<br>
 - Branding is saved in INI<br>
+Release: https://github.com/LV-Crew/HostsManager/releases/latest<br>
 <br>
 Till v2017.08.04b by Dennis M. Heine & Tobias B. Besemer<br>
 - Initial Releases<br>
@@ -165,8 +166,7 @@ Till v2017.08.04b by Dennis M. Heine & Tobias B. Besemer<br>
 - Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
 - Register in Windows (system integration)<br>
 - Publisher in Windows is 'LV-Crew'<br>
-Release: https://github.com/LV-Crew/HostsManager/releases/tag/v2017.08.04b<br>
-Release, older: https://github.com/LV-Crew/HostsManager/releases/download/2017.08.03a/LV-Crew.HostsManager.2017.08.03a.zip<br>
+Release: https://github.com/LV-Crew/HostsManager/releases/<br>
 <br>
 <br>
 <h3><b>Some Dev notes:</b></h3>
