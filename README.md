@@ -142,8 +142,11 @@ More notes for later:<br>
 <br>
 <br>
 <h3><b>Changelog:</b></h3>
-v2017.08.06b by Dennis M. Heine & Tobias B. Besemer<br>
+v2017.08.06a by Dennis M. Heine & Tobias B. Besemer<br>
 - Branding is saved in INI<br>
+- Added antivirus documentation to main form<br>
+- Own hostnames can be saved in blacklist.xml<br>
+- Minimize window<br>
 Release: https://github.com/LV-Crew/HostsManager/releases/latest<br>
 <br>
 Till v2017.08.04b by Dennis M. Heine & Tobias B. Besemer<br>
