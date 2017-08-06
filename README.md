@@ -3,9 +3,9 @@ This program allows you to update your hosts-file with a blacklist.<br>
 The blacklisted traffic is being redirected to a IP/Path (localhost).<br>
 Therfore you are protected from tracking and from spam ads and from whatever you want.<br>
 (In short...)<br>
-<br>
+
 ![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")<br>
-<br>
+
 <br>
 <h3><b>In long ...:</b></h3>
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
@@ -18,9 +18,18 @@ https://github.com/StevenBlack/hosts<br>
 https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
-<h3><b>Settings:</b></h3>
-![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")<br>
+<h3><b>Antivirus:</b></h3>
+Many antivirus programs do block the hosts file in a way, that we can't unblock it.<br>
+Please refer to your antivirus program's manual to find out how to disable hosts file protection.<br>
 <br>
+Avira Antivirus: https://answers.avira.com/de/question/avira-blocks-hosts-file-what-can-i-do-90<br>
+Others: https://www.devside.net/wamp-server/unlock-and-unblock-the-windows-hosts-file<br>
+<br>
+<br>
+<h3><b>Settings:</b></h3>
+
+![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")<br>
+
 <br>
 Overwrite hosts file URLs:<br>
 =======================================================================<br>

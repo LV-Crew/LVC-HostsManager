@@ -7,7 +7,6 @@ Therfore you are protected from tracking and from spam ads and from whatever you
 
 Screenshot
 
-
 In long ...:
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).
 - The Hosts-Files-List is saved by the app.
@@ -19,9 +18,17 @@ https://github.com/StevenBlack/hosts
 https://github.com/LV-Crew/hosts
 
 
-Settings:
-![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")
+Antivirus:
+Many antivirus programs do block the hosts file in a way, that we can't unblock it.
+Please refer to your antivirus program's manual to find out how to disable hosts file protection.
 
+Avira Antivirus: https://answers.avira.com/de/question/avira-blocks-hosts-file-what-can-i-do-90
+Others: https://www.devside.net/wamp-server/unlock-and-unblock-the-windows-hosts-file
+
+
+Settings:
+
+Screenshot
 
 Overwrite hosts file URLs:
 =======================================================================
