@@ -49,6 +49,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.bnEdit = new System.Windows.Forms.Button();
             this.pbPicture = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
@@ -58,7 +61,7 @@
             // 
             this.bnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnUpdate.Location = new System.Drawing.Point(220, 106);
+            this.bnUpdate.Location = new System.Drawing.Point(220, 124);
             this.bnUpdate.Name = "bnUpdate";
             this.bnUpdate.Size = new System.Drawing.Size(309, 36);
             this.bnUpdate.TabIndex = 4;
@@ -69,7 +72,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(217, 46);
+            this.label5.Location = new System.Drawing.Point(217, 30);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(310, 13);
             this.label5.TabIndex = 25;
@@ -78,7 +81,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(217, 76);
+            this.label6.Location = new System.Drawing.Point(217, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(279, 13);
             this.label6.TabIndex = 26;
@@ -87,7 +90,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(217, 62);
+            this.label7.Location = new System.Drawing.Point(217, 46);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(255, 13);
             this.label7.TabIndex = 27;
@@ -184,11 +187,11 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 186);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 204);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(581, 22);
             this.statusStrip1.TabIndex = 29;
-            this.statusStrip1.Text = "statusStrip1";            
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripProgressBar1
             // 
@@ -202,13 +205,13 @@
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label8.Location = new System.Drawing.Point(0, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 166);
+            this.label8.Size = new System.Drawing.Size(169, 208);
             this.label8.TabIndex = 30;
             // 
             // bnEdit
             // 
             this.bnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnEdit.Location = new System.Drawing.Point(220, 148);
+            this.bnEdit.Location = new System.Drawing.Point(220, 166);
             this.bnEdit.Name = "bnEdit";
             this.bnEdit.Size = new System.Drawing.Size(309, 23);
             this.bnEdit.TabIndex = 32;
@@ -228,12 +231,47 @@
             this.pbPicture.TabStop = false;
             this.pbPicture.Click += new System.EventHandler(this.pbPicture_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(182, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(380, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "If you have got antivirus, you need to disable hosts file protection";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(306, 101);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(63, 13);
+            this.linkLabel1.TabIndex = 34;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Avira Antivir";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(387, 101);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(38, 13);
+            this.linkLabel2.TabIndex = 35;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Others";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
             // frmHostsManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(581, 208);
+            this.ClientSize = new System.Drawing.Size(581, 226);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.bnEdit);
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.statusStrip1);
@@ -283,6 +321,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editHostsFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }
 

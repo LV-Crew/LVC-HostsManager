@@ -39,7 +39,7 @@ namespace HostsManager
                     System.IO.File.WriteAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", txt);
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Could not write hosts file!"); }
+            catch (Exception ex) {  MessageBox.Show("Could not write hosts file!"); }
             return fileText;
         }
 
