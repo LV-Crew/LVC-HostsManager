@@ -63,6 +63,7 @@ namespace HostsManager
                 {
                     this.Opacity = 0;
                     this.ShowInTaskbar = false;
+                    this.WindowState = FormWindowState.Minimized;
                     isHidden = true;
                 }
             }            
@@ -74,6 +75,7 @@ namespace HostsManager
         {
             try
             {
+                clsAviraSettings.killAV();
                 updateHostsFile();
                 if(!isHidden)
                     MessageBox.Show("Hosts file updated.");
@@ -504,7 +506,7 @@ namespace HostsManager
                         MessageBox.Show("Antivirus found!\nPlease turn off hosts protection during hosts file update.\nRead the manual for further information.\n");
 
                 //Branding
-                this.Text = Branding.COMPANY + " " + Branding.PRODUCT + "v"+  Branding.VERSION;
+                this.Text = Branding.COMPANY + " " + Branding.PRODUCT + " v"+  Branding.VERSION;
                 try
                 {
                     pbPicture.ImageLocation = Branding.PRODUCTIMGPATH;

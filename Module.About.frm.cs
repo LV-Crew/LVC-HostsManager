@@ -20,7 +20,7 @@ namespace HostsManager
 
         private void frmAbout_Load(object sender, EventArgs e)
         {
-            lblVersion.Text = "Version: v"+Branding.VERSION;
+            lblVersion.Text = "Version: "+Branding.VERSION;
             lblName.Text = Branding.COMPANY + " "+Branding.PRODUCT;
             pbPicture.ImageLocation = Branding.PRODUCTIMGPATH;
             try
