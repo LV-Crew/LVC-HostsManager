@@ -524,5 +524,20 @@ namespace HostsManager
         {
             Process.Start("https://www.devside.net/wamp-server/unlock-and-unblock-the-windows-hosts-file");
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

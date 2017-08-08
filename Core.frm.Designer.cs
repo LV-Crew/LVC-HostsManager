@@ -60,10 +60,10 @@
             // bnUpdate
             // 
             this.bnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnUpdate.Location = new System.Drawing.Point(220, 124);
+            this.bnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnUpdate.Location = new System.Drawing.Point(178, 151);
             this.bnUpdate.Name = "bnUpdate";
-            this.bnUpdate.Size = new System.Drawing.Size(309, 36);
+            this.bnUpdate.Size = new System.Drawing.Size(430, 86);
             this.bnUpdate.TabIndex = 4;
             this.bnUpdate.Text = "Update hosts file";
             this.bnUpdate.UseVisualStyleBackColor = true;
@@ -72,29 +72,35 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(217, 30);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(175, 33);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(310, 13);
+            this.label5.Size = new System.Drawing.Size(389, 16);
             this.label5.TabIndex = 25;
-            this.label5.Text = "This program allows you to update your hosts file with a blacklist.";
+            this.label5.Text = "This program allows you to update your hosts-file with a blacklist.";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(217, 60);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(175, 65);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(279, 13);
+            this.label6.Size = new System.Drawing.Size(534, 16);
             this.label6.TabIndex = 26;
-            this.label6.Text = "Thus, you are protected from tracking and from spam ads.";
+            this.label6.Text = "Therfore you are protected from tracking and from spam ads and from whatever you " +
+    "want.";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(217, 46);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(175, 49);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(255, 13);
+            this.label7.Size = new System.Drawing.Size(387, 16);
             this.label7.TabIndex = 27;
-            this.label7.Text = "Blacklisted traffic is being redirected to a white page.";
+            this.label7.Text = "The blacklisted traffic is being redirected to a IP/Path (localhost).";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // menuStrip1
             // 
@@ -104,7 +110,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(581, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(710, 24);
             this.menuStrip1.TabIndex = 28;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -187,9 +193,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 204);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 250);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(581, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(710, 22);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -203,17 +209,18 @@
             // label8
             // 
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Location = new System.Drawing.Point(0, 23);
+            this.label8.Location = new System.Drawing.Point(0, 33);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 208);
+            this.label8.Size = new System.Drawing.Size(169, 204);
             this.label8.TabIndex = 30;
             // 
             // bnEdit
             // 
             this.bnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnEdit.Location = new System.Drawing.Point(220, 166);
+            this.bnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnEdit.Location = new System.Drawing.Point(614, 151);
             this.bnEdit.Name = "bnEdit";
-            this.bnEdit.Size = new System.Drawing.Size(309, 23);
+            this.bnEdit.Size = new System.Drawing.Size(85, 86);
             this.bnEdit.TabIndex = 32;
             this.bnEdit.Text = "Edit hosts file";
             this.bnEdit.UseVisualStyleBackColor = true;
@@ -223,9 +230,9 @@
             // 
             this.pbPicture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbPicture.InitialImage = null;
-            this.pbPicture.Location = new System.Drawing.Point(12, 32);
+            this.pbPicture.Location = new System.Drawing.Point(0, 49);
             this.pbPicture.Name = "pbPicture";
-            this.pbPicture.Size = new System.Drawing.Size(146, 146);
+            this.pbPicture.Size = new System.Drawing.Size(169, 170);
             this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPicture.TabIndex = 31;
             this.pbPicture.TabStop = false;
@@ -234,30 +241,33 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(182, 82);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(175, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(380, 13);
+            this.label1.Size = new System.Drawing.Size(454, 16);
             this.label1.TabIndex = 33;
-            this.label1.Text = "If you have got antivirus, you need to disable hosts file protection";
+            this.label1.Text = "If you have an antivirus, you need to disable hosts file protection!";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(306, 101);
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(175, 112);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(63, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(92, 16);
             this.linkLabel1.TabIndex = 34;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Avira Antivir";
+            this.linkLabel1.Text = "Avira Antivirus";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(387, 101);
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Location = new System.Drawing.Point(273, 112);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(38, 13);
+            this.linkLabel2.Size = new System.Drawing.Size(47, 16);
             this.linkLabel2.TabIndex = 35;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Others";
@@ -268,7 +278,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(581, 226);
+            this.ClientSize = new System.Drawing.Size(710, 272);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
@@ -284,7 +294,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
             this.Name = "frmHostsManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LV-Crew HostsManager";

@@ -59,15 +59,5 @@ namespace HostsManager.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logo_hostfilemanager {
-            get {
-                object obj = ResourceManager.GetObject("logo_hostfilemanager", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

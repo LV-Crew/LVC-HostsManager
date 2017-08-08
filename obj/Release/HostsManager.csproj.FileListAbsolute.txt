@@ -1,0 +1,12 @@
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\Release\HostsManager.exe.config
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\Release\HostsManager.exe
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\Release\HostsManager.pdb
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.frmAbout.resources
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.frmHostsManager.resources
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.frmEditHosts.resources
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.frmOptions.resources
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.Properties.Resources.resources
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.exe
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.pdb
