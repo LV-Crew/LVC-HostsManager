@@ -1,10 +1,10 @@
 # HostsManager
-This program allows you to update your hosts-file with a blacklist.<br>
-The blacklisted traffic is being redirected to a IP/Path (localhost).<br>
-Therfore you are protected from tracking and from spam ads and from whatever you want.<br>
+This program allows you to update your hosts file with a blacklist.<br>
+The blacklisted traffic is being redirected to a whitepage (or a URL/localhost).<br>
+Therfore you are protected from tracking and from spam ads and more.<br>
 (In short...)<br>
 
-![Screenshot](http://i.imgur.com/QR935Oo.png "Screenshot")<br>
+![Screenshot](http://i.imgur.com/pGyqMlS.png "Screenshot")<br>
 
 <br>
 <h3><b>In long ...:</b></h3>
@@ -28,7 +28,7 @@ Others: https://www.devside.net/wamp-server/unlock-and-unblock-the-windows-hosts
 <br>
 <h3><b>Settings:</b></h3>
 
-![Screenshot](http://i.imgur.com/8cXddH1.png "Screenshot")<br>
+![Screenshot](http://i.imgur.com/odYjfFi.png "Screenshot")<br>
 
 <br>
 Overwrite hosts file URLs:<br>
@@ -175,3 +175,4 @@ Release: https://github.com/LV-Crew/HostsManager/releases/<br>
 <h3><b>Some Dev notes:</b></h3>
 - Version-Bump to 2017.xx.xxa (yyyy.mm.dd + letter)<br>
 - File-Names are LV-Crew.HostsManager.xxx.xyz<br>
+- Default Window Icons from https://icons8.com<br>
