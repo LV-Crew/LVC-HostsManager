@@ -77,7 +77,7 @@ namespace HostsManager
 
         private void bnAdd_Click(object sender, EventArgs e)
         {
-            if(txtURL.Text!="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts")
+            if (txtURL.Text != "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts")
                 lbURLs.Items.Add(txtURL.Text);
         }
 
