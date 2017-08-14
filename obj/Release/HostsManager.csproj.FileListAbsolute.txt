@@ -10,3 +10,7 @@ C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.Pr
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.exe
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.pdb
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\Interop.WMPLib.dll
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.csproj.ResolveComReference.cache
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.frmDialog.resources
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\Release\HostsManager.frmNotifyAntivirus.resources

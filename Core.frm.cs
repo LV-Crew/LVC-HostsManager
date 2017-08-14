@@ -745,17 +745,17 @@ namespace HostsManager
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonWindowClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void buttonWindowMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -812,7 +812,7 @@ namespace HostsManager
                 pictureBox2.ImageLocation = Branding.PRODUCTIMGPATH;
             }
             catch (Exception ex) { }
-            tabControl1.SelectedIndex = 2;
+            tabControl1.SelectedIndex = 3;
             lblPage.Text = "About";
 
         }
@@ -839,7 +839,7 @@ namespace HostsManager
 
         private void button8_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 3;
+            tabControl1.SelectedIndex = 2;
             resetButtons();
             ((Button)sender).BackColor = Color.Navy;
             lblPage.Text = "Help";
@@ -1118,6 +1118,11 @@ namespace HostsManager
         }
 
         private void lbAddHosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
         {
 
         }
