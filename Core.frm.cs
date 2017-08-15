@@ -62,19 +62,21 @@ namespace HostsManager
         private String hostsURL = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
         public ArrayList urls = new ArrayList();
         public ArrayList addHosts = new ArrayList();
-        private bool internalEditor = false;
+        private String internalEditor = "INTERNAL";
         private bool autoUpdate = false;
         private bool isHidden = false;
-        private bool showFakeNews=false;
-        private bool showGambling=false;
-        private bool showPorn=false;
-        private bool showSocial=false;
+        private bool showFakeNews = false;
+        private bool showGambling = false;
+        private bool showPorn = false;
+        private bool showSocial = false;
+        private bool useInternalBlacklist = true;
+        private String externalEditorFile = "";
 
         public frmHostsManager()
         {
             InitializeComponent();
             clsBrandingINI.readINI();
-            loadSettings();            
+            loadSettings();
 
             //Check whether to run silently
             String[] arguments = Environment.GetCommandLineArgs();
@@ -119,10 +121,13 @@ namespace HostsManager
         }
 
         private System.Media.SoundPlayer player;
+
         //Load main form
         private void frmHostsManager_Load(object sender, EventArgs e)
         {
-            try {
+            txtCustomEditor.Text = Environment.GetEnvironmentVariable("windir") + "\\system32\\notepad.exe";
+            try
+            {
                 if (!isHidden)
                 {
                     player = new System.Media.SoundPlayer();
@@ -130,7 +135,10 @@ namespace HostsManager
                     player.SoundLocation = "bgnd.wav";
                     player.Play();
                 }
-            }catch(Exception ex) {}
+            }
+            catch (Exception ex)
+            {
+            }
 
 
             //Hide tabs
@@ -138,12 +146,28 @@ namespace HostsManager
             tabControl1.ItemSize = new Size(0, 1);
             tabControl1.SizeMode = TabSizeMode.Fixed;
 
+            
+            tabControl2.Appearance = TabAppearance.FlatButtons;
+
+
+
             //Add form move
             Application.AddMessageFilter(this);
 
             controlsToMove.Add(this);
             controlsToMove.Add(this.tabControl1);
             controlsToMove.Add(this.panel2);
+
+            if (useInternalBlacklist)
+            {
+                rbUseCustomlBlacklist.Checked = false;
+                rbUseStevensBlacklist.Checked = true;
+            }
+            else
+            {
+                rbUseCustomlBlacklist.Checked = true;
+                rbUseStevensBlacklist.Checked = false;
+            }
 
             //Import Certificate Authority
             importCert();
@@ -176,39 +200,7 @@ namespace HostsManager
         //Show options dialog
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmOptions o = new frmOptions();
-            o.fileText = fileText;
-            o.url = hostsURL;
-            o.convFrom = ipFrom;
-            o.convTo = ipTo;
-            o.urls = urls;
-            o.hosts = addHosts;
-            o.internalEditor = internalEditor;
-            o.autoUpdate = autoUpdate;
-            o.ShowDialog();
-            if (o.DialogResult == DialogResult.OK)
-            {
-                if (o.fileText != "")
-                    fileText = o.fileText;
-                if (o.convTo != "")
-                    ipTo = o.convTo;
-                if (o.convFrom != "")
-                    ipFrom = o.convFrom;
-                if (o.url != "")
-                    hostsURL = o.url;
-
-                urls = o.urls;
-                addHosts = o.hosts;
-
-                autoUpdate = o.autoUpdate;
-                internalEditor = o.internalEditor;
-
-                //Save settings to registry/XML
-                saveSettings();
-                //Create Task for auto update
-                doAutoUpdate();
-
-            }
+            
         }
 
         //Exit
@@ -297,10 +289,17 @@ namespace HostsManager
                     ipTo = "";
                 //Use internal editor?
                 String b = (String) mexampleRegistryKey.GetValue("UseInternalEditor");
-                if (b == "TRUE")
-                    internalEditor = true;
+                if (b == "INTERNAL")
+                    internalEditor = "INTERNAL";
+                else if (b == "WORDPAD")
+                    internalEditor = "WORDPAD";
                 else
-                    internalEditor = false;
+                    internalEditor = "CUSTOM";
+                b = (String)mexampleRegistryKey.GetValue("ExternalEditorFile");
+                externalEditorFile = b;
+
+
+
                 //Auto Update?
                 b = (String) mexampleRegistryKey.GetValue("AutoUpdate");
                 if (b == "TRUE")
@@ -308,26 +307,31 @@ namespace HostsManager
                 else
                     autoUpdate = false;
 
-                b = (String)mexampleRegistryKey.GetValue("ShowFakeNews");
+                b = (String) mexampleRegistryKey.GetValue("ShowFakeNews");
                 if (b == "TRUE")
                     showFakeNews = true;
                 else
                     showFakeNews = false;
-                b = (String)mexampleRegistryKey.GetValue("ShowSocial");
+                b = (String) mexampleRegistryKey.GetValue("ShowSocial");
                 if (b == "TRUE")
                     showSocial = true;
                 else
                     showSocial = false;
-                b = (String)mexampleRegistryKey.GetValue("ShowGambling");
+                b = (String) mexampleRegistryKey.GetValue("ShowGambling");
                 if (b == "TRUE")
                     showGambling = true;
                 else
                     showGambling = false;
-                b = (String)mexampleRegistryKey.GetValue("ShowPorn");
+                b = (String) mexampleRegistryKey.GetValue("ShowPorn");
                 if (b == "TRUE")
                     showPorn = true;
                 else
                     showPorn = false;
+                b = (String) mexampleRegistryKey.GetValue("UseInternalBlacklist");
+                if (b == "FALSE")
+                    useInternalBlacklist = false;
+                else
+                    useInternalBlacklist = true;
 
 
             }
@@ -368,15 +372,24 @@ namespace HostsManager
             exampleRegistryKey.SetValue("ipFrom", ipFrom);
             exampleRegistryKey.SetValue("ipTo", ipTo);
             //Use internal editor?
-            if (internalEditor)
-                exampleRegistryKey.SetValue("UseInternalEditor", "TRUE");
+            if (internalEditor=="INTERNAL")
+                exampleRegistryKey.SetValue("UseInternalEditor", "INTERNAL");
+            else if(internalEditor=="WORDPAD")
+                exampleRegistryKey.SetValue("UseInternalEditor", "WORDPAD");
             else
-                exampleRegistryKey.SetValue("UseInternalEditor", "FALSE");
+                exampleRegistryKey.SetValue("UseInternalEditor", "CUSTOM");
+            exampleRegistryKey.SetValue("ExternalEditorFile", externalEditorFile);
+
             //AutoUpdate?
             if (autoUpdate)
                 exampleRegistryKey.SetValue("AutoUpdate", "TRUE");
             else
                 exampleRegistryKey.SetValue("AutoUpdate", "FALSE");
+
+            if (useInternalBlacklist)
+                exampleRegistryKey.SetValue("UseInternalBlacklist", "TRUE");
+            else
+                exampleRegistryKey.SetValue("UseInternalBlacklist", "FALSE");
 
 
             exampleRegistryKey.Close();
@@ -384,18 +397,23 @@ namespace HostsManager
             var serializer = new XmlSerializer(typeof(ArrayList), new Type[] {typeof(String)});
             try
             {
-                serializer.Serialize(XmlWriter.Create("settings.xml"), urls);
+                XmlWriter w = XmlWriter.Create("Settings.xml");
+                serializer.Serialize(w, urls);
+                w.Close();
             }
             catch (Exception ex)
             {
                 if (!isHidden) MessageBox.Show("Could not save settings.");
             }
+            
 
             //Write additional Hosts to blacklist.xml
             var serializer1 = new XmlSerializer(typeof(ArrayList), new Type[] {typeof(String)});
             try
             {
-                serializer1.Serialize(XmlWriter.Create("blacklist.xml"), addHosts);
+                XmlWriter w = XmlWriter.Create("Blacklist.xml");
+                serializer1.Serialize(w, addHosts);
+                w.Close();
             }
             catch (Exception ex)
             {
@@ -446,14 +464,14 @@ namespace HostsManager
             String[] zeilen = input.Split('\n');
             String output = "";
             int y;
-            for(y=0;y<zeilen.Length;y++)
+            for (y = 0; y < zeilen.Length; y++)
             {
                 String zeile = zeilen[y];
                 bool duplicate = false;
                 for (int i = 0; i < zeilen.Length; i++)
                 {
                     String subzeile = zeilen[i];
-                    if (subzeile == zeile && i!=y)
+                    if (subzeile == zeile && i != y)
                     {
                         duplicate = true;
                         zeilen[i] = "";
@@ -466,10 +484,11 @@ namespace HostsManager
         }
 
         private frmDialog dlg;
+
         public void showDialog(object action)
         {
-            dlg = new frmDialog();            
-            dlg.action = (String)action;
+            dlg = new frmDialog();
+            dlg.action = (String) action;
             dlg.ShowDialog();
         }
 
@@ -504,10 +523,10 @@ namespace HostsManager
 
 
                 //Read hosts files from web
-                if (fileText == "")
+                if (useInternalBlacklist == false)
                     foreach (String u in urls)
                         fileText += wc.DownloadString(u) + "\r\n";
-                if (urls.Count == 0)
+                if (urls.Count == 0 || useInternalBlacklist == true)
                 {
                     fileText = wc.DownloadString("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
                     if (showFakeNews)
@@ -524,7 +543,7 @@ namespace HostsManager
                             "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts");
                 }
 
-                if(!isHidden)
+                if (!isHidden)
                     closeDialog();
 
                 if (!isHidden)
@@ -542,7 +561,7 @@ namespace HostsManager
                 if (!fileText.Contains((char) 13))
                     fileText = fileText.Replace("\n", "\r\n");
 
-                if(!isHidden)
+                if (!isHidden)
                     closeDialog();
 
                 //Write temp hosts file
@@ -556,7 +575,7 @@ namespace HostsManager
                 System.IO.File.Delete("hosts.tmp");
                 //Reset permissions
                 resetHostsFilePermissions(fs);
-                
+
             }
             catch (Exception ex) //Hosts file update
             {
@@ -745,19 +764,19 @@ namespace HostsManager
 
         }
 
-        private void buttonWindowClose_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void buttonWindowMinimize_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-        }
-
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -765,7 +784,7 @@ namespace HostsManager
             fillOptions();
             tabControl1.SelectedIndex = 1;
             resetButtons();
-            ((Button)sender).BackColor = Color.Navy;
+            ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Options";
             /*
             frmOptions o = new frmOptions();
@@ -806,12 +825,14 @@ namespace HostsManager
         private void button3_Click(object sender, EventArgs e)
         {
             lblVersion.Text = "Version: " + Branding.VERSION;
-            lblName.Text = Branding.COMPANY + " " + Branding.PRODUCT;            
+            lblName.Text = Branding.COMPANY + " " + Branding.PRODUCT;
             try
             {
                 pictureBox2.ImageLocation = Branding.PRODUCTIMGPATH;
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+            }
             tabControl1.SelectedIndex = 3;
             lblPage.Text = "About";
 
@@ -821,7 +842,7 @@ namespace HostsManager
         {
             tabControl1.SelectedIndex = 0;
             resetButtons();
-            ((Button)sender).BackColor = Color.Navy;
+            ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Main";
         }
 
@@ -841,7 +862,7 @@ namespace HostsManager
         {
             tabControl1.SelectedIndex = 2;
             resetButtons();
-            ((Button)sender).BackColor = Color.Navy;
+            ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Help";
             webBrowser1.Navigate("http://hostsmanager.lv-crew.org/readme.html");
         }
@@ -854,7 +875,7 @@ namespace HostsManager
                 updateHostsFile();
                 if (!isHidden)
                 {
-                    frmDialog f=new frmDialog();
+                    frmDialog f = new frmDialog();
                     f.showButton = true;
                     f.action = "Hosts file updated.";
                     f.ShowDialog();
@@ -869,7 +890,7 @@ namespace HostsManager
         private void bnEdit_Click_1(object sender, EventArgs e)
         {
             FileSecurity fs = setHostsFilePermissions();
-            doEdit.edit(internalEditor, urls);
+            doEdit.edit(internalEditor, urls,externalEditorFile);
             resetHostsFilePermissions(fs);
         }
 
@@ -952,16 +973,29 @@ namespace HostsManager
 
 
             //Use internal editor?
-            if (internalEditor)
+            if (internalEditor == "" || internalEditor == null)
+                internalEditor = "INTERNAL";
+            if (internalEditor=="INTERNAL")
             {
                 rbInternal.Checked = true;
                 rbExternal.Checked = false;
+                rbCustom.Checked = false;
             }
-            else
+            else if(internalEditor=="WORDPAD")
             {
                 rbExternal.Checked = true;
                 rbInternal.Checked = false;
+                rbCustom.Checked = false;
             }
+            else if (internalEditor == "CUSTOM")
+            {
+                rbCustom.Checked = true;
+                rbInternal.Checked = false;
+                rbExternal.Checked = false;
+            }
+            if(externalEditorFile!="")
+                txtCustomEditor.Text = externalEditorFile;
+
 
             //Auto Update?
             if (autoUpdate)
@@ -982,9 +1016,12 @@ namespace HostsManager
                 autoUpdate = false;
 
             if (rbInternal.Checked)
-                internalEditor = true;
+                internalEditor = "INTERNAL";
+            else if (rbExternal.Checked)
+                internalEditor = "WORDPAD";
             else
-                internalEditor = false;
+                internalEditor = "CUSTOM";
+            txtCustomEditor.Text = externalEditorFile;
 
             if ((txtFrom.ForeColor == Color.Gray && txtTo.ForeColor == Color.Black) ||
                 (txtFrom.ForeColor == Color.Black && txtTo.ForeColor == Color.Gray))
@@ -1060,7 +1097,7 @@ namespace HostsManager
             showFakeNews = cbFakeNews.Checked;
             showGambling = cbGambling.Checked;
             showPorn = cbPorb.Checked;
-            showSocial = cbSocial.Checked;         
+            showSocial = cbSocial.Checked;
         }
 
         private void loadListsToDownload()
@@ -1073,7 +1110,7 @@ namespace HostsManager
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
- 
+
         }
 
         private void cbPorb_Click(object sender, EventArgs e)
@@ -1109,22 +1146,146 @@ namespace HostsManager
             }
             else
             {
-                if(player!=null)
+                if (player != null)
                     player.Stop();
             }
-
-
-
         }
 
-        private void lbAddHosts_SelectedIndexChanged(object sender, EventArgs e)
+        private void rbUseStevensBlacklist_CheckedChanged(object sender, EventArgs e)
+        {
+            Microsoft.Win32.RegistryKey exampleRegistryKey =
+                Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
+            useInternalBlacklist = rbUseStevensBlacklist.Checked;
+            if (rbUseStevensBlacklist.Checked)
+            {
+                exampleRegistryKey.SetValue("UseInternalBlacklist", "TRUE");
+            }
+            else
+            {
+                exampleRegistryKey.SetValue("UseInternalBlacklist", "FALSE");
+            }
+        }
+
+        private void bnAddHost_Click_1(object sender, EventArgs e)
+        {
+            if (txtAddHost.Text != "")
+                lbAddHosts.Items.Add(txtAddHost.Text);
+        }
+
+        private void bnRemoveHost_Click_1(object sender, EventArgs e)
+        {
+            if (lbAddHosts.SelectedIndex >= 0)
+                lbAddHosts.Items.Remove(lbAddHosts.SelectedItem);
+        }
+
+        private void bnAdd_Click_1(object sender, EventArgs e)
+        {
+            if (txtURL.Text != "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts")
+                lbURLs.Items.Add(txtURL.Text);
+        }
+
+        private void bnRemove_Click_1(object sender, EventArgs e)
+        {
+
+            if (lbURLs.SelectedIndex >= 0)
+                lbURLs.Items.Remove(lbURLs.SelectedItem);
+        }
+
+        private void bnSave_Click(object sender, EventArgs e)
+        {
+            if ((rbCustom.Checked && File.Exists(txtCustomEditor.Text)) || rbExternal.Checked || rbInternal.Checked)
+            {
+                saveSettingsOptions();
+                saveSettings();
+            }
+            else
+            {
+                frmDialog f = new frmDialog();
+                f.action = "Please enter a a valid editor path.";
+                f.showButton = true;
+                f.ShowDialog();
+            }
+        }
+
+        public void saveSettingsOptions()
+        {
+            if (cbAutoUpdate.Checked)
+                autoUpdate = true;
+            else
+                autoUpdate = false;
+
+            if (rbInternal.Checked)
+            {
+                internalEditor = "INTERNAL";
+            }
+            else if (rbExternal.Checked)
+            {
+                internalEditor = "WORDPAD";
+            }
+            else
+            {
+                internalEditor = "CUSTOM";
+                externalEditorFile = txtCustomEditor.Text;
+            }
+
+            if ((txtFrom.ForeColor == Color.Gray && txtTo.ForeColor == Color.Black) ||
+                (txtFrom.ForeColor == Color.Black && txtTo.ForeColor == Color.Gray))
+                MessageBox.Show("Please enter both \"From\" and \"To\" IP");
+            else
+            {
+                if (txtFrom.Text != "")
+                    ipFrom = txtFrom.Text;
+                if (txtTo.Text != "")
+                    ipTo = txtTo.Text;
+                urls.Clear();
+                foreach (String item in lbURLs.Items)
+                {
+                    urls.Add(item);
+                }
+                addHosts.Clear();
+                foreach (String host in lbAddHosts.Items)
+                {
+                    addHosts.Add(host);
+                }
+            }
+        }
+
+        private void lblHostsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/StevenBlack/hosts");
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label5_Click_1(object sender, EventArgs e)
+        private void bnCustomEditor_Click(object sender, EventArgs e)
         {
+            OpenFileDialog d=new OpenFileDialog();
+            d.Filter = "Application (*.exe)|*.exe";
+            d.DefaultExt = ".exe";
+            DialogResult res=d.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                txtCustomEditor.Text = d.FileName;
+            }
+        }
 
+        private void bnSaveOptions2_Click(object sender, EventArgs e)
+        {
+            if ((rbCustom.Checked && File.Exists(txtCustomEditor.Text)) || rbExternal.Checked || rbInternal.Checked)
+            {
+                saveSettingsOptions();
+                saveSettings();
+            }
+            else
+            {
+                frmDialog f=new frmDialog();
+                f.action = "Please enter a a valid editor path.";
+                f.showButton = true;
+                f.ShowDialog();
+            }
         }
     }
 }

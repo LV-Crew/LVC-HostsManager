@@ -49,15 +49,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rbUseCustomlBlacklist = new System.Windows.Forms.RadioButton();
+            this.rbUseStevensBlacklist = new System.Windows.Forms.RadioButton();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.bnEdit = new System.Windows.Forms.Button();
-            this.cbSocial = new System.Windows.Forms.CheckBox();
-            this.cbPorb = new System.Windows.Forms.CheckBox();
-            this.cbGambling = new System.Windows.Forms.CheckBox();
-            this.cbFakeNews = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,28 +63,52 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMain = new System.Windows.Forms.TabPage();
             this.tabOptions = new System.Windows.Forms.TabPage();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbSocial = new System.Windows.Forms.CheckBox();
+            this.cbPorb = new System.Windows.Forms.CheckBox();
+            this.cbGambling = new System.Windows.Forms.CheckBox();
+            this.cbFakeNews = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.bnSave = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.bnRemove = new System.Windows.Forms.Button();
+            this.lbURLs = new System.Windows.Forms.ListBox();
+            this.bnAdd = new System.Windows.Forms.Button();
+            this.txtURL = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtAddHost = new System.Windows.Forms.TextBox();
             this.lbAddHosts = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bnRemoveHost = new System.Windows.Forms.Button();
             this.bnAddHost = new System.Windows.Forms.Button();
-            this.rbExternal = new System.Windows.Forms.RadioButton();
-            this.rbInternal = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.bnSaveOptions2 = new System.Windows.Forms.Button();
+            this.bnCustomEditor = new System.Windows.Forms.Button();
+            this.txtCustomEditor = new System.Windows.Forms.TextBox();
+            this.rbCustom = new System.Windows.Forms.RadioButton();
             this.cbAutoUpdate = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.bnRemove = new System.Windows.Forms.Button();
-            this.lbURLs = new System.Windows.Forms.ListBox();
-            this.bnAdd = new System.Windows.Forms.Button();
-            this.txtFrom = new System.Windows.Forms.TextBox();
-            this.txtURL = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtTo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtTo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtFrom = new System.Windows.Forms.TextBox();
+            this.rbInternal = new System.Windows.Forms.RadioButton();
+            this.rbExternal = new System.Windows.Forms.RadioButton();
+            this.tabHelp = new System.Windows.Forms.TabPage();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabAbout = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -97,12 +116,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
-            this.tabHelp = new System.Windows.Forms.TabPage();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.panel1.SuspendLayout();
@@ -110,12 +126,16 @@
             this.tabControl1.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabOptions.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tabAbout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabHelp.SuspendLayout();
+            this.tabAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -299,42 +319,38 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(798, -1);
+            this.button5.Location = new System.Drawing.Point(790, -1);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(16, 16);
+            this.button5.Size = new System.Drawing.Size(24, 24);
             this.button5.TabIndex = 38;
-            this.button5.Text = "X";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
+            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.Location = new System.Drawing.Point(782, -1);
+            this.button6.Location = new System.Drawing.Point(767, -1);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(16, 16);
+            this.button6.Size = new System.Drawing.Size(24, 24);
             this.button6.TabIndex = 39;
-            this.button6.Text = "X";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rbUseCustomlBlacklist);
+            this.panel1.Controls.Add(this.rbUseStevensBlacklist);
             this.panel1.Controls.Add(this.checkBox2);
-            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.bnEdit);
-            this.panel1.Controls.Add(this.cbSocial);
-            this.panel1.Controls.Add(this.cbPorb);
-            this.panel1.Controls.Add(this.cbGambling);
-            this.panel1.Controls.Add(this.cbFakeNews);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
@@ -342,32 +358,45 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(637, 297);
+            this.panel1.Size = new System.Drawing.Size(637, 325);
             this.panel1.TabIndex = 45;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // rbUseCustomlBlacklist
+            // 
+            this.rbUseCustomlBlacklist.AutoSize = true;
+            this.rbUseCustomlBlacklist.Location = new System.Drawing.Point(42, 146);
+            this.rbUseCustomlBlacklist.Name = "rbUseCustomlBlacklist";
+            this.rbUseCustomlBlacklist.Size = new System.Drawing.Size(124, 17);
+            this.rbUseCustomlBlacklist.TabIndex = 61;
+            this.rbUseCustomlBlacklist.Text = "Use Custom Blacklist";
+            this.rbUseCustomlBlacklist.UseVisualStyleBackColor = true;
+            // 
+            // rbUseStevensBlacklist
+            // 
+            this.rbUseStevensBlacklist.AutoSize = true;
+            this.rbUseStevensBlacklist.Checked = true;
+            this.rbUseStevensBlacklist.Location = new System.Drawing.Point(42, 129);
+            this.rbUseStevensBlacklist.Name = "rbUseStevensBlacklist";
+            this.rbUseStevensBlacklist.Size = new System.Drawing.Size(160, 17);
+            this.rbUseStevensBlacklist.TabIndex = 60;
+            this.rbUseStevensBlacklist.TabStop = true;
+            this.rbUseStevensBlacklist.Text = "Use Steven Black\'s Blacklist";
+            this.rbUseStevensBlacklist.UseVisualStyleBackColor = true;
+            this.rbUseStevensBlacklist.CheckedChanged += new System.EventHandler(this.rbUseStevensBlacklist_CheckedChanged);
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(517, 297);
+            this.checkBox2.Location = new System.Drawing.Point(380, 217);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(114, 17);
             this.checkBox2.TabIndex = 59;
             this.checkBox2.Text = "Background music";
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged_1);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Silver;
-            this.label11.Location = new System.Drawing.Point(43, 130);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 13);
-            this.label11.TabIndex = 57;
-            this.label11.Text = "Ads / Tracking";
             // 
             // bnEdit
             // 
@@ -380,79 +409,6 @@
             this.bnEdit.Text = "Edit hosts file";
             this.bnEdit.UseVisualStyleBackColor = true;
             this.bnEdit.Click += new System.EventHandler(this.bnEdit_Click_1);
-            // 
-            // cbSocial
-            // 
-            this.cbSocial.AutoSize = true;
-            this.cbSocial.Location = new System.Drawing.Point(24, 195);
-            this.cbSocial.Name = "cbSocial";
-            this.cbSocial.Size = new System.Drawing.Size(55, 17);
-            this.cbSocial.TabIndex = 55;
-            this.cbSocial.Text = "Social";
-            this.cbSocial.UseVisualStyleBackColor = true;
-            this.cbSocial.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            this.cbSocial.Click += new System.EventHandler(this.cbPorb_Click);
-            // 
-            // cbPorb
-            // 
-            this.cbPorb.AutoSize = true;
-            this.cbPorb.Location = new System.Drawing.Point(24, 178);
-            this.cbPorb.Name = "cbPorb";
-            this.cbPorb.Size = new System.Drawing.Size(48, 17);
-            this.cbPorb.TabIndex = 54;
-            this.cbPorb.Text = "Porn";
-            this.cbPorb.UseVisualStyleBackColor = true;
-            this.cbPorb.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            this.cbPorb.Click += new System.EventHandler(this.cbPorb_Click);
-            // 
-            // cbGambling
-            // 
-            this.cbGambling.AutoSize = true;
-            this.cbGambling.Location = new System.Drawing.Point(24, 161);
-            this.cbGambling.Name = "cbGambling";
-            this.cbGambling.Size = new System.Drawing.Size(70, 17);
-            this.cbGambling.TabIndex = 53;
-            this.cbGambling.Text = "Gambling";
-            this.cbGambling.UseVisualStyleBackColor = true;
-            this.cbGambling.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            this.cbGambling.Click += new System.EventHandler(this.cbPorb_Click);
-            // 
-            // cbFakeNews
-            // 
-            this.cbFakeNews.AutoSize = true;
-            this.cbFakeNews.Location = new System.Drawing.Point(24, 146);
-            this.cbFakeNews.Name = "cbFakeNews";
-            this.cbFakeNews.Size = new System.Drawing.Size(80, 17);
-            this.cbFakeNews.TabIndex = 52;
-            this.cbFakeNews.Text = "Fake News";
-            this.cbFakeNews.UseVisualStyleBackColor = true;
-            this.cbFakeNews.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            this.cbFakeNews.Click += new System.EventHandler(this.cbPorb_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(24, 129);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(97, 17);
-            this.checkBox1.TabIndex = 51;
-            this.checkBox1.Text = "Ads / Tracking";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 16);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "Hosts file categorys:";
             // 
             // label7
             // 
@@ -483,13 +439,12 @@
             this.label5.Size = new System.Drawing.Size(388, 16);
             this.label5.TabIndex = 46;
             this.label5.Text = "This program allows you to update your hosts file with a blacklist.";
-            this.label5.Click += new System.EventHandler(this.label5_Click_1);
             // 
             // bnUpdate
             // 
             this.bnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnUpdate.Location = new System.Drawing.Point(8, 240);
+            this.bnUpdate.Location = new System.Drawing.Point(8, 250);
             this.bnUpdate.Name = "bnUpdate";
             this.bnUpdate.Size = new System.Drawing.Size(613, 47);
             this.bnUpdate.TabIndex = 45;
@@ -537,7 +492,7 @@
             this.tabControl1.Location = new System.Drawing.Point(167, 15);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(647, 328);
+            this.tabControl1.Size = new System.Drawing.Size(661, 366);
             this.tabControl1.TabIndex = 50;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             // 
@@ -549,7 +504,7 @@
             this.tabMain.Location = new System.Drawing.Point(4, 25);
             this.tabMain.Name = "tabMain";
             this.tabMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMain.Size = new System.Drawing.Size(639, 299);
+            this.tabMain.Size = new System.Drawing.Size(653, 337);
             this.tabMain.TabIndex = 0;
             this.tabMain.Text = "Main";
             this.tabMain.Click += new System.EventHandler(this.tabMain_Click);
@@ -557,156 +512,199 @@
             // tabOptions
             // 
             this.tabOptions.BackColor = System.Drawing.Color.Black;
-            this.tabOptions.Controls.Add(this.groupBox2);
-            this.tabOptions.Controls.Add(this.button7);
-            this.tabOptions.Controls.Add(this.groupBox1);
+            this.tabOptions.Controls.Add(this.tabControl2);
             this.tabOptions.ForeColor = System.Drawing.Color.White;
             this.tabOptions.Location = new System.Drawing.Point(4, 25);
             this.tabOptions.Name = "tabOptions";
             this.tabOptions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOptions.Size = new System.Drawing.Size(639, 299);
+            this.tabOptions.Size = new System.Drawing.Size(653, 337);
             this.tabOptions.TabIndex = 1;
             this.tabOptions.Text = "Options";
             this.tabOptions.Click += new System.EventHandler(this.tabOptions_Click);
             // 
-            // groupBox2
+            // tabControl2
             // 
-            this.groupBox2.Controls.Add(this.txtAddHost);
-            this.groupBox2.Controls.Add(this.lbAddHosts);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.bnRemoveHost);
-            this.groupBox2.Controls.Add(this.bnAddHost);
-            this.groupBox2.Controls.Add(this.rbExternal);
-            this.groupBox2.Controls.Add(this.rbInternal);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(325, 18);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(303, 251);
-            this.groupBox2.TabIndex = 60;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.tabPage2);
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Location = new System.Drawing.Point(9, 21);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(625, 297);
+            this.tabControl2.TabIndex = 0;
             // 
-            // txtAddHost
+            // tabPage1
             // 
-            this.txtAddHost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddHost.ForeColor = System.Drawing.Color.Black;
-            this.txtAddHost.Location = new System.Drawing.Point(6, 134);
-            this.txtAddHost.Name = "txtAddHost";
-            this.txtAddHost.Size = new System.Drawing.Size(291, 20);
-            this.txtAddHost.TabIndex = 54;
+            this.tabPage1.BackColor = System.Drawing.Color.Black;
+            this.tabPage1.Controls.Add(this.linkLabel1);
+            this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.label18);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.cbSocial);
+            this.tabPage1.Controls.Add(this.cbPorb);
+            this.tabPage1.Controls.Add(this.cbGambling);
+            this.tabPage1.Controls.Add(this.cbFakeNews);
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(617, 271);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Steven Black\'s Blacklist";
             // 
-            // lbAddHosts
+            // linkLabel1
             // 
-            this.lbAddHosts.FormattingEnabled = true;
-            this.lbAddHosts.Location = new System.Drawing.Point(6, 15);
-            this.lbAddHosts.Name = "lbAddHosts";
-            this.lbAddHosts.Size = new System.Drawing.Size(291, 95);
-            this.lbAddHosts.TabIndex = 53;
-            this.lbAddHosts.SelectedIndexChanged += new System.EventHandler(this.lbAddHosts_SelectedIndexChanged);
+            this.linkLabel1.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.linkLabel1.Location = new System.Drawing.Point(-4, 218);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(625, 23);
+            this.linkLabel1.TabIndex = 68;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Steven Black\'s hosts page on GitHub";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblHostsLink_LinkClicked);
             // 
-            // label2
+            // label20
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, -1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 57;
-            this.label2.Text = "Add hosts to blacklist";
+            this.label20.Location = new System.Drawing.Point(0, 47);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(621, 23);
+            this.label20.TabIndex = 67;
+            this.label20.Text = "Please select the categorys that should be blocked.";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bnRemoveHost
+            // label19
             // 
-            this.bnRemoveHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnRemoveHost.BackgroundImage")));
-            this.bnRemoveHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bnRemoveHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnRemoveHost.ForeColor = System.Drawing.Color.Black;
-            this.bnRemoveHost.Location = new System.Drawing.Point(145, 107);
-            this.bnRemoveHost.Name = "bnRemoveHost";
-            this.bnRemoveHost.Size = new System.Drawing.Size(26, 26);
-            this.bnRemoveHost.TabIndex = 56;
-            this.bnRemoveHost.UseVisualStyleBackColor = true;
+            this.label19.Location = new System.Drawing.Point(0, 29);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(617, 23);
+            this.label19.TabIndex = 66;
+            this.label19.Text = "This Blacklist is LV-Crew HostsManager\'s default setting.";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bnAddHost
+            // label18
             // 
-            this.bnAddHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnAddHost.BackgroundImage")));
-            this.bnAddHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bnAddHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnAddHost.ForeColor = System.Drawing.Color.Black;
-            this.bnAddHost.Location = new System.Drawing.Point(120, 108);
-            this.bnAddHost.Name = "bnAddHost";
-            this.bnAddHost.Size = new System.Drawing.Size(26, 26);
-            this.bnAddHost.TabIndex = 55;
-            this.bnAddHost.UseVisualStyleBackColor = true;
+            this.label18.Location = new System.Drawing.Point(0, 12);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(618, 23);
+            this.label18.TabIndex = 65;
+            this.label18.Text = "Steven Black is maintaining a hosts file based blacklist.";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // rbExternal
+            // label11
             // 
-            this.rbExternal.AutoSize = true;
-            this.rbExternal.Checked = true;
-            this.rbExternal.Location = new System.Drawing.Point(101, 193);
-            this.rbExternal.Name = "rbExternal";
-            this.rbExternal.Size = new System.Drawing.Size(69, 17);
-            this.rbExternal.TabIndex = 51;
-            this.rbExternal.TabStop = true;
-            this.rbExternal.Text = "Wordpad";
-            this.rbExternal.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Silver;
+            this.label11.Location = new System.Drawing.Point(265, 104);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(78, 13);
+            this.label11.TabIndex = 64;
+            this.label11.Text = "Ads / Tracking";
             // 
-            // rbInternal
+            // cbSocial
             // 
-            this.rbInternal.AutoSize = true;
-            this.rbInternal.Location = new System.Drawing.Point(101, 176);
-            this.rbInternal.Name = "rbInternal";
-            this.rbInternal.Size = new System.Drawing.Size(60, 17);
-            this.rbInternal.TabIndex = 50;
-            this.rbInternal.Text = "Internal";
-            this.rbInternal.UseVisualStyleBackColor = true;
+            this.cbSocial.AutoSize = true;
+            this.cbSocial.Location = new System.Drawing.Point(246, 169);
+            this.cbSocial.Name = "cbSocial";
+            this.cbSocial.Size = new System.Drawing.Size(55, 17);
+            this.cbSocial.TabIndex = 63;
+            this.cbSocial.Text = "Social";
+            this.cbSocial.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // cbPorb
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 178);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Hosts file editor:";
+            this.cbPorb.AutoSize = true;
+            this.cbPorb.Location = new System.Drawing.Point(246, 152);
+            this.cbPorb.Name = "cbPorb";
+            this.cbPorb.Size = new System.Drawing.Size(48, 17);
+            this.cbPorb.TabIndex = 62;
+            this.cbPorb.Text = "Porn";
+            this.cbPorb.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // cbGambling
             // 
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(553, 275);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 58;
-            this.button7.Text = "Save";
-            this.button7.UseVisualStyleBackColor = true;
+            this.cbGambling.AutoSize = true;
+            this.cbGambling.Location = new System.Drawing.Point(246, 135);
+            this.cbGambling.Name = "cbGambling";
+            this.cbGambling.Size = new System.Drawing.Size(70, 17);
+            this.cbGambling.TabIndex = 61;
+            this.cbGambling.Text = "Gambling";
+            this.cbGambling.UseVisualStyleBackColor = true;
+            // 
+            // cbFakeNews
+            // 
+            this.cbFakeNews.AutoSize = true;
+            this.cbFakeNews.Location = new System.Drawing.Point(246, 120);
+            this.cbFakeNews.Name = "cbFakeNews";
+            this.cbFakeNews.Size = new System.Drawing.Size(80, 17);
+            this.cbFakeNews.TabIndex = 60;
+            this.cbFakeNews.Text = "Fake News";
+            this.cbFakeNews.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(246, 103);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(97, 17);
+            this.checkBox1.TabIndex = 59;
+            this.checkBox1.Text = "Ads / Tracking";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(618, 16);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "Hosts file categorys:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.Black;
+            this.tabPage2.Controls.Add(this.bnSave);
+            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(617, 271);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Custom Blacklist";
+            // 
+            // bnSave
+            // 
+            this.bnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnSave.Location = new System.Drawing.Point(534, 235);
+            this.bnSave.Name = "bnSave";
+            this.bnSave.Size = new System.Drawing.Size(75, 23);
+            this.bnSave.TabIndex = 58;
+            this.bnSave.Text = "Save";
+            this.bnSave.UseVisualStyleBackColor = true;
+            this.bnSave.Click += new System.EventHandler(this.bnSave_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbAutoUpdate);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.bnRemove);
             this.groupBox1.Controls.Add(this.lbURLs);
             this.groupBox1.Controls.Add(this.bnAdd);
-            this.groupBox1.Controls.Add(this.txtFrom);
             this.groupBox1.Controls.Add(this.txtURL);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtTo);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(16, 18);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(303, 251);
+            this.groupBox1.Size = new System.Drawing.Size(303, 219);
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
-            // 
-            // cbAutoUpdate
-            // 
-            this.cbAutoUpdate.AutoSize = true;
-            this.cbAutoUpdate.Location = new System.Drawing.Point(16, 230);
-            this.cbAutoUpdate.Name = "cbAutoUpdate";
-            this.cbAutoUpdate.Size = new System.Drawing.Size(199, 17);
-            this.cbAutoUpdate.TabIndex = 69;
-            this.cbAutoUpdate.Text = "Automatically update hosts file hourly";
-            this.cbAutoUpdate.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -719,174 +717,260 @@
             // 
             // bnRemove
             // 
+            this.bnRemove.BackColor = System.Drawing.Color.White;
             this.bnRemove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnRemove.BackgroundImage")));
             this.bnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnRemove.ForeColor = System.Drawing.Color.Black;
-            this.bnRemove.Location = new System.Drawing.Point(148, 109);
+            this.bnRemove.Location = new System.Drawing.Point(145, 161);
             this.bnRemove.Name = "bnRemove";
             this.bnRemove.Size = new System.Drawing.Size(26, 26);
             this.bnRemove.TabIndex = 68;
-            this.bnRemove.UseVisualStyleBackColor = true;
+            this.bnRemove.UseVisualStyleBackColor = false;
+            this.bnRemove.Click += new System.EventHandler(this.bnRemove_Click_1);
             // 
             // lbURLs
             // 
             this.lbURLs.FormattingEnabled = true;
             this.lbURLs.Location = new System.Drawing.Point(6, 15);
             this.lbURLs.Name = "lbURLs";
-            this.lbURLs.Size = new System.Drawing.Size(291, 95);
+            this.lbURLs.Size = new System.Drawing.Size(291, 147);
             this.lbURLs.TabIndex = 65;
             // 
             // bnAdd
             // 
+            this.bnAdd.BackColor = System.Drawing.Color.White;
             this.bnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnAdd.BackgroundImage")));
             this.bnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnAdd.ForeColor = System.Drawing.Color.Black;
-            this.bnAdd.Location = new System.Drawing.Point(123, 109);
+            this.bnAdd.Location = new System.Drawing.Point(120, 161);
             this.bnAdd.Name = "bnAdd";
             this.bnAdd.Size = new System.Drawing.Size(26, 26);
             this.bnAdd.TabIndex = 67;
-            this.bnAdd.UseVisualStyleBackColor = true;
-            // 
-            // txtFrom
-            // 
-            this.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFrom.ForeColor = System.Drawing.Color.Gray;
-            this.txtFrom.Location = new System.Drawing.Point(139, 170);
-            this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(100, 20);
-            this.txtFrom.TabIndex = 63;
-            this.txtFrom.Text = "0.0.0.0";
+            this.bnAdd.UseVisualStyleBackColor = false;
+            this.bnAdd.Click += new System.EventHandler(this.bnAdd_Click_1);
             // 
             // txtURL
             // 
             this.txtURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtURL.ForeColor = System.Drawing.Color.Black;
-            this.txtURL.Location = new System.Drawing.Point(7, 134);
+            this.txtURL.Location = new System.Drawing.Point(6, 185);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(290, 20);
             this.txtURL.TabIndex = 66;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtAddHost);
+            this.groupBox2.Controls.Add(this.lbAddHosts);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.bnRemoveHost);
+            this.groupBox2.Controls.Add(this.bnAddHost);
+            this.groupBox2.Location = new System.Drawing.Point(315, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(303, 219);
+            this.groupBox2.TabIndex = 60;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // txtAddHost
+            // 
+            this.txtAddHost.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddHost.ForeColor = System.Drawing.Color.Black;
+            this.txtAddHost.Location = new System.Drawing.Point(6, 185);
+            this.txtAddHost.Name = "txtAddHost";
+            this.txtAddHost.Size = new System.Drawing.Size(291, 20);
+            this.txtAddHost.TabIndex = 54;
+            // 
+            // lbAddHosts
+            // 
+            this.lbAddHosts.FormattingEnabled = true;
+            this.lbAddHosts.Location = new System.Drawing.Point(6, 15);
+            this.lbAddHosts.Name = "lbAddHosts";
+            this.lbAddHosts.Size = new System.Drawing.Size(291, 147);
+            this.lbAddHosts.TabIndex = 53;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, -1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.TabIndex = 57;
+            this.label2.Text = "Add hosts to blacklist";
+            // 
+            // bnRemoveHost
+            // 
+            this.bnRemoveHost.BackColor = System.Drawing.Color.White;
+            this.bnRemoveHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnRemoveHost.BackgroundImage")));
+            this.bnRemoveHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bnRemoveHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnRemoveHost.ForeColor = System.Drawing.Color.Black;
+            this.bnRemoveHost.Location = new System.Drawing.Point(145, 161);
+            this.bnRemoveHost.Name = "bnRemoveHost";
+            this.bnRemoveHost.Size = new System.Drawing.Size(26, 26);
+            this.bnRemoveHost.TabIndex = 56;
+            this.bnRemoveHost.UseVisualStyleBackColor = false;
+            this.bnRemoveHost.Click += new System.EventHandler(this.bnRemoveHost_Click_1);
+            // 
+            // bnAddHost
+            // 
+            this.bnAddHost.BackColor = System.Drawing.Color.White;
+            this.bnAddHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnAddHost.BackgroundImage")));
+            this.bnAddHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bnAddHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnAddHost.ForeColor = System.Drawing.Color.Black;
+            this.bnAddHost.Location = new System.Drawing.Point(120, 161);
+            this.bnAddHost.Name = "bnAddHost";
+            this.bnAddHost.Size = new System.Drawing.Size(26, 26);
+            this.bnAddHost.TabIndex = 55;
+            this.bnAddHost.UseVisualStyleBackColor = false;
+            this.bnAddHost.Click += new System.EventHandler(this.bnAddHost_Click_1);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.Black;
+            this.tabPage3.Controls.Add(this.bnSaveOptions2);
+            this.tabPage3.Controls.Add(this.bnCustomEditor);
+            this.tabPage3.Controls.Add(this.txtCustomEditor);
+            this.tabPage3.Controls.Add(this.rbCustom);
+            this.tabPage3.Controls.Add(this.cbAutoUpdate);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.txtTo);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.txtFrom);
+            this.tabPage3.Controls.Add(this.rbInternal);
+            this.tabPage3.Controls.Add(this.rbExternal);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(617, 271);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Misc. Options";
+            // 
+            // bnSaveOptions2
+            // 
+            this.bnSaveOptions2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnSaveOptions2.Location = new System.Drawing.Point(534, 235);
+            this.bnSaveOptions2.Name = "bnSaveOptions2";
+            this.bnSaveOptions2.Size = new System.Drawing.Size(75, 23);
+            this.bnSaveOptions2.TabIndex = 73;
+            this.bnSaveOptions2.Text = "Save";
+            this.bnSaveOptions2.UseVisualStyleBackColor = true;
+            this.bnSaveOptions2.Click += new System.EventHandler(this.bnSaveOptions2_Click);
+            // 
+            // bnCustomEditor
+            // 
+            this.bnCustomEditor.BackColor = System.Drawing.Color.White;
+            this.bnCustomEditor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnCustomEditor.ForeColor = System.Drawing.Color.Black;
+            this.bnCustomEditor.Location = new System.Drawing.Point(566, 71);
+            this.bnCustomEditor.Name = "bnCustomEditor";
+            this.bnCustomEditor.Size = new System.Drawing.Size(28, 20);
+            this.bnCustomEditor.TabIndex = 72;
+            this.bnCustomEditor.Text = "...";
+            this.bnCustomEditor.UseVisualStyleBackColor = false;
+            this.bnCustomEditor.Click += new System.EventHandler(this.bnCustomEditor_Click);
+            // 
+            // txtCustomEditor
+            // 
+            this.txtCustomEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCustomEditor.Location = new System.Drawing.Point(411, 71);
+            this.txtCustomEditor.Name = "txtCustomEditor";
+            this.txtCustomEditor.Size = new System.Drawing.Size(156, 20);
+            this.txtCustomEditor.TabIndex = 71;
+            this.txtCustomEditor.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // rbCustom
+            // 
+            this.rbCustom.AutoSize = true;
+            this.rbCustom.Location = new System.Drawing.Point(336, 72);
+            this.rbCustom.Name = "rbCustom";
+            this.rbCustom.Size = new System.Drawing.Size(60, 17);
+            this.rbCustom.TabIndex = 70;
+            this.rbCustom.TabStop = true;
+            this.rbCustom.Text = "Custom";
+            this.rbCustom.UseVisualStyleBackColor = true;
+            // 
+            // cbAutoUpdate
+            // 
+            this.cbAutoUpdate.AutoSize = true;
+            this.cbAutoUpdate.Location = new System.Drawing.Point(26, 173);
+            this.cbAutoUpdate.Name = "cbAutoUpdate";
+            this.cbAutoUpdate.Size = new System.Drawing.Size(199, 17);
+            this.cbAutoUpdate.TabIndex = 69;
+            this.cbAutoUpdate.Text = "Automatically update hosts file hourly";
+            this.cbAutoUpdate.UseVisualStyleBackColor = true;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 172);
+            this.label9.Location = new System.Drawing.Point(8, 42);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 13);
             this.label9.TabIndex = 62;
             this.label9.Text = "Overwrite IP: Replace";
             // 
-            // txtTo
-            // 
-            this.txtTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTo.ForeColor = System.Drawing.Color.Gray;
-            this.txtTo.Location = new System.Drawing.Point(139, 189);
-            this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(100, 20);
-            this.txtTo.TabIndex = 61;
-            this.txtTo.Text = "34.213.32.36";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(78, 191);
+            this.label4.Location = new System.Drawing.Point(73, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 64;
             this.label4.Text = "With";
             // 
-            // tabAbout
+            // txtTo
             // 
-            this.tabAbout.BackColor = System.Drawing.Color.Black;
-            this.tabAbout.Controls.Add(this.pictureBox3);
-            this.tabAbout.Controls.Add(this.label12);
-            this.tabAbout.Controls.Add(this.label13);
-            this.tabAbout.Controls.Add(this.label14);
-            this.tabAbout.Controls.Add(this.label15);
-            this.tabAbout.Controls.Add(this.pictureBox2);
-            this.tabAbout.Controls.Add(this.lblName);
-            this.tabAbout.Controls.Add(this.lblVersion);
-            this.tabAbout.ForeColor = System.Drawing.Color.White;
-            this.tabAbout.Location = new System.Drawing.Point(4, 25);
-            this.tabAbout.Name = "tabAbout";
-            this.tabAbout.Size = new System.Drawing.Size(639, 299);
-            this.tabAbout.TabIndex = 2;
-            this.tabAbout.Text = "About";
+            this.txtTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTo.ForeColor = System.Drawing.Color.Gray;
+            this.txtTo.Location = new System.Drawing.Point(134, 59);
+            this.txtTo.Name = "txtTo";
+            this.txtTo.Size = new System.Drawing.Size(100, 20);
+            this.txtTo.TabIndex = 61;
+            this.txtTo.Text = "34.213.32.36";
             // 
-            // label12
+            // label3
             // 
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(436, 271);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 18);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "Dennis M. Heine";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(251, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Hosts file editor:";
             // 
-            // label13
+            // txtFrom
             // 
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(381, 271);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 18);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "Coding:";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFrom.ForeColor = System.Drawing.Color.Gray;
+            this.txtFrom.Location = new System.Drawing.Point(134, 40);
+            this.txtFrom.Name = "txtFrom";
+            this.txtFrom.Size = new System.Drawing.Size(100, 20);
+            this.txtFrom.TabIndex = 63;
+            this.txtFrom.Text = "0.0.0.0";
             // 
-            // label14
+            // rbInternal
             // 
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(97, 271);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 18);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "Tobias B. Besemer";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbInternal.AutoSize = true;
+            this.rbInternal.Location = new System.Drawing.Point(336, 36);
+            this.rbInternal.Name = "rbInternal";
+            this.rbInternal.Size = new System.Drawing.Size(60, 17);
+            this.rbInternal.TabIndex = 50;
+            this.rbInternal.Text = "Internal";
+            this.rbInternal.UseVisualStyleBackColor = true;
             // 
-            // label15
+            // rbExternal
             // 
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(7, 269);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 23);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "Idea and Lead:";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox2.Location = new System.Drawing.Point(384, 55);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lblName
-            // 
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(7, 12);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(347, 20);
-            this.lblName.TabIndex = 14;
-            this.lblName.Text = "<name>";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblVersion
-            // 
-            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.ForeColor = System.Drawing.Color.White;
-            this.lblVersion.Location = new System.Drawing.Point(384, 12);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(200, 20);
-            this.lblVersion.TabIndex = 13;
-            this.lblVersion.Text = "<version>";
-            this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbExternal.AutoSize = true;
+            this.rbExternal.Checked = true;
+            this.rbExternal.Location = new System.Drawing.Point(336, 53);
+            this.rbExternal.Name = "rbExternal";
+            this.rbExternal.Size = new System.Drawing.Size(69, 17);
+            this.rbExternal.TabIndex = 51;
+            this.rbExternal.TabStop = true;
+            this.rbExternal.Text = "Wordpad";
+            this.rbExternal.UseVisualStyleBackColor = true;
             // 
             // tabHelp
             // 
@@ -895,7 +979,7 @@
             this.tabHelp.ForeColor = System.Drawing.Color.White;
             this.tabHelp.Location = new System.Drawing.Point(4, 25);
             this.tabHelp.Name = "tabHelp";
-            this.tabHelp.Size = new System.Drawing.Size(639, 299);
+            this.tabHelp.Size = new System.Drawing.Size(653, 337);
             this.tabHelp.TabIndex = 3;
             this.tabHelp.Text = "Help";
             // 
@@ -907,12 +991,134 @@
             this.webBrowser1.Size = new System.Drawing.Size(643, 303);
             this.webBrowser1.TabIndex = 0;
             // 
+            // tabAbout
+            // 
+            this.tabAbout.BackColor = System.Drawing.Color.Black;
+            this.tabAbout.Controls.Add(this.label17);
+            this.tabAbout.Controls.Add(this.label16);
+            this.tabAbout.Controls.Add(this.pictureBox3);
+            this.tabAbout.Controls.Add(this.label12);
+            this.tabAbout.Controls.Add(this.label13);
+            this.tabAbout.Controls.Add(this.label14);
+            this.tabAbout.Controls.Add(this.label15);
+            this.tabAbout.Controls.Add(this.pictureBox2);
+            this.tabAbout.Controls.Add(this.lblName);
+            this.tabAbout.Controls.Add(this.lblVersion);
+            this.tabAbout.ForeColor = System.Drawing.Color.White;
+            this.tabAbout.Location = new System.Drawing.Point(4, 25);
+            this.tabAbout.Name = "tabAbout";
+            this.tabAbout.Size = new System.Drawing.Size(653, 337);
+            this.tabAbout.TabIndex = 2;
+            this.tabAbout.Text = "About";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(481, 274);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 13);
+            this.label17.TabIndex = 61;
+            this.label17.Text = "Denis Müller";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(425, 274);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(55, 13);
+            this.label16.TabIndex = 60;
+            this.label16.Text = "Support:";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(7, 55);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(347, 200);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 59;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(330, 271);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(89, 18);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Dennis M. Heine";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(275, 271);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 18);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "Coding:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(178, 271);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(100, 18);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Tobias B. Besemer";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(88, 269);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 23);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Idea and Lead:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(384, 55);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblName
+            // 
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.Location = new System.Drawing.Point(0, 4);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(643, 20);
+            this.lblName.TabIndex = 14;
+            this.lblName.Text = "<name>";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.ForeColor = System.Drawing.Color.White;
+            this.lblVersion.Location = new System.Drawing.Point(1, 23);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(642, 20);
+            this.lblVersion.TabIndex = 13;
+            this.lblVersion.Text = "<version>";
+            this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
             this.panel2.ForeColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(172, 12);
+            this.panel2.Location = new System.Drawing.Point(172, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(657, 10);
+            this.panel2.Size = new System.Drawing.Size(595, 23);
             this.panel2.TabIndex = 51;
             // 
             // button8
@@ -942,22 +1148,12 @@
             this.lblPage.TabIndex = 53;
             this.lblPage.Text = "Main";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(7, 55);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(347, 200);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 59;
-            this.pictureBox3.TabStop = false;
-            // 
             // frmHostsManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(814, 341);
+            this.ClientSize = new System.Drawing.Size(813, 348);
             this.ControlBox = false;
             this.Controls.Add(this.lblPage);
             this.Controls.Add(this.button8);
@@ -992,14 +1188,21 @@
             this.tabControl1.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabOptions.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabAbout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabHelp.ResumeLayout(false);
+            this.tabAbout.ResumeLayout(false);
+            this.tabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1026,12 +1229,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox cbSocial;
-        private System.Windows.Forms.CheckBox cbPorb;
-        private System.Windows.Forms.CheckBox cbGambling;
-        private System.Windows.Forms.CheckBox cbFakeNews;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -1043,7 +1240,6 @@
         private System.Windows.Forms.TabPage tabOptions;
         private System.Windows.Forms.TabPage tabAbout;
         private System.Windows.Forms.Button bnEdit;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TabPage tabHelp;
@@ -1052,7 +1248,7 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtAddHost;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button bnSave;
         private System.Windows.Forms.ListBox lbAddHosts;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bnRemoveHost;
@@ -1080,6 +1276,29 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox cbSocial;
+        private System.Windows.Forms.CheckBox cbPorb;
+        private System.Windows.Forms.CheckBox cbGambling;
+        private System.Windows.Forms.CheckBox cbFakeNews;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.RadioButton rbUseCustomlBlacklist;
+        private System.Windows.Forms.RadioButton rbUseStevensBlacklist;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox txtCustomEditor;
+        private System.Windows.Forms.RadioButton rbCustom;
+        private System.Windows.Forms.Button bnCustomEditor;
+        private System.Windows.Forms.Button bnSaveOptions2;
     }
 }
 

@@ -226,5 +226,10 @@ namespace HostsManager
             if (lbAddHosts.SelectedIndex >= 0)
                 lbAddHosts.Items.Remove(lbAddHosts.SelectedItem);
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

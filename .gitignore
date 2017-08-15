@@ -3,7 +3,9 @@ Branding/Arrioch-Senary-Drive-Drive-Server.ico
 *.ico
 .vs/LVC.HM/v15/.suo
 obj/*.*
-bin/*.*
+obj/Release/*.*
+bin/Debug/*.*
+bin/Release/*.*
 bin/Debug/LV-Crew.HostsManager.exe
 bin/Debug/LV-Crew.HostsManager.Logo1.png
 obj/Debug/CoreCompileInputs.cache
@@ -76,3 +78,16 @@ obj/Debug/UserControl1.g.i.cs
 *.cache
 obj/Release/CoreCompileInputs.cache
 obj/Release/CoreCompileInputs.cache
+.vs/HostsManager/v15/.suo
+bin/Release/blacklist.xml
+bin/Release/blacklist.xml
+bin/Release/blacklist.xml
+bin/Release/HostsManager.exe
+bin/Release/HostsManager.pdb
+bin/Release/settings.xml
+obj/Release/CoreCompileInputs.cache
+obj/Release/DesignTimeResolveAssemblyReferences.cache
+obj/Release/CoreCompileInputs.cache
+obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+obj/Release/HostsManager.csproj.FileListAbsolute.txt
+obj/Release/HostsManager.csproj.GenerateResource.Cache

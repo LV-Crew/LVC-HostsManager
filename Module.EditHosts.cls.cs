@@ -11,14 +11,24 @@ namespace HostsManager
 
     public static class doEdit
     {
-        public static void edit(bool editInternal, ArrayList urls)
+        public static void edit(String editInternal, ArrayList urls)
         {
             clsEditor c = new clsEditor();
-            if (editInternal)
+            if (editInternal=="INTERNAL")
                 c.doEditIntern(urls);
-            else
+            else if(editInternal=="WORDPAD")
                 c.doEditExtern();
-        }                  
+        }
+        public static void edit(String editInternal, ArrayList urls, String editorPath)
+        {
+            clsEditor c = new clsEditor();
+            if (editInternal == "INTERNAL")
+                c.doEditIntern(urls);
+            else if (editInternal == "WORDPAD")
+                c.doEditExtern();
+            else if (editInternal == "CUSTOM")
+                c.doEditCustom(editorPath);
+        }
     }
 
     class clsEditor
@@ -48,6 +58,16 @@ namespace HostsManager
             try
             {
                 System.Diagnostics.Process p=System.Diagnostics.Process.Start("wordpad.exe", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                p.WaitForExit();
+            }
+            catch (Exception ex) { MessageBox.Show("Could not open external editor."); }
+        }
+
+        public void doEditCustom(String editorPath)
+        {
+            try
+            {
+                System.Diagnostics.Process p = System.Diagnostics.Process.Start(editorPath, Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
                 p.WaitForExit();
             }
             catch (Exception ex) { MessageBox.Show("Could not open external editor."); }
