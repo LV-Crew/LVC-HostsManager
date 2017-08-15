@@ -2,7 +2,7 @@
 ProjectFileVersion = "1.1"
 [General]
 Program name = HostsManager
-Program version = v2017.08.06a
+Program version = 2017.08.15a
 Windows 2000 = 1
 Windows XP = 1
 Windows Server 2003 = 1
@@ -103,6 +103,9 @@ png
 E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\README.txt
 5 KB
 txt
+E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\bgnd.wav
+12.9 MB
+wav
 [Licence_Begin]
 38636
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 MS Shell Dlg;}}
@@ -801,7 +804,7 @@ ipTo
 HKEY_CLASSES_ROOT
 LV-Crew\HostsManager
 UseInternalEditor
-TRUE
+INTERNAL
 1
 [Variables]
 [SCs]
