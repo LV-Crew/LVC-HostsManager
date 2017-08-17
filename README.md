@@ -36,10 +36,6 @@ To-Dos Beat:<br>
 - https://scottlerch.github.io/HostsFileEditor/<br>
 - http://hostsman2.it-mate.co.uk/<br>
 <br>
-To-Dos .NET:<br>
-- Use wget<br>
-- Remove .NET<br>
-<br>
 To-Dos Data Storage:<br>
 - Hosts-Files-List (multiple sources)<br>
 - Load local files in Hosts-Files-List, too<br>
@@ -60,7 +56,6 @@ To-Dos better Windows Integration:<br>
 - Start at boot<br>
 <br>
 To-Dos Multi-Plattform/Multi-Language:<br>
-- Use Qt<br>
 - 64-bit-Version<br>
 - NullSoft-Installer<br>
 - Linux-/macOS-/BSD-/Android-Port<br>
