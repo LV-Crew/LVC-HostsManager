@@ -1,54 +1,20 @@
 # HostsManager
 This program allows you to update your hosts file with a blacklist.<br>
 The blacklisted traffic is being redirected to a whitepage (or a URL/localhost).<br>
-Therfore you are protected from tracking and from spam ads and more.<br>
+Therefore you are protected from tracking and from spam ads and more.<br>
 (In short...)<br>
-
-![Screenshot](http://i.imgur.com/pGyqMlS.png "Screenshot")<br>
-
+<br>
 <br>
 <h3><b>In long ...:</b></h3>
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
 - The Hosts-Files-List is saved by the app.<br>
+Screenshots & Manual: http://hostsmanager.lv-crew.org/readme.html<br>
 More to the hosts-file: https://en.wikipedia.org/wiki/Hosts_(file)<br>
 <br>
 <br>
 <h3><b>Possible Hosts-Files:</b></h3>
 https://github.com/StevenBlack/hosts<br>
 https://github.com/LV-Crew/hosts<br>
-<br>
-<br>
-<h3><b>Antivirus:</b></h3>
-Many antivirus programs do block the hosts file in a way, that we can't unblock it.<br>
-Please refer to your antivirus program's manual to find out how to disable hosts file protection.<br>
-<br>
-Avira Antivirus: https://answers.avira.com/de/question/avira-blocks-hosts-file-what-can-i-do-90<br>
-Others: https://www.devside.net/wamp-server/unlock-and-unblock-the-windows-hosts-file<br>
-<br>
-<br>
-<h3><b>Settings:</b></h3>
-
-![Screenshot](http://i.imgur.com/odYjfFi.png "Screenshot")<br>
-
-<br>
-Overwrite hosts file URLs:<br>
-=======================================================================<br>
-This allows you to choose the URLs of the hosts files to be imported manually, overwriting the system setting.<br>
-<br>
-Overwrite IP:<br>
-=======================================================================<br>
-Most host file are in the format 0.0.0.0 <hostname>, which redirects the traffic to localhost.<br>
-LV-Crew HostsManager allows you to overwrite this adress with an adress you choose.<br>
-By default, it redirects to a white page.<br>
-<br>
-Hosts file editor:<br>
-=======================================================================<br>
-Choose whether to use the internal text editor or wordpad for editing the hosts file.<br>
-<br>
-Autmatically update hosts file hourly:<br>
-=======================================================================<br>
-This allows you to automatically update the hosts file. <br>
-It creates a new task in windows' task planer.<br>
 <br>
 <br>
 <h3><b>Roundmap:</b></h3>
@@ -70,10 +36,6 @@ To-Dos Beat:<br>
 - https://scottlerch.github.io/HostsFileEditor/<br>
 - http://hostsman2.it-mate.co.uk/<br>
 <br>
-To-Dos .NET:<br>
-- Use wget<br>
-- Remove .NET<br>
-<br>
 To-Dos Data Storage:<br>
 - Hosts-Files-List (multiple sources)<br>
 - Load local files in Hosts-Files-List, too<br>
@@ -94,7 +56,6 @@ To-Dos better Windows Integration:<br>
 - Start at boot<br>
 <br>
 To-Dos Multi-Plattform/Multi-Language:<br>
-- Use Qt<br>
 - 64-bit-Version<br>
 - NullSoft-Installer<br>
 - Linux-/macOS-/BSD-/Android-Port<br>
@@ -102,7 +63,7 @@ To-Dos Multi-Plattform/Multi-Language:<br>
 <br>
 To-Dos Error-Server:<br>
 - Counter for Error-Page<br>
-- Maybee Avira & Google-Ads<br>
+- Maybe Avira & Google-Ads<br>
 - Error-Pages per lists<br>
 <br>
 <br>
@@ -119,7 +80,6 @@ Some more ideas:<br>
 - Use lists from Firefox<br>
 - Import whitelist into CCleaner (Registry/INI)<br>
 - Import whitelist into NoScript (SQLite)<br>
-- Monitor port-forrwards (UPnP) from routers (AVM)<br>
 - Bad-URLs-List from Avira<br>
 <br>
 More notes for later:<br>
@@ -173,6 +133,6 @@ Release: https://github.com/LV-Crew/HostsManager/releases/<br>
 <br>
 <br>
 <h3><b>Some Dev notes:</b></h3>
-- Version-Bump to 2017.xx.xxa (yyyy.mm.dd + letter)<br>
+- Versioning with 2017.xx.xxa (yyyy.mm.dd + letter)<br>
 - File-Names are LV-Crew.HostsManager.xxx.xyz<br>
-- Default Window Icons from https://icons8.com<br>
+- Default Icons from https://icons8.com<br>
