@@ -687,8 +687,8 @@ namespace HostsManager
             executeNoWindow(System.Reflection.Assembly.GetExecutingAssembly().CodeBase+"\\certutil\\certutil_moz.exe",
                 "-A -n \"Testcert\" -t \"TCu,Cuw,Tuw\" -i "+ System.Reflection.Assembly.GetExecutingAssembly().CodeBase + "\\cert.pem -d \"" + profPath + "\"");
             //Import certificate to Win
-            executeNoWindow(System.Reflection.Assembly.GetExecutingAssembly().CodeBase+"\\certutil.exe", "-addstore \"Root\" "+ System.Reflection.Assembly.GetExecutingAssembly().CodeBase + "cert.pem");
-            executeNoWindow(System.Reflection.Assembly.GetExecutingAssembly().CodeBase+"\\certutil.exe", "-addstore \"CA\" "+ System.Reflection.Assembly.GetExecutingAssembly().CodeBase + "cert.pem");
+            executeNoWindow("certutil.exe", "-addstore \"Root\" "+ System.Reflection.Assembly.GetExecutingAssembly().CodeBase + "cert.pem");
+            executeNoWindow("certutil.exe", "-addstore \"CA\" "+ System.Reflection.Assembly.GetExecutingAssembly().CodeBase + "cert.pem");
         }
 
 
