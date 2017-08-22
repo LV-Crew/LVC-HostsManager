@@ -8,6 +8,8 @@ Therefore you are protected from tracking and from spam ads and more.<br>
 <h3><b>In long ...:</b></h3>
 - The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
 - The Hosts-Files-List is saved by the app.<br>
+- Designed for Microsoft Windows 7-10<br>
+- Designed for Microsoft .NET v4.0 or above<br>
 Screenshots & Manual: http://hostsmanager.lv-crew.org/readme.html<br>
 More to the hosts-file: https://en.wikipedia.org/wiki/Hosts_(file)<br>
 <br>
