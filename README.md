@@ -1,7 +1,7 @@
 # HostsManager
-This program allows you to update your hosts file with a blacklist.<br>
+This program allows you to update your hosts file with a downloaded blacklist.<br>
 The blacklisted traffic is being redirected to a whitepage (or a URL/localhost).<br>
-Therefore you are protected from tracking and from spam ads and more.<br>
+Therefore tracking is being reduced to a minimum and you are protected from spam ads and more.<br>
 (In short...)<br>
 <br>
 <br>
