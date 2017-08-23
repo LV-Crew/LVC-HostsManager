@@ -764,7 +764,7 @@ namespace HostsManager
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void bnMenuExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -779,10 +779,10 @@ namespace HostsManager
             WindowState = FormWindowState.Minimized;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bnMenuOptions_Click(object sender, EventArgs e)
         {
             fillOptions();
-            tabControl1.SelectedIndex = 1;
+            tabControl1.SelectedIndex = 2;
             resetButtons();
             ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Options";
@@ -822,7 +822,7 @@ namespace HostsManager
             }*/
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void bnMenuAbout_Click(object sender, EventArgs e)
         {
             lblVersion.Text = "Version: " + Branding.VERSION;
             lblName.Text = Branding.COMPANY + " " + Branding.PRODUCT;
@@ -833,12 +833,12 @@ namespace HostsManager
             catch (Exception ex)
             {
             }
-            tabControl1.SelectedIndex = 3;
+            tabControl1.SelectedIndex = 4;
             lblPage.Text = "About";
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bnMenuMain_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 0;
             resetButtons();
@@ -858,9 +858,9 @@ namespace HostsManager
             g.DrawRectangle(p, this.tabMain.Bounds);
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void bnMenuHelp_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 2;
+            tabControl1.SelectedIndex = 3;
             resetButtons();
             ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Help";
@@ -1083,11 +1083,11 @@ namespace HostsManager
         private void resetButtons()
         {
 
-            button1.BackColor = Color.Navy;
-            button2.BackColor = Color.Navy;
-            button3.BackColor = Color.Navy;
-            button4.BackColor = Color.Navy;
-            button8.BackColor = Color.Navy;
+            bnMenuMain.BackColor = Color.Navy;
+            bnMenuOptions.BackColor = Color.Navy;
+            bnMenuAbout.BackColor = Color.Navy;
+            bnMenuExit.BackColor = Color.Navy;
+            bnMenuHelp.BackColor = Color.Navy;
 
         }
 
@@ -1286,6 +1286,11 @@ namespace HostsManager
                 f.showButton = true;
                 f.ShowDialog();
             }
+        }
+
+        private void bnMenuTools_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 1;
         }
     }
 }
