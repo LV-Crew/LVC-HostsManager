@@ -1,7 +1,7 @@
 @echo off
 cls 
 echo Make.Packages.bat
-echo Version 2017.08.27b
+echo Version 2017.08.27c
 echo.
 rem echo Compile project...
 echo.
@@ -59,24 +59,24 @@ copy .\License.rtf .\Packages\Win-x86.Setup\
 echo.
 echo Make Packages...
 echo.
-echo Make Win-x64.zip
+echo Make Win-x64.zip...
 del .\Packages\Win-x64.zip
 .\Make\7za a .\Packages\Win-x64.zip .\Packages\Win-x64.Archive\*.*
 .\Make\7za a .\Packages\Win-x64.zip .\Packages\Win-x64.Archive\certutil
 echo.
-echo Make Win-x64.exe
+echo Make Win-x64.exe...
 del .\Packages\Win-x64.exe
 rem "C:\Program Files (x86)\NSIS\makensis.exe" .\Make\Win-x64.nsi
 echo.
 echo Move EXE to .\Packages\...
 move .\Make\Win-x64.exe .\Packages\
 echo.
-echo Make Win-x86.zip
+echo Make Win-x86.zip...
 del .\Packages\Win-x86.zip
 .\Make\7za a .\Packages\Win-x86.zip .\Packages\Win-x86.Archive\*.*
 .\Make\7za a .\Packages\Win-x86.zip .\Packages\Win-x86.Archive\certutil
 echo.
-echo Make Win-x86.exe
+echo Make Win-x86.exe...
 del .\Packages\Win-x86.exe
 "C:\Program Files (x86)\NSIS\makensis.exe" .\Make\Win-x86.nsi
 echo.
