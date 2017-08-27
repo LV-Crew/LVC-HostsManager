@@ -2,21 +2,21 @@
 ProjectFileVersion = "1.1"
 [General]
 Program name = HostsManager
-Program version = 2017.08.15a
-Windows 2000 = 1
-Windows XP = 1
-Windows Server 2003 = 1
-Windows Vista = 1
+Program version = 2017.08.27b
+Windows 2000 = 0
+Windows XP = 0
+Windows Server 2003 = 0
+Windows Vista = 0
 Windows Server 2008 = 1
 Windows 7 = 1
 Windows 8 = 1
 Windows 10 = 1
 Windows Server 2016 = 1
-DoNotCheckOS = 1
+DoNotCheckOS = 0
 Company name = LV-Crew
 Website = http://hostsmanager.lv-crew.org
 SFA = 1
-DFA = 0
+DFA = 1
 Comp = 1
 [Graphics]
 Wizard image = <main>
@@ -27,7 +27,7 @@ Windows style = 1
 XpStyle = 1
 [Files]
 Include Zipfile = 0
-Zipfile = 
+Zipfile = C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.zip
 Installation path = <programfiles>\<company>\<appname>\
 Autcip = 1
 [Uninstall]
@@ -45,7 +45,7 @@ Program = <installpath>\LV-Crew.HostsManager.exe
 ProgramArguments = 
 Dll = 
 [Shortcuts]
-Allowtc = 0
+Allowtc = 1
 Shortcut path = <company>\<appname>\
 [Serialoptions]
 Allows = 0
@@ -57,7 +57,7 @@ Time = 2
 PlaySound = 0
 Allow = 0
 [Build]
-File = E:\_Profil\Dokumente\setup.exe
+File = C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.InstallForge.exe
 [Updater]
 Allow = 0
 1 = <appname>
@@ -73,39 +73,33 @@ Execdlls = 0
 [Languages]
 3
 [Files/Dirs]
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\cert.pem
-1.2 KB
-pem
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\certutil\
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\certutil\
 n/a
 [Folder]
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\LV-Crew.HostsManager.exe
-341 KB
-exe
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\LV-Crew.HostsManager.Logo1.png
-164.4 KB
-png
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\license.rtf
-36.2 KB
-rtf
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\LV-Crew.HostsManager.Icon.ico
-16.6 KB
-ico
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\branding.ini
-176 Byte
-ini
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\LV-Crew.HostsManager.Icon.ico
-16.6 KB
-ico
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\LV-Crew.HostsManager.Logo.png
-119.4 KB
-png
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\README.txt
-5 KB
-txt
-E:\_Profil\Dokumente\Visual Studio 2015\Projects\HostsManager\HostsManager\bin\Debug\bgnd.wav
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\BGND.wav
 12.9 MB
 wav
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\Branding.ini
+173 Byte
+ini
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\cert.pem
+1.2 KB
+pem
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\License.rtf
+83.8 KB
+rtf
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\LV-Crew.HostsManager.exe
+505.5 KB
+exe
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\LV-Crew.HostsManager.Icon.ico
+53.8 KB
+ico
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\LV-Crew.HostsManager.Logo.png
+116.3 KB
+png
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\Readme.txt
+2 KB
+txt
 [Licence_Begin]
 38636
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 MS Shell Dlg;}}

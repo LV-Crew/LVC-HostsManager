@@ -1,9 +1,22 @@
 @echo off
 cls 
 echo Make.Packages.bat
-echo Version 2017.08.27a
+echo Version 2017.08.27b
+echo.
+rem echo Compile project...
+echo.
+rem "\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
 echo.
 echo Copy files together...
+echo.
+echo copy .\bin\Debug\HostsManager.exe .\Packages\Win-x64.Archive\LV-Crew.HostsManager.exe
+copy .\bin\Debug\HostsManager.exe .\Packages\Win-x64.Archive\LV-Crew.HostsManager.exe
+echo copy .\bin\Debug\HostsManager.exe .\Packages\Win-x64.Setup\LV-Crew.HostsManager.exe
+copy .\bin\Debug\HostsManager.exe .\Packages\Win-x64.Setup\LV-Crew.HostsManager.exe
+echo copy .\bin\Debug\HostsManager.exe .\Packages\Win-x86.Archive\LV-Crew.HostsManager.exe
+copy .\bin\Debug\HostsManager.exe .\Packages\Win-x86.Archive\LV-Crew.HostsManager.exe
+echo copy .\bin\Debug\HostsManager.exe .\Packages\Win-x86.Setup\LV-Crew.HostsManager.exe
+copy .\bin\Debug\HostsManager.exe .\Packages\Win-x86.Setup\LV-Crew.HostsManager.exe
 echo.
 echo copy .\Branding\*.* .\Packages\Win-x64.Archive\
 copy .\Branding\*.* .\Packages\Win-x64.Archive\

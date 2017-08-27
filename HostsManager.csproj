@@ -52,7 +52,19 @@
     <ApplicationManifest>HostsManager.App.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>.\Branding\HostsManager.Logo.ico</ApplicationIcon>
+    <ApplicationIcon>EXE-Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>HostsManager.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>03F1782B3DE71A724021241ECAABBF59C0A1207D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>HostsManager_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -81,26 +93,26 @@
     <Compile Include="frmDialog.Designer.cs">
       <DependentUpon>frmDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNotifyAntivirus.cs">
+    <Compile Include="Alert.NotifyAntivirus.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNotifyAntivirus.Designer.cs">
-      <DependentUpon>frmNotifyAntivirus.cs</DependentUpon>
+    <Compile Include="Alert.NotifyAntivirus.frm.Designer.cs">
+      <DependentUpon>Alert.NotifyAntivirus.frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Module.Branding.cls.cs" />
     <Compile Include="Module.Branding.INI.cls.cs" />
     <Compile Include="Module.EditHosts.cls.cs" />
-    <Compile Include="Module.About.frm.cs">
+    <Compile Include="zzz.old.Module.About.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module.About.frm.Designer.cs">
-      <DependentUpon>Module.About.frm.cs</DependentUpon>
+    <Compile Include="zzz.old.Module.About.frm.Designer.cs">
+      <DependentUpon>zzz.old.Module.About.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core.frm.cs">
+    <Compile Include="HostsManager.Core.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Core.frm.Designer.cs">
-      <DependentUpon>Core.frm.cs</DependentUpon>
+    <Compile Include="HostsManager.Core.frm.Designer.cs">
+      <DependentUpon>HostsManager.Core.frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Module.EditHosts.frm.cs">
       <SubType>Form</SubType>
@@ -108,31 +120,31 @@
     <Compile Include="Module.EditHosts.frm.Designer.cs">
       <DependentUpon>Module.EditHosts.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Module.Options.frm.cs">
+    <Compile Include="zzz.old.Module.Options.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module.Options.frm.Designer.cs">
-      <DependentUpon>Module.Options.frm.cs</DependentUpon>
+    <Compile Include="zzz.old.Module.Options.frm.Designer.cs">
+      <DependentUpon>zzz.old.Module.Options.frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmDialog.resx">
       <DependentUpon>frmDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNotifyAntivirus.resx">
-      <DependentUpon>frmNotifyAntivirus.cs</DependentUpon>
+    <EmbeddedResource Include="Alert.NotifyAntivirus.frm.resx">
+      <DependentUpon>Alert.NotifyAntivirus.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Module.About.frm.resx">
-      <DependentUpon>Module.About.frm.cs</DependentUpon>
+    <EmbeddedResource Include="zzz.old.Module.About.frm.resx">
+      <DependentUpon>zzz.old.Module.About.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Core.frm.resx">
-      <DependentUpon>Core.frm.cs</DependentUpon>
+    <EmbeddedResource Include="HostsManager.Core.frm.resx">
+      <DependentUpon>HostsManager.Core.frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module.EditHosts.frm.resx">
       <DependentUpon>Module.EditHosts.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Module.Options.frm.resx">
-      <DependentUpon>Module.Options.frm.cs</DependentUpon>
+    <EmbeddedResource Include="zzz.old.Module.Options.frm.resx">
+      <DependentUpon>zzz.old.Module.Options.frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -145,6 +157,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="HostsManager.App.manifest" />
+    <None Include="HostsManager_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -184,6 +197,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EXE-Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
