@@ -61,16 +61,24 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>03F1782B3DE71A724021241ECAABBF59C0A1207D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B85EDF410ED2A764A9D543E969B3BE3FA62DB4A7</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>HostsManager_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>HostsManager_1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -86,7 +94,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsAviraSettings.cs" />
+    <Compile Include="zzz.old.clsAviraSettings.cs" />
     <Compile Include="frmDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +165,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="HostsManager.App.manifest" />
+    <None Include="HostsManager_1_TemporaryKey.pfx" />
     <None Include="HostsManager_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -200,6 +209,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EXE-Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

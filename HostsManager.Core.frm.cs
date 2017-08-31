@@ -34,6 +34,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Management;
+using System.Net.NetworkInformation;
+using System.ServiceProcess;
 
 namespace HostsManager
 {
@@ -54,12 +57,17 @@ namespace HostsManager
 
         private HashSet<Control> controlsToMove = new HashSet<Control>();
 
-
+        public enum BlacklistTypes
+        {
+            INTERNAL=1,
+            STEVENBLACK=2,
+            HOSTSFILEDOTNET=3
+        }
 
         private String fileText = "";
         public String ipFrom = "0.0.0.0";
         public String ipTo = "34.213.32.36";
-        private String hostsURL = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
+        private String hostsURL = "https://hosts-file.net/download/hosts.txt";
         public ArrayList urls = new ArrayList();
         public ArrayList addHosts = new ArrayList();
         private String internalEditor = "INTERNAL";
@@ -69,7 +77,7 @@ namespace HostsManager
         private bool showGambling = false;
         private bool showPorn = false;
         private bool showSocial = false;
-        private bool useInternalBlacklist = true;
+        private BlacklistTypes blacklistToUse = BlacklistTypes.INTERNAL;
         private String externalEditorFile = "";
 
         public frmHostsManager()
@@ -100,8 +108,7 @@ namespace HostsManager
             {
                 clsAviraSettings.killAV();
                 updateHostsFile();
-                if (!isHidden)
-                    MessageBox.Show("Hosts file updated.");
+
             }
             catch (Exception ex)
             {
@@ -158,16 +165,25 @@ namespace HostsManager
             controlsToMove.Add(this.tabControl1);
             controlsToMove.Add(this.panel2);
 
-            if (useInternalBlacklist)
+            if (blacklistToUse == BlacklistTypes.STEVENBLACK)
             {
                 rbUseCustomlBlacklist.Checked = false;
+                rbUseHostsFileBL.Checked = false;
                 rbUseStevensBlacklist.Checked = true;
+            }
+            else if (blacklistToUse == BlacklistTypes.INTERNAL)
+            {
+                rbUseCustomlBlacklist.Checked = true;
+                rbUseHostsFileBL.Checked = false;
+                rbUseStevensBlacklist.Checked = false;
             }
             else
             {
-                rbUseCustomlBlacklist.Checked = true;
+                rbUseCustomlBlacklist.Checked = false;
+                rbUseHostsFileBL.Checked = true;
                 rbUseStevensBlacklist.Checked = false;
             }
+
 
             //Import Certificate Authority
             importCert();
@@ -189,8 +205,7 @@ namespace HostsManager
             try
             {
                 updateHostsFile();
-                if (!isHidden)
-                    MessageBox.Show("Hosts file updated.");
+                
             }
             catch (Exception ex)
             {
@@ -327,11 +342,13 @@ namespace HostsManager
                     showPorn = true;
                 else
                     showPorn = false;
-                b = (String) mexampleRegistryKey.GetValue("UseInternalBlacklist");
-                if (b == "FALSE")
-                    useInternalBlacklist = false;
+                b = (String) mexampleRegistryKey.GetValue("BlacklistToUse");
+                if (b == "INTERNAL")
+                    blacklistToUse=BlacklistTypes.INTERNAL;
+                else if(b == "STEVENBLACK")                
+                    blacklistToUse=BlacklistTypes.STEVENBLACK;
                 else
-                    useInternalBlacklist = true;
+                    blacklistToUse=BlacklistTypes.HOSTSFILEDOTNET;
 
 
             }
@@ -386,11 +403,12 @@ namespace HostsManager
             else
                 exampleRegistryKey.SetValue("AutoUpdate", "FALSE");
 
-            if (useInternalBlacklist)
-                exampleRegistryKey.SetValue("UseInternalBlacklist", "TRUE");
+            if (blacklistToUse==BlacklistTypes.STEVENBLACK)
+                exampleRegistryKey.SetValue("BlacklistToUse", "STEVENBLACK");
+            else if(blacklistToUse==BlacklistTypes.INTERNAL)
+                exampleRegistryKey.SetValue("BlacklistToUse", "INTERNAL");
             else
-                exampleRegistryKey.SetValue("UseInternalBlacklist", "FALSE");
-
+                exampleRegistryKey.SetValue("BlacklistToUse","HOSTSFILENET");
 
             exampleRegistryKey.Close();
             //Write ULRs to settings.xml
@@ -487,9 +505,15 @@ namespace HostsManager
 
         public void showDialog(object action)
         {
-            dlg = new frmDialog();
-            dlg.action = (String) action;
-            dlg.ShowDialog();
+            try
+            {
+                dlg = new frmDialog();
+                dlg.action = (String) action;
+                dlg.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         public delegate void closedlgdeleg();
@@ -506,88 +530,125 @@ namespace HostsManager
         //The update process
         private void updateHostsFile()
         {
+            bool err = false;
+            Thread start=null;
             try
             {
 
-                //Get name of admin group
-                SecurityIdentifier id = new SecurityIdentifier("S-1-5-32-544");
+                if (urls.Count == 0 && blacklistToUse == BlacklistTypes.INTERNAL)
+                {
+                    frmDialog d = new frmDialog();
+                    d.action = "Your personal hostsfile is empty.";
+                    d.showButton = true;
+                    d.ShowDialog();
+                    err = true;
+
+                }
+                else
+                {
+
+                    //Get name of admin group
+                    SecurityIdentifier id = new SecurityIdentifier("S-1-5-32-544");
                 string adminGroupName = id.Translate(typeof(NTAccount)).Value;
 
                 System.Net.WebClient wc = new System.Net.WebClient();
-                Thread start;
-                if (!isHidden)
+              
+                if (!isHidden && !err)
                 {
                     start = new Thread(new ParameterizedThreadStart(showDialog));
                     start.Start("Downloading hosts file(s)...");
                 }
 
 
-                //Read hosts files from web
-                if (useInternalBlacklist == false)
-                    foreach (String u in urls)
-                        fileText += wc.DownloadString(u) + "\r\n";
-                if (urls.Count == 0 || useInternalBlacklist == true)
-                {
-                    fileText = wc.DownloadString("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
-                    if (showFakeNews)
-                        fileText += wc.DownloadString(
-                            "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts");
-                    if (showGambling)
-                        fileText += wc.DownloadString(
-                            "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling/hosts");
-                    if (showPorn)
-                        fileText += wc.DownloadString(
-                            "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts");
-                    if (showSocial)
-                        fileText += wc.DownloadString(
-                            "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts");
+               
+
+                    //Read hosts files from web
+                    if (blacklistToUse == BlacklistTypes.INTERNAL)
+                    {
+                        foreach (String u in urls)
+                            fileText += wc.DownloadString(u) + "\r\n";
+                    }
+                    else if (blacklistToUse == BlacklistTypes.STEVENBLACK)
+                    {
+                        fileText = wc.DownloadString(
+                            "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
+                        if (showFakeNews)
+                            fileText += wc.DownloadString(
+                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts");
+                        if (showGambling)
+                            fileText += wc.DownloadString(
+                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling/hosts");
+                        if (showPorn)
+                            fileText += wc.DownloadString(
+                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts");
+                        if (showSocial)
+                            fileText += wc.DownloadString(
+                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts");
+
+                    }
+                    else
+                    {
+                        fileText = wc.DownloadString("https://hosts-file.net/download/hosts.txt");
+                    }
+
+
+                    if (!isHidden)
+                        closeDialog();
+
+                    if (!isHidden)
+                    {
+                        start = new Thread(new ParameterizedThreadStart(showDialog));
+                        start.Start("Replacing IP's");
+                    }
+
+                    foreach (String host in addHosts)
+                        fileText += ipTo + " " + host + "\r\n";
+
+                    //IP Overwrite
+                    fileText = fileText.Replace(ipFrom, ipTo);
+                    //CR/LF detection
+                    if (!fileText.Contains((char) 13))
+                        fileText = fileText.Replace("\n", "\r\n");
+
+                    if (!isHidden)
+                        closeDialog();
+
+                    //Write temp hosts file
+                    System.IO.File.Delete("hosts.tmp");
+                    System.IO.File.WriteAllText("hosts.tmp", fileText);
+                    //Set permissions of hosts file to be writable by group admins
+                    FileSecurity fs = setHostsFilePermissions();
+                    //Copy hosts file to real hosts file
+                    System.IO.File.Copy("hosts.tmp",
+                        Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", true);
+                    System.IO.File.Delete("hosts.tmp");
+                    //Reset permissions
+                    resetHostsFilePermissions(fs);
+
+         
                 }
-
-                if (!isHidden)
-                    closeDialog();
-
-                if (!isHidden)
+                if (!isHidden && !err)
                 {
-                    start = new Thread(new ParameterizedThreadStart(showDialog));
-                    start.Start("Replacing IP's");
+                    frmDialog f = new frmDialog();
+                    f.showButton = true;
+                    f.action = "Hosts file updated.";
+                    f.ShowDialog();
                 }
-
-                foreach (String host in addHosts)
-                    fileText += ipTo + " " + host + "\r\n";
-
-                //IP Overwrite
-                fileText = fileText.Replace(ipFrom, ipTo);
-                //CR/LF detection
-                if (!fileText.Contains((char) 13))
-                    fileText = fileText.Replace("\n", "\r\n");
-
-                if (!isHidden)
-                    closeDialog();
-
-                //Write temp hosts file
-                System.IO.File.Delete("hosts.tmp");
-                System.IO.File.WriteAllText("hosts.tmp", fileText);
-                //Set permissions of hosts file to be writable by group admins
-                FileSecurity fs = setHostsFilePermissions();
-                //Copy hosts file to real hosts file
-                System.IO.File.Copy("hosts.tmp",
-                    Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", true);
-                System.IO.File.Delete("hosts.tmp");
-                //Reset permissions
-                resetHostsFilePermissions(fs);
 
             }
             catch (Exception ex) //Hosts file update
             {
+                if(start!=null)
+                    start.Abort();
                 //generate error string
                 String add = "";
-                if (!isHidden)
+                if (!isHidden && !err)
                     if (isAntivir())
                     {
                         frmNotifyAntivirus f = new frmNotifyAntivirus();
                         f.ShowDialog();
                     }
-                if (!isHidden)
+                if (!isHidden && !err)
                     MessageBox.Show("Error: " + add + ex.Message);
             }
         }
@@ -870,16 +931,9 @@ namespace HostsManager
         private void bnUpdate_Click_1(object sender, EventArgs e)
         {
             try
-            {
-                clsAviraSettings.killAV();
+            {            
                 updateHostsFile();
-                if (!isHidden)
-                {
-                    frmDialog f = new frmDialog();
-                    f.showButton = true;
-                    f.action = "Hosts file updated.";
-                    f.ShowDialog();
-                }
+                
             }
             catch (Exception ex)
             {
@@ -1155,14 +1209,21 @@ namespace HostsManager
         {
             Microsoft.Win32.RegistryKey exampleRegistryKey =
                 Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
-            useInternalBlacklist = rbUseStevensBlacklist.Checked;
-            if (rbUseStevensBlacklist.Checked)
+            
+            if (rbUseCustomlBlacklist.Checked)
             {
-                exampleRegistryKey.SetValue("UseInternalBlacklist", "TRUE");
+                blacklistToUse=BlacklistTypes.INTERNAL;
+                exampleRegistryKey.SetValue("BlacklistToUse", "INTERNAL");
+            }
+            else if (rbUseStevensBlacklist.Checked)
+            {
+                blacklistToUse = BlacklistTypes.STEVENBLACK;
+                exampleRegistryKey.SetValue("BlacklistToUse", "STEVENBLACK");
             }
             else
             {
-                exampleRegistryKey.SetValue("UseInternalBlacklist", "FALSE");
+                blacklistToUse=BlacklistTypes.HOSTSFILEDOTNET;
+                exampleRegistryKey.SetValue("BlacklistToUse","HOSTSFILENET");
             }
         }
 
@@ -1296,6 +1357,133 @@ namespace HostsManager
         private void label7_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            setDNS("8.8.8.8");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            setDNS("208.67.222.222,208.67.220.220");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FileSecurity fs = setHostsFilePermissions();
+                String hostsFile = System.IO.File.ReadAllText("default_hosts.tpl");
+                System.IO.File.WriteAllText(
+                    Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", hostsFile);
+                resetHostsFilePermissions(fs);
+            }
+            catch (Exception ex)
+            {
+                frmDialog f=new frmDialog();
+                f.action = "Something, most likely anitivirus software, is blocking the hosts file.";
+                f.showButton = true;
+                f.ShowDialog();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            ServiceController _ServiceController = new ServiceController("DNS-Client");
+            if (!_ServiceController.ServiceHandle.IsInvalid)
+            {
+                try
+                {
+                    _ServiceController.Stop();
+                    _ServiceController.WaitForStatus(ServiceControllerStatus.Stopped, TimeSpan.FromMilliseconds(5000));
+                }
+                catch (Exception ex)
+                {
+                }
+                Process.Start("sc.exe", "config Dnscache start=disabled");
+            }
+
+
+        }
+
+         public void changeServiceStartMode(string hostname, string serviceName, string startMode)
+        {
+            try
+            {
+                ManagementObject classInstance =
+                    new ManagementObject(@"\\" + hostname + @"\root\cimv2",
+                        "Win32_Service.Name='" + serviceName + "'",
+                        null);
+
+                // Obtain in-parameters for the method
+                ManagementBaseObject inParams =
+                    classInstance.GetMethodParameters("ChangeStartMode");
+
+                // Add the input parameters.
+                inParams["StartMode"] = startMode;
+
+                // Execute the method and obtain the return values.
+                ManagementBaseObject outParams =
+                    classInstance.InvokeMethod("ChangeStartMode", inParams, null);
+
+                // List outParams
+                //Console.WriteLine("Out parameters:");
+                //richTextBox1.AppendText(DateTime.Now.ToString() + ": ReturnValue: " + outParams["ReturnValue"]);
+            }
+            catch (ManagementException err)
+            {
+                //richTextBox1.AppendText(DateTime.Now.ToString() + ": An error occurred while trying to execute the WMI method: " + err.Message);
+            }
+        }
+        public void setDNS(String DNS)
+        {
+
+            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if ((nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet) || (nic.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)) //&& (nic.OperationalStatus == OperationalStatus.Up))
+                {
+
+
+            ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection objMOC = objMC.GetInstances();
+
+            foreach (ManagementObject objMO in objMOC)
+            {
+                if ((bool)objMO["IPEnabled"])
+                {
+                    // if you are using the System.Net.NetworkInformation.NetworkInterface you'll need to change this line to if (objMO["Caption"].ToString().Contains(NIC)) and pass in the Description property instead of the name 
+                   // if (objMO["Caption"].Equals(NIC))
+                    //{
+                        try
+                        {
+                            ManagementBaseObject newDNS =
+                                objMO.GetMethodParameters("SetDNSServerSearchOrder");
+                            newDNS["DNSServerSearchOrder"] = DNS.Split(',');
+                            ManagementBaseObject setDNS =
+                                objMO.InvokeMethod("SetDNSServerSearchOrder", newDNS, null);
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
+                    //}
+                }
+            }
+        }
+    }
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            frmDialog f=new frmDialog();
+            f.action = "Edit hosts file: Edit the hosts file\r\nReset hosts file: Set hostsfile to Windows standard\r\nDisable DNS Service: Do this if your System slows down while surfing.\r\nSet DNS Server to Google: Set your DNS Server IP to that of Google (8.8.8.8)\r\nSet DNS Server to OpenDNS. Set your DNS Server IP to that of OpenDNS";
+            f.showButton = true;
+            f.customHeight = 150;
+            f.customWidth = 400;    
+            f.ShowDialog();
         }
     }
 }
