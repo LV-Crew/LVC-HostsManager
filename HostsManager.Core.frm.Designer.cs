@@ -67,7 +67,6 @@
             this.tabTools = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabOptions = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -127,6 +126,8 @@
             this.bnMenuHelp = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
             this.bnMenuTools = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.panel1.SuspendLayout();
@@ -487,9 +488,9 @@
             // 
             this.bnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnEdit.Location = new System.Drawing.Point(17, 18);
+            this.bnEdit.Location = new System.Drawing.Point(200, 65);
             this.bnEdit.Name = "bnEdit";
-            this.bnEdit.Size = new System.Drawing.Size(182, 40);
+            this.bnEdit.Size = new System.Drawing.Size(243, 40);
             this.bnEdit.TabIndex = 56;
             this.bnEdit.Text = "Edit hosts file";
             this.bnEdit.UseVisualStyleBackColor = true;
@@ -546,9 +547,10 @@
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.Black;
+            this.tabTools.Controls.Add(this.button7);
+            this.tabTools.Controls.Add(this.button2);
             this.tabTools.Controls.Add(this.button4);
             this.tabTools.Controls.Add(this.button3);
-            this.tabTools.Controls.Add(this.button2);
             this.tabTools.Controls.Add(this.button1);
             this.tabTools.Controls.Add(this.bnEdit);
             this.tabTools.Location = new System.Drawing.Point(4, 25);
@@ -561,7 +563,7 @@
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(236, 64);
+            this.button4.Location = new System.Drawing.Point(200, 248);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(243, 40);
             this.button4.TabIndex = 60;
@@ -573,7 +575,7 @@
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(236, 18);
+            this.button3.Location = new System.Drawing.Point(200, 202);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(243, 40);
             this.button3.TabIndex = 59;
@@ -581,25 +583,13 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(17, 110);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 40);
-            this.button2.TabIndex = 58;
-            this.button2.Text = "Reset Hosts File";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(17, 64);
+            this.button1.Location = new System.Drawing.Point(200, 156);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 40);
+            this.button1.Size = new System.Drawing.Size(243, 40);
             this.button1.TabIndex = 57;
             this.button1.Text = "Disable DNS Service";
             this.button1.UseVisualStyleBackColor = true;
@@ -1261,6 +1251,28 @@
             this.bnMenuTools.UseVisualStyleBackColor = false;
             this.bnMenuTools.Click += new System.EventHandler(this.bnMenuTools_Click);
             // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(200, 111);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(243, 40);
+            this.button2.TabIndex = 61;
+            this.button2.Text = "Reset Hosts File";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(619, 3);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(24, 23);
+            this.button7.TabIndex = 62;
+            this.button7.Text = "?";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            // 
             // frmHostsManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1420,8 +1432,9 @@
         private System.Windows.Forms.RadioButton rbUseHostsFileBL;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button7;
     }
 }
 

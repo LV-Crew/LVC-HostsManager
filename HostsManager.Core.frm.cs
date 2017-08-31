@@ -34,6 +34,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Management;
+using System.Net.NetworkInformation;
+using System.ServiceProcess;
 
 namespace HostsManager
 {
@@ -1358,33 +1361,128 @@ namespace HostsManager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmDialog f=new frmDialog();
-            f.action = "Coming soon...";
-            f.showButton = true;
-            f.ShowDialog();
+            setDNS("8.8.8.8");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            frmDialog f = new frmDialog();
-            f.action = "Coming soon...";
-            f.showButton = true;
-            f.ShowDialog();
+            setDNS("208.67.222.222,208.67.220.220");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmDialog f = new frmDialog();
-            f.action = "Coming soon...";
-            f.showButton = true;
-            f.ShowDialog();
+            try
+            {
+                FileSecurity fs = setHostsFilePermissions();
+                String hostsFile = System.IO.File.ReadAllText("default_hosts.tpl");
+                System.IO.File.WriteAllText(
+                    Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", hostsFile);
+                resetHostsFilePermissions(fs);
+            }
+            catch (Exception ex)
+            {
+                frmDialog f=new frmDialog();
+                f.action = "Something, most likely anitivirus software, is blocking the hosts file.";
+                f.showButton = true;
+                f.ShowDialog();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmDialog f = new frmDialog();
-            f.action = "Coming soon...";
+
+
+            ServiceController _ServiceController = new ServiceController("DNS-Client");
+            if (!_ServiceController.ServiceHandle.IsInvalid)
+            {
+                try
+                {
+                    _ServiceController.Stop();
+                    _ServiceController.WaitForStatus(ServiceControllerStatus.Stopped, TimeSpan.FromMilliseconds(5000));
+                }
+                catch (Exception ex)
+                {
+                }
+                Process.Start("sc.exe", "config Dnscache start=disabled");
+            }
+
+
+        }
+
+         public void changeServiceStartMode(string hostname, string serviceName, string startMode)
+        {
+            try
+            {
+                ManagementObject classInstance =
+                    new ManagementObject(@"\\" + hostname + @"\root\cimv2",
+                        "Win32_Service.Name='" + serviceName + "'",
+                        null);
+
+                // Obtain in-parameters for the method
+                ManagementBaseObject inParams =
+                    classInstance.GetMethodParameters("ChangeStartMode");
+
+                // Add the input parameters.
+                inParams["StartMode"] = startMode;
+
+                // Execute the method and obtain the return values.
+                ManagementBaseObject outParams =
+                    classInstance.InvokeMethod("ChangeStartMode", inParams, null);
+
+                // List outParams
+                //Console.WriteLine("Out parameters:");
+                //richTextBox1.AppendText(DateTime.Now.ToString() + ": ReturnValue: " + outParams["ReturnValue"]);
+            }
+            catch (ManagementException err)
+            {
+                //richTextBox1.AppendText(DateTime.Now.ToString() + ": An error occurred while trying to execute the WMI method: " + err.Message);
+            }
+        }
+        public void setDNS(String DNS)
+        {
+
+            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if ((nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet) || (nic.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)) //&& (nic.OperationalStatus == OperationalStatus.Up))
+                {
+
+
+            ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection objMOC = objMC.GetInstances();
+
+            foreach (ManagementObject objMO in objMOC)
+            {
+                if ((bool)objMO["IPEnabled"])
+                {
+                    // if you are using the System.Net.NetworkInformation.NetworkInterface you'll need to change this line to if (objMO["Caption"].ToString().Contains(NIC)) and pass in the Description property instead of the name 
+                   // if (objMO["Caption"].Equals(NIC))
+                    //{
+                        try
+                        {
+                            ManagementBaseObject newDNS =
+                                objMO.GetMethodParameters("SetDNSServerSearchOrder");
+                            newDNS["DNSServerSearchOrder"] = DNS.Split(',');
+                            ManagementBaseObject setDNS =
+                                objMO.InvokeMethod("SetDNSServerSearchOrder", newDNS, null);
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
+                    //}
+                }
+            }
+        }
+    }
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            frmDialog f=new frmDialog();
+            f.action = "Edit hosts file: Edit the hosts file\r\nReset hosts file: Set hostsfile to Windows standard\r\nDisable DNS Service: Do this if your System slows down while surfing.\r\nSet DNS Server to Google: Set your DNS Server IP to that of Google (8.8.8.8)\r\nSet DNS Server to OpenDNS. Set your DNS Server IP to that of OpenDNS";
             f.showButton = true;
+            f.customHeight = 150;
+            f.customWidth = 400;    
             f.ShowDialog();
         }
     }

@@ -14,6 +14,8 @@ namespace HostsManager
     {
         public String action = "";
         public bool showButton = false;
+        public int customHeight = 0;
+        public int customWidth = 0;
 
         public frmDialog()
         {
@@ -29,6 +31,19 @@ namespace HostsManager
         {
             label1.Text = action;
             button1.Visible = showButton;
+            if (customHeight != 0)
+            {
+                this.Height = customHeight;
+                button1.Top = customHeight - button1.Height;
+                label1.Top = 0;
+                label1.Height = customHeight;
+            }
+            if (customWidth != 0)
+            {
+                this.Width = customWidth;
+                button1.Left = customWidth - button1.Width;
+                label1.Width = customWidth;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
