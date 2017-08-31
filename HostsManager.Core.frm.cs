@@ -149,12 +149,12 @@ namespace HostsManager
 
 
             //Hide tabs
-            tabControl1.Appearance = TabAppearance.FlatButtons;
-            tabControl1.ItemSize = new Size(0, 1);
-            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControlMenu.Appearance = TabAppearance.FlatButtons;
+            tabControlMenu.ItemSize = new Size(0, 1);
+            tabControlMenu.SizeMode = TabSizeMode.Fixed;
 
             
-            tabControl2.Appearance = TabAppearance.FlatButtons;
+            tabControlOptions.Appearance = TabAppearance.FlatButtons;
 
 
 
@@ -162,7 +162,7 @@ namespace HostsManager
             Application.AddMessageFilter(this);
 
             controlsToMove.Add(this);
-            controlsToMove.Add(this.tabControl1);
+            controlsToMove.Add(this.tabControlMenu);
             controlsToMove.Add(this.panel2);
 
             if (blacklistToUse == BlacklistTypes.STEVENBLACK)
@@ -843,7 +843,7 @@ namespace HostsManager
         private void bnMenuOptions_Click(object sender, EventArgs e)
         {
             fillOptions();
-            tabControl1.SelectedIndex = 2;
+            tabControlMenu.SelectedIndex = 2;
             resetButtons();
             ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Options";
@@ -894,14 +894,14 @@ namespace HostsManager
             catch (Exception ex)
             {
             }
-            tabControl1.SelectedIndex = 4;
+            tabControlMenu.SelectedIndex = 4;
             lblPage.Text = "About";
 
         }
 
         private void bnMenuMain_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 0;
+            tabControlMenu.SelectedIndex = 0;
             resetButtons();
             ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Main";
@@ -921,7 +921,7 @@ namespace HostsManager
 
         private void bnMenuHelp_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 3;
+            tabControlMenu.SelectedIndex = 3;
             resetButtons();
             ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Help";
@@ -1351,7 +1351,7 @@ namespace HostsManager
 
         private void bnMenuTools_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 1;
+            tabControlMenu.SelectedIndex = 1;
         }
 
         private void label7_Click_1(object sender, EventArgs e)
