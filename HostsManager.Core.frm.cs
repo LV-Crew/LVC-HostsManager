@@ -35,6 +35,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Management;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.ServiceProcess;
 
@@ -44,7 +45,7 @@ namespace HostsManager
     //-----------------Form Methods-------------------
     public partial class frmHostsManager : Form, IMessageFilter
     {
-
+        public const String WHITEPAGE_IP = "1.2.3.4";
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         public const int WM_LBUTTONDOWN = 0x0201;
@@ -64,6 +65,15 @@ namespace HostsManager
             HOSTSFILEDOTNET=3
         }
 
+        public enum mIPReplaceMethod
+        {
+            KEEP_LOCALHOST=0,
+            SET_WHITEPAGE=1,
+            SET_CUSTOM=2
+        }
+
+        private mIPReplaceMethod replaceMethod=mIPReplaceMethod.SET_WHITEPAGE;
+
         private String fileText = "";
         public String ipFrom = "0.0.0.0";
         public String ipTo = "34.213.32.36";
@@ -79,6 +89,11 @@ namespace HostsManager
         private bool showSocial = false;
         private BlacklistTypes blacklistToUse = BlacklistTypes.INTERNAL;
         private String externalEditorFile = "";
+        private bool DNServiceDisabled = false;
+        private bool DNSGoogleChanged = false;
+        private bool DNSOpenDNSChanged = false;
+        private String oldDNS = "192.168.2.1";
+        private String replaceIP = "0.0.0.0";
 
         public frmHostsManager()
         {
@@ -149,12 +164,12 @@ namespace HostsManager
 
 
             //Hide tabs
-            tabControlMenu.Appearance = TabAppearance.FlatButtons;
-            tabControlMenu.ItemSize = new Size(0, 1);
-            tabControlMenu.SizeMode = TabSizeMode.Fixed;
+            tabControl1.Appearance = TabAppearance.FlatButtons;
+            tabControl1.ItemSize = new Size(0, 1);
+            tabControl1.SizeMode = TabSizeMode.Fixed;
 
             
-            tabControlOptions.Appearance = TabAppearance.FlatButtons;
+            tabControl2.Appearance = TabAppearance.FlatButtons;
 
 
 
@@ -162,7 +177,7 @@ namespace HostsManager
             Application.AddMessageFilter(this);
 
             controlsToMove.Add(this);
-            controlsToMove.Add(this.tabControlMenu);
+            controlsToMove.Add(this.tabControl1);
             controlsToMove.Add(this.panel2);
 
             if (blacklistToUse == BlacklistTypes.STEVENBLACK)
@@ -312,8 +327,44 @@ namespace HostsManager
                     internalEditor = "CUSTOM";
                 b = (String)mexampleRegistryKey.GetValue("ExternalEditorFile");
                 externalEditorFile = b;
+     
+                b = (String) mexampleRegistryKey.GetValue("DNSServiceDisabled");
+                if (b == null) b = "FALSE";
+                DNServiceDisabled = b.Equals("TRUE") ? true : false;
+                if (DNServiceDisabled)
+                    bnDisableDNS.Text = "Disable DNS Service";
 
+                b = (String)mexampleRegistryKey.GetValue("DNSGoogleChanged");
+                if (b == null) b = "FALSE";
+                DNSGoogleChanged = b.Equals("TRUE") ? true : false;
+                if (DNSGoogleChanged)
+                    bnSetDNSServerGoogle.Text = "Reset DNS Server";
 
+                b = (String)mexampleRegistryKey.GetValue("DNSOpenDNSChanged");
+                if (b == null) b = "FALSE";
+                DNSOpenDNSChanged = b.Equals("TRUE") ? true : false;
+                if (DNSOpenDNSChanged)
+                    bnSetDNSOpenDNS.Text = "Reset DNS Server";
+
+                b = (String)mexampleRegistryKey.GetValue("redirectType");
+                if (b == null)
+                {
+                    b = "SET_WHITEPAGE";
+                    replaceMethod=mIPReplaceMethod.SET_WHITEPAGE;
+                }
+                else if (b == "KEEP_LOCALHOST")
+                {
+                    replaceMethod = mIPReplaceMethod.KEEP_LOCALHOST;
+                }
+                else if (b == "SET_CUSTOM")
+                {
+                    replaceMethod=mIPReplaceMethod.SET_CUSTOM;
+                    replaceIP= (String)mexampleRegistryKey.GetValue("replaceIP");
+                }
+
+                DNSOpenDNSChanged = b.Equals("TRUE") ? true : false;
+                b = (String)mexampleRegistryKey.GetValue("OldDNS");
+                oldDNS = b;
 
                 //Auto Update?
                 b = (String) mexampleRegistryKey.GetValue("AutoUpdate");
@@ -409,7 +460,25 @@ namespace HostsManager
                 exampleRegistryKey.SetValue("BlacklistToUse", "INTERNAL");
             else
                 exampleRegistryKey.SetValue("BlacklistToUse","HOSTSFILENET");
-
+     
+            exampleRegistryKey.SetValue("DNSServiceDisabled", DNServiceDisabled ? "TRUE" : "FALSE");
+            exampleRegistryKey.SetValue("DNSGoogleChanged",DNSGoogleChanged?"TRUE":"FALSE");
+            exampleRegistryKey.SetValue("DNSOpenDNSChanged",DNSOpenDNSChanged?"TRUE":"FALSE");
+            exampleRegistryKey.SetValue("OldDNS",oldDNS);
+            if (replaceMethod == mIPReplaceMethod.KEEP_LOCALHOST)
+            {
+                exampleRegistryKey.SetValue("redirectType","KEEP_LOCALHOST");
+            }
+            else if (replaceMethod == mIPReplaceMethod.SET_CUSTOM)
+            {
+                exampleRegistryKey.SetValue("redirectType", "SET_CUSTOM");
+                exampleRegistryKey.SetValue("replaceIP", replaceIP);
+            }
+            else
+            {
+                exampleRegistryKey.SetValue("redirectType","SET_WHITEPAGE");
+            }
+            
             exampleRegistryKey.Close();
             //Write ULRs to settings.xml
             var serializer = new XmlSerializer(typeof(ArrayList), new Type[] {typeof(String)});
@@ -509,9 +578,10 @@ namespace HostsManager
             {
                 dlg = new frmDialog();
                 dlg.action = (String) action;
+                if(dlg.IsAccessible)
                 dlg.ShowDialog();
             }
-            catch (Exception ex)
+            catch (ThreadAbortException ex)
             {
             }
         }
@@ -605,6 +675,16 @@ namespace HostsManager
                         fileText += ipTo + " " + host + "\r\n";
 
                     //IP Overwrite
+
+
+                    if (replaceMethod == mIPReplaceMethod.KEEP_LOCALHOST)
+                        ipTo = ipFrom;
+                    else if (replaceMethod == mIPReplaceMethod.SET_CUSTOM)
+                    {
+                        ipTo = replaceIP;
+                    }
+                    else
+                        ipTo = WHITEPAGE_IP;
                     fileText = fileText.Replace(ipFrom, ipTo);
                     //CR/LF detection
                     if (!fileText.Contains((char) 13))
@@ -842,8 +922,9 @@ namespace HostsManager
 
         private void bnMenuOptions_Click(object sender, EventArgs e)
         {
+            bnDisableDNS.Text = isServiceActive() ? "Disable DNS-Client service" : "Enable DNS-Client service";
             fillOptions();
-            tabControlMenu.SelectedIndex = 2;
+            tabControl1.SelectedIndex = 2;
             resetButtons();
             ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Options";
@@ -894,14 +975,14 @@ namespace HostsManager
             catch (Exception ex)
             {
             }
-            tabControlMenu.SelectedIndex = 4;
+            tabControl1.SelectedIndex = 4;
             lblPage.Text = "About";
 
         }
 
         private void bnMenuMain_Click(object sender, EventArgs e)
         {
-            tabControlMenu.SelectedIndex = 0;
+            tabControl1.SelectedIndex = 0;
             resetButtons();
             ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Main";
@@ -921,19 +1002,57 @@ namespace HostsManager
 
         private void bnMenuHelp_Click(object sender, EventArgs e)
         {
-            tabControlMenu.SelectedIndex = 3;
+            tabControl1.SelectedIndex = 3;
             resetButtons();
             ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Help";
             webBrowser1.Navigate("http://hostsmanager.lv-crew.org/readme.html");
         }
 
+        private bool isADMember()
+        {
+            String pcname = Environment.GetEnvironmentVariable("computername");
+            String domainname = Environment.GetEnvironmentVariable("logonserver");
+            if (("\\\\" + pcname.ToLower()).Equals(domainname.ToLower()))
+                return false;
+            else
+                return true;
+        }
+
+        private DialogResult showYesNoDialog(String text)
+        {
+            frmDialog d=new frmDialog();
+            d.action = text;
+            d.yesNoButtons = true;
+            return d.ShowDialog();
+        }
+
         private void bnUpdate_Click_1(object sender, EventArgs e)
         {
             try
-            {            
-                updateHostsFile();
-                
+            {
+                if (isADMember())
+                {
+                    if (blacklistToUse == BlacklistTypes.HOSTSFILEDOTNET)
+                    {
+                        showOKDIalog(
+                            "Please use Steven Black's Blacklist when being a member of an Active Directory domain. Contact your system administrator for further information.\r\n\r\n",true);
+                    }
+                    else
+                    {
+                        updateHostsFile();
+                    }
+                }
+                else
+                {
+                    DialogResult ret = DialogResult.Cancel;
+                    if (isServiceActive())
+                        ret=showYesNoDialog("Do you want to disable the DNS-Client service? Not doing so will slow down your computer.");                    
+                    if (ret == DialogResult.OK)
+                        disableDNSService();
+
+                    updateHostsFile();
+                }                                
             }
             catch (Exception ex)
             {
@@ -943,9 +1062,12 @@ namespace HostsManager
 
         private void bnEdit_Click_1(object sender, EventArgs e)
         {
-            FileSecurity fs = setHostsFilePermissions();
-            doEdit.edit(internalEditor, urls,externalEditorFile);
-            resetHostsFilePermissions(fs);
+            if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
+            {
+                FileSecurity fs = setHostsFilePermissions();
+                doEdit.edit(internalEditor, urls, externalEditorFile);
+                resetHostsFilePermissions(fs);
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -966,9 +1088,24 @@ namespace HostsManager
 
         private void fillOptions()
         {
-            lbAddHosts.Items.Clear();
+            if (replaceMethod == mIPReplaceMethod.KEEP_LOCALHOST)
+            {
+                rbRedirectLocalhost.Checked = true;
+            }
+            else if (replaceMethod == mIPReplaceMethod.SET_CUSTOM)
+            {
+                rbRedirectCustom.Checked = true;
+                txtReplaceIP.Text = replaceIP;
+            }
+            else
+            {
+                rbRedirectWhitepage.Checked = true;
+            }
+
+                lbAddHosts.Items.Clear();
             lbURLs.Items.Clear();
             //Fill IP Replacement
+            /*
             if (ipFrom != "")
             {
                 txtFrom.ForeColor = Color.Black;
@@ -980,7 +1117,7 @@ namespace HostsManager
                 txtTo.ForeColor = Color.Black;
                 txtTo.Text = ipTo;
             }
-
+            */
             //FIll URL list
             foreach (String u in urls)
             {
@@ -998,23 +1135,7 @@ namespace HostsManager
             {
                 if (txtURL.ForeColor == Color.Gray) txtURL.Text = "";
             };
-            txtFrom.GotFocus += (s, a) =>
-            {
-                if (txtFrom.ForeColor == Color.Gray) txtFrom.Text = "";
-            };
-            txtTo.GotFocus += (s, a) =>
-            {
-                if (txtTo.ForeColor == Color.Gray) txtTo.Text = "";
-            };
-
-            txtFrom.LostFocus += (s, a) =>
-            {
-                if (txtFrom.Text == "")
-                {
-                    txtFrom.Text = "0.0.0.0";
-                    txtFrom.ForeColor = Color.Gray;
-                }
-            };
+    
 
             txtTo.LostFocus += (s, a) =>
             {
@@ -1335,6 +1456,15 @@ namespace HostsManager
 
         private void bnSaveOptions2_Click(object sender, EventArgs e)
         {
+            if ((rbRedirectLocalhost).Checked)
+                replaceMethod = mIPReplaceMethod.KEEP_LOCALHOST;
+            else if ((rbRedirectWhitepage).Checked)
+                replaceMethod = mIPReplaceMethod.SET_WHITEPAGE;
+            else
+            {
+                replaceMethod = mIPReplaceMethod.SET_CUSTOM;
+                replaceIP = txtReplaceIP.Text;
+            }
             if ((rbCustom.Checked && File.Exists(txtCustomEditor.Text)) || rbExternal.Checked || rbInternal.Checked)
             {
                 saveSettingsOptions();
@@ -1351,7 +1481,8 @@ namespace HostsManager
 
         private void bnMenuTools_Click(object sender, EventArgs e)
         {
-            tabControlMenu.SelectedIndex = 1;
+            tabControl1.SelectedIndex = 1;
+            lblPage.Text = "Tools";
         }
 
         private void label7_Click_1(object sender, EventArgs e)
@@ -1359,14 +1490,94 @@ namespace HostsManager
 
         }
 
+
+        private static String getCurrentDNSServer()
+        {
+            NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
+
+            foreach (NetworkInterface networkInterface in networkInterfaces)
+            {
+                if (networkInterface.OperationalStatus == OperationalStatus.Up)
+                {
+                    IPInterfaceProperties ipProperties = networkInterface.GetIPProperties();
+                    IPAddressCollection dnsAddresses = ipProperties.DnsAddresses;
+
+                    foreach (IPAddress dnsAdress in dnsAddresses)
+                    {
+                        return dnsAdress.ToString();
+                    }
+                }
+            }
+            return "";
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            setDNS("8.8.8.8");
+            Thread start = null;
+            if (DNSGoogleChanged)
+            {
+                start = new Thread(new ParameterizedThreadStart(showDialog));
+                start.Start("Resetting DNS Server...");
+                setDNS(oldDNS);
+                DNSGoogleChanged = false;
+                bnSetDNSOpenDNS.Text = "Set DNS Server to OpenDNS";
+                bnSetDNSServerGoogle.Text = "Set DNS Server to Google";
+                if (start != null)
+                    start.Abort();
+                showOKDIalog("DNS server has been reset.");
+            }
+            else
+            {
+                start = new Thread(new ParameterizedThreadStart(showDialog));
+                start.Start("Setting DNS Server...");
+                String _oldDNS = getCurrentDNSServer();
+                setDNS("8.8.8.8");
+                bnSetDNSServerGoogle.Text = "Reset DNS Server";
+                bnSetDNSOpenDNS.Text = "Set DNS Server to OpenDNS";
+                DNSGoogleChanged = true;
+                DNSOpenDNSChanged = false;
+                oldDNS = _oldDNS;
+                if (start != null)
+                    start.Abort();
+                showOKDIalog("DNS server has been changed.");
+            }
+            saveSettings();            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            setDNS("208.67.222.222,208.67.220.220");
+            Thread start = null;
+            if (DNSOpenDNSChanged)
+            {
+                start = new Thread(new ParameterizedThreadStart(showDialog));
+                start.Start("Resetting DNS Server...");
+                setDNS(oldDNS);
+                DNSOpenDNSChanged = false;
+                bnSetDNSOpenDNS.Text = "Set DNS Server to OpenDNS";
+                bnSetDNSServerGoogle.Text = "Set DNS Server to Google";
+                if (start != null)
+                    start.Abort();
+                showOKDIalog("DNS server has been reset.");
+            }
+            else
+            {
+                start = new Thread(new ParameterizedThreadStart(showDialog));
+                start.Start("Setting DNS Server...");
+                String _oldDNS = getCurrentDNSServer();
+                setDNS("208.67.222.222,208.67.220.220");
+                bnSetDNSOpenDNS.Text = "Reset DNS Server";
+                bnSetDNSServerGoogle.Text = "Set DNS Server to Google";
+                DNSOpenDNSChanged = true;
+                DNSGoogleChanged = false;
+                oldDNS = _oldDNS;
+                if (start != null)
+                    start.Abort();
+                showOKDIalog("DNS server has been changed.");
+            }
+            saveSettings();
+            if(start!=null && start.IsAlive)
+                start.Abort();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -1388,25 +1599,105 @@ namespace HostsManager
             }
         }
 
+        private bool isServiceActive()
+        {
+            string path = "Win32_Service.Name='dnscache'";
+            ManagementPath p = new ManagementPath(path);
+            ManagementObject ManagementObj = new ManagementObject(p);
+            return (ManagementObj["StartMode"].ToString().Equals("Auto"));
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
+            Thread start = null;
+            bool err = false;
+            if (!isServiceActive())
+            {
+               
+                
+                    start = new Thread(new ParameterizedThreadStart(showDialog));
+                    start.Start("Enabling DNS-Client Service...");
+                    Process p = Process.Start("sc.exe", "config Dnscache start=auto");
+                    p.WaitForExit();
+                    ServiceController _ServiceController = new ServiceController("dnscache");
+                    if (!_ServiceController.ServiceHandle.IsInvalid)
+                    {
+                        try
+                        {
+                            _ServiceController.Start();
+                            _ServiceController.WaitForStatus(ServiceControllerStatus.StartPending,
+                                TimeSpan.FromMilliseconds(10000));
+                        }
+                        catch (Exception ex)
+                        {
+                            err = true;
+                        }
+                    }
+                    if (start != null && start.IsAlive)
+                    {
+                        start.Suspend();
+                    }
 
+                    if (!err)
+                    {
+                        showOKDIalog("DNS-Client service enabled.");
+                        bnDisableDNS.Text = "Disable DNS-Client Service";
+                        DNServiceDisabled = false;
+                    }
+                    else
+                        showOKDIalog("Error enabling DNS-Client service. Please retry...");
+           
+            }
+            else
+            {
+                if(!isADMember())
+                    disableDNSService();
+                else
+                    showOKDIalog("You are a member of an Active Directory domain. This requires the DNS-Client service to be active.");
+            }
+   
+        }
 
-            ServiceController _ServiceController = new ServiceController("DNS-Client");
+        private void disableDNSService()
+        {
+            System.Threading.Thread start=null;
+            bool err = false;
+            start = new Thread(new ParameterizedThreadStart(showDialog));
+            start.Start("Disabling DNS-Client Service...");
+            ServiceController _ServiceController = new ServiceController("dnscache");
             if (!_ServiceController.ServiceHandle.IsInvalid)
             {
                 try
                 {
                     _ServiceController.Stop();
-                    _ServiceController.WaitForStatus(ServiceControllerStatus.Stopped, TimeSpan.FromMilliseconds(5000));
+                    _ServiceController.WaitForStatus(ServiceControllerStatus.Stopped,
+                        TimeSpan.FromMilliseconds(10000));
                 }
                 catch (Exception ex)
                 {
+                    err = true;
                 }
-                Process.Start("sc.exe", "config Dnscache start=disabled");
+                try
+                {
+                    if (!err)
+                    {
+                        Process p = Process.Start("sc.exe", "config dnscache start=disabled");
+                        p.WaitForExit();
+                        DNServiceDisabled = true;
+                        bnDisableDNS.Text = "Enable DNS-Client Service";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    err = true;
+                }
             }
-
-
+            if (start != null && start.ThreadState == System.Threading.ThreadState.Running)
+                start.Suspend();
+            if (!err)
+                showOKDIalog("DNS-Client service disabled.");
+            else
+                showOKDIalog("Erro disabling DNS-Client service. Please retry..");
         }
 
          public void changeServiceStartMode(string hostname, string serviceName, string startMode)
@@ -1479,11 +1770,117 @@ namespace HostsManager
         private void button7_Click_1(object sender, EventArgs e)
         {
             frmDialog f=new frmDialog();
-            f.action = "Edit hosts file: Edit the hosts file\r\nReset hosts file: Set hostsfile to Windows standard\r\nDisable DNS Service: Do this if your System slows down while surfing.\r\nSet DNS Server to Google: Set your DNS Server IP to that of Google (8.8.8.8)\r\nSet DNS Server to OpenDNS. Set your DNS Server IP to that of OpenDNS";
+            f.action = "Edit hosts file: Edit the hosts file\r\nReset hosts file: Set hostsfile to Windows standard\r\nFlush DNS cache: removes temporarily saved DNS data.\r\nDisable DNS Service: Do this if your System slows down while surfing.\r\nSet DNS Server to Google: Set your DNS Server IP to that of Google (8.8.8.8)\r\nSet DNS Server to OpenDNS. Set your DNS Server IP to that of OpenDNS";
             f.showButton = true;
             f.customHeight = 150;
             f.customWidth = 400;    
             f.ShowDialog();
+        }
+
+        private void tabTools_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                FileSecurity fs = setHostsFilePermissions();
+                String hostsFile = System.IO.File.ReadAllText("default_hosts.tpl");
+                System.IO.File.WriteAllText(
+                    Environment.GetEnvironmentVariable("windir") + "\\System32\\drivers\\etc\\hosts", hostsFile);
+                resetHostsFilePermissions(fs);
+            }
+            catch (Exception ex)
+            {
+                showOKDIalog("Hosts file blocked. Please disable hosts file protection in your antivirus software.");
+            }
+        }
+
+        private void showOKDIalog(String text, bool larger=false)
+        {
+            frmDialog f = new frmDialog();
+            f.action = text;
+            if (larger)
+                f.customHeight = 150;
+            f.showButton = true;      
+            f.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (isServiceActive())
+            {
+                try
+                {
+                    Process P = Process.Start("ipconfig.exe", "/flushdns");
+                    P.WaitForExit();
+                    showOKDIalog("The DNS cache has been flushed.");
+                }
+                catch (Exception ex)
+                {
+                    showOKDIalog("Error flushing dns cache.");
+                }
+            }
+            else
+            {
+                showOKDIalog("DNS-Client service disabled. Flushing the DNS cache doesnt have any effect.");
+            }
+        }
+
+        private void bnFlushDNSCache_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process p = System.Diagnostics.Process.Start("ipconfig.exe", "/flushdns");
+                p.Start();
+                p.WaitForExit();
+                showOKDIalog("DNS Cache has been flushed.");
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+        private void tabTools_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+      
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                String ret = System.IO.File.ReadAllText("default_hosts.tpl");
+                System.IO.File.WriteAllText(
+                    Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", ret);
+                showOKDIalog("Hosts fiele has been reset to system defaults.");
+            }
+            catch (Exception ex)
+            {
+                showOKDIalog("Could not write hosts file. Please check your antivirus for hosts file potection.");
+            }
         }
     }
 }

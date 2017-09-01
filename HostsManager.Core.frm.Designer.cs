@@ -59,19 +59,40 @@
             this.label5 = new System.Windows.Forms.Label();
             this.bnUpdate = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bnToolsEditHosts = new System.Windows.Forms.Button();
+            this.bnEdit = new System.Windows.Forms.Button();
             this.bnOK = new System.Windows.Forms.Button();
             this.bnAbbrechen = new System.Windows.Forms.Button();
-            this.tabControlMenu = new System.Windows.Forms.TabControl();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMain = new System.Windows.Forms.TabPage();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.bnFlushDNSCache = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.bnToolsResetHosts = new System.Windows.Forms.Button();
-            this.bnToolsSetOpenDNS = new System.Windows.Forms.Button();
-            this.bnToolsSetGoogle = new System.Windows.Forms.Button();
-            this.bnToolsDisableDNS = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.bnSetDNSOpenDNS = new System.Windows.Forms.Button();
+            this.bnSetDNSServerGoogle = new System.Windows.Forms.Button();
+            this.bnDisableDNS = new System.Windows.Forms.Button();
             this.tabOptions = new System.Windows.Forms.TabPage();
-            this.tabControlOptions = new System.Windows.Forms.TabControl();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.bnCustomEditor = new System.Windows.Forms.Button();
+            this.txtCustomEditor = new System.Windows.Forms.TextBox();
+            this.rbCustom = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rbInternal = new System.Windows.Forms.RadioButton();
+            this.rbExternal = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtReplaceIP = new System.Windows.Forms.TextBox();
+            this.rbRedirectCustom = new System.Windows.Forms.RadioButton();
+            this.rbRedirectWhitepage = new System.Windows.Forms.RadioButton();
+            this.label22 = new System.Windows.Forms.Label();
+            this.rbRedirectLocalhost = new System.Windows.Forms.RadioButton();
+            this.bnSaveOptions2 = new System.Windows.Forms.Button();
+            this.cbAutoUpdate = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTo = new System.Windows.Forms.TextBox();
+            this.txtFrom = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label20 = new System.Windows.Forms.Label();
@@ -85,7 +106,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.bnOptionsSave1 = new System.Windows.Forms.Button();
+            this.bnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.bnRemove = new System.Windows.Forms.Button();
@@ -98,19 +119,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.bnRemoveHost = new System.Windows.Forms.Button();
             this.bnAddHost = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.bnOptionsSave2 = new System.Windows.Forms.Button();
-            this.bnCustomEditor = new System.Windows.Forms.Button();
-            this.txtCustomEditor = new System.Windows.Forms.TextBox();
-            this.rbCustom = new System.Windows.Forms.RadioButton();
-            this.cbAutoUpdate = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFrom = new System.Windows.Forms.TextBox();
-            this.rbInternal = new System.Windows.Forms.RadioButton();
-            this.rbExternal = new System.Windows.Forms.RadioButton();
             this.tabHelp = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabAbout = new System.Windows.Forms.TabPage();
@@ -132,16 +140,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControlMenu.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabTools.SuspendLayout();
             this.tabOptions.SuspendLayout();
-            this.tabControlOptions.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabHelp.SuspendLayout();
             this.tabAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -245,12 +255,14 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(172, 406);
             this.label8.TabIndex = 30;
+            this.label8.Text = "LV-Crew HostsManager";
             // 
             // pbPicture
             // 
             this.pbPicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPicture.Image = ((System.Drawing.Image)(resources.GetObject("pbPicture.Image")));
             this.pbPicture.InitialImage = null;
-            this.pbPicture.Location = new System.Drawing.Point(1, 5);
+            this.pbPicture.Location = new System.Drawing.Point(3, 3);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(168, 170);
             this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -267,7 +279,7 @@
             this.bnMenuMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuMain.Location = new System.Drawing.Point(1, 175);
+            this.bnMenuMain.Location = new System.Drawing.Point(1, 179);
             this.bnMenuMain.Name = "bnMenuMain";
             this.bnMenuMain.Size = new System.Drawing.Size(169, 34);
             this.bnMenuMain.TabIndex = 34;
@@ -284,7 +296,7 @@
             this.bnMenuOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuOptions.Location = new System.Drawing.Point(1, 248);
+            this.bnMenuOptions.Location = new System.Drawing.Point(1, 252);
             this.bnMenuOptions.Name = "bnMenuOptions";
             this.bnMenuOptions.Size = new System.Drawing.Size(169, 34);
             this.bnMenuOptions.TabIndex = 35;
@@ -301,7 +313,7 @@
             this.bnMenuAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuAbout.Location = new System.Drawing.Point(1, 316);
+            this.bnMenuAbout.Location = new System.Drawing.Point(1, 320);
             this.bnMenuAbout.Name = "bnMenuAbout";
             this.bnMenuAbout.Size = new System.Drawing.Size(169, 34);
             this.bnMenuAbout.TabIndex = 36;
@@ -318,7 +330,7 @@
             this.bnMenuExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuExit.Location = new System.Drawing.Point(1, 350);
+            this.bnMenuExit.Location = new System.Drawing.Point(1, 354);
             this.bnMenuExit.Name = "bnMenuExit";
             this.bnMenuExit.Size = new System.Drawing.Size(169, 34);
             this.bnMenuExit.TabIndex = 37;
@@ -371,7 +383,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(637, 351);
             this.panel1.TabIndex = 45;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // rbUseHostsFileBL
             // 
@@ -484,17 +495,17 @@
             this.pictureBox1.TabIndex = 58;
             this.pictureBox1.TabStop = false;
             // 
-            // bnToolsEditHosts
+            // bnEdit
             // 
-            this.bnToolsEditHosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnToolsEditHosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnToolsEditHosts.Location = new System.Drawing.Point(200, 65);
-            this.bnToolsEditHosts.Name = "bnToolsEditHosts";
-            this.bnToolsEditHosts.Size = new System.Drawing.Size(243, 40);
-            this.bnToolsEditHosts.TabIndex = 56;
-            this.bnToolsEditHosts.Text = "Edit hosts file";
-            this.bnToolsEditHosts.UseVisualStyleBackColor = true;
-            this.bnToolsEditHosts.Click += new System.EventHandler(this.bnEdit_Click_1);
+            this.bnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnEdit.Location = new System.Drawing.Point(200, 47);
+            this.bnEdit.Name = "bnEdit";
+            this.bnEdit.Size = new System.Drawing.Size(243, 40);
+            this.bnEdit.TabIndex = 56;
+            this.bnEdit.Text = "Edit hosts file";
+            this.bnEdit.UseVisualStyleBackColor = true;
+            this.bnEdit.Click += new System.EventHandler(this.bnEdit_Click_1);
             // 
             // bnOK
             // 
@@ -516,20 +527,20 @@
             this.bnAbbrechen.Text = "Cancel";
             this.bnAbbrechen.UseVisualStyleBackColor = true;
             // 
-            // tabControlMenu
+            // tabControl1
             // 
-            this.tabControlMenu.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControlMenu.Controls.Add(this.tabMain);
-            this.tabControlMenu.Controls.Add(this.tabTools);
-            this.tabControlMenu.Controls.Add(this.tabOptions);
-            this.tabControlMenu.Controls.Add(this.tabHelp);
-            this.tabControlMenu.Controls.Add(this.tabAbout);
-            this.tabControlMenu.Location = new System.Drawing.Point(167, 15);
-            this.tabControlMenu.Name = "tabControlMenu";
-            this.tabControlMenu.SelectedIndex = 0;
-            this.tabControlMenu.Size = new System.Drawing.Size(661, 409);
-            this.tabControlMenu.TabIndex = 50;
-            this.tabControlMenu.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControl1.Controls.Add(this.tabMain);
+            this.tabControl1.Controls.Add(this.tabTools);
+            this.tabControl1.Controls.Add(this.tabOptions);
+            this.tabControl1.Controls.Add(this.tabHelp);
+            this.tabControl1.Controls.Add(this.tabAbout);
+            this.tabControl1.Location = new System.Drawing.Point(167, 15);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(661, 409);
+            this.tabControl1.TabIndex = 50;
+            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             // 
             // tabMain
             // 
@@ -547,17 +558,31 @@
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.Black;
+            this.tabTools.Controls.Add(this.bnFlushDNSCache);
             this.tabTools.Controls.Add(this.button7);
-            this.tabTools.Controls.Add(this.bnToolsResetHosts);
-            this.tabTools.Controls.Add(this.bnToolsSetOpenDNS);
-            this.tabTools.Controls.Add(this.bnToolsSetGoogle);
-            this.tabTools.Controls.Add(this.bnToolsDisableDNS);
-            this.tabTools.Controls.Add(this.bnToolsEditHosts);
+            this.tabTools.Controls.Add(this.button2);
+            this.tabTools.Controls.Add(this.bnSetDNSOpenDNS);
+            this.tabTools.Controls.Add(this.bnSetDNSServerGoogle);
+            this.tabTools.Controls.Add(this.bnDisableDNS);
+            this.tabTools.Controls.Add(this.bnEdit);
             this.tabTools.Location = new System.Drawing.Point(4, 25);
             this.tabTools.Name = "tabTools";
             this.tabTools.Size = new System.Drawing.Size(653, 380);
             this.tabTools.TabIndex = 4;
             this.tabTools.Text = "Tools";
+            this.tabTools.Click += new System.EventHandler(this.tabTools_Click_1);
+            // 
+            // bnFlushDNSCache
+            // 
+            this.bnFlushDNSCache.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnFlushDNSCache.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnFlushDNSCache.Location = new System.Drawing.Point(200, 139);
+            this.bnFlushDNSCache.Name = "bnFlushDNSCache";
+            this.bnFlushDNSCache.Size = new System.Drawing.Size(243, 40);
+            this.bnFlushDNSCache.TabIndex = 63;
+            this.bnFlushDNSCache.Text = "Flush DNS Cache";
+            this.bnFlushDNSCache.UseVisualStyleBackColor = true;
+            this.bnFlushDNSCache.Click += new System.EventHandler(this.bnFlushDNSCache_Click);
             // 
             // button7
             // 
@@ -570,57 +595,58 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
-            // bnToolsResetHosts
+            // button2
             // 
-            this.bnToolsResetHosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnToolsResetHosts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnToolsResetHosts.Location = new System.Drawing.Point(200, 111);
-            this.bnToolsResetHosts.Name = "bnToolsResetHosts";
-            this.bnToolsResetHosts.Size = new System.Drawing.Size(243, 40);
-            this.bnToolsResetHosts.TabIndex = 61;
-            this.bnToolsResetHosts.Text = "Reset Hosts File";
-            this.bnToolsResetHosts.UseVisualStyleBackColor = true;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(200, 93);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(243, 40);
+            this.button2.TabIndex = 61;
+            this.button2.Text = "Reset Hosts File";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
-            // bnToolsSetOpenDNS
+            // bnSetDNSOpenDNS
             // 
-            this.bnToolsSetOpenDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnToolsSetOpenDNS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnToolsSetOpenDNS.Location = new System.Drawing.Point(200, 248);
-            this.bnToolsSetOpenDNS.Name = "bnToolsSetOpenDNS";
-            this.bnToolsSetOpenDNS.Size = new System.Drawing.Size(243, 40);
-            this.bnToolsSetOpenDNS.TabIndex = 60;
-            this.bnToolsSetOpenDNS.Text = "Set DNS Server to OpenDNS";
-            this.bnToolsSetOpenDNS.UseVisualStyleBackColor = true;
-            this.bnToolsSetOpenDNS.Click += new System.EventHandler(this.button4_Click);
+            this.bnSetDNSOpenDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnSetDNSOpenDNS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnSetDNSOpenDNS.Location = new System.Drawing.Point(200, 277);
+            this.bnSetDNSOpenDNS.Name = "bnSetDNSOpenDNS";
+            this.bnSetDNSOpenDNS.Size = new System.Drawing.Size(243, 40);
+            this.bnSetDNSOpenDNS.TabIndex = 60;
+            this.bnSetDNSOpenDNS.Text = "Set DNS Server to OpenDNS";
+            this.bnSetDNSOpenDNS.UseVisualStyleBackColor = true;
+            this.bnSetDNSOpenDNS.Click += new System.EventHandler(this.button4_Click);
             // 
-            // bnToolsSetGoogle
+            // bnSetDNSServerGoogle
             // 
-            this.bnToolsSetGoogle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnToolsSetGoogle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnToolsSetGoogle.Location = new System.Drawing.Point(200, 202);
-            this.bnToolsSetGoogle.Name = "bnToolsSetGoogle";
-            this.bnToolsSetGoogle.Size = new System.Drawing.Size(243, 40);
-            this.bnToolsSetGoogle.TabIndex = 59;
-            this.bnToolsSetGoogle.Text = "Set DNS Server to Google";
-            this.bnToolsSetGoogle.UseVisualStyleBackColor = true;
-            this.bnToolsSetGoogle.Click += new System.EventHandler(this.button3_Click);
+            this.bnSetDNSServerGoogle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnSetDNSServerGoogle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnSetDNSServerGoogle.Location = new System.Drawing.Point(200, 231);
+            this.bnSetDNSServerGoogle.Name = "bnSetDNSServerGoogle";
+            this.bnSetDNSServerGoogle.Size = new System.Drawing.Size(243, 40);
+            this.bnSetDNSServerGoogle.TabIndex = 59;
+            this.bnSetDNSServerGoogle.Text = "Set DNS Server to Google";
+            this.bnSetDNSServerGoogle.UseVisualStyleBackColor = true;
+            this.bnSetDNSServerGoogle.Click += new System.EventHandler(this.button3_Click);
             // 
-            // bnToolsDisableDNS
+            // bnDisableDNS
             // 
-            this.bnToolsDisableDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnToolsDisableDNS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnToolsDisableDNS.Location = new System.Drawing.Point(200, 156);
-            this.bnToolsDisableDNS.Name = "bnToolsDisableDNS";
-            this.bnToolsDisableDNS.Size = new System.Drawing.Size(243, 40);
-            this.bnToolsDisableDNS.TabIndex = 57;
-            this.bnToolsDisableDNS.Text = "Disable DNS Service";
-            this.bnToolsDisableDNS.UseVisualStyleBackColor = true;
-            this.bnToolsDisableDNS.Click += new System.EventHandler(this.button1_Click);
+            this.bnDisableDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnDisableDNS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnDisableDNS.Location = new System.Drawing.Point(200, 185);
+            this.bnDisableDNS.Name = "bnDisableDNS";
+            this.bnDisableDNS.Size = new System.Drawing.Size(243, 40);
+            this.bnDisableDNS.TabIndex = 57;
+            this.bnDisableDNS.Text = "Disable DNS-Client Service";
+            this.bnDisableDNS.UseVisualStyleBackColor = true;
+            this.bnDisableDNS.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabOptions
             // 
             this.tabOptions.BackColor = System.Drawing.Color.Black;
-            this.tabOptions.Controls.Add(this.tabControlOptions);
+            this.tabOptions.Controls.Add(this.tabControl2);
             this.tabOptions.ForeColor = System.Drawing.Color.White;
             this.tabOptions.Location = new System.Drawing.Point(4, 25);
             this.tabOptions.Name = "tabOptions";
@@ -630,16 +656,233 @@
             this.tabOptions.Text = "Options";
             this.tabOptions.Click += new System.EventHandler(this.tabOptions_Click);
             // 
-            // tabControlOptions
+            // tabControl2
             // 
-            this.tabControlOptions.Controls.Add(this.tabPage1);
-            this.tabControlOptions.Controls.Add(this.tabPage2);
-            this.tabControlOptions.Controls.Add(this.tabPage3);
-            this.tabControlOptions.Location = new System.Drawing.Point(-3, 0);
-            this.tabControlOptions.Name = "tabControlOptions";
-            this.tabControlOptions.SelectedIndex = 0;
-            this.tabControlOptions.Size = new System.Drawing.Size(654, 416);
-            this.tabControlOptions.TabIndex = 0;
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.tabPage2);
+            this.tabControl2.Location = new System.Drawing.Point(-3, 4);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(654, 416);
+            this.tabControl2.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.Black;
+            this.tabPage3.Controls.Add(this.groupBox4);
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.bnSaveOptions2);
+            this.tabPage3.Controls.Add(this.cbAutoUpdate);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.txtTo);
+            this.tabPage3.Controls.Add(this.txtFrom);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(646, 390);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Main Options";
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.bnCustomEditor);
+            this.groupBox4.Controls.Add(this.txtCustomEditor);
+            this.groupBox4.Controls.Add(this.rbCustom);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.rbInternal);
+            this.groupBox4.Controls.Add(this.rbExternal);
+            this.groupBox4.Location = new System.Drawing.Point(315, 13);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(294, 121);
+            this.groupBox4.TabIndex = 84;
+            this.groupBox4.TabStop = false;
+            // 
+            // bnCustomEditor
+            // 
+            this.bnCustomEditor.BackColor = System.Drawing.Color.White;
+            this.bnCustomEditor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnCustomEditor.ForeColor = System.Drawing.Color.Black;
+            this.bnCustomEditor.Location = new System.Drawing.Point(247, 68);
+            this.bnCustomEditor.Name = "bnCustomEditor";
+            this.bnCustomEditor.Size = new System.Drawing.Size(28, 20);
+            this.bnCustomEditor.TabIndex = 78;
+            this.bnCustomEditor.Text = "...";
+            this.bnCustomEditor.UseVisualStyleBackColor = false;
+            // 
+            // txtCustomEditor
+            // 
+            this.txtCustomEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCustomEditor.Location = new System.Drawing.Point(91, 68);
+            this.txtCustomEditor.Name = "txtCustomEditor";
+            this.txtCustomEditor.Size = new System.Drawing.Size(156, 20);
+            this.txtCustomEditor.TabIndex = 77;
+            // 
+            // rbCustom
+            // 
+            this.rbCustom.AutoSize = true;
+            this.rbCustom.Location = new System.Drawing.Point(16, 69);
+            this.rbCustom.Name = "rbCustom";
+            this.rbCustom.Size = new System.Drawing.Size(60, 17);
+            this.rbCustom.TabIndex = 76;
+            this.rbCustom.TabStop = true;
+            this.rbCustom.Text = "Custom";
+            this.rbCustom.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "Hosts file editor:";
+            // 
+            // rbInternal
+            // 
+            this.rbInternal.AutoSize = true;
+            this.rbInternal.Location = new System.Drawing.Point(16, 33);
+            this.rbInternal.Name = "rbInternal";
+            this.rbInternal.Size = new System.Drawing.Size(60, 17);
+            this.rbInternal.TabIndex = 74;
+            this.rbInternal.Text = "Internal";
+            this.rbInternal.UseVisualStyleBackColor = true;
+            // 
+            // rbExternal
+            // 
+            this.rbExternal.AutoSize = true;
+            this.rbExternal.Checked = true;
+            this.rbExternal.Location = new System.Drawing.Point(16, 50);
+            this.rbExternal.Name = "rbExternal";
+            this.rbExternal.Size = new System.Drawing.Size(69, 17);
+            this.rbExternal.TabIndex = 75;
+            this.rbExternal.TabStop = true;
+            this.rbExternal.Text = "Wordpad";
+            this.rbExternal.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtReplaceIP);
+            this.groupBox3.Controls.Add(this.rbRedirectCustom);
+            this.groupBox3.Controls.Add(this.rbRedirectWhitepage);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.rbRedirectLocalhost);
+            this.groupBox3.Location = new System.Drawing.Point(18, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(274, 121);
+            this.groupBox3.TabIndex = 79;
+            this.groupBox3.TabStop = false;
+            // 
+            // txtReplaceIP
+            // 
+            this.txtReplaceIP.Location = new System.Drawing.Point(155, 79);
+            this.txtReplaceIP.Name = "txtReplaceIP";
+            this.txtReplaceIP.Size = new System.Drawing.Size(100, 20);
+            this.txtReplaceIP.TabIndex = 83;
+            // 
+            // rbRedirectCustom
+            // 
+            this.rbRedirectCustom.AutoSize = true;
+            this.rbRedirectCustom.Location = new System.Drawing.Point(19, 80);
+            this.rbRedirectCustom.Name = "rbRedirectCustom";
+            this.rbRedirectCustom.Size = new System.Drawing.Size(130, 17);
+            this.rbRedirectCustom.TabIndex = 82;
+            this.rbRedirectCustom.Text = "Redirect to custom IP:";
+            this.rbRedirectCustom.UseVisualStyleBackColor = true;
+            this.rbRedirectCustom.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // rbRedirectWhitepage
+            // 
+            this.rbRedirectWhitepage.AutoSize = true;
+            this.rbRedirectWhitepage.Checked = true;
+            this.rbRedirectWhitepage.Location = new System.Drawing.Point(19, 57);
+            this.rbRedirectWhitepage.Name = "rbRedirectWhitepage";
+            this.rbRedirectWhitepage.Size = new System.Drawing.Size(129, 17);
+            this.rbRedirectWhitepage.TabIndex = 81;
+            this.rbRedirectWhitepage.TabStop = true;
+            this.rbRedirectWhitepage.Text = "Redirect to whitepage";
+            this.rbRedirectWhitepage.UseVisualStyleBackColor = true;
+            this.rbRedirectWhitepage.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(16, 17);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(61, 13);
+            this.label22.TabIndex = 80;
+            this.label22.Text = "Redirection";
+            // 
+            // rbRedirectLocalhost
+            // 
+            this.rbRedirectLocalhost.AutoSize = true;
+            this.rbRedirectLocalhost.Location = new System.Drawing.Point(19, 34);
+            this.rbRedirectLocalhost.Name = "rbRedirectLocalhost";
+            this.rbRedirectLocalhost.Size = new System.Drawing.Size(142, 17);
+            this.rbRedirectLocalhost.TabIndex = 79;
+            this.rbRedirectLocalhost.Text = "No redirection (localhost)";
+            this.rbRedirectLocalhost.UseVisualStyleBackColor = true;
+            this.rbRedirectLocalhost.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // bnSaveOptions2
+            // 
+            this.bnSaveOptions2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnSaveOptions2.Location = new System.Drawing.Point(534, 264);
+            this.bnSaveOptions2.Name = "bnSaveOptions2";
+            this.bnSaveOptions2.Size = new System.Drawing.Size(75, 23);
+            this.bnSaveOptions2.TabIndex = 73;
+            this.bnSaveOptions2.Text = "Save";
+            this.bnSaveOptions2.UseVisualStyleBackColor = true;
+            this.bnSaveOptions2.Click += new System.EventHandler(this.bnSaveOptions2_Click);
+            // 
+            // cbAutoUpdate
+            // 
+            this.cbAutoUpdate.AutoSize = true;
+            this.cbAutoUpdate.Location = new System.Drawing.Point(18, 159);
+            this.cbAutoUpdate.Name = "cbAutoUpdate";
+            this.cbAutoUpdate.Size = new System.Drawing.Size(199, 17);
+            this.cbAutoUpdate.TabIndex = 69;
+            this.cbAutoUpdate.Text = "Automatically update hosts file hourly";
+            this.cbAutoUpdate.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(431, 342);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(111, 13);
+            this.label9.TabIndex = 62;
+            this.label9.Text = "Overwrite IP: Replace";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(496, 361);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 64;
+            this.label4.Text = "With";
+            // 
+            // txtTo
+            // 
+            this.txtTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTo.ForeColor = System.Drawing.Color.Gray;
+            this.txtTo.Location = new System.Drawing.Point(557, 359);
+            this.txtTo.Name = "txtTo";
+            this.txtTo.Size = new System.Drawing.Size(100, 20);
+            this.txtTo.TabIndex = 61;
+            this.txtTo.Text = "34.213.32.36";
+            // 
+            // txtFrom
+            // 
+            this.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFrom.ForeColor = System.Drawing.Color.Gray;
+            this.txtFrom.Location = new System.Drawing.Point(557, 340);
+            this.txtFrom.Name = "txtFrom";
+            this.txtFrom.Size = new System.Drawing.Size(100, 20);
+            this.txtFrom.TabIndex = 63;
+            this.txtFrom.Text = "0.0.0.0";
             // 
             // tabPage1
             // 
@@ -778,7 +1021,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Black;
-            this.tabPage2.Controls.Add(this.bnOptionsSave1);
+            this.tabPage2.Controls.Add(this.bnSave);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -788,16 +1031,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Custom Blacklist";
             // 
-            // bnOptionsSave1
+            // bnSave
             // 
-            this.bnOptionsSave1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnOptionsSave1.Location = new System.Drawing.Point(534, 264);
-            this.bnOptionsSave1.Name = "bnOptionsSave1";
-            this.bnOptionsSave1.Size = new System.Drawing.Size(75, 23);
-            this.bnOptionsSave1.TabIndex = 58;
-            this.bnOptionsSave1.Text = "Save";
-            this.bnOptionsSave1.UseVisualStyleBackColor = true;
-            this.bnOptionsSave1.Click += new System.EventHandler(this.bnSave_Click);
+            this.bnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnSave.Location = new System.Drawing.Point(534, 264);
+            this.bnSave.Name = "bnSave";
+            this.bnSave.Size = new System.Drawing.Size(75, 23);
+            this.bnSave.TabIndex = 58;
+            this.bnSave.Text = "Save";
+            this.bnSave.UseVisualStyleBackColor = true;
+            this.bnSave.Click += new System.EventHandler(this.bnSave_Click);
             // 
             // groupBox1
             // 
@@ -863,7 +1106,7 @@
             // 
             this.txtURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtURL.ForeColor = System.Drawing.Color.Black;
-            this.txtURL.Location = new System.Drawing.Point(6, 185);
+            this.txtURL.Location = new System.Drawing.Point(6, 186);
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(290, 20);
             this.txtURL.TabIndex = 66;
@@ -935,150 +1178,6 @@
             this.bnAddHost.TabIndex = 55;
             this.bnAddHost.UseVisualStyleBackColor = false;
             this.bnAddHost.Click += new System.EventHandler(this.bnAddHost_Click_1);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.Black;
-            this.tabPage3.Controls.Add(this.bnOptionsSave2);
-            this.tabPage3.Controls.Add(this.bnCustomEditor);
-            this.tabPage3.Controls.Add(this.txtCustomEditor);
-            this.tabPage3.Controls.Add(this.rbCustom);
-            this.tabPage3.Controls.Add(this.cbAutoUpdate);
-            this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.label4);
-            this.tabPage3.Controls.Add(this.txtTo);
-            this.tabPage3.Controls.Add(this.label3);
-            this.tabPage3.Controls.Add(this.txtFrom);
-            this.tabPage3.Controls.Add(this.rbInternal);
-            this.tabPage3.Controls.Add(this.rbExternal);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(646, 390);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Misc. Options";
-            // 
-            // bnOptionsSave2
-            // 
-            this.bnOptionsSave2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnOptionsSave2.Location = new System.Drawing.Point(534, 264);
-            this.bnOptionsSave2.Name = "bnOptionsSave2";
-            this.bnOptionsSave2.Size = new System.Drawing.Size(75, 23);
-            this.bnOptionsSave2.TabIndex = 73;
-            this.bnOptionsSave2.Text = "Save";
-            this.bnOptionsSave2.UseVisualStyleBackColor = true;
-            this.bnOptionsSave2.Click += new System.EventHandler(this.bnSaveOptions2_Click);
-            // 
-            // bnCustomEditor
-            // 
-            this.bnCustomEditor.BackColor = System.Drawing.Color.White;
-            this.bnCustomEditor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnCustomEditor.ForeColor = System.Drawing.Color.Black;
-            this.bnCustomEditor.Location = new System.Drawing.Point(575, 93);
-            this.bnCustomEditor.Name = "bnCustomEditor";
-            this.bnCustomEditor.Size = new System.Drawing.Size(28, 20);
-            this.bnCustomEditor.TabIndex = 72;
-            this.bnCustomEditor.Text = "...";
-            this.bnCustomEditor.UseVisualStyleBackColor = false;
-            this.bnCustomEditor.Click += new System.EventHandler(this.bnCustomEditor_Click);
-            // 
-            // txtCustomEditor
-            // 
-            this.txtCustomEditor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCustomEditor.Location = new System.Drawing.Point(420, 93);
-            this.txtCustomEditor.Name = "txtCustomEditor";
-            this.txtCustomEditor.Size = new System.Drawing.Size(156, 20);
-            this.txtCustomEditor.TabIndex = 71;
-            this.txtCustomEditor.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // rbCustom
-            // 
-            this.rbCustom.AutoSize = true;
-            this.rbCustom.Location = new System.Drawing.Point(345, 94);
-            this.rbCustom.Name = "rbCustom";
-            this.rbCustom.Size = new System.Drawing.Size(60, 17);
-            this.rbCustom.TabIndex = 70;
-            this.rbCustom.TabStop = true;
-            this.rbCustom.Text = "Custom";
-            this.rbCustom.UseVisualStyleBackColor = true;
-            // 
-            // cbAutoUpdate
-            // 
-            this.cbAutoUpdate.AutoSize = true;
-            this.cbAutoUpdate.Location = new System.Drawing.Point(35, 195);
-            this.cbAutoUpdate.Name = "cbAutoUpdate";
-            this.cbAutoUpdate.Size = new System.Drawing.Size(199, 17);
-            this.cbAutoUpdate.TabIndex = 69;
-            this.cbAutoUpdate.Text = "Automatically update hosts file hourly";
-            this.cbAutoUpdate.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 64);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 13);
-            this.label9.TabIndex = 62;
-            this.label9.Text = "Overwrite IP: Replace";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 64;
-            this.label4.Text = "With";
-            // 
-            // txtTo
-            // 
-            this.txtTo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTo.ForeColor = System.Drawing.Color.Gray;
-            this.txtTo.Location = new System.Drawing.Point(143, 81);
-            this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(100, 20);
-            this.txtTo.TabIndex = 61;
-            this.txtTo.Text = "34.213.32.36";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(260, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Hosts file editor:";
-            // 
-            // txtFrom
-            // 
-            this.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFrom.ForeColor = System.Drawing.Color.Gray;
-            this.txtFrom.Location = new System.Drawing.Point(143, 62);
-            this.txtFrom.Name = "txtFrom";
-            this.txtFrom.Size = new System.Drawing.Size(100, 20);
-            this.txtFrom.TabIndex = 63;
-            this.txtFrom.Text = "0.0.0.0";
-            // 
-            // rbInternal
-            // 
-            this.rbInternal.AutoSize = true;
-            this.rbInternal.Location = new System.Drawing.Point(345, 58);
-            this.rbInternal.Name = "rbInternal";
-            this.rbInternal.Size = new System.Drawing.Size(60, 17);
-            this.rbInternal.TabIndex = 50;
-            this.rbInternal.Text = "Internal";
-            this.rbInternal.UseVisualStyleBackColor = true;
-            // 
-            // rbExternal
-            // 
-            this.rbExternal.AutoSize = true;
-            this.rbExternal.Checked = true;
-            this.rbExternal.Location = new System.Drawing.Point(345, 75);
-            this.rbExternal.Name = "rbExternal";
-            this.rbExternal.Size = new System.Drawing.Size(69, 17);
-            this.rbExternal.TabIndex = 51;
-            this.rbExternal.TabStop = true;
-            this.rbExternal.Text = "Wordpad";
-            this.rbExternal.UseVisualStyleBackColor = true;
             // 
             // tabHelp
             // 
@@ -1192,6 +1291,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(404, 64);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(200, 200);
@@ -1238,7 +1338,7 @@
             this.bnMenuHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuHelp.Location = new System.Drawing.Point(1, 282);
+            this.bnMenuHelp.Location = new System.Drawing.Point(1, 286);
             this.bnMenuHelp.Name = "bnMenuHelp";
             this.bnMenuHelp.Size = new System.Drawing.Size(169, 34);
             this.bnMenuHelp.TabIndex = 52;
@@ -1265,7 +1365,7 @@
             this.bnMenuTools.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuTools.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuTools.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuTools.Location = new System.Drawing.Point(1, 209);
+            this.bnMenuTools.Location = new System.Drawing.Point(1, 213);
             this.bnMenuTools.Name = "bnMenuTools";
             this.bnMenuTools.Size = new System.Drawing.Size(169, 39);
             this.bnMenuTools.TabIndex = 54;
@@ -1294,11 +1394,10 @@
             this.Controls.Add(this.bnMenuMain);
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.tabControlMenu);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1311,11 +1410,17 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControlMenu.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabTools.ResumeLayout(false);
             this.tabOptions.ResumeLayout(false);
-            this.tabControlOptions.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1323,8 +1428,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tabHelp.ResumeLayout(false);
             this.tabAbout.ResumeLayout(false);
             this.tabAbout.PerformLayout();
@@ -1362,11 +1465,11 @@
         private System.Windows.Forms.Button bnUpdate;
         private System.Windows.Forms.Button bnOK;
         private System.Windows.Forms.Button bnAbbrechen;
-        private System.Windows.Forms.TabControl tabControlMenu;
+        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabMain;
         private System.Windows.Forms.TabPage tabOptions;
         private System.Windows.Forms.TabPage tabAbout;
-        private System.Windows.Forms.Button bnToolsEditHosts;
+        private System.Windows.Forms.Button bnEdit;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button bnMenuHelp;
         private System.Windows.Forms.TabPage tabHelp;
@@ -1375,14 +1478,11 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtAddHost;
-        private System.Windows.Forms.Button bnOptionsSave1;
+        private System.Windows.Forms.Button bnSave;
         private System.Windows.Forms.ListBox lbAddHosts;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bnRemoveHost;
         private System.Windows.Forms.Button bnAddHost;
-        private System.Windows.Forms.RadioButton rbExternal;
-        private System.Windows.Forms.RadioButton rbInternal;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox cbAutoUpdate;
         private System.Windows.Forms.Label label10;
@@ -1405,7 +1505,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TabControl tabControlOptions;
+        private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox cbSocial;
@@ -1422,19 +1522,30 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox txtCustomEditor;
-        private System.Windows.Forms.RadioButton rbCustom;
-        private System.Windows.Forms.Button bnCustomEditor;
-        private System.Windows.Forms.Button bnOptionsSave2;
+        private System.Windows.Forms.Button bnSaveOptions2;
         private System.Windows.Forms.TabPage tabTools;
         private System.Windows.Forms.Button bnMenuTools;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.RadioButton rbUseHostsFileBL;
-        private System.Windows.Forms.Button bnToolsSetOpenDNS;
-        private System.Windows.Forms.Button bnToolsSetGoogle;
-        private System.Windows.Forms.Button bnToolsDisableDNS;
-        private System.Windows.Forms.Button bnToolsResetHosts;
+        private System.Windows.Forms.Button bnSetDNSOpenDNS;
+        private System.Windows.Forms.Button bnSetDNSServerGoogle;
+        private System.Windows.Forms.Button bnDisableDNS;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button bnCustomEditor;
+        private System.Windows.Forms.TextBox txtCustomEditor;
+        private System.Windows.Forms.RadioButton rbCustom;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rbInternal;
+        private System.Windows.Forms.RadioButton rbExternal;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtReplaceIP;
+        private System.Windows.Forms.RadioButton rbRedirectCustom;
+        private System.Windows.Forms.RadioButton rbRedirectWhitepage;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.RadioButton rbRedirectLocalhost;
+        private System.Windows.Forms.Button bnFlushDNSCache;
     }
 }
 

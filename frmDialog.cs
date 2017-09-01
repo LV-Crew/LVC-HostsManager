@@ -16,6 +16,7 @@ namespace HostsManager
         public bool showButton = false;
         public int customHeight = 0;
         public int customWidth = 0;
+        public bool yesNoButtons = false;
 
         public frmDialog()
         {
@@ -44,10 +45,22 @@ namespace HostsManager
                 button1.Left = customWidth - button1.Width;
                 label1.Width = customWidth;
             }
+            if (yesNoButtons)
+            {
+                button1.Visible = true;
+                button2.Visible = true;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DialogResult=DialogResult.OK;
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult=DialogResult.Cancel;
             this.Close();
         }
     }

@@ -44,9 +44,9 @@ namespace HostsManager
                 f.mText = txt;
                 f.ShowDialog();
                 if (f.DialogResult == DialogResult.OK)
-                {
-                    txt = f.mText;
-                    System.IO.File.WriteAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", txt);
+                {                    
+                    System.IO.File.WriteAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", f.mText);
+                    f.mText="";
                 }
             }
             catch (Exception ex) {  MessageBox.Show("Could not write hosts file!"); }
