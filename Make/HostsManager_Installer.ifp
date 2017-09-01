@@ -2,7 +2,7 @@
 ProjectFileVersion = "1.1"
 [General]
 Program name = HostsManager
-Program version = 2017.08.31a
+Program version = 2017.09.01a
 Windows 2000 = 0
 Windows XP = 0
 Windows Server 2003 = 0
@@ -100,6 +100,9 @@ png
 C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\Readme.txt
 2 KB
 txt
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Setup\Default_hosts.tpl
+760 Byte
+tpl
 [Licence_Begin]
 38636
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 MS Shell Dlg;}}

@@ -1,8 +1,9 @@
 LV-Crew HostsManager
 
-This program allows you to update your hosts file with a downloaded blacklist.<br>
-The blacklisted traffic is being redirected to a whitepage (or a URL/localhost).<br>
-Therefore tracking is being reduced to a minimum and you are protected from spam ads and more.<br>
+This program allows you to update your hosts file with a downloaded blacklist.
+The blacklisted traffic is being redirected to a whitepage (or a URL/localhost).
+Therefore tracking is being reduced to a minimum.
+You are also being protected from spam ads and more.
 (In short...)
 
 http://i.imgur.com/NWDHch1.png
