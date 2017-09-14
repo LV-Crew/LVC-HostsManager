@@ -201,6 +201,7 @@ namespace HostsManager
             {
             }
             fillOptions();
+            updateStats();
         }
 
         //Update hosts file
@@ -1043,6 +1044,7 @@ namespace HostsManager
             resetButtons();
             ((Button) sender).BackColor = Color.Navy;
             lblPage.Text = "Main";
+            updateStats();
         }
 
         private void tabMain_Click(object sender, EventArgs e)
@@ -1996,6 +1998,24 @@ namespace HostsManager
         {
             UseCustomBlacklist = ((CheckBox)sender).Checked;
             saveSettings();
+        }
+
+        private void updateStats()
+        {
+            if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
+            {
+                try
+                {
+                    String[] hf = File.ReadAllLines(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                    FileInfo fi = new FileInfo(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                    lblCurrent.Text = hf.Length.ToString() + " hosts; " + fi.Length.ToString() + " bytes";
+                }
+                catch (Exception ex) { lblCurrent.Text = "-no info-"; }
+            }
+            else
+            {
+                lblCurrent.Text = "-no info-";
+            }
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)

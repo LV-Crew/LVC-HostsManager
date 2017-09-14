@@ -137,6 +137,8 @@
             this.bnMenuHelp = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
             this.bnMenuTools = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.lblCurrent = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.panel1.SuspendLayout();
@@ -369,6 +371,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblCurrent);
+            this.panel1.Controls.Add(this.label23);
             this.panel1.Controls.Add(this.rbUseCustomBL);
             this.panel1.Controls.Add(this.rbUseStevenBlacksBL);
             this.panel1.Controls.Add(this.rbUseHostsFileBL);
@@ -388,7 +392,7 @@
             // rbUseCustomBL
             // 
             this.rbUseCustomBL.AutoSize = true;
-            this.rbUseCustomBL.Location = new System.Drawing.Point(52, 170);
+            this.rbUseCustomBL.Location = new System.Drawing.Point(53, 143);
             this.rbUseCustomBL.Name = "rbUseCustomBL";
             this.rbUseCustomBL.Size = new System.Drawing.Size(125, 17);
             this.rbUseCustomBL.TabIndex = 66;
@@ -399,7 +403,7 @@
             // rbUseStevenBlacksBL
             // 
             this.rbUseStevenBlacksBL.AutoSize = true;
-            this.rbUseStevenBlacksBL.Location = new System.Drawing.Point(52, 150);
+            this.rbUseStevenBlacksBL.Location = new System.Drawing.Point(53, 123);
             this.rbUseStevenBlacksBL.Name = "rbUseStevenBlacksBL";
             this.rbUseStevenBlacksBL.Size = new System.Drawing.Size(161, 17);
             this.rbUseStevenBlacksBL.TabIndex = 65;
@@ -410,7 +414,7 @@
             // rbUseHostsFileBL
             // 
             this.rbUseHostsFileBL.AutoSize = true;
-            this.rbUseHostsFileBL.Location = new System.Drawing.Point(52, 128);
+            this.rbUseHostsFileBL.Location = new System.Drawing.Point(53, 101);
             this.rbUseHostsFileBL.Name = "rbUseHostsFileBL";
             this.rbUseHostsFileBL.Size = new System.Drawing.Size(149, 17);
             this.rbUseHostsFileBL.TabIndex = 64;
@@ -1388,6 +1392,24 @@
             this.bnMenuTools.UseVisualStyleBackColor = false;
             this.bnMenuTools.Click += new System.EventHandler(this.bnMenuTools_Click);
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(50, 176);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(88, 13);
+            this.label23.TabIndex = 67;
+            this.label23.Text = "Current hosts file:";
+            // 
+            // lblCurrent
+            // 
+            this.lblCurrent.AutoSize = true;
+            this.lblCurrent.Location = new System.Drawing.Point(50, 189);
+            this.lblCurrent.Name = "lblCurrent";
+            this.lblCurrent.Size = new System.Drawing.Size(52, 13);
+            this.lblCurrent.TabIndex = 68;
+            this.lblCurrent.Text = "<current>";
+            // 
             // frmHostsManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1562,6 +1584,8 @@
         private System.Windows.Forms.CheckBox rbUseCustomBL;
         private System.Windows.Forms.CheckBox rbUseStevenBlacksBL;
         private System.Windows.Forms.CheckBox rbUseHostsFileBL;
+        private System.Windows.Forms.Label lblCurrent;
+        private System.Windows.Forms.Label label23;
     }
 }
 
