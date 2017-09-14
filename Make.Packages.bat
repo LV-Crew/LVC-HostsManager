@@ -1,7 +1,7 @@
 @echo off
 cls 
 echo Make.Packages.bat
-echo Version 2017.08.27c
+echo Version 2017.09.14a
 echo.
 rem echo Compile project...
 echo.
@@ -17,6 +17,12 @@ echo copy .\bin\Debug\HostsManager.exe .\Packages\Win-x86.Archive\LV-Crew.HostsM
 copy .\bin\Debug\HostsManager.exe .\Packages\Win-x86.Archive\LV-Crew.HostsManager.exe
 echo copy .\bin\Debug\HostsManager.exe .\Packages\Win-x86.Setup\LV-Crew.HostsManager.exe
 copy .\bin\Debug\HostsManager.exe .\Packages\Win-x86.Setup\LV-Crew.HostsManager.exe
+echo.
+echo copy .\Branding\*.* .\bin\Debug\
+copy .\Branding\*.* .\bin\Debug\
+echo.
+echo copy .\Branding\*.* .\bin\Release\
+copy .\Branding\*.* .\bin\Release\
 echo.
 echo copy .\Branding\*.* .\Packages\Win-x64.Archive\
 copy .\Branding\*.* .\Packages\Win-x64.Archive\
@@ -61,8 +67,12 @@ echo Make Packages...
 echo.
 echo Make Win-x64.zip...
 del .\Packages\Win-x64.zip
-.\Make\7za a .\Packages\Win-x64.zip .\Packages\Win-x64.Archive\*.*
-.\Make\7za a .\Packages\Win-x64.zip .\Packages\Win-x64.Archive\certutil
+"C:\Program Files\WinZip\WZZIP.exe" -p -r .\Packages\Win-x64.zip .\Packages\Win-x64.Archive\*.*
+echo.
+echo Make Win-x64.7z...
+del .\Packages\Win-x64.7z
+.\Make\7za a .\Packages\Win-x64.7z .\Packages\Win-x64.Archive\*.*
+.\Make\7za a .\Packages\Win-x64.7z .\Packages\Win-x64.Archive\certutil
 echo.
 echo Make Win-x64.exe...
 del .\Packages\Win-x64.exe
@@ -73,8 +83,12 @@ move .\Make\Win-x64.exe .\Packages\
 echo.
 echo Make Win-x86.zip...
 del .\Packages\Win-x86.zip
-.\Make\7za a .\Packages\Win-x86.zip .\Packages\Win-x86.Archive\*.*
-.\Make\7za a .\Packages\Win-x86.zip .\Packages\Win-x86.Archive\certutil
+"C:\Program Files\WinZip\WZZIP.exe" -p -r .\Packages\Win-x86.zip .\Packages\Win-x86.Archive\*.*
+echo.
+echo Make Win-x86.7z...
+del .\Packages\Win-x86.7z
+.\Make\7za a .\Packages\Win-x86.7z .\Packages\Win-x86.Archive\*.*
+.\Make\7za a .\Packages\Win-x86.7z .\Packages\Win-x86.Archive\certutil
 echo.
 echo Make Win-x86.exe...
 del .\Packages\Win-x86.exe

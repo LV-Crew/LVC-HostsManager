@@ -1,4 +1,4 @@
-# HostsManager
+﻿# HostsManager
 This program allows you to update your hosts file with a downloaded blacklist.<br>
 The blacklisted traffic is being redirected to a whitepage (or a URL/localhost).<br>
 Therefore tracking is being reduced to a minimum.<br>
@@ -138,4 +138,5 @@ Release: https://github.com/LV-Crew/HostsManager/releases/<br>
 <h3><b>Some Dev notes:</b></h3>
 - Versioning with 2017.xx.xxa (yyyy.mm.dd + letter)<br>
 - File-Names are LV-Crew.HostsManager.xxx.xyz<br>
+- Make.Packages.bat use WinZip Command Line Tool (http://www.winzip.com/win/en/downcl.html)<br>
 - Default Icons from https://icons8.com<br>
