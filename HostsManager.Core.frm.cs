@@ -410,10 +410,13 @@ namespace HostsManager
             //Read URLs from settings.xml
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(ArrayList));
-                StreamReader reader = new StreamReader("settings.xml");
-                urls = (ArrayList) serializer.Deserialize(reader);
-                reader.Close();
+                if (File.Exists("settings.xml"))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(ArrayList));
+                    StreamReader reader = new StreamReader("settings.xml");
+                    urls = (ArrayList)serializer.Deserialize(reader);
+                    reader.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -422,10 +425,13 @@ namespace HostsManager
             //Read aditional Hosts from blacklist.xml
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(ArrayList));
-                StreamReader reader = new StreamReader("blacklist.xml");
-                addHosts = (ArrayList) serializer.Deserialize(reader);
-                reader.Close();
+                if (File.Exists("blacklist.xml"))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(ArrayList));
+                    StreamReader reader = new StreamReader("blacklist.xml");
+                    addHosts = (ArrayList)serializer.Deserialize(reader);
+                    reader.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -632,7 +638,20 @@ namespace HostsManager
             }
             return txt+addTxt;
         }
-
+        class Downloader
+        {
+            public String DownloadString(String url)
+            {
+                String ret = "";
+                WebClient wc = new WebClient();
+                try
+                {
+                    ret = wc.DownloadString(url);
+                }
+                catch (Exception ex) { }
+                return ret;
+            }
+        }
         //The update process
         private void updateHostsFile()
         {
@@ -657,7 +676,8 @@ namespace HostsManager
                     SecurityIdentifier id = new SecurityIdentifier("S-1-5-32-544");
                 string adminGroupName = id.Translate(typeof(NTAccount)).Value;
 
-                System.Net.WebClient wc = new System.Net.WebClient();
+                
+                Downloader wc = new Downloader();
               
                 if (!isHidden && !err)
                 {
@@ -672,7 +692,7 @@ namespace HostsManager
                     if (UseCustomBlacklist)
                     {
                         foreach (String u in urls)
-                            fileText += wc.DownloadString(u) + "\r\n";
+                            fileText += "\r\n"+wc.DownloadString(u);
                     }
                      if (UseStevensBlacklist)
                     {
@@ -732,8 +752,8 @@ namespace HostsManager
                     foreach (String host in addHosts)
                         fileText += "\r\n"+ipTo + " " + host;
                     //CR/LF detection
-                    if (!fileText.Contains((char) 13))
-                        fileText = fileText.Replace("\n", "\r\n");
+                    fileText = fileText.Replace("\r", "");
+                    fileText = fileText.Replace("\n", "\r\n");
 
                     if (!isHidden)
                         closeDialog();
@@ -1434,6 +1454,7 @@ namespace HostsManager
         {
             if (txtAddHost.Text != "")
                 lbAddHosts.Items.Add(txtAddHost.Text);
+            txtAddHost.Text = "";
         }
 
         private void bnRemoveHost_Click_1(object sender, EventArgs e)
@@ -1444,8 +1465,17 @@ namespace HostsManager
 
         private void bnAdd_Click_1(object sender, EventArgs e)
         {
-            if (txtURL.Text != "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts")
+            String url = txtURL.Text;
+            Uri uriResult;
+            bool result = Uri.TryCreate(url, UriKind.Absolute, out uriResult)
+                && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+            if (result)
+            {
                 lbURLs.Items.Add(txtURL.Text);
+                txtURL.Text = "";
+            }
+            else
+                showOKDIalog("Wrong format. URL must begin with http://");
         }
 
         private void bnRemove_Click_1(object sender, EventArgs e)
@@ -2035,10 +2065,10 @@ namespace HostsManager
                         if (li <= 0)
                             li = sz.LastIndexOf(",");
                         sz = sz.Substring(0, li);
-                        lblCurrent.Text = hf.Length.ToString() + " lines; " + sz+" KB";
+                        lblCurrent.Text = hf.Length.ToString() + " Lines; " + sz+" KB";
                     }
                     else                     
-                       lblCurrent.Text = hf.Length.ToString() + " lines; " + fi.Length.ToString() + " Bytes";
+                       lblCurrent.Text = hf.Length.ToString() + " Lines; " + fi.Length.ToString() + " Bytes";
                 }
                 catch (Exception ex) { lblCurrent.Text = "-no info-"; }
             }
