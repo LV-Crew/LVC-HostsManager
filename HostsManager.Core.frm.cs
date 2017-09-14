@@ -854,13 +854,16 @@ namespace HostsManager
         {
             //Get Firefox profile path
             String profPath = ReadFirefoxProfile();
-
+            String currpath = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            currpath = currpath.Substring(0, currpath.LastIndexOf("/"));
+            currpath = currpath.Replace("file:///", "").Replace("/","\\");
+            
             //Import certificate to FF
-            executeNoWindow(System.Reflection.Assembly.GetExecutingAssembly().CodeBase+"\\certutil\\certutil_moz.exe",
-                "-A -n \"Testcert\" -t \"TCu,Cuw,Tuw\" -i "+ System.Reflection.Assembly.GetExecutingAssembly().CodeBase + "\\cert.pem -d \"" + profPath + "\"");
+            executeNoWindow(currpath + "\\certutil\\certutil_moz.exe",
+                "-A -n \"Testcert\" -t \"TCu,Cuw,Tuw\" -i "+ currpath + "\\cert.pem -d \"" + profPath + "\"");
             //Import certificate to Win
-            executeNoWindow("certutil.exe", "-addstore \"Root\" "+ System.Reflection.Assembly.GetExecutingAssembly().CodeBase + "\\cert.pem");
-            executeNoWindow("certutil.exe", "-addstore \"CA\" "+ System.Reflection.Assembly.GetExecutingAssembly().CodeBase + "\\cert.pem");
+            executeNoWindow("certutil.exe", "-addstore \"Root\" "+ currpath + "\\cert.pem");
+            executeNoWindow("certutil.exe", "-addstore \"CA\" "+ currpath + "\\cert.pem");
         }
 
 
