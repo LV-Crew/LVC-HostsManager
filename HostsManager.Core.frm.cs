@@ -769,9 +769,12 @@ namespace HostsManager
                     MessageBox.Show("Error: " + add + ex.Message);
             }
         }
-
+        private void ProcessOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+        {
+            
+        }
         //Start external process with hidden window      
-        private void executeNoWindow(String cmd, String param)
+        private Process executeNoWindow(String cmd, String param)
         {
             try
             {
@@ -780,11 +783,14 @@ namespace HostsManager
                 pi.UseShellExecute = false;
                 pi.RedirectStandardOutput = true;
                 pi.RedirectStandardError = true;
-                Process.Start(pi);
+                pi.RedirectStandardInput = true;
+                pi.WindowStyle = ProcessWindowStyle.Hidden;
+                return Process.Start(pi);
             }
             catch (Exception ex)
             {
             }
+            return null;
         }
 
 
@@ -803,15 +809,15 @@ namespace HostsManager
             {
                 //Create task using schtasks.exe
                 //FileSecurity fs=setHostsFilePermissions(); !!! 080417DH - muss evtl wieder reingemacht werden.
-                psi.Arguments = "/Create /tn LV-Crew.HostsManager /tr \"" +
+                String Arguments = "/Create /tn LV-Crew.HostsManager /tr \"" +
                                 System.Reflection.Assembly.GetEntryAssembly().Location +
                                 " /auto\" /sc HOURLY /RL HIGHEST /F";
-                Process p = System.Diagnostics.Process.Start(psi);
+                Process p = executeNoWindow("schtasks.exe", Arguments);
             }
             else
             {
-                //Delete task using schtasks.exe
-                System.Diagnostics.Process.Start("schtasks.exe", "/Delete /tn LV-Crew.HostsManager /F");
+                //Delete task using schtasks.exe                
+                executeNoWindow("schtasks.exe", "/Delete /tn LV-Crew.HostsManager /F");
             }
         }
 
@@ -1682,8 +1688,8 @@ namespace HostsManager
                
                 
                     start = new Thread(new ParameterizedThreadStart(showDialog));
-                    start.Start("Enabling DNS-Client Service...");
-                    Process p = Process.Start("sc.exe", "config Dnscache start=auto");
+                    start.Start("Enabling DNS-Client Service...");                    
+                    Process p=executeNoWindow("sc.exe", "config Dnscache start=auto");
                     p.WaitForExit();
                     ServiceController _ServiceController = new ServiceController("dnscache");
                     if (!_ServiceController.ServiceHandle.IsInvalid)
@@ -1747,7 +1753,7 @@ namespace HostsManager
                 {
                     if (!err)
                     {
-                        Process p = Process.Start("sc.exe", "config dnscache start=disabled");
+                        Process p = executeNoWindow("sc.exe", "config dnscache start=disabled");
                         p.WaitForExit();
                         DNServiceDisabled = true;
                         bnDisableDNS.Text = "Enable DNS-Client Service";
@@ -1880,7 +1886,7 @@ namespace HostsManager
             {
                 try
                 {
-                    Process P = Process.Start("ipconfig.exe", "/flushdns");
+                    Process P = executeNoWindow("ipconfig.exe", "/flushdns");                    
                     P.WaitForExit();
                     showOKDIalog("The DNS cache has been flushed.");
                 }
@@ -1899,7 +1905,7 @@ namespace HostsManager
         {
             try
             {
-                Process p = System.Diagnostics.Process.Start("ipconfig.exe", "/flushdns");
+                Process p = executeNoWindow("ipconfig.exe", "/flushdns");
                 p.Start();
                 p.WaitForExit();
                 showOKDIalog("DNS Cache has been flushed.");
@@ -1998,6 +2004,11 @@ namespace HostsManager
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
