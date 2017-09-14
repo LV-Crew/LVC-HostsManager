@@ -1961,25 +1961,34 @@ namespace HostsManager
 
         private void bnDuplicates_Click(object sender, EventArgs e)
         {
-            if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
+            frmDialog d = new frmDialog();
+            d.action = "Depending on your hosts file size,\nthis can take up to an hour.";
+            
+            d.yesNoButtons = true;
+            DialogResult r=d.ShowDialog();
+            if (r == DialogResult.OK)
             {
-                try
+                if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
                 {
-                    showOKDIalog("Removing duplicates. This may take up to an hour.");
-                    int cnt = 0;
-                    FileSecurity fs = setHostsFilePermissions();
-                    String hosts = File.ReadAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
-                    hosts = checkDuplicates(hosts, ref cnt);
-                    File.WriteAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", hosts);
-                    resetHostsFilePermissions(fs);
-                    showOKDIalog(cnt.ToString() + " duplicates removed.");
-                }catch(Exception ex)
-                {
-                    showOKDIalog("Error accessing hosts file. Please check your antivirus.");
+                    try
+                    {
+                        showOKDIalog("Removing duplicates. This may take up to an hour.");
+                        int cnt = 0;
+                        FileSecurity fs = setHostsFilePermissions();
+                        String hosts = File.ReadAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                        hosts = checkDuplicates(hosts, ref cnt);
+                        File.WriteAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", hosts);
+                        resetHostsFilePermissions(fs);
+                        showOKDIalog(cnt.ToString() + " duplicates removed.");
+                    }
+                    catch (Exception ex)
+                    {
+                        showOKDIalog("Error accessing hosts file. Please check your antivirus.");
+                    }
                 }
+                else
+                    showOKDIalog("Hosts file not found.");
             }
-            else
-                showOKDIalog("Hosts file not found.");
         }
 
         private void rbUseHostsFileBL_CheckedChanged(object sender, EventArgs e)
