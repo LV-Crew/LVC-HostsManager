@@ -1110,8 +1110,9 @@ namespace HostsManager
                     if (ret == DialogResult.OK)
                         disableDNSService();
 
-                    updateHostsFile();
-                }                                
+                    updateHostsFile();                    
+                }
+                updateStats();
             }
             catch (Exception ex)
             {
