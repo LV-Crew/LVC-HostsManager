@@ -136,6 +136,7 @@
             this.bnMenuHelp = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
             this.bnMenuTools = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.panel1.SuspendLayout();
@@ -499,7 +500,7 @@
             // 
             this.bnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnEdit.Location = new System.Drawing.Point(200, 47);
+            this.bnEdit.Location = new System.Drawing.Point(200, 16);
             this.bnEdit.Name = "bnEdit";
             this.bnEdit.Size = new System.Drawing.Size(243, 40);
             this.bnEdit.TabIndex = 56;
@@ -558,6 +559,7 @@
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.Black;
+            this.tabTools.Controls.Add(this.button1);
             this.tabTools.Controls.Add(this.bnFlushDNSCache);
             this.tabTools.Controls.Add(this.button7);
             this.tabTools.Controls.Add(this.button2);
@@ -576,7 +578,7 @@
             // 
             this.bnFlushDNSCache.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnFlushDNSCache.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnFlushDNSCache.Location = new System.Drawing.Point(200, 139);
+            this.bnFlushDNSCache.Location = new System.Drawing.Point(200, 154);
             this.bnFlushDNSCache.Name = "bnFlushDNSCache";
             this.bnFlushDNSCache.Size = new System.Drawing.Size(243, 40);
             this.bnFlushDNSCache.TabIndex = 63;
@@ -599,7 +601,7 @@
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(200, 93);
+            this.button2.Location = new System.Drawing.Point(200, 108);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(243, 40);
             this.button2.TabIndex = 61;
@@ -611,7 +613,7 @@
             // 
             this.bnSetDNSOpenDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnSetDNSOpenDNS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnSetDNSOpenDNS.Location = new System.Drawing.Point(200, 277);
+            this.bnSetDNSOpenDNS.Location = new System.Drawing.Point(200, 292);
             this.bnSetDNSOpenDNS.Name = "bnSetDNSOpenDNS";
             this.bnSetDNSOpenDNS.Size = new System.Drawing.Size(243, 40);
             this.bnSetDNSOpenDNS.TabIndex = 60;
@@ -623,7 +625,7 @@
             // 
             this.bnSetDNSServerGoogle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnSetDNSServerGoogle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnSetDNSServerGoogle.Location = new System.Drawing.Point(200, 231);
+            this.bnSetDNSServerGoogle.Location = new System.Drawing.Point(200, 246);
             this.bnSetDNSServerGoogle.Name = "bnSetDNSServerGoogle";
             this.bnSetDNSServerGoogle.Size = new System.Drawing.Size(243, 40);
             this.bnSetDNSServerGoogle.TabIndex = 59;
@@ -635,7 +637,7 @@
             // 
             this.bnDisableDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnDisableDNS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnDisableDNS.Location = new System.Drawing.Point(200, 185);
+            this.bnDisableDNS.Location = new System.Drawing.Point(200, 200);
             this.bnDisableDNS.Name = "bnDisableDNS";
             this.bnDisableDNS.Size = new System.Drawing.Size(243, 40);
             this.bnDisableDNS.TabIndex = 57;
@@ -1373,6 +1375,18 @@
             this.bnMenuTools.UseVisualStyleBackColor = false;
             this.bnMenuTools.Click += new System.EventHandler(this.bnMenuTools_Click);
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(200, 62);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(243, 40);
+            this.button1.TabIndex = 64;
+            this.button1.Text = "Remove Duplicates";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // frmHostsManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1546,6 +1560,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.RadioButton rbRedirectLocalhost;
         private System.Windows.Forms.Button bnFlushDNSCache;
+        private System.Windows.Forms.Button button1;
     }
 }
 

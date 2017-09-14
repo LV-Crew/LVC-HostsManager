@@ -38,6 +38,7 @@ using System.Management;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.ServiceProcess;
+using System.Text.RegularExpressions;
 
 namespace HostsManager
 {
@@ -596,6 +597,24 @@ namespace HostsManager
                 dlg.Close();
         }
 
+        private String checkDuplicates(String txt, ref int cnt)
+        {
+            String[] txtArr = txt.Split('\n');
+            String addTxt = "";
+
+
+            foreach(String line in txtArr)
+            {
+                int count = new Regex(Regex.Escape(line)).Matches(txt).Count;
+                if (count > 1)
+                {
+                    txt = txt.Replace(line + "\n", "");
+                    addTxt += line + "\n";
+                    cnt++;
+                }                
+            }
+            return txt+addTxt;
+        }
 
         //The update process
         private void updateHostsFile()
@@ -660,7 +679,6 @@ namespace HostsManager
                     {
                         fileText = wc.DownloadString("https://hosts-file.net/download/hosts.txt");
                     }
-
 
                     if (!isHidden)
                         closeDialog();
@@ -1872,15 +1890,40 @@ namespace HostsManager
         {
             try
             {
+                FileSecurity fs = setHostsFilePermissions();
                 String ret = System.IO.File.ReadAllText("default_hosts.tpl");
                 System.IO.File.WriteAllText(
                     Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", ret);
+                resetHostsFilePermissions(fs);
                 showOKDIalog("Hosts fiele has been reset to system defaults.");
             }
             catch (Exception ex)
             {
                 showOKDIalog("Could not write hosts file. Please check your antivirus for hosts file potection.");
             }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
+            {
+                try
+                {
+                    showOKDIalog("Removing duplicates. This may take up to an hour.");
+                    int cnt = 0;
+                    FileSecurity fs = setHostsFilePermissions();
+                    String hosts = File.ReadAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                    hosts = checkDuplicates(hosts, ref cnt);
+                    File.WriteAllText(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", hosts);
+                    resetHostsFilePermissions(fs);
+                    showOKDIalog(cnt.ToString() + " duplicates removed.");
+                }catch(Exception ex)
+                {
+                    showOKDIalog("Error accessing hosts file. Please check your antivirus.");
+                }
+            }
+            else
+                showOKDIalog("Hosts file not found.");
         }
     }
 }
