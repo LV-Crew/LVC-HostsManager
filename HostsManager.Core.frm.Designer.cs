@@ -49,10 +49,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rbUseHostsFileBL = new System.Windows.Forms.RadioButton();
+            this.rbUseCustomBL = new System.Windows.Forms.CheckBox();
+            this.rbUseStevenBlacksBL = new System.Windows.Forms.CheckBox();
+            this.rbUseHostsFileBL = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.rbUseCustomlBlacklist = new System.Windows.Forms.RadioButton();
-            this.rbUseStevensBlacklist = new System.Windows.Forms.RadioButton();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMain = new System.Windows.Forms.TabPage();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.bnDupliactes = new System.Windows.Forms.Button();
             this.bnFlushDNSCache = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -136,7 +137,6 @@
             this.bnMenuHelp = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
             this.bnMenuTools = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.panel1.SuspendLayout();
@@ -261,7 +261,6 @@
             // pbPicture
             // 
             this.pbPicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbPicture.Image = ((System.Drawing.Image)(resources.GetObject("pbPicture.Image")));
             this.pbPicture.InitialImage = null;
             this.pbPicture.Location = new System.Drawing.Point(3, 3);
             this.pbPicture.Name = "pbPicture";
@@ -370,10 +369,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.rbUseCustomBL);
+            this.panel1.Controls.Add(this.rbUseStevenBlacksBL);
             this.panel1.Controls.Add(this.rbUseHostsFileBL);
             this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.rbUseCustomlBlacklist);
-            this.panel1.Controls.Add(this.rbUseStevensBlacklist);
             this.panel1.Controls.Add(this.checkBox2);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -384,19 +383,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(637, 351);
             this.panel1.TabIndex = 45;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // rbUseCustomBL
+            // 
+            this.rbUseCustomBL.AutoSize = true;
+            this.rbUseCustomBL.Location = new System.Drawing.Point(52, 170);
+            this.rbUseCustomBL.Name = "rbUseCustomBL";
+            this.rbUseCustomBL.Size = new System.Drawing.Size(125, 17);
+            this.rbUseCustomBL.TabIndex = 66;
+            this.rbUseCustomBL.Text = "Use Custom Blacklist";
+            this.rbUseCustomBL.UseVisualStyleBackColor = true;
+            this.rbUseCustomBL.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            // 
+            // rbUseStevenBlacksBL
+            // 
+            this.rbUseStevenBlacksBL.AutoSize = true;
+            this.rbUseStevenBlacksBL.Location = new System.Drawing.Point(52, 150);
+            this.rbUseStevenBlacksBL.Name = "rbUseStevenBlacksBL";
+            this.rbUseStevenBlacksBL.Size = new System.Drawing.Size(161, 17);
+            this.rbUseStevenBlacksBL.TabIndex = 65;
+            this.rbUseStevenBlacksBL.Text = "Use Steven Black\'s Blacklist";
+            this.rbUseStevenBlacksBL.UseVisualStyleBackColor = true;
+            this.rbUseStevenBlacksBL.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // rbUseHostsFileBL
             // 
             this.rbUseHostsFileBL.AutoSize = true;
-            this.rbUseHostsFileBL.Checked = true;
-            this.rbUseHostsFileBL.Location = new System.Drawing.Point(42, 111);
+            this.rbUseHostsFileBL.Location = new System.Drawing.Point(52, 128);
             this.rbUseHostsFileBL.Name = "rbUseHostsFileBL";
-            this.rbUseHostsFileBL.Size = new System.Drawing.Size(148, 17);
-            this.rbUseHostsFileBL.TabIndex = 63;
-            this.rbUseHostsFileBL.TabStop = true;
+            this.rbUseHostsFileBL.Size = new System.Drawing.Size(149, 17);
+            this.rbUseHostsFileBL.TabIndex = 64;
             this.rbUseHostsFileBL.Text = "Use hosts-file.net Blacklist";
             this.rbUseHostsFileBL.UseVisualStyleBackColor = true;
-            this.rbUseHostsFileBL.CheckedChanged += new System.EventHandler(this.rbUseStevensBlacklist_CheckedChanged);
+            this.rbUseHostsFileBL.CheckedChanged += new System.EventHandler(this.rbUseHostsFileBL_CheckedChanged);
             // 
             // label21
             // 
@@ -407,28 +427,6 @@
             this.label21.Size = new System.Drawing.Size(339, 16);
             this.label21.TabIndex = 62;
             this.label21.Text = " You are also being protected from spam ads and more.";
-            // 
-            // rbUseCustomlBlacklist
-            // 
-            this.rbUseCustomlBlacklist.AutoSize = true;
-            this.rbUseCustomlBlacklist.Location = new System.Drawing.Point(42, 146);
-            this.rbUseCustomlBlacklist.Name = "rbUseCustomlBlacklist";
-            this.rbUseCustomlBlacklist.Size = new System.Drawing.Size(124, 17);
-            this.rbUseCustomlBlacklist.TabIndex = 61;
-            this.rbUseCustomlBlacklist.Text = "Use Custom Blacklist";
-            this.rbUseCustomlBlacklist.UseVisualStyleBackColor = true;
-            this.rbUseCustomlBlacklist.CheckedChanged += new System.EventHandler(this.rbUseStevensBlacklist_CheckedChanged);
-            // 
-            // rbUseStevensBlacklist
-            // 
-            this.rbUseStevensBlacklist.AutoSize = true;
-            this.rbUseStevensBlacklist.Location = new System.Drawing.Point(42, 129);
-            this.rbUseStevensBlacklist.Name = "rbUseStevensBlacklist";
-            this.rbUseStevensBlacklist.Size = new System.Drawing.Size(160, 17);
-            this.rbUseStevensBlacklist.TabIndex = 60;
-            this.rbUseStevensBlacklist.Text = "Use Steven Black\'s Blacklist";
-            this.rbUseStevensBlacklist.UseVisualStyleBackColor = true;
-            this.rbUseStevensBlacklist.CheckedChanged += new System.EventHandler(this.rbUseStevensBlacklist_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -449,9 +447,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(11, 34);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(463, 16);
+            this.label7.Size = new System.Drawing.Size(455, 16);
             this.label7.TabIndex = 48;
-            this.label7.Text = "The blacklisted traffic is being redirected to a whitepage (or a URL/localhost).";
+            this.label7.Text = "The blacklisted traffic is being redirected to a whitepage (or an IP/localhost).";
             this.label7.Click += new System.EventHandler(this.label7_Click_1);
             // 
             // label6
@@ -488,6 +486,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(236, 37);
             this.pictureBox1.Name = "pictureBox1";
@@ -559,7 +558,7 @@
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.Black;
-            this.tabTools.Controls.Add(this.button1);
+            this.tabTools.Controls.Add(this.bnDupliactes);
             this.tabTools.Controls.Add(this.bnFlushDNSCache);
             this.tabTools.Controls.Add(this.button7);
             this.tabTools.Controls.Add(this.button2);
@@ -573,6 +572,18 @@
             this.tabTools.TabIndex = 4;
             this.tabTools.Text = "Tools";
             this.tabTools.Click += new System.EventHandler(this.tabTools_Click_1);
+            // 
+            // bnDupliactes
+            // 
+            this.bnDupliactes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnDupliactes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnDupliactes.Location = new System.Drawing.Point(200, 62);
+            this.bnDupliactes.Name = "bnDupliactes";
+            this.bnDupliactes.Size = new System.Drawing.Size(243, 40);
+            this.bnDupliactes.TabIndex = 64;
+            this.bnDupliactes.Text = "Remove Duplicates";
+            this.bnDupliactes.UseVisualStyleBackColor = true;
+            this.bnDupliactes.Click += new System.EventHandler(this.bnDuplicates_Click);
             // 
             // bnFlushDNSCache
             // 
@@ -1071,7 +1082,6 @@
             // bnRemove
             // 
             this.bnRemove.BackColor = System.Drawing.Color.White;
-            this.bnRemove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnRemove.BackgroundImage")));
             this.bnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnRemove.ForeColor = System.Drawing.Color.Black;
@@ -1093,7 +1103,6 @@
             // bnAdd
             // 
             this.bnAdd.BackColor = System.Drawing.Color.White;
-            this.bnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnAdd.BackgroundImage")));
             this.bnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnAdd.ForeColor = System.Drawing.Color.Black;
@@ -1156,7 +1165,6 @@
             // bnRemoveHost
             // 
             this.bnRemoveHost.BackColor = System.Drawing.Color.White;
-            this.bnRemoveHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnRemoveHost.BackgroundImage")));
             this.bnRemoveHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnRemoveHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnRemoveHost.ForeColor = System.Drawing.Color.Black;
@@ -1170,7 +1178,6 @@
             // bnAddHost
             // 
             this.bnAddHost.BackColor = System.Drawing.Color.White;
-            this.bnAddHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnAddHost.BackgroundImage")));
             this.bnAddHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnAddHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnAddHost.ForeColor = System.Drawing.Color.Black;
@@ -1241,7 +1248,8 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(27, 64);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(347, 200);
@@ -1293,7 +1301,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(404, 64);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(200, 200);
@@ -1374,18 +1381,6 @@
             this.bnMenuTools.Text = "Tools";
             this.bnMenuTools.UseVisualStyleBackColor = false;
             this.bnMenuTools.Click += new System.EventHandler(this.bnMenuTools_Click);
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(200, 62);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(243, 40);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "Remove Duplicates";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // frmHostsManager
             // 
@@ -1529,8 +1524,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.RadioButton rbUseCustomlBlacklist;
-        private System.Windows.Forms.RadioButton rbUseStevensBlacklist;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
@@ -1540,7 +1533,6 @@
         private System.Windows.Forms.TabPage tabTools;
         private System.Windows.Forms.Button bnMenuTools;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.RadioButton rbUseHostsFileBL;
         private System.Windows.Forms.Button bnSetDNSOpenDNS;
         private System.Windows.Forms.Button bnSetDNSServerGoogle;
         private System.Windows.Forms.Button bnDisableDNS;
@@ -1560,7 +1552,10 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.RadioButton rbRedirectLocalhost;
         private System.Windows.Forms.Button bnFlushDNSCache;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bnDupliactes;
+        private System.Windows.Forms.CheckBox rbUseCustomBL;
+        private System.Windows.Forms.CheckBox rbUseStevenBlacksBL;
+        private System.Windows.Forms.CheckBox rbUseHostsFileBL;
     }
 }
 

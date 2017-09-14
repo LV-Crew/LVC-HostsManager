@@ -95,6 +95,9 @@ namespace HostsManager
         private bool DNSOpenDNSChanged = false;
         private String oldDNS = "192.168.2.1";
         private String replaceIP = "0.0.0.0";
+        private bool UseHostsFileBlacklist = true;
+        private bool UseCustomBlacklist = false;
+        private bool UseStevensBlacklist = false;
 
         public frmHostsManager()
         {
@@ -181,24 +184,7 @@ namespace HostsManager
             controlsToMove.Add(this.tabControl1);
             controlsToMove.Add(this.panel2);
 
-            if (blacklistToUse == BlacklistTypes.STEVENBLACK)
-            {
-                rbUseCustomlBlacklist.Checked = false;
-                rbUseHostsFileBL.Checked = false;
-                rbUseStevensBlacklist.Checked = true;
-            }
-            else if (blacklistToUse == BlacklistTypes.INTERNAL)
-            {
-                rbUseCustomlBlacklist.Checked = true;
-                rbUseHostsFileBL.Checked = false;
-                rbUseStevensBlacklist.Checked = false;
-            }
-            else
-            {
-                rbUseCustomlBlacklist.Checked = false;
-                rbUseHostsFileBL.Checked = true;
-                rbUseStevensBlacklist.Checked = false;
-            }
+          
 
 
             //Import Certificate Authority
@@ -213,6 +199,7 @@ namespace HostsManager
             catch (Exception ex)
             {
             }
+            fillOptions();
         }
 
         //Update hosts file
@@ -363,9 +350,20 @@ namespace HostsManager
                     replaceIP= (String)mexampleRegistryKey.GetValue("replaceIP");
                 }
 
-                DNSOpenDNSChanged = b.Equals("TRUE") ? true : false;
-                b = (String)mexampleRegistryKey.GetValue("OldDNS");
-                oldDNS = b;
+                b = (String)mexampleRegistryKey.GetValue("UseHostsFileBlacklist ");
+                if (b == null) b = "FALSE";
+                UseHostsFileBlacklist = b.Equals("TRUE") ? true : false;
+
+                b = (String)mexampleRegistryKey.GetValue("UseCustomBlacklist ");
+                if (b == null) b = "FALSE";
+                UseCustomBlacklist = b.Equals("TRUE") ? true : false;
+
+                b = (String)mexampleRegistryKey.GetValue("UseStevensBlacklist ");
+                if (b == null) b = "FALSE";
+                UseStevensBlacklist = b.Equals("TRUE") ? true : false;
+
+                if (!UseStevensBlacklist && !UseHostsFileBlacklist && !UseCustomBlacklist)
+                    UseHostsFileBlacklist = true;
 
                 //Auto Update?
                 b = (String) mexampleRegistryKey.GetValue("AutoUpdate");
@@ -479,7 +477,22 @@ namespace HostsManager
             {
                 exampleRegistryKey.SetValue("redirectType","SET_WHITEPAGE");
             }
-            
+
+            if (UseHostsFileBlacklist)
+                exampleRegistryKey.SetValue("UseHostsFileBlacklist","TRUE");
+            else
+                exampleRegistryKey.SetValue("UseHostsFileBlacklist", "FALSE");
+
+            if (UseCustomBlacklist)
+                exampleRegistryKey.SetValue("UseCustomBlacklist ", "TRUE");
+            else
+                exampleRegistryKey.SetValue("UseCustomBlacklist ", "FALSE");
+
+            if (UseStevensBlacklist)
+                exampleRegistryKey.SetValue("UseStevensBlacklist ", "TRUE");
+            else
+                exampleRegistryKey.SetValue("UseStevensBlacklist ", "FALSE");
+
             exampleRegistryKey.Close();
             //Write ULRs to settings.xml
             var serializer = new XmlSerializer(typeof(ArrayList), new Type[] {typeof(String)});
@@ -624,7 +637,7 @@ namespace HostsManager
             try
             {
 
-                if (urls.Count == 0 && blacklistToUse == BlacklistTypes.INTERNAL)
+                if (urls.Count == 0 && UseCustomBlacklist)
                 {
                     frmDialog d = new frmDialog();
                     d.action = "Your personal hostsfile is empty.";
@@ -649,17 +662,17 @@ namespace HostsManager
                 }
 
 
-               
 
+                    String fileText = "";
                     //Read hosts files from web
-                    if (blacklistToUse == BlacklistTypes.INTERNAL)
+                    if (UseCustomBlacklist)
                     {
                         foreach (String u in urls)
                             fileText += wc.DownloadString(u) + "\r\n";
                     }
-                    else if (blacklistToUse == BlacklistTypes.STEVENBLACK)
+                     if (UseStevensBlacklist)
                     {
-                        fileText = wc.DownloadString(
+                        fileText += wc.DownloadString(
                             "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
                         if (showFakeNews)
                             fileText += wc.DownloadString(
@@ -675,9 +688,9 @@ namespace HostsManager
                                 "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts");
 
                     }
-                    else
+                    if(UseHostsFileBlacklist)
                     {
-                        fileText = wc.DownloadString("https://hosts-file.net/download/hosts.txt");
+                        fileText += wc.DownloadString("https://hosts-file.net/download/hosts.txt");
                     }
 
                     if (!isHidden)
@@ -1051,10 +1064,10 @@ namespace HostsManager
             {
                 if (isADMember())
                 {
-                    if (blacklistToUse == BlacklistTypes.HOSTSFILEDOTNET)
+                    if (UseHostsFileBlacklist)
                     {
                         showOKDIalog(
-                            "Please use Steven Black's Blacklist when being a member of an Active Directory domain. Contact your system administrator for further information.\r\n\r\n",true);
+                            "Please use only Steven Black's Blacklist when being a member of an Active Directory domain. Contact your system administrator for further information.\r\n\r\n",true);
                     }
                     else
                     {
@@ -1199,6 +1212,10 @@ namespace HostsManager
             {
                 cbAutoUpdate.Checked = false;
             }
+
+            rbUseHostsFileBL.Checked = UseHostsFileBlacklist;
+            rbUseCustomBL.Checked = UseCustomBlacklist;
+            rbUseStevenBlacksBL.Checked = UseStevensBlacklist;
         }
 
         private void saveOptions()
@@ -1349,20 +1366,31 @@ namespace HostsManager
             Microsoft.Win32.RegistryKey exampleRegistryKey =
                 Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
             
-            if (rbUseCustomlBlacklist.Checked)
+            if (rbUseStevenBlacksBL.Checked)
             {
-                blacklistToUse=BlacklistTypes.INTERNAL;
-                exampleRegistryKey.SetValue("BlacklistToUse", "INTERNAL");
-            }
-            else if (rbUseStevensBlacklist.Checked)
-            {
-                blacklistToUse = BlacklistTypes.STEVENBLACK;
-                exampleRegistryKey.SetValue("BlacklistToUse", "STEVENBLACK");
+                UseStevensBlacklist = true;                
+                exampleRegistryKey.SetValue("UseStevenBlack", "TRUE");
             }
             else
             {
-                blacklistToUse=BlacklistTypes.HOSTSFILEDOTNET;
-                exampleRegistryKey.SetValue("BlacklistToUse","HOSTSFILENET");
+                UseStevensBlacklist = false;
+                exampleRegistryKey.SetValue("UseStevenBlack", "FALSE");
+            }
+
+            if (rbUseCustomBL.Checked)
+            {
+                UseCustomBlacklist = true;
+                exampleRegistryKey.SetValue("UseCustom", "TRUE");
+            }
+            else
+            {
+                UseCustomBlacklist = true;
+                exampleRegistryKey.SetValue("UseCustom", "TRUE");
+            }
+            if(rbUseHostsFileBL.Checked)
+            {
+                UseHostsFileBlacklist = true;
+                exampleRegistryKey.SetValue("UseHostsFie", "TRUE");
             }
         }
 
@@ -1903,7 +1931,7 @@ namespace HostsManager
             }
         }
 
-        private void button1_Click_2(object sender, EventArgs e)
+        private void bnDuplicates_Click(object sender, EventArgs e)
         {
             if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
             {
@@ -1924,6 +1952,29 @@ namespace HostsManager
             }
             else
                 showOKDIalog("Hosts file not found.");
+        }
+
+        private void rbUseHostsFileBL_CheckedChanged(object sender, EventArgs e)
+        {
+            UseHostsFileBlacklist = ((CheckBox)sender).Checked;
+            saveSettings();
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            UseStevensBlacklist = ((CheckBox)sender).Checked;
+            saveSettings();
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            UseCustomBlacklist = ((CheckBox)sender).Checked;
+            saveSettings();
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
