@@ -40,7 +40,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label8 = new System.Windows.Forms.Label();
             this.pbPicture = new System.Windows.Forms.PictureBox();
             this.bnMenuMain = new System.Windows.Forms.Button();
             this.bnMenuOptions = new System.Windows.Forms.Button();
@@ -139,6 +138,10 @@
             this.bnMenuTools = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.lblCurrent = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.panel1.SuspendLayout();
@@ -249,22 +252,11 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Black;
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(0, -9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(172, 406);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "LV-Crew HostsManager";
-            // 
             // pbPicture
             // 
             this.pbPicture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbPicture.InitialImage = null;
-            this.pbPicture.Location = new System.Drawing.Point(3, 3);
+            this.pbPicture.Location = new System.Drawing.Point(2, 3);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(168, 170);
             this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -371,6 +363,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.lblCurrent);
             this.panel1.Controls.Add(this.label23);
             this.panel1.Controls.Add(this.rbUseCustomBL);
@@ -603,13 +596,19 @@
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.Transparent;
+            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(619, 3);
+            this.button7.Location = new System.Drawing.Point(616, 4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(24, 23);
             this.button7.TabIndex = 62;
-            this.button7.Text = "?";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
             // button2
@@ -687,6 +686,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Black;
+            this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Controls.Add(this.bnSaveOptions2);
@@ -904,6 +904,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Black;
+            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.linkLabel1);
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.label19);
@@ -1039,6 +1040,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Black;
+            this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.bnSave);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.groupBox2);
@@ -1410,6 +1412,70 @@
             this.lblCurrent.TabIndex = 68;
             this.lblCurrent.Text = "<current>";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(610, -2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(24, 23);
+            this.button1.TabIndex = 69;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(616, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(24, 23);
+            this.button3.TabIndex = 85;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(616, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(24, 23);
+            this.button4.TabIndex = 69;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(616, 0);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(24, 23);
+            this.button8.TabIndex = 63;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
             // frmHostsManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1430,16 +1496,18 @@
             this.Controls.Add(this.bnMenuOptions);
             this.Controls.Add(this.bnMenuMain);
             this.Controls.Add(this.pbPicture);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.Color.Transparent;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmHostsManager";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LV-Crew HostsManager";
             this.Load += new System.EventHandler(this.frmHostsManager_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1482,7 +1550,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extrasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pbPicture;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
@@ -1586,6 +1653,10 @@
         private System.Windows.Forms.CheckBox rbUseHostsFileBL;
         private System.Windows.Forms.Label lblCurrent;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button8;
     }
 }
 

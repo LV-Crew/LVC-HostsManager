@@ -46,7 +46,7 @@ namespace HostsManager
     //-----------------Form Methods-------------------
     public partial class frmHostsManager : Form, IMessageFilter
     {
-        public const String WHITEPAGE_IP = "1.2.3.4";
+        public String WHITEPAGE_IP = "1.2.3.4";
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         public const int WM_LBUTTONDOWN = 0x0201;
@@ -103,6 +103,8 @@ namespace HostsManager
         {
             InitializeComponent();
             clsBrandingINI.readINI();
+            
+            ipTo = Branding.DefaultIP;
             loadSettings();
 
             //Check whether to run silently
@@ -303,7 +305,7 @@ namespace HostsManager
                 //IP overwrite settings
                 ipFrom = (String) mexampleRegistryKey.GetValue("ipFrom");
                 if (ipFrom == null)
-                    ipFrom = "";
+                    ipFrom = Branding.DefaultIP;
                 ipTo = (String) mexampleRegistryKey.GetValue("ipTo");
                 if (ipTo == null)
                     ipTo = "";
@@ -709,8 +711,7 @@ namespace HostsManager
                         start.Start("Replacing IP's");
                     }
 
-                    foreach (String host in addHosts)
-                        fileText += ipTo + " " + host + "\r\n";
+                    
 
                     //IP Overwrite
 
@@ -722,8 +723,14 @@ namespace HostsManager
                         ipTo = replaceIP;
                     }
                     else
-                        ipTo = WHITEPAGE_IP;
-                    fileText = fileText.Replace(ipFrom, ipTo);
+                        ipTo = Branding.DefaultIP;
+                    if (replaceMethod != mIPReplaceMethod.KEEP_LOCALHOST)
+                    {
+                        fileText = fileText.Replace("0.0.0.0", ipTo);
+                        fileText = fileText.Replace("127.0.0.1", ipTo);
+                    }
+                    foreach (String host in addHosts)
+                        fileText += "\r\n"+ipTo + " " + host;
                     //CR/LF detection
                     if (!fileText.Contains((char) 13))
                         fileText = fileText.Replace("\n", "\r\n");
@@ -927,7 +934,7 @@ namespace HostsManager
                     }
 
                 //Branding
-                //this.Text = Branding.COMPANY + " " + Branding.PRODUCT + " v"+  Branding.VERSION;
+                this.Text = Branding.COMPANY + " " + Branding.PRODUCT + " v"+  Branding.VERSION;
                 try
                 {
                     pbPicture.ImageLocation = Branding.PRODUCTIMGPATH;
@@ -1845,7 +1852,7 @@ namespace HostsManager
         private void button7_Click_1(object sender, EventArgs e)
         {
             frmDialog f=new frmDialog();
-            f.action = "Edit hosts file: Edit the hosts file\r\nReset hosts file: Set hostsfile to Windows standard\r\nFlush DNS cache: removes temporarily saved DNS data.\r\nDisable DNS Service: Do this if your System slows down while surfing.\r\nSet DNS Server to Google: Set your DNS Server IP to that of Google (8.8.8.8)\r\nSet DNS Server to OpenDNS. Set your DNS Server IP to that of OpenDNS";
+            f.action = "Edit hosts file: Edit the hosts file\r\nRemove duplicates: Removes duplicate entrys from the hosts file. \nReset hosts file: Set hostsfile to Windows standard\r\nFlush DNS cache: removes temporarily saved DNS data.\r\nDisable DNS Service: Do this if your System slows down while surfing.\r\nSet DNS Server to Google: Set your DNS Server IP to that of Google (8.8.8.8)\r\nSet DNS Server to OpenDNS. Set your DNS Server IP to that of OpenDNS";
             f.showButton = true;
             f.customHeight = 150;
             f.customWidth = 400;    
@@ -2012,13 +2019,26 @@ namespace HostsManager
 
         private void updateStats()
         {
+           
             if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
             {
+       
                 try
                 {
                     String[] hf = File.ReadAllLines(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
                     FileInfo fi = new FileInfo(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
-                    lblCurrent.Text = hf.Length.ToString() + " hosts; " + fi.Length.ToString() + " bytes";
+
+                    if (fi.Length >= 1024)
+                    {
+                        String sz= ((double)fi.Length / 1024).ToString();
+                        int li = sz.LastIndexOf(".");
+                        if (li <= 0)
+                            li = sz.LastIndexOf(",");
+                        sz = sz.Substring(0, li);
+                        lblCurrent.Text = hf.Length.ToString() + " lines; " + sz+" KB";
+                    }
+                    else                     
+                       lblCurrent.Text = hf.Length.ToString() + " lines; " + fi.Length.ToString() + " Bytes";
                 }
                 catch (Exception ex) { lblCurrent.Text = "-no info-"; }
             }
@@ -2039,6 +2059,11 @@ namespace HostsManager
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

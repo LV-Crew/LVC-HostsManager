@@ -13,5 +13,6 @@ namespace HostsManager
         public static String PRODUCT = "HostsManager";
         public static String PRODUCTIMGPATH = "LV-Crew.HostsManager.Logo.png";
         public static String ICONPATH = "LV-Crew.HostsManager.Icon.ico";
+        public static String DefaultIP = "127.0.0.1";
     }
 }

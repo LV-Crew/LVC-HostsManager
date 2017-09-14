@@ -47,6 +47,10 @@ namespace HostsManager
                 NativeMethods.GetPrivateProfileString("HostsManager", "ProductIcon", Branding.ICONPATH, ret, 4096,
                     currdir);
                 Branding.ICONPATH = ret.ToString();
+                ret = new StringBuilder(4096, 4096);
+                NativeMethods.GetPrivateProfileString("HostsManager", "DefaultIP", Branding.DefaultIP, ret, 4096,
+                    currdir);
+                Branding.DefaultIP = ret.ToString();
             }
         }
     }
