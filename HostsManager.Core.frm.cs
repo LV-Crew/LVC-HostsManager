@@ -188,7 +188,8 @@ namespace HostsManager
 
 
             //Import Certificate Authority
-            importCert();
+            //importCert();
+            ReadFirefoxProfile();
             bnUpdate.Select();
             checkForSilentRun();
             loadListsToDownload();
@@ -676,21 +677,26 @@ namespace HostsManager
                             "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
                         if (showFakeNews)
                             fileText += wc.DownloadString(
-                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews/hosts");
+                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/fakenews/hosts");
                         if (showGambling)
                             fileText += wc.DownloadString(
-                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling/hosts");
+                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/gambling/hosts");
                         if (showPorn)
+                        {
                             fileText += wc.DownloadString(
-                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts");
+                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/porn/clefspeare13/hosts");
+                            fileText += wc.DownloadString(
+                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/porn/sinfonietta/hosts");
+                        }
                         if (showSocial)
                             fileText += wc.DownloadString(
-                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts");
+                                "https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/social/hosts");
 
                     }
                     if(UseHostsFileBlacklist)
                     {
                         fileText += wc.DownloadString("https://hosts-file.net/download/hosts.txt");
+                        fileText += wc.DownloadString("https://hosts-file.net/hphosts-partial.txt");
                     }
 
                     if (!isHidden)
@@ -841,19 +847,30 @@ namespace HostsManager
                         string location = lines.First(x => x.Contains("Path="))
                             .Split(new string[] {"="}, StringSplitOptions.None)[1];
 
+                        foreach(String line in lines)
+                        {
+                            if(line.Contains("Path="))
+                            {
+                                String profpath=line.Split(new string[] { "="}, StringSplitOptions.None)[1];
+                                profpath=System.IO.Path.Combine(firefox,profpath).Replace("/","\\");
+                                importCert(profpath);
+                            }
+                        }
+
                         string prof_dir = System.IO.Path.Combine(firefox, location);
 
-                        return prof_dir;
+                        return prof_dir.Replace("/","\\");
                     }
                 }
             }
             return "";
         }
 
-        private void importCert()
+        private void importCert(String profPath)
         {
             //Get Firefox profile path
-            String profPath = ReadFirefoxProfile();
+            //String profPath = ReadFirefoxProfile();
+            
             String currpath = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
             currpath = currpath.Substring(0, currpath.LastIndexOf("/"));
             currpath = currpath.Replace("file:///", "").Replace("/","\\");
@@ -1976,6 +1993,11 @@ namespace HostsManager
         }
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
         {
 
         }

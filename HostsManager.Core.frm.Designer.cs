@@ -972,9 +972,9 @@
             this.cbSocial.AutoSize = true;
             this.cbSocial.Location = new System.Drawing.Point(254, 212);
             this.cbSocial.Name = "cbSocial";
-            this.cbSocial.Size = new System.Drawing.Size(55, 17);
+            this.cbSocial.Size = new System.Drawing.Size(187, 17);
             this.cbSocial.TabIndex = 63;
-            this.cbSocial.Text = "Social";
+            this.cbSocial.Text = "Social (Blocks Facebook/Twitter!)";
             this.cbSocial.UseVisualStyleBackColor = true;
             // 
             // cbPorb
@@ -1043,6 +1043,7 @@
             this.tabPage2.Size = new System.Drawing.Size(646, 390);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Custom Blacklist";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // bnSave
             // 
@@ -1082,6 +1083,7 @@
             // bnRemove
             // 
             this.bnRemove.BackColor = System.Drawing.Color.White;
+            this.bnRemove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnRemove.BackgroundImage")));
             this.bnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnRemove.ForeColor = System.Drawing.Color.Black;
@@ -1103,6 +1105,7 @@
             // bnAdd
             // 
             this.bnAdd.BackColor = System.Drawing.Color.White;
+            this.bnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnAdd.BackgroundImage")));
             this.bnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnAdd.ForeColor = System.Drawing.Color.Black;
@@ -1165,6 +1168,7 @@
             // bnRemoveHost
             // 
             this.bnRemoveHost.BackColor = System.Drawing.Color.White;
+            this.bnRemoveHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnRemoveHost.BackgroundImage")));
             this.bnRemoveHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnRemoveHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnRemoveHost.ForeColor = System.Drawing.Color.Black;
@@ -1178,6 +1182,7 @@
             // bnAddHost
             // 
             this.bnAddHost.BackColor = System.Drawing.Color.White;
+            this.bnAddHost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnAddHost.BackgroundImage")));
             this.bnAddHost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bnAddHost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnAddHost.ForeColor = System.Drawing.Color.Black;
