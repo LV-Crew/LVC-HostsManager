@@ -912,6 +912,7 @@
             this.cbAutoUpdate.TabIndex = 69;
             this.cbAutoUpdate.Text = "Automatically update hosts file hourly";
             this.cbAutoUpdate.UseVisualStyleBackColor = true;
+            this.cbAutoUpdate.Click += new System.EventHandler(this.cbAutoUpdate_Click);
             // 
             // label9
             // 

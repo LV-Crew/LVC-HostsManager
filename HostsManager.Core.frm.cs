@@ -2097,5 +2097,11 @@ namespace HostsManager
         {
 
         }
+
+        private void cbAutoUpdate_Click(object sender, EventArgs e)
+        {
+            if (cbAutoUpdate.Checked)
+                doAutoUpdate();
+        }
     }
 }
