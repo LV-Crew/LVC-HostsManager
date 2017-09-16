@@ -839,7 +839,7 @@ namespace HostsManager
                 //FileSecurity fs=setHostsFilePermissions(); !!! 080417DH - muss evtl wieder reingemacht werden.
                 String Arguments = "/Create /tn LV-Crew.HostsManager /tr \"" +
                                 System.Reflection.Assembly.GetEntryAssembly().Location +
-                                " /auto\" /sc HOURLY /RL HIGHEST /F";
+                                " /auto\" /sc DAILY /RL HIGHEST /F";
                 Process p = executeNoWindow("schtasks.exe", Arguments);
             }
             else
