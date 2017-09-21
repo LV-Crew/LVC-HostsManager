@@ -86,7 +86,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
@@ -94,65 +93,46 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="zzz.old.clsAviraSettings.cs" />
-    <Compile Include="frmDialog.cs">
+    <Compile Include="HostsManager.frm.Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDialog.Designer.cs">
-      <DependentUpon>frmDialog.cs</DependentUpon>
+    <Compile Include="HostsManager.frm.Dialog.Designer.cs">
+      <DependentUpon>HostsManager.frm.Dialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alert.NotifyAntivirus.frm.cs">
+    <Compile Include="HostsManager.Alert.NotifyAntivirus.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alert.NotifyAntivirus.frm.Designer.cs">
-      <DependentUpon>Alert.NotifyAntivirus.frm.cs</DependentUpon>
+    <Compile Include="HostsManager.Alert.NotifyAntivirus.frm.Designer.cs">
+      <DependentUpon>HostsManager.Alert.NotifyAntivirus.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Module.Branding.cls.cs" />
-    <Compile Include="Module.Branding.INI.cls.cs" />
-    <Compile Include="Module.EditHosts.cls.cs" />
-    <Compile Include="zzz.old.Module.About.frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="zzz.old.Module.About.frm.Designer.cs">
-      <DependentUpon>zzz.old.Module.About.frm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="HostsManager.Module.Branding.cls.cs" />
+    <Compile Include="HostsManager.Module.Branding.INI.cls.cs" />
+    <Compile Include="HostsManager.Module.EditHosts.cls.cs" />
     <Compile Include="HostsManager.Core.frm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HostsManager.Core.frm.Designer.cs">
       <DependentUpon>HostsManager.Core.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Module.EditHosts.frm.cs">
+    <Compile Include="HostsManager.Module.EditHosts.frm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module.EditHosts.frm.Designer.cs">
-      <DependentUpon>Module.EditHosts.frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="zzz.old.Module.Options.frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="zzz.old.Module.Options.frm.Designer.cs">
-      <DependentUpon>zzz.old.Module.Options.frm.cs</DependentUpon>
+    <Compile Include="HostsManager.Module.EditHosts.frm.Designer.cs">
+      <DependentUpon>HostsManager.Module.EditHosts.frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmDialog.resx">
-      <DependentUpon>frmDialog.cs</DependentUpon>
+    <EmbeddedResource Include="HostsManager.frm.Dialog.resx">
+      <DependentUpon>HostsManager.frm.Dialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Alert.NotifyAntivirus.frm.resx">
-      <DependentUpon>Alert.NotifyAntivirus.frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="zzz.old.Module.About.frm.resx">
-      <DependentUpon>zzz.old.Module.About.frm.cs</DependentUpon>
+    <EmbeddedResource Include="HostsManager.Alert.NotifyAntivirus.frm.resx">
+      <DependentUpon>HostsManager.Alert.NotifyAntivirus.frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HostsManager.Core.frm.resx">
       <DependentUpon>HostsManager.Core.frm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Module.EditHosts.frm.resx">
-      <DependentUpon>Module.EditHosts.frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="zzz.old.Module.Options.frm.resx">
-      <DependentUpon>zzz.old.Module.Options.frm.cs</DependentUpon>
+    <EmbeddedResource Include="HostsManager.Module.EditHosts.frm.resx">
+      <DependentUpon>HostsManager.Module.EditHosts.frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -165,8 +145,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="HostsManager.App.manifest" />
-    <None Include="HostsManager_1_TemporaryKey.pfx" />
-    <None Include="HostsManager_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -195,17 +173,6 @@
   <ItemGroup>
     <Folder Include="Branding\" />
     <Folder Include="Resources\" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="EXE-Icon.ico" />

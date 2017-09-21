@@ -5,7 +5,8 @@ echo Version 2017.09.14a
 echo.
 rem echo Compile project...
 echo.
-rem "\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+"c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+pause
 echo.
 echo Copy files together...
 echo.
