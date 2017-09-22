@@ -139,5 +139,6 @@ Release: https://github.com/LV-Crew/HostsManager/releases/<br>
 - Versioning with 2017.xx.xxa (yyyy.mm.dd + letter)<br>
 - File-Names are LV-Crew.HostsManager.xxx.xyz<br>
 - Make.Packages.bat use WinZip Command Line Tool (http://www.winzip.com/win/en/downcl.html)<br>
+- Build with Microsoft Visual Studio 2017 Community Edition<br>
 - Default Icons from https://icons8.com<br>
 - Homepage favicons generated with https://www.favicon-generator.org/<br>
