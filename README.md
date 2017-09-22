@@ -140,3 +140,4 @@ Release: https://github.com/LV-Crew/HostsManager/releases/<br>
 - File-Names are LV-Crew.HostsManager.xxx.xyz<br>
 - Make.Packages.bat use WinZip Command Line Tool (http://www.winzip.com/win/en/downcl.html)<br>
 - Default Icons from https://icons8.com<br>
+- Homepage favicons generated with https://www.favicon-generator.org/<br>
