@@ -58,7 +58,7 @@
     <StartupObject>HostsManager.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>B85EDF410ED2A764A9D543E969B3BE3FA62DB4A7</ManifestCertificateThumbprint>
