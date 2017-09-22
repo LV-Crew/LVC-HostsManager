@@ -5,7 +5,9 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
     GNU General Public License for more details.    You should have received a copy of the GNU General Public License
-    along with this program.If not, see<http://www.gnu.org/licenses/>.    Idea:   Tobias B. Besemer
+    along with this program.If not, see<http://www.gnu.org/licenses/>.    
+    
+    Idea:   Tobias B. Besemer
     Coding: Dennis M. Heine
     
 */using System;
@@ -27,7 +29,9 @@ using System.Management;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.ServiceProcess;
-using System.Text.RegularExpressions;namespace HostsManager
+using System.Text.RegularExpressions;
+
+namespace HostsManager
 {
     //-----------------Form Methods-------------------
     public partial class frmHostsManager : Form, IMessageFilter
@@ -42,7 +46,8 @@ using System.Text.RegularExpressions;namespace HostsManager
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();        private HashSet<Control> controlsToMove = new HashSet<Control>();
+        public static extern bool ReleaseCapture();
+        private HashSet<Control> controlsToMove = new HashSet<Control>();
         public enum BlacklistTypes
         {
             INTERNAL = 1,
@@ -56,11 +61,31 @@ using System.Text.RegularExpressions;namespace HostsManager
             SET_WHITEPAGE = 1,
             SET_CUSTOM = 2
         }
-        private System.Media.SoundPlayer player;        private mIPReplaceMethod replaceMethod = mIPReplaceMethod.SET_WHITEPAGE;
+
+        private System.Media.SoundPlayer player;
+        private mIPReplaceMethod replaceMethod = mIPReplaceMethod.SET_WHITEPAGE;
         public String ipFrom = "0.0.0.0";
-        public String ipTo = "34.213.32.36";        private String hostsURL = "https://hosts-file.net/download/hosts.txt";
+        public String ipTo = "34.213.32.36";
+        private String hostsURL = "https://hosts-file.net/download/hosts.txt";
         public ArrayList urls = new ArrayList();
-        public ArrayList addHosts = new ArrayList();        private String internalEditor = "INTERNAL";        private bool autoUpdate = false;        private bool isHidden = false;        private bool showFakeNews = false;        private bool showGambling = false;        private bool showPorn = false;        private bool showSocial = false;        private BlacklistTypes blacklistToUse = BlacklistTypes.INTERNAL;        private String externalEditorFile = "";        private bool DNServiceDisabled = false;        private bool DNSGoogleChanged = false;        private bool DNSOpenDNSChanged = false;        private String oldDNS = "192.168.2.1";        private String replaceIP = "0.0.0.0";        private bool UseHostsFileBlacklist = true;        private bool UseCustomBlacklist = false;        private bool UseStevensBlacklist = false;
+        public ArrayList addHosts = new ArrayList();
+        private String internalEditor = "INTERNAL";
+        private bool autoUpdate = false;
+        private bool isHidden = false;
+        private bool showFakeNews = false;
+        private bool showGambling = false;
+        private bool showPorn = false;
+        private bool showSocial = false;
+        private BlacklistTypes blacklistToUse = BlacklistTypes.INTERNAL;
+        private String externalEditorFile = "";
+        private bool DNServiceDisabled = false;
+        private bool DNSGoogleChanged = false;
+        private bool DNSOpenDNSChanged = false;
+        private String oldDNS = "192.168.2.1";
+        private String replaceIP = "0.0.0.0";
+        private bool UseHostsFileBlacklist = true;
+        private bool UseCustomBlacklist = false;
+        private bool UseStevensBlacklist = false;
         public frmHostsManager()
         {
             InitializeComponent();
@@ -78,11 +103,11 @@ using System.Text.RegularExpressions;namespace HostsManager
                     this.WindowState = FormWindowState.Minimized;
                     isHidden = true;
                 }
-            }
-            doAutoUpdate();
+            }            
         }
 
-        //Load main form        private void frmHostsManager_Load(object sender, EventArgs e)
+        //Load main form
+        private void frmHostsManager_Load(object sender, EventArgs e)
         {
             txtCustomEditor.Text = Environment.GetEnvironmentVariable("windir") + "\\system32\\notepad.exe";
             try
@@ -129,7 +154,9 @@ using System.Text.RegularExpressions;namespace HostsManager
         {
             wbUpdates.Visible = true;
             wbUpdates.Navigate("https://github.com/LV-Crew/HostsManager/releases/");
-        }        private void bnSetDNSServerGoogle_Click(object sender, EventArgs e)
+        }
+
+        private void bnSetDNSServerGoogle_Click(object sender, EventArgs e)
         {
             Thread start = null;
             if (DNSGoogleChanged)
@@ -161,7 +188,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             }
             saveSettings();
         }
-        private void bnSetDNSOpenDNS_Click(object sender, EventArgs e)
+
+        private void bnSetDNSOpenDNS_Click(object sender, EventArgs e)
         {
             Thread start = null;
             if (DNSOpenDNSChanged)
@@ -195,7 +223,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             if (start != null && start.IsAlive)
                 start.Abort();
         }
-        private void bnHelpTools_Click(object sender, EventArgs e)
+
+        private void bnHelpTools_Click(object sender, EventArgs e)
         {
             frmDialog f = new frmDialog();
             f.action =
@@ -211,7 +240,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             f.customWidth = 400;
             f.ShowDialog();
         }
-        private void bnDisableDNS_Click(object sender, EventArgs e)
+
+        private void bnDisableDNS_Click(object sender, EventArgs e)
         {
             Thread start = null;
             bool err = false;
@@ -257,7 +287,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                     showOKDIalog("You are a member of an Active Directory domain. This requires the DNS-Client service to be active.");
             }
         }
-        private void bnFlushDNSCache_Click(object sender, EventArgs e)
+
+        private void bnFlushDNSCache_Click(object sender, EventArgs e)
         {
             try
             {
@@ -270,7 +301,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             {
             }
         }
-        private void bnResetHostsFile_Click(object sender, EventArgs e)
+
+        private void bnResetHostsFile_Click(object sender, EventArgs e)
         {
             try
             {
@@ -286,7 +318,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                 showOKDIalog("Could not write hosts file. Please check your antivirus for hosts file potection.");
             }
         }
-        private void bnDuplicates_Click(object sender, EventArgs e)
+
+        private void bnDuplicates_Click(object sender, EventArgs e)
         {
             frmDialog d = new frmDialog();
             d.action = "Depending on your hosts file size,\nthis can take up to an hour.";
@@ -316,27 +349,33 @@ using System.Text.RegularExpressions;namespace HostsManager
                     showOKDIalog("Hosts file not found.");
             }
         }
-        private void rbUseHostsFileBL_CheckedChanged(object sender, EventArgs e)
+
+        private void rbUseHostsFileBL_CheckedChanged(object sender, EventArgs e)
         {
             UseHostsFileBlacklist = ((CheckBox)sender).Checked;
             saveSettings();
         }
-        private void rbUseStevenBlacksBL_CheckedChanged(object sender, EventArgs e)
+
+        private void rbUseStevenBlacksBL_CheckedChanged(object sender, EventArgs e)
         {
             UseStevensBlacklist = ((CheckBox)sender).Checked;
             saveSettings();
         }
-        private void rbUseCustomBL_CheckedChanged(object sender, EventArgs e)
+
+        private void rbUseCustomBL_CheckedChanged(object sender, EventArgs e)
         {
             UseCustomBlacklist = ((CheckBox)sender).Checked;
             saveSettings();
         }
-        private void cbAutoUpdate_Click(object sender, EventArgs e)
+
+        private void cbAutoUpdate_Click(object sender, EventArgs e)
         {
-            if (cbAutoUpdate.Checked)
-                doAutoUpdate();
+            autoUpdate = cbAutoUpdate.Checked;
+            doAutoUpdate();
+            saveSettings();
         }
-        private void bnHelpMain_Click(object sender, EventArgs e)
+
+        private void bnHelpMain_Click(object sender, EventArgs e)
         {
             frmDialog f = new frmDialog();
             f.action =
@@ -347,7 +386,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             f.customWidth = 400;
             f.ShowDialog();
         }
-        private void bnHelpOptionsMain_Click(object sender, EventArgs e)
+
+        private void bnHelpOptionsMain_Click(object sender, EventArgs e)
         {
             frmDialog f = new frmDialog();
             f.action =
@@ -359,7 +399,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             f.customWidth = 500;
             f.ShowDialog();
         }
-        private void bnHelpOptionsStevenBlack_Click(object sender, EventArgs e)
+
+        private void bnHelpOptionsStevenBlack_Click(object sender, EventArgs e)
         {
             frmDialog f = new frmDialog();
             f.action =
@@ -370,7 +411,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             f.customWidth = 300;
             f.ShowDialog();
         }
-        private void bnHelpOptionsCustom_Click(object sender, EventArgs e)
+
+        private void bnHelpOptionsCustom_Click(object sender, EventArgs e)
         {
             frmDialog f = new frmDialog();
             f.action =
@@ -381,11 +423,13 @@ using System.Text.RegularExpressions;namespace HostsManager
             f.customWidth = 400;
             f.ShowDialog();
         }
-        private void cbFakeNews_CheckedChanged(object sender, EventArgs e)
+
+        private void cbFakeNews_CheckedChanged(object sender, EventArgs e)
         {
             showFakeNews = cbFakeNews.Checked;
         }
-        private void cbPorb_Click(object sender, EventArgs e)
+
+        private void cbPorb_Click(object sender, EventArgs e)
         {
             saveListsToDownload();
             Microsoft.Win32.RegistryKey exampleRegistryKey =
@@ -408,7 +452,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                 exampleRegistryKey.SetValue("ShowSocial", "FALSE");
             exampleRegistryKey.Close();
         }
-        private void cbBackgroundMusic_CheckedChanged(object sender, EventArgs e)
+
+        private void cbBackgroundMusic_CheckedChanged(object sender, EventArgs e)
         {
             if (cbBackgroundMusic.Checked)
             {
@@ -421,7 +466,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                     player.Stop();
             }
         }
-        private void rbUseStevensBlacklist_CheckedChanged(object sender, EventArgs e)
+
+        private void rbUseStevensBlacklist_CheckedChanged(object sender, EventArgs e)
         {
             Microsoft.Win32.RegistryKey exampleRegistryKey =
              Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
@@ -451,18 +497,21 @@ using System.Text.RegularExpressions;namespace HostsManager
                 exampleRegistryKey.SetValue("UseHostsFie", "TRUE");
             }
         }
-        private void bnAddHost_Click(object sender, EventArgs e)
+
+        private void bnAddHost_Click(object sender, EventArgs e)
         {
             if (txtAddHost.Text != "")
                 lbAddHosts.Items.Add(txtAddHost.Text);
             txtAddHost.Text = "";
         }
-        private void bnRemoveHost_Click(object sender, EventArgs e)
+
+        private void bnRemoveHost_Click(object sender, EventArgs e)
         {
             if (lbAddHosts.SelectedIndex >= 0)
                 lbAddHosts.Items.Remove(lbAddHosts.SelectedItem);
         }
-        private void bnAdd_Click(object sender, EventArgs e)
+
+        private void bnAdd_Click(object sender, EventArgs e)
         {
             String url = txtURL.Text;
             Uri uriResult;
@@ -475,12 +524,14 @@ using System.Text.RegularExpressions;namespace HostsManager
             else
                 showOKDIalog("Wrong format. URL must begin with http://");
         }
-        private void bnRemove_Click(object sender, EventArgs e)
+
+        private void bnRemove_Click(object sender, EventArgs e)
         {
             if (lbURLs.SelectedIndex >= 0)
                 lbURLs.Items.Remove(lbURLs.SelectedItem);
         }
-        private void bnSave_Click(object sender, EventArgs e)
+
+        private void bnSave_Click(object sender, EventArgs e)
         {
             if ((rbCustom.Checked && File.Exists(txtCustomEditor.Text)) || rbExternal.Checked || rbInternal.Checked)
             {
@@ -495,11 +546,13 @@ using System.Text.RegularExpressions;namespace HostsManager
                 f.ShowDialog();
             }
         }
-        private void lblHostsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void lblHostsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/StevenBlack/hosts");
         }
-        private void bnCustomEditor_Click(object sender, EventArgs e)
+
+        private void bnCustomEditor_Click(object sender, EventArgs e)
         {
             OpenFileDialog d = new OpenFileDialog();
             d.Filter = "Application (*.exe)|*.exe";
@@ -510,7 +563,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                 txtCustomEditor.Text = d.FileName;
             }
         }
-        private void bnSaveOptions2_Click(object sender, EventArgs e)
+
+        private void bnSaveOptions2_Click(object sender, EventArgs e)
         {
             if ((rbRedirectLocalhost).Checked)
                 replaceMethod = mIPReplaceMethod.KEEP_LOCALHOST;
@@ -534,29 +588,35 @@ using System.Text.RegularExpressions;namespace HostsManager
                 f.ShowDialog();
             }
         }
-        private void bnMenuTools_Click(object sender, EventArgs e)
+
+        private void bnMenuTools_Click(object sender, EventArgs e)
         {
             tabCtrlPages.SelectedIndex = 1;
             lblPage.Text = "Tools";
         }
 
-        //Show homepage        private void pbPicture_Click(object sender, EventArgs e)
+        //Show homepage
+        private void pbPicture_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://hostsmanager.lv-crew.org");
         }
-        private void bnMenuExit_Click(object sender, EventArgs e)
+
+        private void bnMenuExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void bnCloseForm_Click(object sender, EventArgs e)
+
+        private void bnCloseForm_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void bnMinimizeForm_Clock(object sender, EventArgs e)
+
+        private void bnMinimizeForm_Clock(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-        private void bnMenuOptions_Click(object sender, EventArgs e)
+
+        private void bnMenuOptions_Click(object sender, EventArgs e)
         {
             bnDisableDNS.Text = isServiceActive() ? "Disable DNS-Client service" : "Enable DNS-Client service";
             fillOptions();
@@ -565,7 +625,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             ((Button)sender).BackColor = Color.Navy;
             lblPage.Text = "Options";
         }
-        private void bnMenuAbout_Click(object sender, EventArgs e)
+
+        private void bnMenuAbout_Click(object sender, EventArgs e)
         {
             lblVersion.Text = "Version: " + Branding.VERSION;
             lblName.Text = Branding.COMPANY + " " + Branding.PRODUCT;
@@ -577,7 +638,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             tabCtrlPages.SelectedIndex = 4;
             lblPage.Text = "About";
         }
-        private void bnMenuMain_Click(object sender, EventArgs e)
+
+        private void bnMenuMain_Click(object sender, EventArgs e)
         {
             tabCtrlPages.SelectedIndex = 0;
             resetButtons();
@@ -585,13 +647,15 @@ using System.Text.RegularExpressions;namespace HostsManager
             lblPage.Text = "Main";
             updateStats();
         }
-        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
             Graphics g = e.Graphics;
             Pen p = new Pen(Color.Blue, 4);
             g.DrawRectangle(p, this.tabMain.Bounds);
         }
-        private void bnMenuHelp_Click(object sender, EventArgs e)
+
+        private void bnMenuHelp_Click(object sender, EventArgs e)
         {
             tabCtrlPages.SelectedIndex = 3;
             resetButtons();
@@ -599,7 +663,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             lblPage.Text = "Help";
             wbWebbrowserHelp.Navigate("http://hostsmanager.lv-crew.org/readme.html");
         }
-        private void bnUpdate_Click(object sender, EventArgs e)
+
+        private void bnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
@@ -628,7 +693,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             }
             catch (Exception) { }
         }
-        private void bnEdit_Click(object sender, EventArgs e)
+
+        private void bnEdit_Click(object sender, EventArgs e)
         {
             if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
             {
@@ -679,7 +745,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                 }
             }
         }
-        private bool isADMember()
+
+        private bool isADMember()
         {
             String pcname = Environment.GetEnvironmentVariable("computername");
             String domainname = Environment.GetEnvironmentVariable("logonserver");
@@ -688,7 +755,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             else
                 return true;
         }
-        private DialogResult showYesNoDialog(String text)
+
+        private DialogResult showYesNoDialog(String text)
         {
             frmDialog d = new frmDialog();
             d.action = text;
@@ -708,7 +776,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             return false;
         }
 
-        //Check for antivir        private bool isAntivir()
+        //Check for antivir
+        private bool isAntivir()
         {
             //Check porcesses for process names of antivirs
             if (Process.GetProcessesByName("avgnt").Length > 0 || Process.GetProcessesByName("inststub").Length > 0 ||
@@ -720,7 +789,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                 return false;
         }
 
-        //Load setings from registry and XML        private void loadSettings()
+        //Load setings from registry and XML
+        private void loadSettings()
         {
             Microsoft.Win32.RegistryKey mexampleRegistryKey =
              Microsoft.Win32.Registry.CurrentUser.OpenSubKey("HostsManager");
@@ -851,7 +921,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             catch (Exception) { }
         }
 
-        //Save Settings to Registry and XML        private void saveSettings()
+        //Save Settings to Registry and XML
+        private void saveSettings()
         {
             Microsoft.Win32.RegistryKey exampleRegistryKey =
              Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
@@ -940,7 +1011,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             }
         }
 
-        //Set Permissions of hosts file to be writable by group admins        private FileSecurity setHostsFilePermissions()
+        //Set Permissions of hosts file to be writable by group admins
+        private FileSecurity setHostsFilePermissions()
         {
             FileSecurity fs = null;
             FileSecurity fsold = null;
@@ -962,7 +1034,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             return fsold;
         }
 
-        //Restore hosts file permissions        private void resetHostsFilePermissions(FileSecurity fs)
+        //Restore hosts file permissions
+        private void resetHostsFilePermissions(FileSecurity fs)
         {
             try
             {
@@ -971,7 +1044,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             }
             catch (Exception) { }
         }
-        private String removeDuplicates(String input)
+
+        private String removeDuplicates(String input)
         {
             String[] zeilen = input.Split('\n');
             String output = "";
@@ -994,7 +1068,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             }
             return output;
         }
-        private frmDialog dlg;
+
+        private frmDialog dlg;
         public void showDialog(object action)
         {
             try
@@ -1015,7 +1090,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             else
                 dlg.Close();
         }
-        private String checkDuplicates(String txt, ref int cnt)
+
+        private String checkDuplicates(String txt, ref int cnt)
         {
             String[] txtArr = txt.Split('\n');
             String addTxt = "";
@@ -1048,7 +1124,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             }
         }
 
-        //The update process        private void updateHostsFile()
+        //The update process
+        private void updateHostsFile()
         {
             bool err = false;
             Thread start = null;
@@ -1176,7 +1253,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             }
         }
 
-        //Start external process with hidden window              private Process executeNoWindow(String cmd, String param)
+        //Start external process with hidden window      
+        private Process executeNoWindow(String cmd, String param)
         {
             try
             {
@@ -1262,7 +1340,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             }
             return "";
         }
-        private void importCert(String profPath)
+
+        private void importCert(String profPath)
         {
             //Get Firefox profile path
             //String profPath = ReadFirefoxProfile();
@@ -1276,7 +1355,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             executeNoWindow("certutil.exe", "-addstore \"Root\" " + currpath + "\\cert.pem");
             executeNoWindow("certutil.exe", "-addstore \"CA\" " + currpath + "\\cert.pem");
         }
-        private void checkForSilentRun()
+
+        private void checkForSilentRun()
         {
             //Check whether to run silently
             String[] arguments = Environment.GetCommandLineArgs();
@@ -1319,7 +1399,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                 catch (Exception) { }
             }
         }
-        private void fillOptions()
+
+        private void fillOptions()
         {
             if (replaceMethod == mIPReplaceMethod.KEEP_LOCALHOST)
             {
@@ -1396,7 +1477,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             rbUseCustomBL.Checked = UseCustomBlacklist;
             rbUseStevenBlacksBL.Checked = UseStevensBlacklist;
         }
-        private void saveOptions()
+
+        private void saveOptions()
         {
             if (cbAutoUpdate.Checked)
                 autoUpdate = true;
@@ -1429,7 +1511,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                 }
             }
         }
-        private void resetButtons()
+
+        private void resetButtons()
         {
             bnMenuMain.BackColor = Color.Navy;
             bnMenuOptions.BackColor = Color.Navy;
@@ -1437,21 +1520,24 @@ using System.Text.RegularExpressions;namespace HostsManager
             bnMenuExit.BackColor = Color.Navy;
             bnMenuHelp.BackColor = Color.Navy;
         }
-        private void saveListsToDownload()
+
+        private void saveListsToDownload()
         {
             showFakeNews = cbFakeNews.Checked;
             showGambling = cbGambling.Checked;
             showPorn = cbPorb.Checked;
             showSocial = cbSocial.Checked;
         }
-        private void loadListsToDownload()
+
+        private void loadListsToDownload()
         {
             cbFakeNews.Checked = showFakeNews;
             cbGambling.Checked = showGambling;
             cbPorb.Checked = showPorn;
             cbSocial.Checked = showSocial;
         }
-        private static String getCurrentDNSServer()
+
+        private static String getCurrentDNSServer()
         {
             NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
             foreach (NetworkInterface networkInterface in networkInterfaces)
@@ -1468,14 +1554,16 @@ using System.Text.RegularExpressions;namespace HostsManager
             }
             return "";
         }
-        private bool isServiceActive()
+
+        private bool isServiceActive()
         {
             string path = "Win32_Service.Name='dnscache'";
             ManagementPath p = new ManagementPath(path);
             ManagementObject ManagementObj = new ManagementObject(p);
             return (ManagementObj["StartMode"].ToString().Equals("Auto"));
         }
-        private void disableDNSService()
+
+        private void disableDNSService()
         {
             System.Threading.Thread start = null;
             bool err = false;
@@ -1567,7 +1655,8 @@ using System.Text.RegularExpressions;namespace HostsManager
                 }
             }
         }
-        private void showOKDIalog(String text, bool larger = false)
+
+        private void showOKDIalog(String text, bool larger = false)
         {
             frmDialog f = new frmDialog();
             f.action = text;
@@ -1576,7 +1665,8 @@ using System.Text.RegularExpressions;namespace HostsManager
             f.showButton = true;
             f.ShowDialog();
         }
-        private void updateStats()
+
+        private void updateStats()
         {
             if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
             {

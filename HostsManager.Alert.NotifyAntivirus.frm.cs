@@ -16,19 +16,23 @@ namespace HostsManager
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://answers.avira.com/de/question/avira-blocks-hosts-file-what-can-i-do-90");
         }
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://www.devside.net/wamp-server/unlock-and-unblock-the-windows-hosts-file");
         }
-        private void frmNotifyAntivirus_Load(object sender, EventArgs e)
+
+        private void frmNotifyAntivirus_Load(object sender, EventArgs e)
         {            
             button1.Select();
         }
