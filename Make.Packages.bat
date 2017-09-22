@@ -1,13 +1,18 @@
 @echo off
 cls 
 echo Make.Packages.bat
-echo Version 2017.09.14a
+echo Version 2017.09.22a
 echo.
-rem echo Compile project...
+echo Compile project in x86...
 echo.
 "c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
 pause
 echo.
+rem echo Compile project in x64...
+rem echo.
+rem "c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+rem pause
+rem echo.
 echo Copy files together...
 echo.
 echo copy .\bin\Debug\HostsManager.exe .\Packages\Win-x64.Archive\LV-Crew.HostsManager.exe
