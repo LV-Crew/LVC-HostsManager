@@ -1,16 +1,18 @@
 @echo off
 cls 
 echo Make.Packages.bat
-echo Version 2017.09.22a
+echo Version 2017.09.22b
 echo.
 echo Compile project in x86...
 echo.
 "c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+echo.
 pause
 echo.
 rem echo Compile project in x64...
 rem echo.
 rem "c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+rem echo.
 rem pause
 rem echo.
 echo Copy files together...
@@ -102,3 +104,7 @@ del .\Packages\Win-x86.exe
 echo.
 echo Move EXE to .\Packages\...
 move .\Make\Win-x86.exe .\Packages\
+echo.
+echo All done!
+echo.
+pause
