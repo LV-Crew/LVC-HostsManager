@@ -2,17 +2,19 @@
 cls 
 echo Make.Packages.bat
 echo.
-echo Version 2017.09.22c
+echo Version 2017.09.23a
 echo.
 echo.
 echo Compile project in x86...
 echo.
-"c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x86
+rem "C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x86
+"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x86
 echo.
 echo.
 echo Compile project in x64...
 echo.
-"c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x64
+rem "C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x64
+"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x64
 echo.
 echo.
 echo Copy files together...
