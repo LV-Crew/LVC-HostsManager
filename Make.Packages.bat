@@ -2,19 +2,29 @@
 cls 
 echo Make.Packages.bat
 echo.
-echo Version 2017.09.23a
+echo Version: 2017.09.24a
 echo.
 echo.
 echo Compile project in x86...
 echo.
-rem "C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x86
-"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x86
+rem "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" /maxcpucount /property:Platform=x86
+rem echo.
+rem "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x86
+rem echo.
+rem "%PROGRAMFILES(X86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Platform=x86
+rem echo.
+"%PROGRAMFILES(X86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x86
 echo.
 echo.
 echo Compile project in x64...
 echo.
-rem "C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x64
-"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x64
+rem "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" /maxcpucount /property:Platform=x64
+rem echo.
+rem "%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x64
+rem echo.
+rem "%PROGRAMFILES(X86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Platform=x64
+rem echo.
+"%PROGRAMFILES(X86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe" /maxcpucount /property:Configuration=Release /property:Platform=x64
 echo.
 echo.
 echo Copy files together...
@@ -85,7 +95,7 @@ echo Make Packages...
 echo.
 echo Make Win-x64.zip...
 del .\Packages\Win-x64.zip
-"C:\Program Files\WinZip\WZZIP.exe" -p -r .\Packages\Win-x64.zip .\Packages\Win-x64.Archive\*.*
+"%PROGRAMFILES%\WinZip\WZZIP.exe" -p -r .\Packages\Win-x64.zip .\Packages\Win-x64.Archive\*.*
 echo.
 echo Make Win-x64.7z...
 del .\Packages\Win-x64.7z
@@ -94,14 +104,14 @@ del .\Packages\Win-x64.7z
 echo.
 echo Make Win-x64.exe...
 del .\Packages\Win-x64.exe
-rem "C:\Program Files (x86)\NSIS\makensis.exe" .\Make\Win-x64.nsi
+"%PROGRAMFILES(X86)%\NSIS\makensis.exe" .\Make\HostsManager.Installer.NSIS.Win-x64.nsi
 echo.
 echo Move EXE to .\Packages\...
-move .\Make\Win-x64.exe .\Packages\
+move .\Make\Win-x64.NSIS.exe .\Packages\
 echo.
 echo Make Win-x86.zip...
 del .\Packages\Win-x86.zip
-"C:\Program Files\WinZip\WZZIP.exe" -p -r .\Packages\Win-x86.zip .\Packages\Win-x86.Archive\*.*
+"%PROGRAMFILES%\WinZip\WZZIP.exe" -p -r .\Packages\Win-x86.zip .\Packages\Win-x86.Archive\*.*
 echo.
 echo Make Win-x86.7z...
 del .\Packages\Win-x86.7z
@@ -110,10 +120,10 @@ del .\Packages\Win-x86.7z
 echo.
 echo Make Win-x86.exe...
 del .\Packages\Win-x86.exe
-"C:\Program Files (x86)\NSIS\makensis.exe" .\Make\Win-x86.nsi
+"%PROGRAMFILES(X86)%\NSIS\makensis.exe" .\Make\HostsManager.Installer.NSIS.Win-x86.nsi
 echo.
 echo Move EXE to .\Packages\...
-move .\Make\Win-x86.exe .\Packages\
+move .\Make\Win-x86.NSIS.exe .\Packages\
 echo.
 echo.
 echo ---> All done! <---
