@@ -91,6 +91,9 @@ namespace HostsManager
             InitializeComponent();
             clsBrandingINI.readINI();
             ipTo = Branding.DefaultIP;
+            if(File.Exists(Branding.BannerImage))
+                pbPicture.Image = Image.FromFile(Branding.BannerImage);
+
             loadSettings();
             //Check whether to run silently
             String[] arguments = Environment.GetCommandLineArgs();
@@ -661,7 +664,13 @@ namespace HostsManager
             resetButtons();
             ((Button)sender).BackColor = Color.Navy;
             lblPage.Text = "Help";
-            wbWebbrowserHelp.Navigate("http://hostsmanager.lv-crew.org/readme.html");
+            string curDir = Directory.GetCurrentDirectory();            
+            try
+            {
+                string html = File.ReadAllText(curDir+"\\readme.html");
+                wbWebbrowserHelp.DocumentText = html;
+            }
+            catch (Exception) { }          
         }
 
         private void bnUpdate_Click(object sender, EventArgs e)

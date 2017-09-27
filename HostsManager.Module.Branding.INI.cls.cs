@@ -12,9 +12,11 @@ namespace HostsManager
 
         public static class clsBrandingINI
     {
-        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]        static extern long SetPrivateProfileString(
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        static extern long SetPrivateProfileString(
     string lpAppName, string lpKeyName, string lpString, string lpFileName);
-        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]        static extern long GetPrivateProfileString(
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        static extern long GetPrivateProfileString(
             string lpAppName, string lpKeyName, string lpDefault, StringBuilder lpReturnedString,
             uint nSize, string lpFileName);
 
@@ -45,6 +47,13 @@ namespace HostsManager
                 GetPrivateProfileString("HostsManager", "DefaultIP", Branding.DefaultIP, ret, 4096,
                     currdir);
                 Branding.DefaultIP = ret.ToString();
+
+                ret = new StringBuilder(4096, 4096);
+                GetPrivateProfileString("HostsManager", "BannerImage", Branding.DefaultIP, ret, 4096,
+                    currdir);
+                Branding.BannerImage = ret.ToString();
+
+
             }
         }
     }
