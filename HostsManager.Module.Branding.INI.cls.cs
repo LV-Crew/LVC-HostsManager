@@ -44,9 +44,9 @@ namespace HostsManager
                     currdir);
                 Branding.ICONPATH = ret.ToString();
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "DefaultIP", Branding.DefaultIP, ret, 4096,
+                GetPrivateProfileString("HostsManager", "DefaultBlankHost", Branding.DefaultBlankHost, ret, 4096,
                     currdir);
-                Branding.DefaultIP = ret.ToString();
+                Branding.DefaultBlankHost = ret.ToString();
 
                 ret = new StringBuilder(4096, 4096);
                 GetPrivateProfileString("HostsManager", "BannerImage", Branding.BannerImage, ret, 4096,

@@ -90,7 +90,7 @@ namespace HostsManager
         {
             InitializeComponent();
             clsBrandingINI.readINI();
-            ipTo = Branding.DefaultIP;
+            ipTo = Branding.DefaultBlankHost;
             if (File.Exists(Branding.BannerImage))
             {
                 pbPicture.Image = Image.FromFile(Branding.BannerImage);
@@ -819,7 +819,7 @@ namespace HostsManager
                 //IP overwrite settings
                 ipFrom = (String)mexampleRegistryKey.GetValue("ipFrom");
                 if (ipFrom == null)
-                    ipFrom = Branding.DefaultIP;
+                    ipFrom = Branding.DefaultBlankHost;
                 ipTo = (String)mexampleRegistryKey.GetValue("ipTo");
                 if (ipTo == null)
                     ipTo = "";
@@ -1217,7 +1217,10 @@ namespace HostsManager
                         ipTo = replaceIP;
                     }
                     else
-                        ipTo = Branding.DefaultIP;
+                    {                        
+                        ipTo = Branding.DefaultBlankHost;
+                        ipTo=Dns.GetHostAddresses(ipTo)[0].ToString();
+                    }
                     if (replaceMethod != mIPReplaceMethod.KEEP_LOCALHOST)
                     {
                         fileText = fileText.Replace("0.0.0.0", ipTo);
