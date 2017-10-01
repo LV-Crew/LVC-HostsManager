@@ -1,5 +1,5 @@
 ; HostsManager.Installer.NSIS.Win-x86.nsi
-; Version: 2017.09.24b
+; Version: 2017.10.01a
 
 ;--------------------------------
 
@@ -13,7 +13,7 @@
 !define FOLDERNAME "HostsManager"
 !define FILENAME "LV-Crew.HostsManager"
 
-!define MUI_ICON "..\Branding\${FILENAME}.Icon.ico"
+!define MUI_ICON "..\Branding\${FILENAME}.Logo.ico"
 ;!define MUI_UNICON "..\Branding\${FILENAME}.Icon.ico"
 !define MUI_HEADERIMAGE_BITMAP "..\Branding\Banner\${FILENAME}.Banner.bmp"
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
@@ -28,7 +28,7 @@ CRCCheck On
 Name "${APPNAME}"
 
 ; The file to write
-OutFile "Win-x86.NSIS.exe"
+OutFile "Win.NSIS.exe"
 
 ; The default installation directory
 InstallDir "$PROGRAMFILES32\${COMPANYNAME}\${FOLDERNAME}"
@@ -40,7 +40,7 @@ RequestExecutionLevel admin
 
 ; Pages Normal
 
-;LicenseData "..\Packages\Win-x86.Setup\License.rtf"
+;LicenseData "..\Packages\Win.Setup\License.rtf"
 
 ;Page license
 ;Page directory
@@ -51,7 +51,7 @@ RequestExecutionLevel admin
 ; Pages MUI
 
 ;!insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "..\Packages\Win-x86.Setup\License.rtf"
+!insertmacro MUI_PAGE_LICENSE "..\Packages\Win.Setup\License.rtf"
 ;!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 ;!insertmacro MUI_PAGE_STARTMENU pageid variable
@@ -60,7 +60,7 @@ RequestExecutionLevel admin
 
 ;!insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
-;!insertmacro MUI_UNPAGE_LICENSE "..\Packages\Win-x86.Setup\License.rtf"
+;!insertmacro MUI_UNPAGE_LICENSE "..\Packages\Win.Setup\License.rtf"
 ;!insertmacro MUI_UNPAGE_COMPONENTS
 !insertmacro MUI_UNPAGE_DIRECTORY
 !insertmacro MUI_UNPAGE_INSTFILES
@@ -78,7 +78,7 @@ Section "install" ;No components page, name is not important
 	WriteUninstaller "$INSTDIR\${FILENAME}.Uninstaller.exe"
 	
 	; Put file there
-	File /r "..\Packages\Win-x86.Setup\*.*"
+	File /r "..\Packages\Win.Setup\*.*"
 	
 	; Delete old files
 	Delete "$INSTDIR\Uninstall.exe"
