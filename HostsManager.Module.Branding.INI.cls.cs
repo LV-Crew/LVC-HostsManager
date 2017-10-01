@@ -49,9 +49,16 @@ namespace HostsManager
                 Branding.DefaultIP = ret.ToString();
 
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "BannerImage", Branding.DefaultIP, ret, 4096,
+                GetPrivateProfileString("HostsManager", "BannerImage", Branding.BannerImage, ret, 4096,
                     currdir);
                 Branding.BannerImage = ret.ToString();
+
+                ret = new StringBuilder(4096, 4096);
+                GetPrivateProfileString("HostsManager", "BackgroundSound", Branding.BackgroundSound, ret, 4096,
+                    currdir);
+                Branding.BackgroundSound = ret.ToString();
+
+                
 
 
             }

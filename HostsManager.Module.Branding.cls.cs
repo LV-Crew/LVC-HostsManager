@@ -15,5 +15,6 @@ namespace HostsManager
         public static String DefaultIP = "127.0.0.1";
 
         public static string BannerImage { get; internal set; }
+        public static string BackgroundSound { get; internal set; }
     }
 }

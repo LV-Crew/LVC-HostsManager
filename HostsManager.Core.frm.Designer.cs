@@ -111,6 +111,8 @@
             this.tabHelp = new System.Windows.Forms.TabPage();
             this.wbWebbrowserHelp = new System.Windows.Forms.WebBrowser();
             this.tabAbout = new System.Windows.Forms.TabPage();
+            this.wbUpdates = new System.Windows.Forms.WebBrowser();
+            this.bnCheckForUpdates = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -125,8 +127,6 @@
             this.bnMenuHelp = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
             this.bnMenuTools = new System.Windows.Forms.Button();
-            this.bnCheckForUpdates = new System.Windows.Forms.Button();
-            this.wbUpdates = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1185,7 +1185,6 @@
             // tabAbout
             // 
             this.tabAbout.BackColor = System.Drawing.Color.Black;
-            this.tabAbout.Controls.Add(this.wbUpdates);
             this.tabAbout.Controls.Add(this.bnCheckForUpdates);
             this.tabAbout.Controls.Add(this.label17);
             this.tabAbout.Controls.Add(this.label16);
@@ -1197,12 +1196,34 @@
             this.tabAbout.Controls.Add(this.pictureBox2);
             this.tabAbout.Controls.Add(this.lblName);
             this.tabAbout.Controls.Add(this.lblVersion);
+            this.tabAbout.Controls.Add(this.wbUpdates);
             this.tabAbout.ForeColor = System.Drawing.Color.White;
             this.tabAbout.Location = new System.Drawing.Point(4, 25);
             this.tabAbout.Name = "tabAbout";
             this.tabAbout.Size = new System.Drawing.Size(653, 380);
             this.tabAbout.TabIndex = 2;
             this.tabAbout.Text = "About";
+            // 
+            // wbUpdates
+            // 
+            this.wbUpdates.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wbUpdates.Location = new System.Drawing.Point(0, 0);
+            this.wbUpdates.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbUpdates.Name = "wbUpdates";
+            this.wbUpdates.Size = new System.Drawing.Size(653, 380);
+            this.wbUpdates.TabIndex = 63;
+            this.wbUpdates.Visible = false;
+            // 
+            // bnCheckForUpdates
+            // 
+            this.bnCheckForUpdates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnCheckForUpdates.Location = new System.Drawing.Point(27, 330);
+            this.bnCheckForUpdates.Name = "bnCheckForUpdates";
+            this.bnCheckForUpdates.Size = new System.Drawing.Size(577, 23);
+            this.bnCheckForUpdates.TabIndex = 62;
+            this.bnCheckForUpdates.Text = "Check for Updates";
+            this.bnCheckForUpdates.UseVisualStyleBackColor = true;
+            this.bnCheckForUpdates.Click += new System.EventHandler(this.bnCheckForUpdates_Click);
             // 
             // label17
             // 
@@ -1358,27 +1379,6 @@
             this.bnMenuTools.Text = "Tools";
             this.bnMenuTools.UseVisualStyleBackColor = false;
             this.bnMenuTools.Click += new System.EventHandler(this.bnMenuTools_Click);
-            // 
-            // bnCheckForUpdates
-            // 
-            this.bnCheckForUpdates.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnCheckForUpdates.Location = new System.Drawing.Point(27, 330);
-            this.bnCheckForUpdates.Name = "bnCheckForUpdates";
-            this.bnCheckForUpdates.Size = new System.Drawing.Size(577, 23);
-            this.bnCheckForUpdates.TabIndex = 62;
-            this.bnCheckForUpdates.Text = "Check for Updates";
-            this.bnCheckForUpdates.UseVisualStyleBackColor = true;
-            this.bnCheckForUpdates.Click += new System.EventHandler(this.bnCheckForUpdates_Click);
-            // 
-            // wbUpdates
-            // 
-            this.wbUpdates.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wbUpdates.Location = new System.Drawing.Point(0, 0);
-            this.wbUpdates.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbUpdates.Name = "wbUpdates";
-            this.wbUpdates.Size = new System.Drawing.Size(653, 380);
-            this.wbUpdates.TabIndex = 63;
-            this.wbUpdates.Visible = false;
             // 
             // frmHostsManager
             // 

@@ -91,10 +91,14 @@ namespace HostsManager
             InitializeComponent();
             clsBrandingINI.readINI();
             ipTo = Branding.DefaultIP;
-            if(File.Exists(Branding.BannerImage))
+            if (File.Exists(Branding.BannerImage))
+            {
                 pbPicture.Image = Image.FromFile(Branding.BannerImage);
+                pictureBox3.Image = Image.FromFile(Branding.BannerImage);
+            }
 
-            loadSettings();
+            
+                loadSettings();
             //Check whether to run silently
             String[] arguments = Environment.GetCommandLineArgs();
             if (arguments.Length > 1)
@@ -118,8 +122,11 @@ namespace HostsManager
                 if (!isHidden)
                 {
                     player = new System.Media.SoundPlayer();
-                    player.SoundLocation = "bgnd.wav";
-                    player.Play();
+                    if (File.Exists(Branding.BackgroundSound))
+                    {
+                        player.SoundLocation = Branding.BackgroundSound;//"bgnd.wav";
+                        player.Play();
+                    }
                 }
             }
             catch (Exception) { }
@@ -1215,6 +1222,8 @@ namespace HostsManager
                     {
                         fileText = fileText.Replace("0.0.0.0", ipTo);
                         fileText = fileText.Replace("127.0.0.1", ipTo);
+                        fileText = fileText.Replace("::1", ipTo);
+                        fileText = fileText.Replace("0\t", ipTo+"\t");
                     }
                     foreach (String host in addHosts)
                         fileText += "\r\n" + ipTo + " " + host;
