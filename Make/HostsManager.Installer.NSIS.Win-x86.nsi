@@ -1,13 +1,28 @@
 ; HostsManager.Installer.NSIS.Win-x86.nsi
-; Version: 2017.09.24a
+; Version: 2017.09.24b
 
 ;--------------------------------
 
+; Header
+
+!include "MUI2.nsh"
+!include "FileFunc.nsh"
+
 !define COMPANYNAME "LV-Crew"
 !define APPNAME "LV-Crew HostsManager"
+!define FOLDERNAME "HostsManager"
+!define FILENAME "LV-Crew.HostsManager"
 
+!define MUI_ICON "..\Branding\${FILENAME}.Icon.ico"
+;!define MUI_UNICON "..\Branding\${FILENAME}.Icon.ico"
+!define MUI_HEADERIMAGE_BITMAP "..\Branding\Banner\${FILENAME}.Banner.bmp"
+!define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
+!define MUI_HEADERIMAGE_UNBITMAP "..\Branding\Banner\${FILENAME}.Banner.bmp"
+!define MUI_HEADERIMAGE_UNBITMAP_STRETCH AspectFitHeight
+!define MUI_BGCOLOR FFFFFF
 !define ARP "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
-!include "FileFunc.nsh"
+
+CRCCheck On
 
 ; The name of the installer
 Name "${APPNAME}"
@@ -16,20 +31,40 @@ Name "${APPNAME}"
 OutFile "Win-x86.NSIS.exe"
 
 ; The default installation directory
-InstallDir "$PROGRAMFILES32\${COMPANYNAME}\HostsManager"
+InstallDir "$PROGRAMFILES32\${COMPANYNAME}\${FOLDERNAME}"
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
 
 ;--------------------------------
 
-; Pages
+; Pages Normal
 
-LicenseData "..\Packages\Win-x86.Setup\License.rtf"
+;LicenseData "..\Packages\Win-x86.Setup\License.rtf"
 
-Page license
-Page directory
-Page instfiles
+;Page license
+;Page directory
+;Page instfiles
+
+;--------------------------------
+
+; Pages MUI
+
+;!insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE "..\Packages\Win-x86.Setup\License.rtf"
+;!insertmacro MUI_PAGE_COMPONENTS
+!insertmacro MUI_PAGE_DIRECTORY
+;!insertmacro MUI_PAGE_STARTMENU pageid variable
+!insertmacro MUI_PAGE_INSTFILES
+;!insertmacro MUI_PAGE_FINISH
+
+;!insertmacro MUI_UNPAGE_WELCOME
+!insertmacro MUI_UNPAGE_CONFIRM
+;!insertmacro MUI_UNPAGE_LICENSE "..\Packages\Win-x86.Setup\License.rtf"
+;!insertmacro MUI_UNPAGE_COMPONENTS
+!insertmacro MUI_UNPAGE_DIRECTORY
+!insertmacro MUI_UNPAGE_INSTFILES
+;!insertmacro MUI_UNPAGE_FINISH
 
 ;--------------------------------
 
@@ -40,7 +75,7 @@ Section "install" ;No components page, name is not important
 	; Set output path to the installation directory.
 	SetOutPath $INSTDIR
 	
-	WriteUninstaller "$INSTDIR\LV-Crew.Hostsmanager.Uninstaller.exe"
+	WriteUninstaller "$INSTDIR\${FILENAME}.Uninstaller.exe"
 	
 	; Put file there
 	File /r "..\Packages\Win-x86.Setup\*.*"
@@ -50,14 +85,14 @@ Section "install" ;No components page, name is not important
 	Delete "$INSTDIR\uninstall.dat"
 	Delete "$INSTDIR\uninstall_l.ifl"
 	
-	CreateShortCut "$SMPROGRAMS\${COMPANYNAME}\HostsManager\LV-Crew HostsManager.lnk" "$INSTDIR\LV-Crew.HostsManager.exe" "" "$INSTDIR\LV-Crew.HostsManager.Icon.ico"
+	CreateShortCut "$SMPROGRAMS\${COMPANYNAME}\${FOLDERNAME}\${APPNAME}.lnk" "$INSTDIR\${FILENAME}.exe" "" "$INSTDIR\${FILENAME}.Icon.ico"
 	
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" \
-		"DisplayName" "LV-Crew HostsManager"
+		"DisplayName" "${APPNAME}"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" \
-		"UninstallString" "$\"$INSTDIR\LV-Crew.Hostsmanager.Uninstaller.exe$\""
+		"UninstallString" "$\"$INSTDIR\${FILENAME}.Uninstaller.exe$\""
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" \
-		"QuietUninstallString" "$\"$INSTDIR\LV-Crew.Hostsmanager.Uninstaller.exe$\" /S"
+		"QuietUninstallString" "$\"$INSTDIR\${FILENAME}.Uninstaller.exe$\" /S"
 	
 	${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
 	IntFmt $0 "0x%08X" $0
@@ -72,7 +107,7 @@ SectionEnd ; end the section
 Section "uninstall"
 	
 	# Remove Start Menu launcher
-	Delete "$SMPROGRAMS\${COMPANYNAME}\HostsManager\LV-Crew HostsManager.lnk"
+	Delete "$SMPROGRAMS\${COMPANYNAME}\${FOLDERNAME}\${APPNAME}.lnk"
 	
 	# Try to remove the Start Menu folder - this will only happen if it is empty
 	RMDir "$SMPROGRAMS\${COMPANYNAME}"
