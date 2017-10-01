@@ -1,5 +1,5 @@
-; HostsManager.Installer.NSIS.Win-x86.nsi
-; Version: 2017.10.01a
+; HostsManager.Installer.NSIS.Win.nsi
+; Version: 2017.10.01b
 
 ;--------------------------------
 
@@ -13,7 +13,7 @@
 !define FOLDERNAME "HostsManager"
 !define FILENAME "LV-Crew.HostsManager"
 
-!define MUI_ICON "..\Branding\${FILENAME}.Logo.ico"
+!define MUI_ICON "..\Branding\Logo\${FILENAME}.Logo.ico"
 ;!define MUI_UNICON "..\Branding\${FILENAME}.Icon.ico"
 !define MUI_HEADERIMAGE_BITMAP "..\Branding\Banner\${FILENAME}.Banner.bmp"
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
