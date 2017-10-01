@@ -10,3 +10,16 @@ C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.exe
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.pdb
+E:\_Profil\Dokumente\GitHub\HostsManager\bin\x64\Debug\HostsManager.exe.config
+E:\_Profil\Dokumente\GitHub\HostsManager\bin\x64\Debug\HostsManager.exe
+E:\_Profil\Dokumente\GitHub\HostsManager\bin\x64\Debug\HostsManager.pdb
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.csprojResolveAssemblyReference.cache
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.frmDialog.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.frmNotifyAntivirus.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.frmHostsManager.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.frmEditHosts.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.Properties.Resources.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.csproj.GenerateResource.Cache
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.csproj.CoreCompileInputs.cache
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.exe
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Debug\HostsManager.pdb

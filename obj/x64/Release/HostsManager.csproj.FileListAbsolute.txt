@@ -10,3 +10,16 @@ C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Release\HostsManage
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Release\HostsManager.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Release\HostsManager.exe
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Release\HostsManager.pdb
+E:\_Profil\Dokumente\GitHub\HostsManager\bin\x64\Release\HostsManager.exe.config
+E:\_Profil\Dokumente\GitHub\HostsManager\bin\x64\Release\HostsManager.exe
+E:\_Profil\Dokumente\GitHub\HostsManager\bin\x64\Release\HostsManager.pdb
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.csprojResolveAssemblyReference.cache
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.frmDialog.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.frmNotifyAntivirus.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.frmHostsManager.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.frmEditHosts.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.Properties.Resources.resources
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.csproj.GenerateResource.Cache
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.csproj.CoreCompileInputs.cache
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.exe
+E:\_Profil\Dokumente\GitHub\HostsManager\obj\x64\Release\HostsManager.pdb
