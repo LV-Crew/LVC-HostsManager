@@ -403,7 +403,7 @@ namespace HostsManager
             f.action =
              "Redirection: Sets the IP to which blacklisted hosts are being redirected to.\r\n" +
              "Hosts file editor: Sets the editor that is being used by Hosts Manager to edit the hosts file.\r\n" +
-             "Automatically update host file: Creates a Windows task which updates the hosts file daily";
+             "Automatically update host file: Creates a Windows task which updates the hosts file daily.";
             f.showButton = true;
             f.customHeight = 120;
             f.customWidth = 500;
@@ -439,7 +439,7 @@ namespace HostsManager
             showFakeNews = cbFakeNews.Checked;
         }
 
-        private void cbPorb_Click(object sender, EventArgs e)
+        private void cbPorn_Click(object sender, EventArgs e)
         {
             saveListsToDownload();
             Microsoft.Win32.RegistryKey exampleRegistryKey =
