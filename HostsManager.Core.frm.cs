@@ -85,7 +85,8 @@ namespace HostsManager
         private String replaceIP = "0.0.0.0";
         private bool UseHostsFileBlacklist = true;
         private bool UseCustomBlacklist = false;
-        private bool UseStevensBlacklist = false;
+        private bool UseStevensBlacklist = false;        
+
         public frmHostsManager()
         {
             InitializeComponent();
@@ -154,7 +155,7 @@ namespace HostsManager
                 this.Icon = new Icon(Branding.ICONPATH);
             }
             catch (Exception) { }
-            fillOptions();
+            loadOptions();
             updateStats();
         }
 
@@ -629,7 +630,7 @@ namespace HostsManager
         private void bnMenuOptions_Click(object sender, EventArgs e)
         {
             bnDisableDNS.Text = isServiceActive() ? "Disable DNS-Client service" : "Enable DNS-Client service";
-            fillOptions();
+            loadOptions();
             tabCtrlPages.SelectedIndex = 2;
             resetButtons();
             ((Button)sender).BackColor = Color.Navy;
@@ -1425,7 +1426,7 @@ namespace HostsManager
             }
         }
 
-        private void fillOptions()
+        private void loadOptions()
         {
             if (replaceMethod == mIPReplaceMethod.KEEP_LOCALHOST)
             {
@@ -1501,6 +1502,18 @@ namespace HostsManager
             rbUseHostsFileBL.Checked = UseHostsFileBlacklist;
             rbUseCustomBL.Checked = UseCustomBlacklist;
             rbUseStevenBlacksBL.Checked = UseStevensBlacklist;
+
+            String[] files = getBackups();
+            foreach(String f in files)
+            {
+                lbOptionsBackup.Items.Add(f);
+            }
+        }
+
+        String[] getBackups()
+        {
+            String[] f = Directory.GetFiles(Directory.GetCurrentDirectory() + "\\*.bup");
+            return f;
         }
 
         private void saveOptions()
@@ -1535,6 +1548,8 @@ namespace HostsManager
                     addHosts.Add(host);
                 }
             }
+
+
         }
 
         private void resetButtons()
@@ -1720,6 +1735,18 @@ namespace HostsManager
             {
                 lblCurrent.Text = "-no info-";
             }
+        }
+
+        private void bnOptionsCreateBackup_Click(object sender, EventArgs e)
+        {
+            String filename = "hosts"+DateTime.Now.ToString()+".bak";
+            lbOptionsBackup.Items.Add(filename);
+            try
+            {
+                File.Copy(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", filename);
+            }
+            catch (Exception) { }
+
         }
     }
 }
