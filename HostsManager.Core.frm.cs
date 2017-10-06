@@ -809,7 +809,9 @@ namespace HostsManager
         private void loadSettings()
         {
             Microsoft.Win32.RegistryKey mexampleRegistryKey =
-             Microsoft.Win32.Registry.CurrentUser.OpenSubKey("HostsManager");
+             Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software");
+            mexampleRegistryKey = mexampleRegistryKey.OpenSubKey("LV-Crew");
+            mexampleRegistryKey = mexampleRegistryKey.OpenSubKey("HostsManager");
             if (mexampleRegistryKey != null)
             {
                 //depracted
@@ -941,7 +943,9 @@ namespace HostsManager
         private void saveSettings()
         {
             Microsoft.Win32.RegistryKey exampleRegistryKey =
-             Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
+             Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE");
+            exampleRegistryKey = exampleRegistryKey.CreateSubKey("LV-Crew");
+            exampleRegistryKey = exampleRegistryKey.CreateSubKey("HostsManager");
             //depracted
             exampleRegistryKey.SetValue("URL", hostsURL);
             //IP Overwrite settings
@@ -1546,7 +1550,7 @@ namespace HostsManager
         {
             showFakeNews = cbFakeNews.Checked;
             showGambling = cbGambling.Checked;
-            showPorn = cbPorb.Checked;
+            showPorn = cbPorn.Checked;
             showSocial = cbSocial.Checked;
         }
 
@@ -1554,7 +1558,7 @@ namespace HostsManager
         {
             cbFakeNews.Checked = showFakeNews;
             cbGambling.Checked = showGambling;
-            cbPorb.Checked = showPorn;
+            cbPorn.Checked = showPorn;
             cbSocial.Checked = showSocial;
         }
 
