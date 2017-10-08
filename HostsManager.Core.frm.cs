@@ -1506,14 +1506,30 @@ namespace HostsManager
             String[] files = getBackups();
             foreach(String f in files)
             {
-                lbOptionsBackup.Items.Add(f);
+                if(f!=null)
+                if(f!="")
+                    lbOptionsBackup.Items.Add(f);
             }
         }
 
         String[] getBackups()
         {
-            String[] f = Directory.GetFiles(Directory.GetCurrentDirectory() + "\\*.bup");
-            return f;
+            String[] f = Directory.GetFiles((Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\"));
+            String[] r = new String[f.Length];
+            int count = 0;
+            for (int i = 0; i < f.Length; i++)
+            {
+
+                if(f[i]!=null)
+                {
+                    if (f[i].Contains(".bak"))
+                    {
+                        r[count] = f[i];
+                        count++;
+                    }
+                }
+            }      
+            return r;
         }
 
         private void saveOptions()
@@ -1740,13 +1756,25 @@ namespace HostsManager
         private void bnOptionsCreateBackup_Click(object sender, EventArgs e)
         {
             String filename = "hosts"+DateTime.Now.ToString()+".bak";
+            filename = filename.Replace(":","");
             lbOptionsBackup.Items.Add(filename);
+            
             try
             {
-                File.Copy(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", filename);
+                File.Copy(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\"+filename);
             }
-            catch (Exception) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
 
+        }
+
+        private void bnOptionsRestoreBackup_Click(object sender, EventArgs e)
+        {
+            if (lbOptionsBackup.SelectedIndex >= 0)
+            {
+                FileSecurity fs = setHostsFilePermissions();                
+                File.Copy(lbOptionsBackup.SelectedItem.ToString(), Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+                resetHostsFilePermissions(fs);
+            }
         }
     }
 }

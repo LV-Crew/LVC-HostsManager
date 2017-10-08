@@ -20,10 +20,12 @@ namespace HostsManager
         {
             InitializeComponent();            
         }
-        private void label1_Click(object sender, EventArgs e)
+
+        private void label1_Click(object sender, EventArgs e)
         {
         }
-        private void frmDialog_Load(object sender, EventArgs e)
+
+        private void frmDialog_Load(object sender, EventArgs e)
         {
             label1.Text = action;
             button1.Visible = showButton;
@@ -46,12 +48,14 @@ namespace HostsManager
                 button2.Visible = true;
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
             DialogResult=DialogResult.OK;
             this.Close();
         }
-        private void button2_Click(object sender, EventArgs e)
+
+        private void button2_Click(object sender, EventArgs e)
         {
             DialogResult=DialogResult.Cancel;
             this.Close();

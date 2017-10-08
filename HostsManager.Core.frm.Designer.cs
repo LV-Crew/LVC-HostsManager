@@ -1404,6 +1404,7 @@
             this.bnOptionsRestoreBackup.TabIndex = 4;
             this.bnOptionsRestoreBackup.Text = "Restore Backup";
             this.bnOptionsRestoreBackup.UseVisualStyleBackColor = true;
+            this.bnOptionsRestoreBackup.Click += new System.EventHandler(this.bnOptionsRestoreBackup_Click);
             // 
             // bnOptionsCreateBackup
             // 
