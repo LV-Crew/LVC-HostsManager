@@ -2,7 +2,7 @@
 cls 
 echo Make.Packages.bat
 echo.
-echo Version: 2017.10.01b
+echo Version: 2017.10.10a
 echo.
 echo.
 echo Compile project in x86...
@@ -139,41 +139,45 @@ echo.
 echo Make Packages...
 echo.
 echo Make Win-x64.zip...
+echo.
 del .\Packages\Win-x64.zip
+rem echo.
 "%PROGRAMFILES%\WinZip\WZZIP.exe" -p -r .\Packages\Win-x64.zip .\Packages\Win-x64.Archive\*.*
 echo.
 echo Make Win-x64.7z...
+echo.
 del .\Packages\Win-x64.7z
+rem echo.
 .\Make\7za a .\Packages\Win-x64.7z .\Packages\Win-x64.Archive\*.*
 .\Make\7za a .\Packages\Win-x64.7z .\Packages\Win-x64.Archive\certutil
 echo.
-rem echo Make Win-x64.exe...
-rem del .\Packages\Win-x64.exe
-rem "%PROGRAMFILES(X86)%\NSIS\makensis.exe" .\Make\HostsManager.Installer.NSIS.Win-x64.nsi
-rem echo.
-rem echo Move EXE to .\Packages\...
-rem move .\Make\Win-x64.NSIS.exe .\Packages\
-rem echo.
 echo Make Win-x86.zip...
+echo.
 del .\Packages\Win-x86.zip
+rem echo.
 "%PROGRAMFILES%\WinZip\WZZIP.exe" -p -r .\Packages\Win-x86.zip .\Packages\Win-x86.Archive\*.*
 echo.
 echo Make Win-x86.7z...
+echo.
 del .\Packages\Win-x86.7z
+rem echo.
 .\Make\7za a .\Packages\Win-x86.7z .\Packages\Win-x86.Archive\*.*
 .\Make\7za a .\Packages\Win-x86.7z .\Packages\Win-x86.Archive\certutil
 echo.
 pause
 echo.
 echo Make Win.NSIS.exe...
+echo.
 del .\Packages\Win.NSIS.exe
+rem echo.
 "%PROGRAMFILES(X86)%\NSIS\makensis.exe" .\Make\HostsManager.Installer.NSIS.Win.nsi
 echo.
 echo Move EXE to .\Packages\...
 move .\Make\Win.NSIS.exe .\Packages\
 echo.
 echo.
-echo --- All done! ---
+echo --------------- All done! ---------------
 echo.
 echo.
 pause
+echo.
