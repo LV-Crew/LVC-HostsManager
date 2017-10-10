@@ -23,3 +23,4 @@ E:\_Profil\Dokumente\GitHub\HostsManager\obj\x86\Debug\HostsManager.csproj.Gener
 E:\_Profil\Dokumente\GitHub\HostsManager\obj\x86\Debug\HostsManager.csproj.CoreCompileInputs.cache
 E:\_Profil\Dokumente\GitHub\HostsManager\obj\x86\Debug\HostsManager.exe
 E:\_Profil\Dokumente\GitHub\HostsManager\obj\x86\Debug\HostsManager.pdb
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.csproj.CoreCompileInputs.cache
