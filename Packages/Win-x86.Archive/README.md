@@ -31,6 +31,7 @@ https://github.com/LV-Crew/hosts<br>
 <br>
 <h3><b>What we already included in the program:</b></h3>
 - Own hostnames can be saved in blacklist.xml<br>
+- Backup Function<br>
 <br>
 <br>
 <h3><b>And what else?</b></h3>
@@ -45,23 +46,16 @@ https://github.com/LV-Crew/hosts<br>
 - File permissions are being reset after update<br>
 - Added auto update<br>
 - Added CR/LF-Detection/Addition<br>
-- Also: Error-Page on http://46.163.76.11/<br>
-- Also: Error-Page with SSL<br>
+- Also: Blockpage on http://46.163.76.11/<br>
+- Also: Blockpage with SSL<br>
 - Also: certutil already included (imports the SSL certificate into the Mozilla-Firefox certificate store)<br>
 - Also: http://HostsManager.LV-Crew.org -> http://46.163.76.11/<br>
-- InstallForge-Installer (http://installforge.net/)<br>
 - Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
 - Register in Windows (system integration)<br>
-- Publisher in Windows is 'LV-Crew'<br>
 <br>
 <br>
-<h3><b>Some Dev notes:</b></h3>
-- Versioning with 2017.xx.xxa (yyyy.mm.dd + letter)<br>
-- File-Names are LV-Crew.HostsManager.xxx.xyz<br>
-- Make.Packages.bat use WinZip Command Line Tool (http://www.winzip.com/win/en/downcl.html)<br>
-- Build with Microsoft Visual Studio 2017 Community Edition<br>
-- Default Icons from https://icons8.com<br>
-- Homepage favicons generated with https://www.favicon-generator.org/<br>
+<h3><b>Some Dev Notes:</b></h3>
+https://github.com/LV-Crew/HostsManager/wiki/Some-Dev-Notes<br>
 <br>
 <br>
 <h3><b>To-Dos & Ideas:</b></h3>
