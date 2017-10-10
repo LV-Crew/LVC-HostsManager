@@ -1,5 +1,5 @@
 ; HostsManager.Installer.NSIS.Win.nsi
-; Version: 2017.10.01b
+; Version: 2017.10.11a
 
 ;--------------------------------
 
@@ -9,9 +9,10 @@
 !include "FileFunc.nsh"
 
 !define COMPANYNAME "LV-Crew"
-!define APPNAME "LV-Crew HostsManager"
-!define FOLDERNAME "HostsManager"
-!define FILENAME "LV-Crew.HostsManager"
+!define APPNAME1 "HostsManager"
+!define APPNAME "${COMPANYNAME} ${APPNAME1}"
+!define FOLDERNAME "${APPNAME1}"
+!define FILENAME "${COMPANYNAME}.${APPNAME1}"
 
 !define MUI_ICON "..\Branding\Logo\${FILENAME}.Logo.ico"
 ;!define MUI_UNICON "..\Branding\${FILENAME}.Icon.ico"
