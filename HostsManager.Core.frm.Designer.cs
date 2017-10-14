@@ -4,7 +4,8 @@
     {
         /// <summary>
         /// Required designer variable.
-        /// </summary>        private System.ComponentModel.IContainer components = null;
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -21,7 +22,8 @@
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
-        /// </summary>        private void InitializeComponent()
+        /// </summary>
+        private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHostsManager));
             this.pbPicture = new System.Windows.Forms.PictureBox();
@@ -1557,21 +1559,118 @@
             this.PerformLayout();
 
         }
-        #endregion        private System.Windows.Forms.PictureBox pbPicture;        private System.Windows.Forms.Button bnMenuMain;        private System.Windows.Forms.Button bnMenuOptions;        private System.Windows.Forms.Button bnMenuAbout;        private System.Windows.Forms.Button bnMenuExit;        private System.Windows.Forms.Button bnCloseForm;        private System.Windows.Forms.Button bnMinimizeForm;        private System.Windows.Forms.Panel pnlMain;        private System.Windows.Forms.Label label7;        private System.Windows.Forms.Label label6;        private System.Windows.Forms.Label label5;        private System.Windows.Forms.Button bnUpdate;        private System.Windows.Forms.Button bnOK;        private System.Windows.Forms.TabControl tabCtrlPages;        private System.Windows.Forms.TabPage tabMain;        private System.Windows.Forms.TabPage tabOptions;        private System.Windows.Forms.TabPage tabAbout;        private System.Windows.Forms.Button bnEdit;        private System.Windows.Forms.Panel pnlTitleBar;        private System.Windows.Forms.Button bnMenuHelp;        private System.Windows.Forms.TabPage tabHelp;        private System.Windows.Forms.WebBrowser wbWebbrowserHelp;        private System.Windows.Forms.PictureBox pictureBox1;        private System.Windows.Forms.CheckBox cbBackgroundMusic;        private System.Windows.Forms.GroupBox gbAddHostsToBL;        private System.Windows.Forms.TextBox txtAddHost;        private System.Windows.Forms.Button bnSave;        private System.Windows.Forms.ListBox lbAddHosts;        private System.Windows.Forms.Label label2;        private System.Windows.Forms.Button bnRemoveHost;        private System.Windows.Forms.Button bnAddHost;        private System.Windows.Forms.GroupBox gbCustomHostsURL;        private System.Windows.Forms.CheckBox cbAutoUpdate;        private System.Windows.Forms.Label label10;        private System.Windows.Forms.Button bnRemove;        private System.Windows.Forms.ListBox lbURLs;        private System.Windows.Forms.Button bnAdd;        private System.Windows.Forms.TextBox txtFrom;        private System.Windows.Forms.TextBox txtURL;        private System.Windows.Forms.Label label9;        private System.Windows.Forms.TextBox txtTo;        private System.Windows.Forms.Label label4;        private System.Windows.Forms.Label lblPage;        private System.Windows.Forms.Label label12;        private System.Windows.Forms.Label label13;        private System.Windows.Forms.Label label14;        private System.Windows.Forms.Label label15;        private System.Windows.Forms.PictureBox pictureBox2;        private System.Windows.Forms.Label lblName;        private System.Windows.Forms.Label lblVersion;        private System.Windows.Forms.PictureBox pictureBox3;        private System.Windows.Forms.Label label17;        private System.Windows.Forms.Label label16;        private System.Windows.Forms.TabControl tabCtrlOptions;        private System.Windows.Forms.TabPage tabOptionsStevenBlack;        private System.Windows.Forms.Label cbAddsTracking;        private System.Windows.Forms.CheckBox cbSocial;        private System.Windows.Forms.CheckBox cbPorn;        private System.Windows.Forms.CheckBox cbGambling;        private System.Windows.Forms.CheckBox cbFakeNews;        private System.Windows.Forms.CheckBox cbAdsTracking;        private System.Windows.Forms.TabPage tabOptionsCustom;        private System.Windows.Forms.LinkLabel lblStevenBlackOnGithub;        private System.Windows.Forms.TabPage tabOptionsMain;        private System.Windows.Forms.Button bnSaveOptions2;        private System.Windows.Forms.TabPage tabTools;        private System.Windows.Forms.Button bnMenuTools;        private System.Windows.Forms.Label label21;        private System.Windows.Forms.Button bnSetDNSOpenDNS;        private System.Windows.Forms.Button bnSetDNSServerGoogle;        private System.Windows.Forms.Button bnDisableDNS;        private System.Windows.Forms.Button bnResetHostsFile;        private System.Windows.Forms.Button bnHelpTools;        private System.Windows.Forms.GroupBox gbHostsFileEditor;        private System.Windows.Forms.Button bnCustomEditor;        private System.Windows.Forms.TextBox txtCustomEditor;        private System.Windows.Forms.RadioButton rbCustom;        private System.Windows.Forms.Label label3;        private System.Windows.Forms.RadioButton rbInternal;        private System.Windows.Forms.RadioButton rbExternal;        private System.Windows.Forms.GroupBox gbRedirection;        private System.Windows.Forms.TextBox txtReplaceIP;        private System.Windows.Forms.RadioButton rbRedirectCustom;        private System.Windows.Forms.RadioButton rbRedirectWhitepage;        private System.Windows.Forms.Label label22;        private System.Windows.Forms.RadioButton rbRedirectLocalhost;        private System.Windows.Forms.Button bnFlushDNSCache;        private System.Windows.Forms.Button bnDupliactes;        private System.Windows.Forms.CheckBox rbUseCustomBL;        private System.Windows.Forms.CheckBox rbUseStevenBlacksBL;        private System.Windows.Forms.CheckBox rbUseHostsFileBL;        private System.Windows.Forms.Label lblCurrent;        private System.Windows.Forms.Label label23;        private System.Windows.Forms.Button bnHelpMain;        private System.Windows.Forms.Button bnHelpOptionsMain;        private System.Windows.Forms.Button bnHelpOptionsStevenBlack;        private System.Windows.Forms.Button bnHelpOptionsCustom;
-        private System.Windows.Forms.Button bnCheckForUpdates;
-        private System.Windows.Forms.WebBrowser wbUpdates;
-        private System.Windows.Forms.TabPage tabOptionsBackup;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button bnOptionsRestoreBackup;
-        private System.Windows.Forms.Button bnOptionsCreateBackup;
-        private System.Windows.Forms.ListBox lbOptionsBackup;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label1;
+        #endregion
+        public System.Windows.Forms.PictureBox pbPicture;
+        public System.Windows.Forms.Button bnMenuMain;
+        public System.Windows.Forms.Button bnMenuOptions;
+        public System.Windows.Forms.Button bnMenuAbout;
+        public System.Windows.Forms.Button bnMenuExit;
+        public System.Windows.Forms.Button bnCloseForm;
+        public System.Windows.Forms.Button bnMinimizeForm;
+        public System.Windows.Forms.Panel pnlMain;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Button bnUpdate;
+        public System.Windows.Forms.Button bnOK;
+        public System.Windows.Forms.TabControl tabCtrlPages;
+        public System.Windows.Forms.TabPage tabMain;
+        public System.Windows.Forms.TabPage tabOptions;
+        public System.Windows.Forms.TabPage tabAbout;
+        public System.Windows.Forms.Button bnEdit;
+        public System.Windows.Forms.Panel pnlTitleBar;
+        public System.Windows.Forms.Button bnMenuHelp;
+        public System.Windows.Forms.TabPage tabHelp;
+        public System.Windows.Forms.WebBrowser wbWebbrowserHelp;
+        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.CheckBox cbBackgroundMusic;
+        public System.Windows.Forms.GroupBox gbAddHostsToBL;
+        public System.Windows.Forms.TextBox txtAddHost;
+        public System.Windows.Forms.Button bnSave;
+        public System.Windows.Forms.ListBox lbAddHosts;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Button bnRemoveHost;
+        public System.Windows.Forms.Button bnAddHost;
+        public System.Windows.Forms.GroupBox gbCustomHostsURL;
+        public System.Windows.Forms.CheckBox cbAutoUpdate;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Button bnRemove;
+        public System.Windows.Forms.ListBox lbURLs;
+        public System.Windows.Forms.Button bnAdd;
+        public System.Windows.Forms.TextBox txtFrom;
+        public System.Windows.Forms.TextBox txtURL;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.TextBox txtTo;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label lblPage;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.Label label15;
+        public System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.Label lblName;
+        public System.Windows.Forms.Label lblVersion;
+        public System.Windows.Forms.PictureBox pictureBox3;
+        public System.Windows.Forms.Label label17;
+        public System.Windows.Forms.Label label16;
+        public System.Windows.Forms.TabControl tabCtrlOptions;
+        public System.Windows.Forms.TabPage tabOptionsStevenBlack;
+        public System.Windows.Forms.Label cbAddsTracking;
+        public System.Windows.Forms.CheckBox cbSocial;
+        public System.Windows.Forms.CheckBox cbPorn;
+        public System.Windows.Forms.CheckBox cbGambling;
+        public System.Windows.Forms.CheckBox cbFakeNews;
+        public System.Windows.Forms.CheckBox cbAdsTracking;
+        public System.Windows.Forms.TabPage tabOptionsCustom;
+        public System.Windows.Forms.LinkLabel lblStevenBlackOnGithub;
+        public System.Windows.Forms.TabPage tabOptionsMain;
+        public System.Windows.Forms.Button bnSaveOptions2;
+        public System.Windows.Forms.TabPage tabTools;
+        public System.Windows.Forms.Button bnMenuTools;
+        public System.Windows.Forms.Label label21;
+        public System.Windows.Forms.Button bnSetDNSOpenDNS;
+        public System.Windows.Forms.Button bnSetDNSServerGoogle;
+        public System.Windows.Forms.Button bnDisableDNS;
+        public System.Windows.Forms.Button bnResetHostsFile;
+        public System.Windows.Forms.Button bnHelpTools;
+        public System.Windows.Forms.GroupBox gbHostsFileEditor;
+        public System.Windows.Forms.Button bnCustomEditor;
+        public System.Windows.Forms.TextBox txtCustomEditor;
+        public System.Windows.Forms.RadioButton rbCustom;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.RadioButton rbInternal;
+        public System.Windows.Forms.RadioButton rbExternal;
+        public System.Windows.Forms.GroupBox gbRedirection;
+        public System.Windows.Forms.TextBox txtReplaceIP;
+        public System.Windows.Forms.RadioButton rbRedirectCustom;
+        public System.Windows.Forms.RadioButton rbRedirectWhitepage;
+        public System.Windows.Forms.Label label22;
+        public System.Windows.Forms.RadioButton rbRedirectLocalhost;
+        public System.Windows.Forms.Button bnFlushDNSCache;
+        public System.Windows.Forms.Button bnDupliactes;
+        public System.Windows.Forms.CheckBox rbUseCustomBL;
+        public System.Windows.Forms.CheckBox rbUseStevenBlacksBL;
+        public System.Windows.Forms.CheckBox rbUseHostsFileBL;
+        public System.Windows.Forms.Label lblCurrent;
+        public System.Windows.Forms.Label label23;
+        public System.Windows.Forms.Button bnHelpMain;
+        public System.Windows.Forms.Button bnHelpOptionsMain;
+        public System.Windows.Forms.Button bnHelpOptionsStevenBlack;
+        public System.Windows.Forms.Button bnHelpOptionsCustom;
+        public System.Windows.Forms.Button bnCheckForUpdates;
+        public System.Windows.Forms.WebBrowser wbUpdates;
+        public System.Windows.Forms.TabPage tabOptionsBackup;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Button bnOptionsRestoreBackup;
+        public System.Windows.Forms.Button bnOptionsCreateBackup;
+        public System.Windows.Forms.ListBox lbOptionsBackup;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label label20;
+        public System.Windows.Forms.Label label19;
+        public System.Windows.Forms.Label label18;
+        public System.Windows.Forms.Label label1;
     }
 }

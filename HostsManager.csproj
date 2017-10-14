@@ -141,8 +141,8 @@
     <Compile Include="HostsManager.Alert.NotifyAntivirus.frm.Designer.cs">
       <DependentUpon>HostsManager.Alert.NotifyAntivirus.frm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HostsManager.Module.Branding.cls.cs" />
-    <Compile Include="HostsManager.Module.Branding.INI.cls.cs" />
+    <Compile Include="Settings\HostsManager.Module.Branding.cls.cs" />
+    <Compile Include="Settings\HostsManager.Module.Branding.INI.cls.cs" />
     <Compile Include="HostsManager.Module.EditHosts.cls.cs" />
     <Compile Include="HostsManager.Core.frm.cs">
       <SubType>Form</SubType>
@@ -156,8 +156,10 @@
     <Compile Include="HostsManager.Module.EditHosts.frm.Designer.cs">
       <DependentUpon>HostsManager.Module.EditHosts.frm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\HostsManager.Module.Settings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\HostsManager.Module.SettingsData.cs" />
     <EmbeddedResource Include="HostsManager.frm.Dialog.resx">
       <DependentUpon>HostsManager.frm.Dialog.cs</DependentUpon>
     </EmbeddedResource>
