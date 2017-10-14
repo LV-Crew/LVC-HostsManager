@@ -6,15 +6,10 @@ using System.Text;
 
 namespace HostsManager.Settings
 {
-    public static class SettingsData
+    public static class clsSettingsData
     {
         public static String WHITEPAGE_IP = "1.2.3.4";
-        public
-        const int WM_NCLBUTTONDOWN = 0xA1;
-        public
-        const int HT_CAPTION = 0x2;
-        public
-        const int WM_LBUTTONDOWN = 0x0201;
+        
 
         public  enum BlacklistTypes
         {

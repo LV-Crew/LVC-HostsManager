@@ -19,7 +19,7 @@ namespace HostsManager
             bnSave.Select();
             try
             {
-                this.Icon = new Icon(Branding.ICONPATH);
+                this.Icon = new Icon(clsBrandingData.ICONPATH);
             }
             catch (Exception) { }
         }        

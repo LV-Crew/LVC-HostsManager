@@ -15,7 +15,7 @@ namespace HostsManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHostsManager());
+            Application.Run(new frmCore());
         }
     }
 }

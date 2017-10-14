@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace HostsManager
 {
-    public static class doEdit
+    public static class clsEditHosts
     {
         public static void edit(String editInternal, ArrayList urls)
         {

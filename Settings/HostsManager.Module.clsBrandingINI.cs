@@ -27,36 +27,36 @@ namespace HostsManager.Settings
             if (System.IO.File.Exists(currdir))
             {
                 StringBuilder ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "Version", Branding.VERSION, ret, 4096, currdir);
-                Branding.VERSION = ret.ToString();
+                GetPrivateProfileString("HostsManager", "Version", clsBrandingData.VERSION, ret, 4096, currdir);
+                clsBrandingData.VERSION = ret.ToString();
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "Company", Branding.COMPANY, ret, 4096, currdir);
-                Branding.COMPANY = ret.ToString();
+                GetPrivateProfileString("HostsManager", "Company", clsBrandingData.COMPANY, ret, 4096, currdir);
+                clsBrandingData.COMPANY = ret.ToString();
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "Product", Branding.PRODUCT, ret, 4096, currdir);
-                Branding.PRODUCT = ret.ToString();
+                GetPrivateProfileString("HostsManager", "Product", clsBrandingData.PRODUCT, ret, 4096, currdir);
+                clsBrandingData.PRODUCT = ret.ToString();
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "ProductImage", Branding.PRODUCTIMGPATH, ret,
+                GetPrivateProfileString("HostsManager", "ProductImage", clsBrandingData.PRODUCTIMGPATH, ret,
                     4096, currdir);
-                Branding.PRODUCTIMGPATH = ret.ToString();
+                clsBrandingData.PRODUCTIMGPATH = ret.ToString();
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "ProductIcon", Branding.ICONPATH, ret, 4096,
+                GetPrivateProfileString("HostsManager", "ProductIcon", clsBrandingData.ICONPATH, ret, 4096,
                     currdir);
-                Branding.ICONPATH = ret.ToString();
+                clsBrandingData.ICONPATH = ret.ToString();
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "DefaultBlankHost", Branding.DefaultBlankHost, ret, 4096,
+                GetPrivateProfileString("HostsManager", "DefaultBlankHost", clsBrandingData.DefaultBlankHost, ret, 4096,
                     currdir);
-                Branding.DefaultBlankHost = ret.ToString();
+                clsBrandingData.DefaultBlankHost = ret.ToString();
 
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "BannerImage", Branding.BannerImage, ret, 4096,
+                GetPrivateProfileString("HostsManager", "BannerImage", clsBrandingData.BannerImage, ret, 4096,
                     currdir);
-                Branding.BannerImage = ret.ToString();
+                clsBrandingData.BannerImage = ret.ToString();
 
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "BackgroundSound", Branding.BackgroundSound, ret, 4096,
+                GetPrivateProfileString("HostsManager", "BackgroundSound", clsBrandingData.BackgroundSound, ret, 4096,
                     currdir);
-                Branding.BackgroundSound = ret.ToString();
+                clsBrandingData.BackgroundSound = ret.ToString();
 
                 
 

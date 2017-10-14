@@ -129,48 +129,50 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HostsManager.frm.Dialog.cs">
+    <Compile Include="HostsManager.clsCoreFunctions.cs" />
+    <Compile Include="HostsManager.clsUtilitys.cs" />
+    <Compile Include="HostsManager.frmDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HostsManager.frm.Dialog.Designer.cs">
-      <DependentUpon>HostsManager.frm.Dialog.cs</DependentUpon>
+    <Compile Include="HostsManager.frmDialog.Designer.cs">
+      <DependentUpon>HostsManager.frmDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="HostsManager.Alert.NotifyAntivirus.frm.cs">
+    <Compile Include="HostsManager.Alert.frmNotifyAntivirus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HostsManager.Alert.NotifyAntivirus.frm.Designer.cs">
-      <DependentUpon>HostsManager.Alert.NotifyAntivirus.frm.cs</DependentUpon>
+    <Compile Include="HostsManager.Alert.frmNotifyAntivirus.Designer.cs">
+      <DependentUpon>HostsManager.Alert.frmNotifyAntivirus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings\HostsManager.Module.Branding.cls.cs" />
-    <Compile Include="Settings\HostsManager.Module.Branding.INI.cls.cs" />
-    <Compile Include="HostsManager.Module.EditHosts.cls.cs" />
-    <Compile Include="HostsManager.Core.frm.cs">
+    <Compile Include="Settings\HostsManager.Module.clsBrandingData.cs" />
+    <Compile Include="Settings\HostsManager.Module.clsBrandingINI.cs" />
+    <Compile Include="HostsManager.Module.clsEditHosts.cs" />
+    <Compile Include="HostsManager.frmCore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HostsManager.Core.frm.Designer.cs">
-      <DependentUpon>HostsManager.Core.frm.cs</DependentUpon>
+    <Compile Include="HostsManager.frmCore.Designer.cs">
+      <DependentUpon>HostsManager.frmCore.cs</DependentUpon>
     </Compile>
-    <Compile Include="HostsManager.Module.EditHosts.frm.cs">
+    <Compile Include="HostsManager.Module.frmEditHosts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HostsManager.Module.EditHosts.frm.Designer.cs">
-      <DependentUpon>HostsManager.Module.EditHosts.frm.cs</DependentUpon>
+    <Compile Include="HostsManager.Module.frmEditHosts.Designer.cs">
+      <DependentUpon>HostsManager.Module.frmEditHosts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings\HostsManager.Module.Settings.cs" />
+    <Compile Include="Settings\HostsManager.Module.clsSettingsFunctions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\HostsManager.Module.SettingsData.cs" />
-    <EmbeddedResource Include="HostsManager.frm.Dialog.resx">
-      <DependentUpon>HostsManager.frm.Dialog.cs</DependentUpon>
+    <Compile Include="Settings\HostsManager.Module.clsSettingsData.cs" />
+    <EmbeddedResource Include="HostsManager.frmDialog.resx">
+      <DependentUpon>HostsManager.frmDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HostsManager.Alert.NotifyAntivirus.frm.resx">
-      <DependentUpon>HostsManager.Alert.NotifyAntivirus.frm.cs</DependentUpon>
+    <EmbeddedResource Include="HostsManager.Alert.frmNotifyAntivirus.resx">
+      <DependentUpon>HostsManager.Alert.frmNotifyAntivirus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HostsManager.Core.frm.resx">
-      <DependentUpon>HostsManager.Core.frm.cs</DependentUpon>
+    <EmbeddedResource Include="HostsManager.frmCore.resx">
+      <DependentUpon>HostsManager.frmCore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HostsManager.Module.EditHosts.frm.resx">
-      <DependentUpon>HostsManager.Module.EditHosts.frm.cs</DependentUpon>
+    <EmbeddedResource Include="HostsManager.Module.frmEditHosts.resx">
+      <DependentUpon>HostsManager.Module.frmEditHosts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

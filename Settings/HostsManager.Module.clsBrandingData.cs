@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace HostsManager.Settings
 {
-    public static class Branding
+    public static class clsBrandingData
     {
         public static String VERSION = "2017.08.04c";
         public static String COMPANY = "LV-Crew";
