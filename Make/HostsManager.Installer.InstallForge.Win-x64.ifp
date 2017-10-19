@@ -2,7 +2,7 @@
 ProjectFileVersion = "1.1"
 [General]
 Program name = HostsManager
-Program version = 2017.09.22a
+Program version = 2017.10.20a
 Windows 2000 = 0
 Windows XP = 0
 Windows Server 2003 = 0
@@ -14,7 +14,7 @@ Windows 10 = 1
 Windows Server 2016 = 1
 DoNotCheckOS = 0
 Company name = LV-Crew
-Website = http://hostsmanager.lv-crew.org
+Website = http://HostsManager.LV-Crew.org
 SFA = 1
 DFA = 1
 Comp = 1
@@ -73,36 +73,42 @@ Execdlls = 0
 [Languages]
 3
 [Files/Dirs]
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\certutil\
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\certutil\
 n/a
 [Folder]
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\BGND.wav
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\BGND.wav
 12.9 MB
 wav
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\Branding.ini
-199 Byte
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\Branding.ini
+291 Byte
 ini
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\cert.pem
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\cert.pem
 1.2 KB
 pem
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\Default_hosts.tpl
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\Default_hosts.tpl
 760 Byte
 tpl
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\License.rtf
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\License.rtf
 83.8 KB
 rtf
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\LV-Crew.HostsManager.exe
-447.5 KB
-exe
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\LV-Crew.HostsManager.Icon.ico
-53.8 KB
-ico
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\LV-Crew.HostsManager.Logo.png
-116.3 KB
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\LV-Crew.HostsManager.Banner.png
+29.2 KB
 png
-C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Setup\Readme.txt
-2 KB
-txt
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\LV-Crew.HostsManager.exe
+239 KB
+exe
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\LV-Crew.HostsManager.Icon.ico
+54 KB
+ico
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\LV-Crew.HostsManager.Logo.png
+107.3 KB
+png
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\Readme.html
+4.3 KB
+html
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x64.Archive\README.md
+2.4 KB
+md
 [Licence_Begin]
 38636
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 MS Shell Dlg;}}
