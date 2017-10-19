@@ -1,1 +1,3 @@
 .vs/HostsManager/v14/.suo
+*/hosts.tmp
+bin/x86/Release/hosts.tmp
