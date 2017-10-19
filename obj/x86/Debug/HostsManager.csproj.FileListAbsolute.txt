@@ -4,7 +4,6 @@ C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\HostsManager.
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.frmDialog.resources
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.frmNotifyAntivirus.resources
-C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.frmHostsManager.resources
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.frmEditHosts.resources
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.Properties.Resources.resources
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.csproj.GenerateResource.Cache
@@ -24,3 +23,4 @@ E:\_Profil\Dokumente\GitHub\HostsManager\obj\x86\Debug\HostsManager.csproj.CoreC
 E:\_Profil\Dokumente\GitHub\HostsManager\obj\x86\Debug\HostsManager.exe
 E:\_Profil\Dokumente\GitHub\HostsManager\obj\x86\Debug\HostsManager.pdb
 C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.frmCore.resources
