@@ -817,6 +817,12 @@ LV-Crew.HostsManager
 
 <installpath>\LV-Crew.HostsManager.Icon.ico
 0
+Desktop
+LV-Crew HostsManager
+<installpath>\LV-Crew.HostsManager.exe
+
+<installpath>\LV-Crew.HostsManager.Icon.ico
+0
 [IFP_End]
 [Serials]
 [Serials_End]
