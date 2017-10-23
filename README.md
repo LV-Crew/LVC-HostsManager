@@ -25,7 +25,7 @@ https://hosts-file.net/<br>
 https://github.com/StevenBlack/hosts<br>
 <br>
 <br>
-<h3><b>Which addional hosts files can be used:</b></h3>
+<h3><b>Which addional hosts files can be used?</b></h3>
 https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
