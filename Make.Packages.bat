@@ -1,8 +1,10 @@
 @echo off
+set Company=LV-Crew
+set Product=HostsManager
 cls 
 echo Make.Packages.bat
 echo.
-echo Version: 2017.10.10a
+echo Version: 2017.10.23a
 echo.
 echo.
 echo Compile project in x86...
@@ -61,17 +63,17 @@ echo.
 echo.
 echo Copy files together...
 echo.
-echo copy .\bin\x86\Release\HostsManager.exe .\Packages\Win-x86.Archive\LV-Crew.HostsManager.exe
-copy .\bin\x86\Release\HostsManager.exe .\Packages\Win-x86.Archive\LV-Crew.HostsManager.exe
+echo copy .\bin\x86\Release\%Product%.exe .\Packages\Win-x86.Archive\%Company%.%Product%.exe
+copy .\bin\x86\Release\%Product%.exe .\Packages\Win-x86.Archive\%Company%.%Product%.exe
 echo.
-echo copy .\bin\x86\Release\HostsManager.exe .\Packages\Win.Setup\LV-Crew.HostsManager32.exe
-copy .\bin\x86\Release\HostsManager.exe .\Packages\Win.Setup\LV-Crew.HostsManager32.exe
+echo copy .\bin\x86\Release\%Product%.exe .\Packages\Win.Setup\%Company%.%Product%32.exe
+copy .\bin\x86\Release\%Product%.exe .\Packages\Win.Setup\%Company%.%Product%32.exe
 echo.
-echo copy .\bin\x64\Release\HostsManager.exe .\Packages\Win-x64.Archive\LV-Crew.HostsManager.exe
-copy .\bin\x64\Release\HostsManager.exe .\Packages\Win-x64.Archive\LV-Crew.HostsManager.exe
+echo copy .\bin\x64\Release\%Product%.exe .\Packages\Win-x64.Archive\%Company%.%Product%.exe
+copy .\bin\x64\Release\%Product%.exe .\Packages\Win-x64.Archive\%Company%.%Product%.exe
 echo.
-echo copy .\bin\x64\Release\HostsManager.exe .\Packages\Win.Setup\LV-Crew.HostsManager64.exe
-copy .\bin\x64\Release\HostsManager.exe .\Packages\Win.Setup\LV-Crew.HostsManager64.exe
+echo copy .\bin\x64\Release\%Product%.exe .\Packages\Win.Setup\%Company%.%Product%64.exe
+copy .\bin\x64\Release\%Product%.exe .\Packages\Win.Setup\%Company%.%Product%64.exe
 echo.
 echo copy .\Branding\*.* .\bin\x86\Debug\
 copy .\Branding\*.* .\bin\x86\Debug\
@@ -170,7 +172,7 @@ echo Make Win.NSIS.exe...
 echo.
 del .\Packages\Win.NSIS.exe
 rem echo.
-"%PROGRAMFILES(X86)%\NSIS\makensis.exe" .\Make\HostsManager.Installer.NSIS.Win.nsi
+"%PROGRAMFILES(X86)%\NSIS\makensis.exe" .\Make\%Product%.Installer.NSIS.Win.nsi
 echo.
 echo Move EXE to .\Packages\...
 move .\Make\Win.NSIS.exe .\Packages\

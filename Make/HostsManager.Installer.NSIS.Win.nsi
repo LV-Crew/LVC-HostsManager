@@ -1,5 +1,5 @@
 ; HostsManager.Installer.NSIS.Win.nsi
-; Version: 2017.10.11a
+; Version: 2017.10.23a
 
 ;--------------------------------
 
@@ -8,11 +8,11 @@
 !include "MUI2.nsh"
 !include "FileFunc.nsh"
 
-!define COMPANYNAME "LV-Crew"
-!define APPNAME1 "HostsManager"
-!define APPNAME "${COMPANYNAME} ${APPNAME1}"
-!define FOLDERNAME "${APPNAME1}"
-!define FILENAME "${COMPANYNAME}.${APPNAME1}"
+;!define Version "2017.10.20a"
+!define Company "LV-Crew"
+!define Product "HostsManager"
+!define FOLDERNAME "${Product}"
+!define FILENAME "${Company}.${Product}"
 
 !define MUI_ICON "..\Branding\Logo\${FILENAME}.Logo.ico"
 ;!define MUI_UNICON "..\Branding\${FILENAME}.Icon.ico"
@@ -21,18 +21,18 @@
 !define MUI_HEADERIMAGE_UNBITMAP "..\Branding\Banner\${FILENAME}.Banner.bmp"
 !define MUI_HEADERIMAGE_UNBITMAP_STRETCH AspectFitHeight
 !define MUI_BGCOLOR FFFFFF
-!define ARP "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
+!define ARP "Software\Microsoft\Windows\CurrentVersion\Uninstall\${Company} ${Product}"
 
 CRCCheck On
 
 ; The name of the installer
-Name "${APPNAME}"
+Name "${Company} ${Product}"
 
 ; The file to write
 OutFile "Win.NSIS.exe"
 
 ; The default installation directory
-InstallDir "$PROGRAMFILES32\${COMPANYNAME}\${FOLDERNAME}"
+InstallDir "$PROGRAMFILES32\${Company}\${FOLDERNAME}"
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
@@ -86,13 +86,13 @@ Section "install" ;No components page, name is not important
 	Delete "$INSTDIR\uninstall.dat"
 	Delete "$INSTDIR\uninstall_l.ifl"
 	
-	CreateShortCut "$SMPROGRAMS\${COMPANYNAME}\${FOLDERNAME}\${APPNAME}.lnk" "$INSTDIR\${FILENAME}.exe" "" "$INSTDIR\${FILENAME}.Icon.ico"
+	CreateShortCut "$SMPROGRAMS\${Company}\${FOLDERNAME}\${Company} ${Product}.lnk" "$INSTDIR\${FILENAME}.exe" "" "$INSTDIR\${FILENAME}.Icon.ico"
 	
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" \
-		"DisplayName" "${APPNAME}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" \
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${Company} ${Product}" \
+		"DisplayName" "${Company} ${Product}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${Company} ${Product}" \
 		"UninstallString" "$\"$INSTDIR\${FILENAME}.Uninstaller.exe$\""
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" \
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${Company} ${Product}" \
 		"QuietUninstallString" "$\"$INSTDIR\${FILENAME}.Uninstaller.exe$\" /S"
 	
 	${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
@@ -108,18 +108,18 @@ SectionEnd ; end the section
 Section "uninstall"
 	
 	# Remove Start Menu launcher
-	Delete "$SMPROGRAMS\${COMPANYNAME}\${FOLDERNAME}\${APPNAME}.lnk"
+	Delete "$SMPROGRAMS\${Company}\${FOLDERNAME}\${Company} ${Product}.lnk"
 	
 	# Try to remove the Start Menu folder - this will only happen if it is empty
-	RMDir "$SMPROGRAMS\${COMPANYNAME}"
+	RMDir "$SMPROGRAMS\${Company}"
 	
 	;Remove Files
 	RMDir /r "$INSTDIR"
 	
 	# Try to remove the Company folder - this will only happen if it is empty
-	RMDir "$PROGRAMFILES32\${COMPANYNAME}"
+	RMDir "$PROGRAMFILES32\${Company}"
 	
 	# Remove uninstaller information from the registry
-	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
+	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${Company} ${Product}"
 	
 SectionEnd
