@@ -30,13 +30,19 @@ https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
 <h3><b>What we already included in the program:</b></h3>
-- Own hostnames can be saved in blacklist.xml<br>
-- Backup Function<br>
+- Tools: Added 'Set User DNS'<br>
+- Options: Own hostnames can be saved in blacklist.xml<br>
+- Options: Backup Function<br>
 <br>
 <br>
 <h3><b>And what else?</b></h3>
 - Detects Antiviruses and warns<br>
 - Branding is saved in a INI<br>
+- Included Readme.html<br>
+- Use local Readme.html as 'Help'<br>
+- Included Readme.md<br>
+- Create backup at first run (1x Auto-Backup)<br>
+- Use .HostsManager.bak<br>
 <br>
 <br>
 - Integrated LV-Crew/certgen (https://github.com/LV-Crew/certgen)<br>
@@ -53,6 +59,15 @@ https://github.com/LV-Crew/hosts<br>
 - Also: http://HostsManager.LV-Crew.org -> http://46.163.76.11/<br>
 - Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
 - Register in Windows (system integration)<br>
+<br>
+- Removed Readme.txt?<br>
+- Blockpage intern as Blockpage (is DefaultBlankHost)<br>
+- "Downloading"-Msg<br>
+- Use Temp-Folder<br>
+- No replace of IP when URL have big letters<br>
+- Antivir-Form in app or new icon + window name<br>
+- Editor-Form: icon + window name?<br>
+- "Reset Host File" to Backup<br>
 <br>
 <br>
 <h3><b>Some Dev Notes:</b></h3>
