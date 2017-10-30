@@ -67,7 +67,7 @@ namespace HostsManager
         {
             InitializeComponent();
             clsBrandingINI.readINI();
-            clsSettingsData.ipTo = clsBrandingData.DefaultBlankHost;
+            clsSettingsData.ipTo = clsBrandingData.DefaultBlockPage;
             if (File.Exists(clsBrandingData.BannerImage))
             {
                 pbPicture.Image = Image.FromFile(clsBrandingData.BannerImage);
@@ -222,7 +222,8 @@ namespace HostsManager
              "Flush DNS cache: removes temporarily saved DNS data.\r\n" +
              "Disable DNS Service: Do this if your System slows down while surfing.\r\n" +
              "Set DNS Server to Google: Set your DNS Server IP to that of Google (8.8.8.8).\r\n" +
-             "Set DNS Server to OpenDNS: Set your DNS Server IP to that of OpenDNS.";
+             "Set DNS Server to OpenDNS: Set your DNS Server IP to that of OpenDNS.\r\n"+
+             "Set DNS Server to custom value: Allows you to enter the IP of the DNS Server.";
             f.showButton = true;
             f.customHeight = 200;
             f.customWidth = 400;
@@ -389,8 +390,8 @@ namespace HostsManager
         private void cbPorn_Click(object sender, EventArgs e)
         {
             saveListsToDownload();
-            Microsoft.Win32.RegistryKey exampleRegistryKey =
-             Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
+            Microsoft.Win32.RegistryKey exampleRegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(clsBrandingData.COMPANY);
+            exampleRegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(clsBrandingData.PRODUCT);
             if (clsSettingsData.showGambling)
                 exampleRegistryKey.SetValue("ShowGambling", "TRUE");
             else
@@ -426,8 +427,8 @@ namespace HostsManager
 
         private void rbUseStevensBlacklist_CheckedChanged(object sender, EventArgs e)
         {
-            Microsoft.Win32.RegistryKey exampleRegistryKey =
-             Microsoft.Win32.Registry.CurrentUser.CreateSubKey("HostsManager");
+            Microsoft.Win32.RegistryKey exampleRegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(clsBrandingData.COMPANY);
+            exampleRegistryKey=Microsoft.Win32.Registry.CurrentUser.CreateSubKey(clsBrandingData.PRODUCT);
             if (rbUseStevenBlacksBL.Checked)
             {
                 clsSettingsData.UseStevensBlacklist = true;
@@ -577,12 +578,13 @@ namespace HostsManager
 
         private void bnMenuOptions_Click(object sender, EventArgs e)
         {
+            lbOptionsBackup.Items.Clear();
             bnDisableDNS.Text =clsUtilitys.Services.isServiceActive() ? "Disable DNS-Client service" : "Enable DNS-Client service";
             Settings.clsSettingsFunctions s = new Settings.clsSettingsFunctions(this);
             s.loadOptions();
             tabCtrlPages.SelectedIndex = 2;
             resetButtons();
-            ((Button)sender).BackColor = Color.Navy;
+            ((Button)sender).BackColor = Color.Navy;           
             lblPage.Text = "Options";
         }
 
@@ -630,10 +632,27 @@ namespace HostsManager
             catch (Exception) { }          
         }
 
+        public void initialBackups()
+        {
+            if (clsCoreFunctions.getBackups()!=null)
+            {
+                String filename = "hosts" + DateTime.Now.ToString() + "." + clsBrandingData.PRODUCT + ".bak";
+                filename = filename.Replace(":", "");
+                lbOptionsBackup.Items.Add(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\" + filename);
+                
+                try
+                {
+                    File.Copy(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\" + filename);
+                }
+                catch (Exception ex) { }
+            }
+        }
+
         private void bnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
+                initialBackups();
                 if (clsUtilitys.isADMember())
                 {
                     if (clsSettingsData.UseHostsFileBlacklist)
@@ -660,13 +679,19 @@ namespace HostsManager
             catch (Exception) { }
         }
 
+        private void HostsFileThrd()
+        {
+            FileSecurity fs = clsUtilitys.HostsFile.setHostsFilePermissions();
+            clsEditHosts.edit(clsSettingsData.internalEditor, clsSettingsData.urls, clsSettingsData.externalEditorFile);
+            clsUtilitys.HostsFile.resetHostsFilePermissions(fs);
+        }
+
         private void bnEdit_Click(object sender, EventArgs e)
         {
             if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
             {
-                FileSecurity fs = clsUtilitys.HostsFile.setHostsFilePermissions();
-                clsEditHosts.edit(clsSettingsData.internalEditor, clsSettingsData.urls, clsSettingsData.externalEditorFile);
-                clsUtilitys.HostsFile.resetHostsFilePermissions(fs);
+                System.Threading.Thread t = new System.Threading.Thread(HostsFileThrd);
+                t.Start();
             }
         }
 
@@ -790,11 +815,12 @@ namespace HostsManager
         }
 
         private void bnOptionsCreateBackup_Click(object sender, EventArgs e)
-        {
-            String filename = "hosts"+DateTime.Now.ToString()+".bak";
+        {            
+            String filename = "hosts"+DateTime.Now.ToString()+"."+clsBrandingData.PRODUCT+".bak";
             filename = filename.Replace(":","");
-            lbOptionsBackup.Items.Add(filename);
-            
+            lbOptionsBackup.Items.Add(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\"+filename);
+
+
             try
             {
                 File.Copy(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\"+filename);
@@ -811,6 +837,46 @@ namespace HostsManager
                 File.Copy(lbOptionsBackup.SelectedItem.ToString(), Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
                 clsUtilitys.HostsFile.resetHostsFilePermissions(fs);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string input = Microsoft.VisualBasic.Interaction.InputBox("DNS Server", "Please enter the IP Adress of the DNS Server", " ", 0, 0);
+            if (input.Trim().Length > 0)
+            {
+
+                Thread start = null;
+
+                    start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                    start.Start("Setting DNS Server...");
+                    clsCoreFunctions.setDNS(input);
+                    if (start != null)
+                        start.Abort();
+                    clsUtilitys.Dialogs.showOKDIalog("DNS server has been set.");
+              
+            }
+        }
+
+        private void tabOptionsBackup_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmDialog f = new frmDialog();
+            f.action =
+             "This window allows you to create- and restore backups of the hosts file.\r\n"+
+             "Backups will be saved under windir\\system32\\drivers\\etc.";
+            f.showButton = true;
+            f.customHeight = 120;
+            f.customWidth = 400;
+            f.ShowDialog();
+        }
+
+        private void tabOptions_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

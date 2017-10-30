@@ -95,7 +95,7 @@ namespace HostsManager
                 {
                     dlg = new frmDialog();
                     dlg.action = (String)action;
-                    if (dlg.IsAccessible)
+                   // if (dlg.IsAccessible)
                         dlg.ShowDialog();
                 }
                 catch (ThreadAbortException) { }
@@ -136,23 +136,26 @@ namespace HostsManager
                             string[] lines = resp.Split(new string[] {
            "\r\n"
           }, StringSplitOptions.None);
-                            string location = lines.First(x => x.Contains("Path="))
-                             .Split(new string[] {
-            "="
-                             }, StringSplitOptions.None)[1];
-                            foreach (String line in lines)
+                            if (lines.Length > 1)
                             {
-                                if (line.Contains("Path="))
+                                string location = lines.First(x => x.Contains("Path="))
+                                 .Split(new string[] {
+            "="
+                                 }, StringSplitOptions.None)[1];
+                                foreach (String line in lines)
                                 {
-                                    String profpath = line.Split(new string[] {
+                                    if (line.Contains("Path="))
+                                    {
+                                        String profpath = line.Split(new string[] {
              "="
             }, StringSplitOptions.None)[1];
-                                    profpath = System.IO.Path.Combine(firefox, profpath).Replace("/", "\\");
-                                    importCert(profpath);
+                                        profpath = System.IO.Path.Combine(firefox, profpath).Replace("/", "\\");
+                                        importCert(profpath);
+                                    }
                                 }
+                                string prof_dir = System.IO.Path.Combine(firefox, location);
+                                return prof_dir.Replace("/", "\\");
                             }
-                            string prof_dir = System.IO.Path.Combine(firefox, location);
-                            return prof_dir.Replace("/", "\\");
                         }
                     }
                 }

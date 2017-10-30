@@ -63,127 +63,131 @@ namespace HostsManager.Settings
         //Load setings from registry and XML
         public void loadSettings()
         {
-            Microsoft.Win32.RegistryKey mexampleRegistryKey =
-             Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software");
-            mexampleRegistryKey = mexampleRegistryKey.OpenSubKey("LV-Crew");
-            mexampleRegistryKey = mexampleRegistryKey.OpenSubKey("HostsManager");
-            if (mexampleRegistryKey != null)
+            try
             {
-                //depracted
-                clsSettingsData.hostsURL = (String)mexampleRegistryKey.GetValue("URL");
-                if (clsSettingsData.hostsURL == null)
-                    clsSettingsData.hostsURL = "";
-                //IP overwrite settings
-                clsSettingsData.ipFrom = (String)mexampleRegistryKey.GetValue("ipFrom");
-                if (clsSettingsData.ipFrom == null)
-                    clsSettingsData.ipFrom = clsBrandingData.DefaultBlankHost;
-                clsSettingsData.ipTo = (String)mexampleRegistryKey.GetValue("ipTo");
-                if (clsSettingsData.ipTo == null)
-                    clsSettingsData.ipTo = "";
-
-                //Use internal editor?
-                String b = (String)mexampleRegistryKey.GetValue("UseInternalEditor");
-                if (b == "INTERNAL")
-                    clsSettingsData.internalEditor = "INTERNAL";
-                else if (b == "WORDPAD")
-                    clsSettingsData.internalEditor = "WORDPAD";
-                else
-                    clsSettingsData.internalEditor = "CUSTOM";
-                if (clsSettingsData.internalEditor == null)
-                    clsSettingsData.internalEditor = "INTERNAL";
-
-                b = (String)mexampleRegistryKey.GetValue("ExternalEditorFile");
-                clsSettingsData.externalEditorFile = b;
-                if (clsSettingsData.externalEditorFile == null)
-                    clsSettingsData.externalEditorFile = "";
-                b = (String)mexampleRegistryKey.GetValue("DNSServiceDisabled");
-                if (b == null) b = "FALSE";
-                clsSettingsData.DNServiceDisabled = b.Equals("TRUE") ? true : false;
-                if (clsSettingsData.DNServiceDisabled)
-                    frmHosts.bnDisableDNS.Text = "Disable DNS Service";
-                b = (String)mexampleRegistryKey.GetValue("DNSGoogleChanged");
-                if (b == null) b = "FALSE";
-                clsSettingsData.DNSGoogleChanged = b.Equals("TRUE") ? true : false;
-                if (clsSettingsData.DNSGoogleChanged)
-                    frmHosts.bnSetDNSServerGoogle.Text = "Reset DNS Server";
-                b = (String)mexampleRegistryKey.GetValue("DNSOpenDNSChanged");
-                if (b == null) b = "FALSE";
-                clsSettingsData.DNSOpenDNSChanged = b.Equals("TRUE") ? true : false;
-                if (clsSettingsData.DNSOpenDNSChanged)
-                    frmHosts.bnSetDNSOpenDNS.Text = "Reset DNS Server";
-                b = (String)mexampleRegistryKey.GetValue("redirectType");
-                if (b == null)
+                Microsoft.Win32.RegistryKey mexampleRegistryKey =
+                 Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software");
+                mexampleRegistryKey = mexampleRegistryKey.OpenSubKey(clsBrandingData.COMPANY);
+                mexampleRegistryKey = mexampleRegistryKey.OpenSubKey(clsBrandingData.PRODUCT);
+                if (mexampleRegistryKey != null)
                 {
-                    b = "SET_WHITEPAGE";
-                    clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.SET_WHITEPAGE;
-                }
-                else if (b == "KEEP_LOCALHOST")
-                {
-                    clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.KEEP_LOCALHOST;
-                }
-                else if (b == "SET_CUSTOM")
-                {
-                    clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.SET_CUSTOM;
-                    clsSettingsData.replaceIP = (String)mexampleRegistryKey.GetValue("replaceIP");
-                }
-                b = (String)mexampleRegistryKey.GetValue("UseHostsFileBlacklist ");
-                if (b == null) b = "FALSE";
-                clsSettingsData.UseHostsFileBlacklist = b.Equals("TRUE") ? true : false;
-                b = (String)mexampleRegistryKey.GetValue("UseCustomBlacklist ");
-                if (b == null) b = "FALSE";
-                clsSettingsData.UseCustomBlacklist = b.Equals("TRUE") ? true : false;
-                b = (String)mexampleRegistryKey.GetValue("UseStevensBlacklist ");
-                if (b == null) b = "FALSE";
-                clsSettingsData.UseStevensBlacklist = b.Equals("TRUE") ? true : false;
-                if (!clsSettingsData.UseStevensBlacklist && !clsSettingsData.UseHostsFileBlacklist && !clsSettingsData.UseCustomBlacklist)
-                    clsSettingsData.UseHostsFileBlacklist = true;
-                //Auto Update?
-                b = (String)mexampleRegistryKey.GetValue("AutoUpdate");
-                if (b == null)
-                    b = "FALSE";
-                if (b == "TRUE")
-                    clsSettingsData.autoUpdate = true;
-                else
-                    clsSettingsData.autoUpdate = false;
-                b = (String)mexampleRegistryKey.GetValue("ShowFakeNews");
-                if (b == null)
-                    b = "FALSE";
-                if (b == "TRUE")
-                    clsSettingsData.showFakeNews = true;
-                else
-                    clsSettingsData.showFakeNews = false;
-                b = (String)mexampleRegistryKey.GetValue("ShowSocial");
-                if (b == null)
-                    b = "FALSE";
-                if (b == "TRUE")
-                    clsSettingsData.showSocial = true;
-                else
-                    clsSettingsData.showSocial = false;
-                b = (String)mexampleRegistryKey.GetValue("ShowGambling");
-                if (b == null)
-                    b = "FALSE";
-                if (b == "TRUE")
-                    clsSettingsData.showGambling = true;
-                else
-                    clsSettingsData.showGambling = false;
-                b = (String)mexampleRegistryKey.GetValue("ShowPorn");
-                if (b == null)
-                    b = "FALSE";
-                if (b == "TRUE")
-                    clsSettingsData.showPorn = true;
-                else
-                    clsSettingsData.showPorn = false;
-                b = (String)mexampleRegistryKey.GetValue("BlacklistToUse");
-                if (b == null)
-                    b = "STEVENBLACK";
-                if (b == "INTERNAL")
-                    clsSettingsData.blacklistToUse = clsSettingsData.BlacklistTypes.INTERNAL;
-                else if (b == "STEVENBLACK")
-                    clsSettingsData.blacklistToUse = clsSettingsData.BlacklistTypes.STEVENBLACK;
-                else
-                    clsSettingsData.blacklistToUse = clsSettingsData.BlacklistTypes.HOSTSFILEDOTNET;
+                    //depracted
+                    clsSettingsData.hostsURL = (String)mexampleRegistryKey.GetValue("URL");
+                    if (clsSettingsData.hostsURL == null)
+                        clsSettingsData.hostsURL = "";
+                    //IP overwrite settings
+                    clsSettingsData.ipFrom = (String)mexampleRegistryKey.GetValue("ipFrom");
+                    if (clsSettingsData.ipFrom == null)
+                        clsSettingsData.ipFrom = clsBrandingData.DefaultBlockPage;
+                    clsSettingsData.ipTo = (String)mexampleRegistryKey.GetValue("ipTo");
+                    if (clsSettingsData.ipTo == null)
+                        clsSettingsData.ipTo = "";
 
+                    //Use internal editor?
+                    String b = (String)mexampleRegistryKey.GetValue("UseInternalEditor");
+                    if (b == "INTERNAL")
+                        clsSettingsData.internalEditor = "INTERNAL";
+                    else if (b == "WORDPAD")
+                        clsSettingsData.internalEditor = "WORDPAD";
+                    else
+                        clsSettingsData.internalEditor = "CUSTOM";
+                    if (clsSettingsData.internalEditor == null)
+                        clsSettingsData.internalEditor = "INTERNAL";
+
+                    b = (String)mexampleRegistryKey.GetValue("ExternalEditorFile");
+                    clsSettingsData.externalEditorFile = b;
+                    if (clsSettingsData.externalEditorFile == null)
+                        clsSettingsData.externalEditorFile = "";
+                    b = (String)mexampleRegistryKey.GetValue("DNSServiceDisabled");
+                    if (b == null) b = "FALSE";
+                    clsSettingsData.DNServiceDisabled = b.Equals("TRUE") ? true : false;
+                    if (clsSettingsData.DNServiceDisabled)
+                        frmHosts.bnDisableDNS.Text = "Disable DNS Service";
+                    b = (String)mexampleRegistryKey.GetValue("DNSGoogleChanged");
+                    if (b == null) b = "FALSE";
+                    clsSettingsData.DNSGoogleChanged = b.Equals("TRUE") ? true : false;
+                    if (clsSettingsData.DNSGoogleChanged)
+                        frmHosts.bnSetDNSServerGoogle.Text = "Reset DNS Server";
+                    b = (String)mexampleRegistryKey.GetValue("DNSOpenDNSChanged");
+                    if (b == null) b = "FALSE";
+                    clsSettingsData.DNSOpenDNSChanged = b.Equals("TRUE") ? true : false;
+                    if (clsSettingsData.DNSOpenDNSChanged)
+                        frmHosts.bnSetDNSOpenDNS.Text = "Reset DNS Server";
+                    b = (String)mexampleRegistryKey.GetValue("redirectType");
+                    if (b == null)
+                    {
+                        b = "SET_WHITEPAGE";
+                        clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.SET_WHITEPAGE;
+                    }
+                    else if (b == "KEEP_LOCALHOST")
+                    {
+                        clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.KEEP_LOCALHOST;
+                    }
+                    else if (b == "SET_CUSTOM")
+                    {
+                        clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.SET_CUSTOM;
+                        clsSettingsData.replaceIP = (String)mexampleRegistryKey.GetValue("replaceIP");
+                    }
+                    b = (String)mexampleRegistryKey.GetValue("UseHostsFileBlacklist ");
+                    if (b == null) b = "FALSE";
+                    clsSettingsData.UseHostsFileBlacklist = b.Equals("TRUE") ? true : false;
+                    b = (String)mexampleRegistryKey.GetValue("UseCustomBlacklist ");
+                    if (b == null) b = "FALSE";
+                    clsSettingsData.UseCustomBlacklist = b.Equals("TRUE") ? true : false;
+                    b = (String)mexampleRegistryKey.GetValue("UseStevensBlacklist ");
+                    if (b == null) b = "FALSE";
+                    clsSettingsData.UseStevensBlacklist = b.Equals("TRUE") ? true : false;
+                    if (!clsSettingsData.UseStevensBlacklist && !clsSettingsData.UseHostsFileBlacklist && !clsSettingsData.UseCustomBlacklist)
+                        clsSettingsData.UseHostsFileBlacklist = true;
+                    //Auto Update?
+                    b = (String)mexampleRegistryKey.GetValue("AutoUpdate");
+                    if (b == null)
+                        b = "FALSE";
+                    if (b == "TRUE")
+                        clsSettingsData.autoUpdate = true;
+                    else
+                        clsSettingsData.autoUpdate = false;
+                    b = (String)mexampleRegistryKey.GetValue("ShowFakeNews");
+                    if (b == null)
+                        b = "FALSE";
+                    if (b == "TRUE")
+                        clsSettingsData.showFakeNews = true;
+                    else
+                        clsSettingsData.showFakeNews = false;
+                    b = (String)mexampleRegistryKey.GetValue("ShowSocial");
+                    if (b == null)
+                        b = "FALSE";
+                    if (b == "TRUE")
+                        clsSettingsData.showSocial = true;
+                    else
+                        clsSettingsData.showSocial = false;
+                    b = (String)mexampleRegistryKey.GetValue("ShowGambling");
+                    if (b == null)
+                        b = "FALSE";
+                    if (b == "TRUE")
+                        clsSettingsData.showGambling = true;
+                    else
+                        clsSettingsData.showGambling = false;
+                    b = (String)mexampleRegistryKey.GetValue("ShowPorn");
+                    if (b == null)
+                        b = "FALSE";
+                    if (b == "TRUE")
+                        clsSettingsData.showPorn = true;
+                    else
+                        clsSettingsData.showPorn = false;
+                    b = (String)mexampleRegistryKey.GetValue("BlacklistToUse");
+                    if (b == null)
+                        b = "STEVENBLACK";
+                    if (b == "INTERNAL")
+                        clsSettingsData.blacklistToUse = clsSettingsData.BlacklistTypes.INTERNAL;
+                    else if (b == "STEVENBLACK")
+                        clsSettingsData.blacklistToUse = clsSettingsData.BlacklistTypes.STEVENBLACK;
+                    else
+                        clsSettingsData.blacklistToUse = clsSettingsData.BlacklistTypes.HOSTSFILEDOTNET;
+
+                }
             }
+            catch (Exception e) { }
 
             //Read URLs from settings.xml
             try
@@ -217,8 +221,8 @@ namespace HostsManager.Settings
         {
             Microsoft.Win32.RegistryKey exampleRegistryKey =
              Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE");
-            exampleRegistryKey = exampleRegistryKey.CreateSubKey("LV-Crew");
-            exampleRegistryKey = exampleRegistryKey.CreateSubKey("HostsManager");
+            exampleRegistryKey = exampleRegistryKey.CreateSubKey(clsBrandingData.COMPANY);
+            exampleRegistryKey = exampleRegistryKey.CreateSubKey(clsBrandingData.PRODUCT);
             //depracted
             exampleRegistryKey.SetValue("URL", clsSettingsData.hostsURL);
             //IP Overwrite settings
@@ -381,7 +385,7 @@ namespace HostsManager.Settings
             frmHosts.rbUseCustomBL.Checked = clsSettingsData.UseCustomBlacklist;
             frmHosts.rbUseStevenBlacksBL.Checked = clsSettingsData.UseStevensBlacklist;
 
-            String[] files = getBackups();
+            String[] files = clsCoreFunctions.getBackups();
             foreach (String f in files)
             {
                 if (f != null)
@@ -390,25 +394,7 @@ namespace HostsManager.Settings
             }
         }
 
-        private String[] getBackups()
-        {
-            String[] f = Directory.GetFiles((Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\"));
-            String[] r = new String[f.Length];
-            int count = 0;
-            for (int i = 0; i < f.Length; i++)
-            {
 
-                if (f[i] != null)
-                {
-                    if (f[i].Contains(".bak"))
-                    {
-                        r[count] = f[i];
-                        count++;
-                    }
-                }
-            }
-            return r;
-        }
 
         public  void saveOptions()
         {

@@ -44,9 +44,9 @@ namespace HostsManager.Settings
                     currdir);
                 clsBrandingData.ICONPATH = ret.ToString();
                 ret = new StringBuilder(4096, 4096);
-                GetPrivateProfileString("HostsManager", "DefaultBlockPage", clsBrandingData.DefaultBlankHost, ret, 4096,
+                GetPrivateProfileString("HostsManager", "DefaultBlockPage", clsBrandingData.DefaultBlockPage, ret, 4096,
                     currdir);
-                clsBrandingData.DefaultBlankHost = ret.ToString();
+                clsBrandingData.DefaultBlockPage = ret.ToString().ToLower();
 
                 ret = new StringBuilder(4096, 4096);
                 GetPrivateProfileString("HostsManager", "BannerImage", clsBrandingData.BannerImage, ret, 4096,

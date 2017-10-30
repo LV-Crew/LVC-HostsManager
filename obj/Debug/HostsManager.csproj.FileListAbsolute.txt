@@ -1,0 +1,12 @@
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\bin\Debug\HostsManager.exe.config
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\bin\Debug\HostsManager.exe
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\bin\Debug\HostsManager.pdb
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\obj\Debug\HostsManager.csprojResolveAssemblyReference.cache
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\obj\Debug\HostsManager.frmDialog.resources
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\obj\Debug\HostsManager.frmNotifyAntivirus.resources
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\obj\Debug\HostsManager.frmCore.resources
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\obj\Debug\HostsManager.frmEditHosts.resources
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\obj\Debug\HostsManager.Properties.Resources.resources
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\obj\Debug\HostsManager.csproj.GenerateResource.Cache
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\obj\Debug\HostsManager.exe
+C:\Users\denni\OneDrive\Dokumente\GitHub\HostsManager\obj\Debug\HostsManager.pdb

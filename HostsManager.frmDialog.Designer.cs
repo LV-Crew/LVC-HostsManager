@@ -71,7 +71,7 @@ namespace HostsManager
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(284, 60);
+            this.ClientSize = new System.Drawing.Size(280, 56);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -80,9 +80,13 @@ namespace HostsManager
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmDialog";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmDialog_Load);
             this.ResumeLayout(false);
+
         }
         #endregion        private System.Windows.Forms.Label label1;        private System.Windows.Forms.Button button1;        private System.Windows.Forms.Button button2;
     }

@@ -83,14 +83,20 @@
             this.txtTo = new System.Windows.Forms.TextBox();
             this.txtFrom = new System.Windows.Forms.TextBox();
             this.tabOptionsStevenBlack = new System.Windows.Forms.TabPage();
-            this.bnHelpOptionsStevenBlack = new System.Windows.Forms.Button();
-            this.lblStevenBlackOnGithub = new System.Windows.Forms.LinkLabel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbAddsTracking = new System.Windows.Forms.Label();
             this.cbSocial = new System.Windows.Forms.CheckBox();
+            this.lblStevenBlackOnGithub = new System.Windows.Forms.LinkLabel();
             this.cbPorn = new System.Windows.Forms.CheckBox();
             this.cbGambling = new System.Windows.Forms.CheckBox();
             this.cbFakeNews = new System.Windows.Forms.CheckBox();
             this.cbAdsTracking = new System.Windows.Forms.CheckBox();
+            this.bnHelpOptionsStevenBlack = new System.Windows.Forms.Button();
             this.tabOptionsCustom = new System.Windows.Forms.TabPage();
             this.bnHelpOptionsCustom = new System.Windows.Forms.Button();
             this.bnSave = new System.Windows.Forms.Button();
@@ -106,6 +112,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.bnRemoveHost = new System.Windows.Forms.Button();
             this.bnAddHost = new System.Windows.Forms.Button();
+            this.tabOptionsBackup = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.bnOptionsRestoreBackup = new System.Windows.Forms.Button();
+            this.bnOptionsCreateBackup = new System.Windows.Forms.Button();
+            this.lbOptionsBackup = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabHelp = new System.Windows.Forms.TabPage();
             this.wbWebbrowserHelp = new System.Windows.Forms.WebBrowser();
             this.tabAbout = new System.Windows.Forms.TabPage();
@@ -125,19 +138,7 @@
             this.bnMenuHelp = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
             this.bnMenuTools = new System.Windows.Forms.Button();
-            this.tabOptionsBackup = new System.Windows.Forms.TabPage();
-            this.lbOptionsBackup = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bnOptionsRestoreBackup = new System.Windows.Forms.Button();
-            this.bnOptionsCreateBackup = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -150,16 +151,16 @@
             this.gbHostsFileEditor.SuspendLayout();
             this.gbRedirection.SuspendLayout();
             this.tabOptionsStevenBlack.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabOptionsCustom.SuspendLayout();
             this.gbCustomHostsURL.SuspendLayout();
             this.gbAddHostsToBL.SuspendLayout();
+            this.tabOptionsBackup.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabHelp.SuspendLayout();
             this.tabAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tabOptionsBackup.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbPicture
@@ -440,9 +441,9 @@
             // 
             this.bnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnEdit.Location = new System.Drawing.Point(200, 38);
+            this.bnEdit.Location = new System.Drawing.Point(200, 42);
             this.bnEdit.Name = "bnEdit";
-            this.bnEdit.Size = new System.Drawing.Size(243, 40);
+            this.bnEdit.Size = new System.Drawing.Size(243, 30);
             this.bnEdit.TabIndex = 56;
             this.bnEdit.Text = "Edit hosts file";
             this.bnEdit.UseVisualStyleBackColor = true;
@@ -488,6 +489,7 @@
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.Black;
+            this.tabTools.Controls.Add(this.button2);
             this.tabTools.Controls.Add(this.bnDupliactes);
             this.tabTools.Controls.Add(this.bnFlushDNSCache);
             this.tabTools.Controls.Add(this.bnHelpTools);
@@ -506,9 +508,9 @@
             // 
             this.bnDupliactes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnDupliactes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnDupliactes.Location = new System.Drawing.Point(200, 84);
+            this.bnDupliactes.Location = new System.Drawing.Point(200, 78);
             this.bnDupliactes.Name = "bnDupliactes";
-            this.bnDupliactes.Size = new System.Drawing.Size(243, 40);
+            this.bnDupliactes.Size = new System.Drawing.Size(243, 30);
             this.bnDupliactes.TabIndex = 64;
             this.bnDupliactes.Text = "Remove Duplicates";
             this.bnDupliactes.UseVisualStyleBackColor = true;
@@ -517,9 +519,9 @@
             // 
             this.bnFlushDNSCache.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnFlushDNSCache.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnFlushDNSCache.Location = new System.Drawing.Point(200, 176);
+            this.bnFlushDNSCache.Location = new System.Drawing.Point(200, 153);
             this.bnFlushDNSCache.Name = "bnFlushDNSCache";
-            this.bnFlushDNSCache.Size = new System.Drawing.Size(243, 40);
+            this.bnFlushDNSCache.Size = new System.Drawing.Size(243, 30);
             this.bnFlushDNSCache.TabIndex = 63;
             this.bnFlushDNSCache.Text = "Flush DNS Cache";
             this.bnFlushDNSCache.UseVisualStyleBackColor = true;
@@ -546,9 +548,9 @@
             // 
             this.bnResetHostsFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnResetHostsFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnResetHostsFile.Location = new System.Drawing.Point(200, 130);
+            this.bnResetHostsFile.Location = new System.Drawing.Point(200, 115);
             this.bnResetHostsFile.Name = "bnResetHostsFile";
-            this.bnResetHostsFile.Size = new System.Drawing.Size(243, 40);
+            this.bnResetHostsFile.Size = new System.Drawing.Size(243, 30);
             this.bnResetHostsFile.TabIndex = 61;
             this.bnResetHostsFile.Text = "Reset Hosts File";
             this.bnResetHostsFile.UseVisualStyleBackColor = true;
@@ -558,9 +560,9 @@
             // 
             this.bnSetDNSOpenDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnSetDNSOpenDNS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnSetDNSOpenDNS.Location = new System.Drawing.Point(200, 314);
+            this.bnSetDNSOpenDNS.Location = new System.Drawing.Point(200, 262);
             this.bnSetDNSOpenDNS.Name = "bnSetDNSOpenDNS";
-            this.bnSetDNSOpenDNS.Size = new System.Drawing.Size(243, 40);
+            this.bnSetDNSOpenDNS.Size = new System.Drawing.Size(243, 30);
             this.bnSetDNSOpenDNS.TabIndex = 60;
             this.bnSetDNSOpenDNS.Text = "Set DNS Server to OpenDNS";
             this.bnSetDNSOpenDNS.UseVisualStyleBackColor = true;
@@ -570,9 +572,9 @@
             // 
             this.bnSetDNSServerGoogle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnSetDNSServerGoogle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnSetDNSServerGoogle.Location = new System.Drawing.Point(200, 268);
+            this.bnSetDNSServerGoogle.Location = new System.Drawing.Point(200, 226);
             this.bnSetDNSServerGoogle.Name = "bnSetDNSServerGoogle";
-            this.bnSetDNSServerGoogle.Size = new System.Drawing.Size(243, 40);
+            this.bnSetDNSServerGoogle.Size = new System.Drawing.Size(243, 30);
             this.bnSetDNSServerGoogle.TabIndex = 59;
             this.bnSetDNSServerGoogle.Text = "Set DNS Server to Google";
             this.bnSetDNSServerGoogle.UseVisualStyleBackColor = true;
@@ -582,9 +584,9 @@
             // 
             this.bnDisableDNS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnDisableDNS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnDisableDNS.Location = new System.Drawing.Point(200, 222);
+            this.bnDisableDNS.Location = new System.Drawing.Point(200, 190);
             this.bnDisableDNS.Name = "bnDisableDNS";
-            this.bnDisableDNS.Size = new System.Drawing.Size(243, 40);
+            this.bnDisableDNS.Size = new System.Drawing.Size(243, 30);
             this.bnDisableDNS.TabIndex = 57;
             this.bnDisableDNS.Text = "Disable DNS-Client Service";
             this.bnDisableDNS.UseVisualStyleBackColor = true;
@@ -601,6 +603,7 @@
             this.tabOptions.Size = new System.Drawing.Size(653, 380);
             this.tabOptions.TabIndex = 1;
             this.tabOptions.Text = "Options";
+            this.tabOptions.Click += new System.EventHandler(this.tabOptions_Click);
             // 
             // tabCtrlOptions
             // 
@@ -858,34 +861,72 @@
             this.tabOptionsStevenBlack.TabIndex = 0;
             this.tabOptionsStevenBlack.Text = "Steven Black\'s Blacklist";
             // 
-            // bnHelpOptionsStevenBlack
+            // groupBox2
             // 
-            this.bnHelpOptionsStevenBlack.BackColor = System.Drawing.Color.Transparent;
-            this.bnHelpOptionsStevenBlack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnHelpOptionsStevenBlack.BackgroundImage")));
-            this.bnHelpOptionsStevenBlack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bnHelpOptionsStevenBlack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bnHelpOptionsStevenBlack.FlatAppearance.BorderSize = 0;
-            this.bnHelpOptionsStevenBlack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.bnHelpOptionsStevenBlack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.bnHelpOptionsStevenBlack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnHelpOptionsStevenBlack.Location = new System.Drawing.Point(616, 0);
-            this.bnHelpOptionsStevenBlack.Name = "bnHelpOptionsStevenBlack";
-            this.bnHelpOptionsStevenBlack.Size = new System.Drawing.Size(24, 23);
-            this.bnHelpOptionsStevenBlack.TabIndex = 69;
-            this.bnHelpOptionsStevenBlack.UseVisualStyleBackColor = false;
-            this.bnHelpOptionsStevenBlack.Click += new System.EventHandler(this.bnHelpOptionsStevenBlack_Click);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.cbAddsTracking);
+            this.groupBox2.Controls.Add(this.cbSocial);
+            this.groupBox2.Controls.Add(this.lblStevenBlackOnGithub);
+            this.groupBox2.Controls.Add(this.cbPorn);
+            this.groupBox2.Controls.Add(this.cbGambling);
+            this.groupBox2.Controls.Add(this.cbFakeNews);
+            this.groupBox2.Controls.Add(this.cbAdsTracking);
+            this.groupBox2.Location = new System.Drawing.Point(6, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(603, 294);
+            this.groupBox2.TabIndex = 70;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
             // 
-            // lblStevenBlackOnGithub
+            // label11
             // 
-            this.lblStevenBlackOnGithub.LinkColor = System.Drawing.Color.DodgerBlue;
-            this.lblStevenBlackOnGithub.Location = new System.Drawing.Point(6, 219);
-            this.lblStevenBlackOnGithub.Name = "lblStevenBlackOnGithub";
-            this.lblStevenBlackOnGithub.Size = new System.Drawing.Size(591, 23);
-            this.lblStevenBlackOnGithub.TabIndex = 68;
-            this.lblStevenBlackOnGithub.TabStop = true;
-            this.lblStevenBlackOnGithub.Text = "Steven Black\'s hosts page on GitHub";
-            this.lblStevenBlackOnGithub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblStevenBlackOnGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblHostsLink_LinkClicked);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(120, 13);
+            this.label11.TabIndex = 73;
+            this.label11.Text = "Steven Black\'s Blacklist";
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(12, 58);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(585, 23);
+            this.label20.TabIndex = 72;
+            this.label20.Text = "Please select the categorys that should be blocked.";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.Location = new System.Drawing.Point(12, 40);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(581, 23);
+            this.label19.TabIndex = 71;
+            this.label19.Text = "This Blacklist is LV-Crew HostsManager\'s default setting.";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.Location = new System.Drawing.Point(12, 23);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(582, 23);
+            this.label18.TabIndex = 70;
+            this.label18.Text = "Steven Black is maintaining a hosts file based blacklist.";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 95);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(588, 16);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "Hosts file categorys:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbAddsTracking
             // 
@@ -906,6 +947,18 @@
             this.cbSocial.TabIndex = 63;
             this.cbSocial.Text = "Social (Blocks Facebook/Twitter!)";
             this.cbSocial.UseVisualStyleBackColor = true;
+            // 
+            // lblStevenBlackOnGithub
+            // 
+            this.lblStevenBlackOnGithub.LinkColor = System.Drawing.Color.DodgerBlue;
+            this.lblStevenBlackOnGithub.Location = new System.Drawing.Point(6, 219);
+            this.lblStevenBlackOnGithub.Name = "lblStevenBlackOnGithub";
+            this.lblStevenBlackOnGithub.Size = new System.Drawing.Size(591, 23);
+            this.lblStevenBlackOnGithub.TabIndex = 68;
+            this.lblStevenBlackOnGithub.TabStop = true;
+            this.lblStevenBlackOnGithub.Text = "Steven Black\'s hosts page on GitHub";
+            this.lblStevenBlackOnGithub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblStevenBlackOnGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblHostsLink_LinkClicked);
             // 
             // cbPorn
             // 
@@ -950,6 +1003,23 @@
             this.cbAdsTracking.TabIndex = 59;
             this.cbAdsTracking.Text = "Ads / Tracking";
             this.cbAdsTracking.UseVisualStyleBackColor = true;
+            // 
+            // bnHelpOptionsStevenBlack
+            // 
+            this.bnHelpOptionsStevenBlack.BackColor = System.Drawing.Color.Transparent;
+            this.bnHelpOptionsStevenBlack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bnHelpOptionsStevenBlack.BackgroundImage")));
+            this.bnHelpOptionsStevenBlack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bnHelpOptionsStevenBlack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bnHelpOptionsStevenBlack.FlatAppearance.BorderSize = 0;
+            this.bnHelpOptionsStevenBlack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.bnHelpOptionsStevenBlack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.bnHelpOptionsStevenBlack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnHelpOptionsStevenBlack.Location = new System.Drawing.Point(616, 0);
+            this.bnHelpOptionsStevenBlack.Name = "bnHelpOptionsStevenBlack";
+            this.bnHelpOptionsStevenBlack.Size = new System.Drawing.Size(24, 23);
+            this.bnHelpOptionsStevenBlack.TabIndex = 69;
+            this.bnHelpOptionsStevenBlack.UseVisualStyleBackColor = false;
+            this.bnHelpOptionsStevenBlack.Click += new System.EventHandler(this.bnHelpOptionsStevenBlack_Click);
             // 
             // tabOptionsCustom
             // 
@@ -1129,6 +1199,87 @@
             this.bnAddHost.TabIndex = 55;
             this.bnAddHost.UseVisualStyleBackColor = false;
             this.bnAddHost.Click += new System.EventHandler(this.bnAddHost_Click);
+            // 
+            // tabOptionsBackup
+            // 
+            this.tabOptionsBackup.BackColor = System.Drawing.Color.Black;
+            this.tabOptionsBackup.Controls.Add(this.groupBox1);
+            this.tabOptionsBackup.Controls.Add(this.button1);
+            this.tabOptionsBackup.Location = new System.Drawing.Point(4, 22);
+            this.tabOptionsBackup.Name = "tabOptionsBackup";
+            this.tabOptionsBackup.Size = new System.Drawing.Size(646, 390);
+            this.tabOptionsBackup.TabIndex = 3;
+            this.tabOptionsBackup.Text = "Hosts file backup";
+            this.tabOptionsBackup.Click += new System.EventHandler(this.tabOptionsBackup_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.bnOptionsRestoreBackup);
+            this.groupBox1.Controls.Add(this.bnOptionsCreateBackup);
+            this.groupBox1.Controls.Add(this.lbOptionsBackup);
+            this.groupBox1.Location = new System.Drawing.Point(17, 26);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(602, 268);
+            this.groupBox1.TabIndex = 66;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Hosts file backup";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Hosts file backup";
+            // 
+            // bnOptionsRestoreBackup
+            // 
+            this.bnOptionsRestoreBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnOptionsRestoreBackup.Location = new System.Drawing.Point(389, 237);
+            this.bnOptionsRestoreBackup.Name = "bnOptionsRestoreBackup";
+            this.bnOptionsRestoreBackup.Size = new System.Drawing.Size(101, 23);
+            this.bnOptionsRestoreBackup.TabIndex = 4;
+            this.bnOptionsRestoreBackup.Text = "Restore Backup";
+            this.bnOptionsRestoreBackup.UseVisualStyleBackColor = true;
+            this.bnOptionsRestoreBackup.Click += new System.EventHandler(this.bnOptionsRestoreBackup_Click);
+            // 
+            // bnOptionsCreateBackup
+            // 
+            this.bnOptionsCreateBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnOptionsCreateBackup.Location = new System.Drawing.Point(496, 237);
+            this.bnOptionsCreateBackup.Name = "bnOptionsCreateBackup";
+            this.bnOptionsCreateBackup.Size = new System.Drawing.Size(101, 23);
+            this.bnOptionsCreateBackup.TabIndex = 3;
+            this.bnOptionsCreateBackup.Text = "Create Backup";
+            this.bnOptionsCreateBackup.UseVisualStyleBackColor = true;
+            this.bnOptionsCreateBackup.Click += new System.EventHandler(this.bnOptionsCreateBackup_Click);
+            // 
+            // lbOptionsBackup
+            // 
+            this.lbOptionsBackup.FormattingEnabled = true;
+            this.lbOptionsBackup.Location = new System.Drawing.Point(6, 19);
+            this.lbOptionsBackup.Name = "lbOptionsBackup";
+            this.lbOptionsBackup.Size = new System.Drawing.Size(590, 212);
+            this.lbOptionsBackup.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(616, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(24, 23);
+            this.button1.TabIndex = 64;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabHelp
             // 
@@ -1348,153 +1499,19 @@
             this.bnMenuTools.UseVisualStyleBackColor = false;
             this.bnMenuTools.Click += new System.EventHandler(this.bnMenuTools_Click);
             // 
-            // tabOptionsBackup
+            // button2
             // 
-            this.tabOptionsBackup.BackColor = System.Drawing.Color.Black;
-            this.tabOptionsBackup.Controls.Add(this.groupBox1);
-            this.tabOptionsBackup.Controls.Add(this.button1);
-            this.tabOptionsBackup.Location = new System.Drawing.Point(4, 22);
-            this.tabOptionsBackup.Name = "tabOptionsBackup";
-            this.tabOptionsBackup.Size = new System.Drawing.Size(646, 390);
-            this.tabOptionsBackup.TabIndex = 3;
-            this.tabOptionsBackup.Text = "Hosts file backup";
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(200, 298);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(243, 30);
+            this.button2.TabIndex = 65;
+            this.button2.Text = "Set DNS Server to custom value";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // lbOptionsBackup
-            // 
-            this.lbOptionsBackup.FormattingEnabled = true;
-            this.lbOptionsBackup.Location = new System.Drawing.Point(6, 19);
-            this.lbOptionsBackup.Name = "lbOptionsBackup";
-            this.lbOptionsBackup.Size = new System.Drawing.Size(590, 212);
-            this.lbOptionsBackup.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(616, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 23);
-            this.button1.TabIndex = 64;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.bnOptionsRestoreBackup);
-            this.groupBox1.Controls.Add(this.bnOptionsCreateBackup);
-            this.groupBox1.Controls.Add(this.lbOptionsBackup);
-            this.groupBox1.Location = new System.Drawing.Point(17, 26);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 268);
-            this.groupBox1.TabIndex = 66;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Hosts file backup";
-            // 
-            // bnOptionsRestoreBackup
-            // 
-            this.bnOptionsRestoreBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnOptionsRestoreBackup.Location = new System.Drawing.Point(389, 237);
-            this.bnOptionsRestoreBackup.Name = "bnOptionsRestoreBackup";
-            this.bnOptionsRestoreBackup.Size = new System.Drawing.Size(101, 23);
-            this.bnOptionsRestoreBackup.TabIndex = 4;
-            this.bnOptionsRestoreBackup.Text = "Restore Backup";
-            this.bnOptionsRestoreBackup.UseVisualStyleBackColor = true;
-            this.bnOptionsRestoreBackup.Click += new System.EventHandler(this.bnOptionsRestoreBackup_Click);
-            // 
-            // bnOptionsCreateBackup
-            // 
-            this.bnOptionsCreateBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bnOptionsCreateBackup.Location = new System.Drawing.Point(496, 237);
-            this.bnOptionsCreateBackup.Name = "bnOptionsCreateBackup";
-            this.bnOptionsCreateBackup.Size = new System.Drawing.Size(101, 23);
-            this.bnOptionsCreateBackup.TabIndex = 3;
-            this.bnOptionsCreateBackup.Text = "Create Backup";
-            this.bnOptionsCreateBackup.UseVisualStyleBackColor = true;
-            this.bnOptionsCreateBackup.Click += new System.EventHandler(this.bnOptionsCreateBackup_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 13);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Hosts file backup";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.cbAddsTracking);
-            this.groupBox2.Controls.Add(this.cbSocial);
-            this.groupBox2.Controls.Add(this.lblStevenBlackOnGithub);
-            this.groupBox2.Controls.Add(this.cbPorn);
-            this.groupBox2.Controls.Add(this.cbGambling);
-            this.groupBox2.Controls.Add(this.cbFakeNews);
-            this.groupBox2.Controls.Add(this.cbAdsTracking);
-            this.groupBox2.Location = new System.Drawing.Point(6, 13);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(603, 294);
-            this.groupBox2.TabIndex = 70;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
-            // label20
-            // 
-            this.label20.Location = new System.Drawing.Point(12, 58);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(585, 23);
-            this.label20.TabIndex = 72;
-            this.label20.Text = "Please select the categorys that should be blocked.";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            this.label19.Location = new System.Drawing.Point(12, 40);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(581, 23);
-            this.label19.TabIndex = 71;
-            this.label19.Text = "This Blacklist is LV-Crew HostsManager\'s default setting.";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label18
-            // 
-            this.label18.Location = new System.Drawing.Point(12, 23);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(582, 23);
-            this.label18.TabIndex = 70;
-            this.label18.Text = "Steven Black is maintaining a hosts file based blacklist.";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 95);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(588, 16);
-            this.label1.TabIndex = 69;
-            this.label1.Text = "Hosts file categorys:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 13);
-            this.label11.TabIndex = 73;
-            this.label11.Text = "Steven Black\'s Blacklist";
-            // 
-            // frmHostsManager
+            // frmCore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1518,7 +1535,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmHostsManager";
+            this.Name = "frmCore";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LV-Crew HostsManager";
@@ -1539,21 +1556,21 @@
             this.gbRedirection.ResumeLayout(false);
             this.gbRedirection.PerformLayout();
             this.tabOptionsStevenBlack.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabOptionsCustom.ResumeLayout(false);
             this.gbCustomHostsURL.ResumeLayout(false);
             this.gbCustomHostsURL.PerformLayout();
             this.gbAddHostsToBL.ResumeLayout(false);
             this.gbAddHostsToBL.PerformLayout();
+            this.tabOptionsBackup.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabHelp.ResumeLayout(false);
             this.tabAbout.ResumeLayout(false);
             this.tabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tabOptionsBackup.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1671,5 +1688,6 @@
         public System.Windows.Forms.Label label19;
         public System.Windows.Forms.Label label18;
         public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button button2;
     }
 }

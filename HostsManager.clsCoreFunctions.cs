@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.ServiceProcess;
 using System.Net.NetworkInformation;
 using System.Management;
+using System.IO;
 
 namespace HostsManager
 {
@@ -26,6 +27,8 @@ namespace HostsManager
             Thread start = null;
             try
             {
+                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start("Upadting hosts file...");
                 if (clsSettingsData.urls.Count == 0 && clsSettingsData.UseCustomBlacklist && !clsSettingsData.isHidden)
                 {
                     frmDialog d = new frmDialog();
@@ -97,7 +100,7 @@ namespace HostsManager
                     }
                     else
                     {
-                        clsSettingsData.ipTo = clsBrandingData.DefaultBlankHost;
+                        clsSettingsData.ipTo = clsBrandingData.DefaultBlockPage;
                         clsSettingsData.ipTo = Dns.GetHostAddresses(clsSettingsData.ipTo)[0].ToString();
                     }
                     if (clsSettingsData.replaceMethod != clsSettingsData.mIPReplaceMethod.KEEP_LOCALHOST)
@@ -116,18 +119,20 @@ namespace HostsManager
                     if (!clsSettingsData.isHidden)
                         clsUtilitys.Dialogs.closeDialog();
                     //Write temp hosts file
-                    System.IO.File.Delete("hosts.tmp");
-                    System.IO.File.WriteAllText("hosts.tmp", fileText);
+                    System.IO.File.Delete(Path.GetTempPath()+"\\hosts.tmp");
+                    System.IO.File.WriteAllText(Path.GetTempPath()+"\\hosts.tmp", fileText);
                     //Set permissions of hosts file to be writable by group admins
                     FileSecurity fs = clsUtilitys.HostsFile.setHostsFilePermissions();
                     //Copy hosts file to real hosts file
-                    System.IO.File.Copy("hosts.tmp",
+                    System.IO.File.Copy(Path.GetTempPath()+"\\hosts.tmp",
                      Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", true);
-                    System.IO.File.Delete("hosts.tmp");
+                    System.IO.File.Delete(Path.GetTempPath()+"\\hosts.tmp");
                     //Reset permissions
                     clsUtilitys.HostsFile.resetHostsFilePermissions(fs);
 
                 }
+                if (start != null)
+                    start.Abort();
                 if (!clsSettingsData.isHidden && !err)
                 {
                     frmDialog f = new frmDialog();
@@ -163,11 +168,12 @@ namespace HostsManager
             psi.RedirectStandardError = true;
             psi.CreateNoWindow = true;
             psi.FileName = "schtasks.exe";
+            String name = clsBrandingData.COMPANY + " " + clsBrandingData.PRODUCT;
             if (clsSettingsData.autoUpdate)
             {
                 //Create task using schtasks.exe
                 //FileSecurity fs=setHostsFilePermissions(); !!! 080417DH - muss evtl wieder reingemacht werden.
-                String Arguments = "/Create /tn \"LV-Crew HostsManager\" /tr \"" +
+                String Arguments = "/Create /tn \""+name+"\" /tr \"" +
                  System.Reflection.Assembly.GetEntryAssembly().Location +
                  " /auto\" /sc DAILY /RL HIGHEST /F";
                 Process p = clsUtilitys.executeNoWindow("schtasks.exe", Arguments);
@@ -175,7 +181,7 @@ namespace HostsManager
             else
             {
                 //Delete task using schtasks.exe                
-                clsUtilitys.executeNoWindow("schtasks.exe", "/Delete /tn LV-Crew.HostsManager /F");
+                clsUtilitys.executeNoWindow("schtasks.exe", "/Delete /tn "+name+" /F");
             }
         }
 
@@ -213,7 +219,7 @@ namespace HostsManager
                     err = true;
                 }
             }
-            if (start != null && start.ThreadState == System.Threading.ThreadState.Running)
+            if (start != null)
                 start.Abort();
             if (!err)
                 clsUtilitys.Dialogs.showOKDIalog("DNS-Client service disabled.");
@@ -252,5 +258,27 @@ namespace HostsManager
                 }
             }
         }
+        
+
+        public static String[] getBackups()
+        {
+            String[] f = Directory.GetFiles((Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\"));
+            String[] r = new String[f.Length];
+            int count = 0;
+            for (int i = 0; i < f.Length; i++)
+            {
+
+                if (f[i] != null)
+                {
+                    if (f[i].Contains(clsBrandingData.PRODUCT + ".bak"))
+                    {
+                        r[count] = f[i];
+                        count++;
+                    }
+                }
+            }
+            return r;
+        }
+
     }
 }
