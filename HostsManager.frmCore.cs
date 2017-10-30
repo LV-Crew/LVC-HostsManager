@@ -644,7 +644,7 @@ namespace HostsManager
                 {
                     File.Copy(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\" + filename);
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
             }
         }
 

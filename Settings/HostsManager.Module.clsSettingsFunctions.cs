@@ -187,7 +187,7 @@ namespace HostsManager.Settings
 
                 }
             }
-            catch (Exception e) { }
+            catch (Exception) { }
 
             //Read URLs from settings.xml
             try
