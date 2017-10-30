@@ -25,28 +25,40 @@ https://hosts-file.net/<br>
 https://github.com/StevenBlack/hosts<br>
 <br>
 <br>
-<h3><b>Which addional hosts files can be used:</b></h3>
+<h3><b>Which addional hosts files can be used?</b></h3>
 https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
 <h3><b>What we already included in the program:</b></h3>
-- Own hostnames can be saved in blacklist.xml<br>
-- Backup Function<br>
+- Feature: Auto Update of hosts file<br>
+- Feature: Create backup at first run (1x Auto-Backup)<br>
+- Tools: Edit hosts file with internal or external editor<br>
+- Tools: 'Remove Duplicates'<br>
+- Tools: 'Reset Hosts File'<br>
+- Tools: 'Flush DNS Cache'<br>
+- Tools: 'Enable DNS-Client service'<br>
+- Tools: 'Set DNS Server to Google'<br>
+- Tools: 'Set DNS Server to OpenDNS'<br>
+- Tools: Added 'Set User DNS'<br>
+- Help: Online-Help<br>
+- Options: Own hostnames can be saved in blacklist.xml<br>
+- Options: Backup Function<br>
 <br>
 <br>
 <h3><b>And what else?</b></h3>
-- Detects Antiviruses and warns<br>
-- Branding is saved in a INI<br>
-<br>
+- Feature: Detects Antiviruses and warns<br>
+- Feature: File permissions are being reset after update<br>
+- Feature: Added CR/LF-Detection/Addition<br>
+- Geeks: Included Readme.html<br>
+- Geeks: Use local Readme.html as 'Help'<br>
+- Geeks: Included Readme.md<br>
+- Geeks: Use .HostsManager.bak<br>
+- Dev: Branding is saved in a INI<br>
 <br>
 - Integrated LV-Crew/certgen (https://github.com/LV-Crew/certgen)<br>
 - Download-URL saved in registry<br>
 - Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
 - External Editor Wordpad<br>
-- Internal editor has been activated<br>
-- File permissions are being reset after update<br>
-- Added auto update<br>
-- Added CR/LF-Detection/Addition<br>
 - Also: Blockpage on http://46.163.76.11/<br>
 - Also: Blockpage with SSL<br>
 - Also: certutil already included (imports the SSL certificate into the Mozilla-Firefox certificate store)<br>
@@ -54,10 +66,19 @@ https://github.com/LV-Crew/hosts<br>
 - Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
 - Register in Windows (system integration)<br>
 <br>
+- Removed Readme.txt?<br>
+- Blockpage intern as Blockpage (is DefaultBlankHost)<br>
+- "Downloading"-Msg<br>
+- Use Temp-Folder<br>
+- No replace of IP when URL have big letters<br>
+- Antivir-Form in app or new icon + window name<br>
+- Editor-Form: icon + window name?<br>
+- "Reset Host File" to Backup<br>
+<br>
 <br>
 <h3><b>Some Dev Notes:</b></h3>
 https://github.com/LV-Crew/HostsManager/wiki/Some-Dev-Notes<br>
 <br>
 <br>
 <h3><b>To-Dos & Ideas:</b></h3>
-https://github.com/LV-Crew/HostsManager/wiki/To-Dos-&-Ideas<br>
+https://github.com/LV-Crew/HostsManager/wiki/To-Dos-&-Ideas-(Roadmap)<br>
