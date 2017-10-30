@@ -52,6 +52,7 @@
             this.tabCtrlPages = new System.Windows.Forms.TabControl();
             this.tabMain = new System.Windows.Forms.TabPage();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.bnDupliactes = new System.Windows.Forms.Button();
             this.bnFlushDNSCache = new System.Windows.Forms.Button();
             this.bnHelpTools = new System.Windows.Forms.Button();
@@ -138,7 +139,6 @@
             this.bnMenuHelp = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
             this.bnMenuTools = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -445,7 +445,7 @@
             this.bnEdit.Name = "bnEdit";
             this.bnEdit.Size = new System.Drawing.Size(243, 30);
             this.bnEdit.TabIndex = 56;
-            this.bnEdit.Text = "Edit hosts file";
+            this.bnEdit.Text = "Edit Hosts File";
             this.bnEdit.UseVisualStyleBackColor = true;
             this.bnEdit.Click += new System.EventHandler(this.bnEdit_Click);
             // 
@@ -503,6 +503,18 @@
             this.tabTools.Size = new System.Drawing.Size(653, 380);
             this.tabTools.TabIndex = 4;
             this.tabTools.Text = "Tools";
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(200, 298);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(243, 30);
+            this.button2.TabIndex = 65;
+            this.button2.Text = "Set DNS Server to Custom Value";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // bnDupliactes
             // 
@@ -1498,18 +1510,6 @@
             this.bnMenuTools.Text = "Tools";
             this.bnMenuTools.UseVisualStyleBackColor = false;
             this.bnMenuTools.Click += new System.EventHandler(this.bnMenuTools_Click);
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(200, 298);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(243, 30);
-            this.button2.TabIndex = 65;
-            this.button2.Text = "Set DNS Server to custom value";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmCore
             // 
