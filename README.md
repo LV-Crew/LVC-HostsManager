@@ -25,7 +25,7 @@ https://hosts-file.net/<br>
 https://github.com/StevenBlack/hosts<br>
 <br>
 <br>
-<h3><b>Which addional hosts files can be used:</b></h3>
+<h3><b>Which addional hosts files can be used?</b></h3>
 https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
@@ -39,6 +39,7 @@ https://github.com/LV-Crew/hosts<br>
 - Branding is saved in a INI<br>
 <br>
 <br>
+- Integrated LV-Crew/certgen (https://github.com/LV-Crew/certgen)<br>
 - Download-URL saved in registry<br>
 - Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
 - External Editor Wordpad<br>
@@ -59,4 +60,4 @@ https://github.com/LV-Crew/HostsManager/wiki/Some-Dev-Notes<br>
 <br>
 <br>
 <h3><b>To-Dos & Ideas:</b></h3>
-https://github.com/LV-Crew/HostsManager/wiki/To-Dos-&-Ideas<br>
+https://github.com/LV-Crew/HostsManager/wiki/To-Dos-&-Ideas-(Roadmap)<br>

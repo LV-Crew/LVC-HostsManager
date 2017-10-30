@@ -39,6 +39,7 @@ https://github.com/LV-Crew/hosts<br>
 - Branding is saved in a INI<br>
 <br>
 <br>
+- Integrated LV-Crew/certgen (https://github.com/LV-Crew/certgen)<br>
 - Download-URL saved in registry<br>
 - Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
 - External Editor Wordpad<br>
