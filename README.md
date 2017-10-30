@@ -30,29 +30,35 @@ https://github.com/LV-Crew/hosts<br>
 <br>
 <br>
 <h3><b>What we already included in the program:</b></h3>
+- Feature: Auto Update of hosts file<br>
+- Feature: Create backup at first run (1x Auto-Backup)<br>
+- Tools: Edit hosts file with internal or external editor<br>
+- Tools: 'Remove Duplicates'<br>
+- Tools: 'Reset Hosts File'<br>
+- Tools: 'Flush DNS Cache'<br>
+- Tools: 'Enable DNS-Client service'<br>
+- Tools: 'Set DNS Server to Google'<br>
+- Tools: 'Set DNS Server to OpenDNS'<br>
 - Tools: Added 'Set User DNS'<br>
+- Help: Online-Help<br>
 - Options: Own hostnames can be saved in blacklist.xml<br>
 - Options: Backup Function<br>
 <br>
 <br>
 <h3><b>And what else?</b></h3>
-- Detects Antiviruses and warns<br>
-- Branding is saved in a INI<br>
-- Included Readme.html<br>
-- Use local Readme.html as 'Help'<br>
-- Included Readme.md<br>
-- Create backup at first run (1x Auto-Backup)<br>
-- Use .HostsManager.bak<br>
-<br>
+- Feature: Detects Antiviruses and warns<br>
+- Feature: File permissions are being reset after update<br>
+- Feature: Added CR/LF-Detection/Addition<br>
+- Geeks: Included Readme.html<br>
+- Geeks: Use local Readme.html as 'Help'<br>
+- Geeks: Included Readme.md<br>
+- Geeks: Use .HostsManager.bak<br>
+- Dev: Branding is saved in a INI<br>
 <br>
 - Integrated LV-Crew/certgen (https://github.com/LV-Crew/certgen)<br>
 - Download-URL saved in registry<br>
 - Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
 - External Editor Wordpad<br>
-- Internal editor has been activated<br>
-- File permissions are being reset after update<br>
-- Added auto update<br>
-- Added CR/LF-Detection/Addition<br>
 - Also: Blockpage on http://46.163.76.11/<br>
 - Also: Blockpage with SSL<br>
 - Also: certutil already included (imports the SSL certificate into the Mozilla-Firefox certificate store)<br>
