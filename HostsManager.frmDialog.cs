@@ -13,9 +13,12 @@ namespace HostsManager
     {
         public String action = "";
         public bool showButton = false;
+        public bool larger = false;
         public int customHeight = 0;
         public int customWidth = 0;
         public bool yesNoButtons = false;
+        public bool showCancel = false;
+
         public frmDialog()
         {
             InitializeComponent();            
@@ -27,6 +30,12 @@ namespace HostsManager
 
         private void frmDialog_Load(object sender, EventArgs e)
         {
+            if(showCancel)
+            {
+                button2.Left = (this.Width / 2) - (button2.Width / 2);
+                button2.Visible = true;
+                button1.Visible = false;
+            }
             label1.Text = action;
             button1.Visible = showButton;
             if (customHeight != 0)

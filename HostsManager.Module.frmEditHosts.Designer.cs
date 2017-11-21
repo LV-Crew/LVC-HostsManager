@@ -31,7 +31,9 @@
             // 
             // txtHostsFile
             // 
+            this.txtHostsFile.BackColor = System.Drawing.Color.Black;
             this.txtHostsFile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHostsFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtHostsFile.Location = new System.Drawing.Point(12, 12);
             this.txtHostsFile.MaxLength = 999999999;
             this.txtHostsFile.Multiline = true;
@@ -43,6 +45,7 @@
             // bnCancel
             // 
             this.bnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bnCancel.Location = new System.Drawing.Point(497, 647);
             this.bnCancel.Name = "bnCancel";
             this.bnCancel.Size = new System.Drawing.Size(75, 23);
@@ -54,6 +57,7 @@
             // bnSave
             // 
             this.bnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bnSave.Location = new System.Drawing.Point(416, 647);
             this.bnSave.Name = "bnSave";
             this.bnSave.Size = new System.Drawing.Size(75, 23);
@@ -66,8 +70,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(584, 678);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(584, 683);
+            this.ControlBox = false;
             this.Controls.Add(this.bnSave);
             this.Controls.Add(this.bnCancel);
             this.Controls.Add(this.txtHostsFile);
@@ -77,10 +82,10 @@
             this.MinimizeBox = false;
             this.Name = "frmEditHosts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit Hosts";
             this.Load += new System.EventHandler(this.frmEditHosts_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
         #endregion        private System.Windows.Forms.TextBox txtHostsFile;        private System.Windows.Forms.Button bnCancel;        private System.Windows.Forms.Button bnSave;
     }

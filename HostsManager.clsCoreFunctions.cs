@@ -21,41 +21,47 @@ namespace HostsManager
 
 
         //The update process
-        public static void updateHostsFile()
+        public static void updateHostsFile(object f)
         {
             bool err = false;
             Thread start = null;
             try
             {
+                /*
+                clsUtilitys.Dialogs.dlgOptions o = new clsUtilitys.Dialogs.dlgOptions();
+                o.frm = (frmCore)f;
+                o.txt = "Updating hosts file...";
                 start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-                start.Start("Upadting hosts file...");
-                if (clsSettingsData.urls.Count == 0 && clsSettingsData.UseCustomBlacklist && !clsSettingsData.isHidden)
+                start.Start(o);*/
+         /*       if (clsSettingsData.urls.Count == 0 && clsSettingsData.UseCustomBlacklist && !clsSettingsData.isHidden)
                 {
                     frmDialog d = new frmDialog();
                     d.action = "Your personal hosts file is empty.";
                     d.showButton = true;
                     d.ShowDialog();
                     err = true;
-                }
-                else
+                }*/
+                if(true)
                 {
                     //Get name of admin group
                     SecurityIdentifier id = new SecurityIdentifier("S-1-5-32-544");
                     string adminGroupName = id.Translate(typeof(NTAccount)).Value;
 
-                    
                     if (!clsSettingsData.isHidden && !err)
                     {
+                        clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                        o1.frm = (frmCore)f;
+                        o1.txt = "Updating hosts file(s)...";
                         start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-                        start.Start("Downloading hosts file(s)...");
+                        start.Start(o1);
                     }
 
                     String fileText = "";
                     //Read hosts files from web
-                    if (clsSettingsData.UseCustomBlacklist)
+                    if (clsSettingsData.UseHostsFileBlacklist)
                     {
-                        foreach (String u in clsSettingsData.urls)
-                            fileText += "\r\n" + clsUtilitys.Downloader.DownloadString(u);
+                        fileText += clsUtilitys.Downloader.DownloadString("https://hosts-file.net/download/hosts.txt");
+                        fileText += clsUtilitys.Downloader.DownloadString("https://hosts-file.net/hphosts-partial.txt");
                     }
                     if (clsSettingsData.UseStevensBlacklist)
                     {
@@ -78,17 +84,23 @@ namespace HostsManager
                             fileText += clsUtilitys.Downloader.DownloadString(
                              "https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/social/hosts");
                     }
-                    if (clsSettingsData.UseHostsFileBlacklist)
+                    if (clsSettingsData.UseCustomBlacklist)
                     {
-                        fileText += clsUtilitys.Downloader.DownloadString("https://hosts-file.net/download/hosts.txt");
-                        fileText += clsUtilitys.Downloader.DownloadString("https://hosts-file.net/hphosts-partial.txt");
+                        foreach (String u in clsSettingsData.urls)
+                            fileText += "\r\n" + clsUtilitys.Downloader.DownloadString(u);
                     }
                     if (!clsSettingsData.isHidden)
-                        clsUtilitys.Dialogs.closeDialog();
-                    if (!clsSettingsData.isHidden)
                     {
+                        if (start != null)
+                        {
+                            clsUtilitys.Dialogs.closeDialog();
+                            start.Abort();
+                        }
+                        clsUtilitys.Dialogs.dlgOptions o2 = new clsUtilitys.Dialogs.dlgOptions();
+                        o2.frm = (frmCore)f;
+                        o2.txt = "Replacing IP's";
                         start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-                        start.Start("Replacing IP's");
+                        start.Start(o2);
                     }
 
                     //IP Overwrite
@@ -116,8 +128,7 @@ namespace HostsManager
                     //CR/LF detection
                     fileText = fileText.Replace("\r", "");
                     fileText = fileText.Replace("\n", "\r\n");
-                    if (!clsSettingsData.isHidden)
-                        clsUtilitys.Dialogs.closeDialog();
+
                     //Write temp hosts file
                     System.IO.File.Delete(Path.GetTempPath()+"\\hosts.tmp");
                     System.IO.File.WriteAllText(Path.GetTempPath()+"\\hosts.tmp", fileText);
@@ -132,28 +143,36 @@ namespace HostsManager
 
                 }
                 if (start != null)
+                {
+                    clsUtilitys.Dialogs.closeDialog();
                     start.Abort();
+                }
                 if (!clsSettingsData.isHidden && !err)
                 {
-                    frmDialog f = new frmDialog();
-                    f.showButton = true;
-                    f.action = "Hosts file updated.";
-                    f.ShowDialog();
+                    clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                    o1.frm = (frmCore)f;
+                    o1.txt = "Hosts file updated.";
+                    o1.okbutton = true;
+                    start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                    start.Start(o1);
                 }
             }
             catch (Exception ex) //Hosts file update
             {
                 if (start != null)
+                {                    
+                    clsUtilitys.Dialogs.closeDialog();
                     start.Abort();
+                }
                 //generate error string
                 String add = "";
-                if (!clsSettingsData.isHidden && !err)
+                if (!clsSettingsData.isHidden)
                     if (clsUtilitys.Info.isAntivir())
                     {
-                        frmNotifyAntivirus f = new frmNotifyAntivirus();
-                        f.ShowDialog();
+                        frmNotifyAntivirus fr = new frmNotifyAntivirus();
+                        fr.ShowDialog();
                     }
-                if (!clsSettingsData.isHidden && !err)
+                if (!clsSettingsData.isHidden)
                     MessageBox.Show("Error: " + add + ex.Message);
             }
         }
@@ -189,8 +208,11 @@ namespace HostsManager
         {
             System.Threading.Thread start = null;
             bool err = false;
+            clsUtilitys.Dialogs.dlgOptions o = new clsUtilitys.Dialogs.dlgOptions();
+            o.frm = (frmCore)frm;
+            o.txt = "Disabling DNS-Client Service...";
             start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-            start.Start("Disabling DNS-Client Service...");
+            start.Start(o);
             ServiceController _ServiceController = new ServiceController("dnscache");
             if (!_ServiceController.ServiceHandle.IsInvalid)
             {
@@ -222,9 +244,24 @@ namespace HostsManager
             if (start != null)
                 start.Abort();
             if (!err)
-                clsUtilitys.Dialogs.showOKDIalog("DNS-Client service disabled.");
+            {
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)frm;
+                o1.txt = "DNS-Client service disabled.";
+                o1.okbutton = true;
+                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);
+            }
             else
-                clsUtilitys.Dialogs.showOKDIalog("Erro disabling DNS-Client service. Please retry..");
+            {
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)frm;
+                o1.txt = "Erro disabling DNS-Client service. Please retry..";
+                o1.okbutton = true;
+                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);
+
+            }            
         }
 
 

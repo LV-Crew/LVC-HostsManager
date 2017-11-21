@@ -31,6 +31,8 @@ using System.Net.NetworkInformation;
 using System.ServiceProcess;
 using System.Text.RegularExpressions;
 using HostsManager.Settings;
+using Un4seen.Bass;
+
 
 namespace HostsManager
 {
@@ -67,7 +69,15 @@ namespace HostsManager
         {
             InitializeComponent();
             clsBrandingINI.readINI();
-            clsSettingsData.ipTo = clsBrandingData.DefaultBlockPage;
+            String wpHostName= clsBrandingData.DefaultBlockPage;
+            clsSettingsData.ipTo = clsUtilitys.Resolver(wpHostName)[0];
+
+            if (clsUtilitys.Services.isServiceActive())
+                bnDisableDNS.Text = "Disable DNS-Client Service";
+            else
+                bnDisableDNS.Text = "Enable DNS-Client Service";
+
+
             if (File.Exists(clsBrandingData.BannerImage))
             {
                 pbPicture.Image = Image.FromFile(clsBrandingData.BannerImage);
@@ -90,6 +100,8 @@ namespace HostsManager
             }            
         }
 
+
+        
         //Load main form
         private void frmHostsManager_Load(object sender, EventArgs e)
         {
@@ -98,15 +110,16 @@ namespace HostsManager
             {
                 if (!clsSettingsData.isHidden)
                 {
-                    clsSettingsData.player = new System.Media.SoundPlayer();
-                    if (File.Exists(clsBrandingData.BackgroundSound))
+                    if (Bass.BASS_Init(-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero))
                     {
-                        clsSettingsData.player.SoundLocation = clsBrandingData.BackgroundSound;//"bgnd.wav";
-                        clsSettingsData.player.Play();
+                        int i = Bass.BASS_MusicLoad(clsBrandingData.BackgroundSound, 0, 0, BASSFlag.BASS_DEFAULT, 0);
+                        Bass.BASS_ChannelPlay(i, true);
                     }
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex) {
+                int a = 0;
+            }
 
             //Hide tabs
             tabCtrlPages.Appearance = TabAppearance.FlatButtons;
@@ -149,20 +162,27 @@ namespace HostsManager
             Thread start = null;
             if (clsSettingsData.DNSGoogleChanged)
             {
+                /*
+                clsUtilitys.Dialogs.dlgOptions o = new clsUtilitys.Dialogs.dlgOptions();
+                o.frm = (frmCore)this;
+                o.txt = "Resetting DNS Server...";
                 start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-                start.Start("Resetting DNS Server...");
+                start.Start(o);
+                */
                 clsCoreFunctions.setDNS(clsSettingsData.oldDNS);
                 clsSettingsData.DNSGoogleChanged = false;
                 bnSetDNSOpenDNS.Text = "Set DNS Server to OpenDNS";
                 bnSetDNSServerGoogle.Text = "Set DNS Server to Google";
-                if (start != null)
-                    start.Abort();
-                clsUtilitys.Dialogs.showOKDIalog("DNS server has been reset.");
+
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)this;
+                o1.txt = "DNS server has been reset.";
+                o1.okbutton = true;
+                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);               
             }
             else
             {
-                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-                start.Start("Setting DNS Server...");
                 String _oldDNS = clsUtilitys.Info.getCurrentDNSServer();
                 clsCoreFunctions.setDNS("8.8.8.8");
                 bnSetDNSServerGoogle.Text = "Reset DNS Server";
@@ -171,8 +191,16 @@ namespace HostsManager
                 clsSettingsData.DNSOpenDNSChanged = false;
                 clsSettingsData.oldDNS = _oldDNS;
                 if (start != null)
+                {
+                    clsUtilitys.Dialogs.closeDialog();
                     start.Abort();
-                clsUtilitys.Dialogs.showOKDIalog("DNS server has been changed.");
+                }
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)this;
+                o1.txt = "DNS server has been changed.";
+                o1.okbutton = true;
+                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);                
             }
             (new Settings.clsSettingsFunctions(this)).saveSettings();
         }
@@ -182,20 +210,24 @@ namespace HostsManager
             Thread start = null;
             if (clsSettingsData.DNSOpenDNSChanged)
             {
-                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-                start.Start("Resetting DNS Server...");
                 clsCoreFunctions.setDNS(clsSettingsData.oldDNS);
                 clsSettingsData.DNSOpenDNSChanged = false;
                 bnSetDNSOpenDNS.Text = "Set DNS Server to OpenDNS";
                 bnSetDNSServerGoogle.Text = "Set DNS Server to Google";
                 if (start != null)
+                {
+                    clsUtilitys.Dialogs.closeDialog();
                     start.Abort();
-                clsUtilitys.Dialogs.showOKDIalog("DNS server has been reset.");
+                }
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)this;
+                o1.txt = "DNS server has been reset.";
+                o1.okbutton = true;
+                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);
             }
             else
             {
-                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-                start.Start("Setting DNS Server...");
                 String _oldDNS = clsUtilitys.Info.getCurrentDNSServer();
                 clsCoreFunctions.setDNS("208.67.222.222,208.67.220.220");
                 bnSetDNSOpenDNS.Text = "Reset DNS Server";
@@ -204,41 +236,54 @@ namespace HostsManager
                 clsSettingsData.DNSGoogleChanged = false;
                 clsSettingsData.oldDNS = _oldDNS;
                 if (start != null)
+                {
+                    clsUtilitys.Dialogs.closeDialog();
                     start.Abort();
-                clsUtilitys.Dialogs.showOKDIalog("DNS server has been changed.");
+                }
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)this;
+                o1.txt = "DNS server has been changed.";
+                o1.okbutton = true;
+                start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);
             }
             (new Settings.clsSettingsFunctions(this)).saveSettings();
-            if (start != null && start.IsAlive)
+            if (start != null)
+            {
+                clsUtilitys.Dialogs.closeDialog();
                 start.Abort();
+            }
         }
 
         private void bnHelpTools_Click(object sender, EventArgs e)
         {
             frmDialog f = new frmDialog();
             f.action =
-             "Edit hosts file: Edit the hosts file.\r\n" +
-             "Remove duplicates: Removes duplicate entrys from the hosts file.\r\n" +
-             "Reset hosts file: Set hostsfile to Windows standard.\r\n" +
-             "Flush DNS cache: removes temporarily saved DNS data.\r\n" +
+             "Edit Hosts File: Edit the hosts file.\r\n" +
+             "Remove Duplicates: Removes duplicate entrys from the hosts file.\r\n" +
+             "Reset Hosts File: Set hostsfile to Windows standard.\r\n" +
+             "Flush DNS Cache: removes temporarily saved DNS data.\r\n" +
              "Disable DNS Service: Do this if your System slows down while surfing.\r\n" +
              "Set DNS Server to Google: Set your DNS Server IP to that of Google (8.8.8.8).\r\n" +
              "Set DNS Server to OpenDNS: Set your DNS Server IP to that of OpenDNS.\r\n"+
-             "Set DNS Server to custom value: Allows you to enter the IP of the DNS Server.";
+             "Set DNS Server to Custom Value: Allows you to enter the IP of the DNS Server.";
             f.showButton = true;
             f.customHeight = 200;
             f.customWidth = 400;
             f.ShowDialog();
         }
 
-        private void bnDisableDNS_Click(object sender, EventArgs e)
+        private void disableDNSThread()
         {
             Thread start = null;
             bool err = false;
             if (!clsUtilitys.Services.isServiceActive())
             {
-
+                clsUtilitys.Dialogs.dlgOptions o = new clsUtilitys.Dialogs.dlgOptions();
+                o.frm = (frmCore)this;
+                o.txt = "Enabling DNS-Client Service...";
                 start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-                start.Start("Enabling DNS-Client Service...");
+                start.Start(o);
                 Process p = clsUtilitys.executeNoWindow("sc.exe", "config Dnscache start=auto");
                 p.WaitForExit();
                 ServiceController _ServiceController = new ServiceController("dnscache");
@@ -255,26 +300,52 @@ namespace HostsManager
                         err = true;
                     }
                 }
-                if (start != null && start.IsAlive)
+                if (start != null)
                 {
+                    clsUtilitys.Dialogs.closeDialog();
                     start.Abort();
                 }
                 if (!err)
                 {
-                    clsUtilitys.Dialogs.showOKDIalog("DNS-Client service enabled.");
+                    clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                    o1.frm = (frmCore)this;
+                    o1.txt = "DNS-Client service enabled.";
+                    o1.okbutton = true;
+                    start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                    start.Start(o1);
                     bnDisableDNS.Text = "Disable DNS-Client Service";
                     clsSettingsData.DNServiceDisabled = false;
                 }
                 else
-                    clsUtilitys.Dialogs.showOKDIalog("Error enabling DNS-Client service. Please retry...");
+                {
+                    clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                    o1.frm = (frmCore)this;
+                    o1.txt = "Error enabling DNS-Client service. Please retry...";
+                    o1.okbutton = true;
+                    start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                    start.Start(o1);
+                }
             }
             else
             {
                 if (!clsUtilitys.isADMember())
                     clsCoreFunctions.disableDNSService(this);
                 else
-                    clsUtilitys.Dialogs.showOKDIalog("You are a member of an Active Directory domain. This requires the DNS-Client service to be active.");
+                {
+                    clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                    o1.frm = (frmCore)this;
+                    o1.txt = "You are a member of an Active Directory domain. This requires the DNS-Client service to be active.";
+                    o1.okbutton = true;
+                    start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                    start.Start(o1);
+                }
             }
+        }
+
+        private void bnDisableDNS_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread t = new System.Threading.Thread(disableDNSThread);
+            t.Start();
         }
 
         private void bnFlushDNSCache_Click(object sender, EventArgs e)
@@ -284,7 +355,13 @@ namespace HostsManager
                 Process p = clsUtilitys.executeNoWindow("ipconfig.exe", "/flushdns");
                 p.Start();
                 p.WaitForExit();
-                clsUtilitys.Dialogs.showOKDIalog("DNS Cache has been flushed.");
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)this;
+                o1.txt = "DNS Cache has been flushed.";
+                o1.okbutton = true;
+                Thread start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);
+
             }
             catch (Exception)
             {
@@ -300,11 +377,21 @@ namespace HostsManager
                 System.IO.File.WriteAllText(
                  Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", ret);
                 clsUtilitys.HostsFile.resetHostsFilePermissions(fs);
-                clsUtilitys.Dialogs.showOKDIalog("Hosts fiele has been reset to system defaults.");
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)this;
+                o1.txt = "Hosts file has been reset to system defaults.";
+                o1.okbutton = true;
+                Thread start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);
             }
             catch (Exception)
             {
-                clsUtilitys.Dialogs.showOKDIalog("Could not write hosts file. Please check your antivirus for hosts file potection.");
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)this;
+                o1.txt = "Could not write hosts file. Please check your antivirus for hosts file potection.";
+                o1.okbutton = true;
+                Thread start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);
             }
         }
 
@@ -458,8 +545,12 @@ namespace HostsManager
 
         private void bnAddHost_Click(object sender, EventArgs e)
         {
-            if (txtAddHost.Text != "")
+            if (txtAddHost.Text != "" && Uri.CheckHostName(txtAddHost.Text)==UriHostNameType.Dns)
                 lbAddHosts.Items.Add(txtAddHost.Text);
+            else
+            {
+
+            }
             txtAddHost.Text = "";
         }
 
@@ -480,7 +571,14 @@ namespace HostsManager
                 txtURL.Text = "";
             }
             else
-               clsUtilitys.Dialogs.showOKDIalog("Wrong format. URL must begin with http://");
+            {
+                clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                o1.frm = (frmCore)this;
+                o1.txt = "Wrong format. URL must begin with http://";
+                o1.okbutton = true;
+                Thread start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                start.Start(o1);
+            }
         }
 
         private void bnRemove_Click(object sender, EventArgs e)
@@ -524,15 +622,28 @@ namespace HostsManager
         }
 
         private void bnSaveOptions2_Click(object sender, EventArgs e)
-        {
+        {            
             if ((rbRedirectLocalhost).Checked)
                 clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.KEEP_LOCALHOST;
             else if ((rbRedirectWhitepage).Checked)
                 clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.SET_WHITEPAGE;
             else
             {
-                clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.SET_CUSTOM;
-                clsSettingsData.replaceIP = txtReplaceIP.Text;
+                Match match = Regex.Match(txtReplaceIP.Text, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}");
+                if (match.Success)
+                {
+                    clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                    o1.frm = (frmCore)this;
+                    o1.txt = "Invalid IP. Please check format.";
+                    o1.okbutton = true;
+                    Thread start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                    start.Start(o1);
+                }
+                else
+                {
+                    clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.SET_CUSTOM;
+                    clsSettingsData.replaceIP = txtReplaceIP.Text;
+                }
             }
             if ((rbCustom.Checked && File.Exists(txtCustomEditor.Text)) || rbExternal.Checked || rbInternal.Checked)
             {
@@ -657,12 +768,12 @@ namespace HostsManager
                 {
                     if (clsSettingsData.UseHostsFileBlacklist)
                     {
-                       clsUtilitys.Dialogs.showOKDIalog(
-                         "Please use only Steven Black's Blacklist when being a member of an Active Directory domain. Contact your system administrator for further information.\r\n\r\n", true);
-                    }
-                    else
-                    {
-                        clsCoreFunctions.updateHostsFile();
+                        clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                        o1.frm = (frmCore)this;
+                        o1.txt = "Please use only Steven Black's Blacklist when being a member of an Active Directory domain. Contact your system administrator for further information.";
+                        o1.okbutton = true;
+                        Thread start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                        start.Start(o1);                        
                     }
                 }
                 else
@@ -672,26 +783,28 @@ namespace HostsManager
                         ret = clsUtilitys.Dialogs.showYesNoDialog("Do you want to disable the DNS-Client service? Not doing so will slow down your computer.");
                     if (ret == DialogResult.OK)
                         clsCoreFunctions.disableDNSService(this);
-                    clsCoreFunctions.updateHostsFile();
+                    System.Threading.Thread t = new System.Threading.Thread(new ParameterizedThreadStart(clsCoreFunctions.updateHostsFile));
+                    t.Start(this);
                 }
                 updateStats();
             }
             catch (Exception) { }
         }
 
-        private void HostsFileThrd()
+        private void HostsFileThrd(object f)
         {
             FileSecurity fs = clsUtilitys.HostsFile.setHostsFilePermissions();
-            clsEditHosts.edit(clsSettingsData.internalEditor, clsSettingsData.urls, clsSettingsData.externalEditorFile);
+            clsEditHosts.edit(clsSettingsData.internalEditor, clsSettingsData.urls, clsSettingsData.externalEditorFile,(frmCore)f);
             clsUtilitys.HostsFile.resetHostsFilePermissions(fs);
+       
         }
 
         private void bnEdit_Click(object sender, EventArgs e)
         {
             if (File.Exists(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts"))
             {
-                System.Threading.Thread t = new System.Threading.Thread(HostsFileThrd);
-                t.Start();
+                System.Threading.Thread t = new System.Threading.Thread(new ParameterizedThreadStart(HostsFileThrd));
+                t.Start(this);
             }
         }
 
@@ -720,7 +833,7 @@ namespace HostsManager
                     //Set hosts file permissions to writable for group admins
                     FileSecurity fs = clsUtilitys.HostsFile.setHostsFilePermissions();
                     //Update hostsfile
-                    clsCoreFunctions.updateHostsFile();
+                    clsCoreFunctions.updateHostsFile(this);
                     //Reset file permissions
                     clsUtilitys.HostsFile.resetHostsFilePermissions(fs);
                     CancelEventArgs a = new CancelEventArgs(false);
@@ -798,10 +911,10 @@ namespace HostsManager
                         if (li <= 0)
                             li = sz.LastIndexOf(",");
                         sz = sz.Substring(0, li);
-                        lblCurrent.Text = hf.Length.ToString() + " Lines; " + sz + " KB";
+                        lblCurrent.Text = hf.Length.ToString() + " Entrys; " + sz + " KB";
                     }
                     else
-                        lblCurrent.Text = hf.Length.ToString() + " Lines; " + fi.Length.ToString() + " Bytes";
+                        lblCurrent.Text = hf.Length.ToString() + " Entrys; " + fi.Length.ToString() + " Bytes";
                 }
                 catch (Exception)
                 {
@@ -839,21 +952,31 @@ namespace HostsManager
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bnSetOwnDNSServer(object sender, EventArgs e)
         {
             string input = Microsoft.VisualBasic.Interaction.InputBox("DNS Server", "Please enter the IP Adress of the DNS Server", " ", 0, 0);
             if (input.Trim().Length > 0)
             {
-
-                Thread start = null;
-
-                    start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
-                    start.Start("Setting DNS Server...");
+                Match match = Regex.Match(input, @"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}");
+                if (match.Success)
+                {
                     clsCoreFunctions.setDNS(input);
-                    if (start != null)
-                        start.Abort();
-                    clsUtilitys.Dialogs.showOKDIalog("DNS server has been set.");
-              
+                    clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                    o1.frm = (frmCore)this;
+                    o1.txt = "DNS server has been set.";
+                    o1.okbutton = true;
+                    Thread start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                    start.Start(o1);
+                }
+                else
+                {
+                    clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+                    o1.frm = (frmCore)this;
+                    o1.txt = "Invalid IP. Please check format.";
+                    o1.okbutton = true;
+                    Thread start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+                    start.Start(o1);
+                }
             }
         }
 
@@ -875,6 +998,114 @@ namespace HostsManager
         }
 
         private void tabOptions_Click(object sender, EventArgs e)
+        {
+
+        }
+        public delegate void tmp(frmCore f);
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1)
+            {
+                tabCtrlPages.SelectedIndex = 3;
+                resetButtons();
+                bnHelpMain.BackColor = Color.Navy;
+                lblPage.Text = "Help";
+                string curDir = Directory.GetCurrentDirectory();
+                try
+                {
+                    string html = File.ReadAllText(curDir + "\\readme.html");
+                    wbWebbrowserHelp.DocumentText = html;
+                }
+                catch (Exception) { }
+                return true;    // indicate that you handled this keystroke
+            }
+
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        public void doRemoveDuplicates(object th)
+        {
+            clsUtilitys.Dialogs.dlgOptions o = new clsUtilitys.Dialogs.dlgOptions();
+            o.frm = (frmCore)this;
+            o.txt = "Removing duplicates.";
+            o.thrd =(Thread)th;
+            Thread start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialogThrd));
+            start.Start(o);
+            long dupCount = 0;
+
+            String[] alltext = File.ReadAllLines(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+            String[] alltext1 = alltext;
+
+            for (int i = 0; i < alltext1.Length; i++)
+            {
+                for (int z = i; z < alltext1.Length; z++)
+                {
+                    if (i < alltext.Length - 1)
+                        if (alltext[i + 1] == alltext1[z])
+                        {
+                            if (alltext[z].Length > 1)
+                                dupCount++;
+                            alltext[z] = "";
+                            for (int u = z; u < alltext1.Length - 1; u++)
+                            {
+                                alltext1[u] = alltext1[u + 1];
+                            }
+                            Array.Resize(ref alltext1, alltext1.Length - 1);
+                        }
+                }
+                System.Threading.Thread.Sleep(10);
+            }
+            FileSecurity fs = clsUtilitys.HostsFile.setHostsFilePermissions();
+            File.WriteAllLines(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts", alltext1);
+            clsUtilitys.HostsFile.resetHostsFilePermissions(fs);
+            if (start != null)
+            {
+                clsUtilitys.Dialogs.closeDialog();
+                start.Abort();
+            }
+            clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
+            o1.frm = (frmCore)this;
+            o1.txt = "Finished removing duplicates.\n" + dupCount.ToString() + " duplicates removed.";
+            o1.okbutton = true;
+            start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
+            start.Start(o1);
+        }
+        public delegate void tmp1();
+        public void removeDuplicates()
+        {
+            FileInfo fi = new FileInfo(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
+            bool cont=true;
+            if(fi.Length>2097152)
+            {
+                frmDialog d = new frmDialog();
+                d.action = "Hosts file size is > 2MB.\nDeduplication will take up to 30 minutes.\nAre you sure that you want to continue?";
+                d.yesNoButtons = true;
+                if (this.InvokeRequired)
+                    this.Invoke(new tmp1(removeDuplicates));
+                else
+                {
+                    if (d.ShowDialog(this) == DialogResult.OK)
+                    {
+                        Thread t = new Thread(new ParameterizedThreadStart(doRemoveDuplicates));
+                        t.Start(t);
+                    }
+                }
+            }
+        }
+
+        private void bnDupliactes_Click(object sender, EventArgs e)
+        {
+           removeDuplicates();            
+        }
+
+        private void tabTools_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
         {
 
         }

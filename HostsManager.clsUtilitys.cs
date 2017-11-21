@@ -77,26 +77,58 @@ namespace HostsManager
             }
 
 
-            public static void showOKDIalog(String text, bool larger = false)
+        
+
+            public class dlgOptions
             {
-                frmDialog f = new frmDialog();
-                f.action = text;
-                if (larger)
-                    f.customHeight = 150;
-                f.showButton = true;
-                f.ShowDialog();
+                public String txt = "";
+                public HostsManager.frmCore frm = null;
+                public int width = 279;
+                public int height = 72;
+                public bool okbutton = false;
+                public Thread thrd = null;
             }
-
-
             public static frmDialog dlg;
-            public static void showDialog(object action)
+            public delegate void deleg(clsUtilitys.Dialogs.dlgOptions o);
+            public delegate void delegThrd(clsUtilitys.Dialogs.dlgOptions o);
+
+            public static void subThrd(object d)
             {
                 try
                 {
                     dlg = new frmDialog();
-                    dlg.action = (String)action;
-                   // if (dlg.IsAccessible)
-                        dlg.ShowDialog();
+                    dlg.action = ((dlgOptions)d).txt;
+                    dlg.showCancel = true;                    
+                    DialogResult r = DialogResult.OK;
+                 
+                    if (((dlgOptions)d).frm.InvokeRequired)
+                        ((dlgOptions)d).frm.Invoke(new delegThrd(subThrd), new object[] { d });
+                    else
+                        if (dlg.ShowDialog(((dlgOptions)d).frm) == DialogResult.Cancel)
+                            ((dlgOptions)d).thrd.Abort();
+                }
+                catch (ThreadAbortException ex) {
+                    Exception e = ex;
+                }
+            }
+
+            public static void showDialogThrd(object d)
+            {
+                System.Threading.Thread t = new Thread(new ParameterizedThreadStart(subThrd));
+                t.Start(d);
+            }
+            public static void showDialog(object d)
+            {
+                try
+                {
+                    dlg = new frmDialog();
+                    dlg.action = ((dlgOptions)d).txt;
+                    dlg.showButton = ((dlgOptions)d).okbutton;
+                    
+                    if (((dlgOptions)d).frm.InvokeRequired)
+                        ((dlgOptions)d).frm.Invoke(new deleg(showDialog),new object[]{d});
+                    else
+                        dlg.ShowDialog(((dlgOptions)d).frm);
                 }
                 catch (ThreadAbortException) { }
             }
@@ -109,7 +141,15 @@ namespace HostsManager
                 else
                     dlg.Close();
             }
+        }
 
+        public static string[] Resolver(string DnsName)
+        {
+            System.Net.IPHostEntry IHE = System.Net.Dns.Resolve(DnsName);
+            string[] ret = new string[IHE.AddressList.Length];
+            for (int i = 0; i < IHE.AddressList.Length; i++)
+                ret[i] = IHE.AddressList[i].ToString();
+            return ret;
         }
 
         public static class SSLCertificates

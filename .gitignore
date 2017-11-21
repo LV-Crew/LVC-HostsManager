@@ -1,3 +1,5 @@
 .vs/HostsManager/v14/.suo
 */hosts.tmp
 bin/x86/Release/hosts.tmp
+.vs/HostsManager/v15/Server/sqlite3/db.lock
+*.lock

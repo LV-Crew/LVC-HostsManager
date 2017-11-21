@@ -124,8 +124,6 @@
             this.wbWebbrowserHelp = new System.Windows.Forms.WebBrowser();
             this.tabAbout = new System.Windows.Forms.TabPage();
             this.bnCheckForUpdates = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -291,6 +289,7 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(637, 351);
             this.pnlMain.TabIndex = 45;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // bnHelpMain
             // 
@@ -503,6 +502,7 @@
             this.tabTools.Size = new System.Drawing.Size(653, 380);
             this.tabTools.TabIndex = 4;
             this.tabTools.Text = "Tools";
+            this.tabTools.Click += new System.EventHandler(this.tabTools_Click);
             // 
             // button2
             // 
@@ -514,7 +514,7 @@
             this.button2.TabIndex = 65;
             this.button2.Text = "Set DNS Server to Custom Value";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.bnSetOwnDNSServer);
             // 
             // bnDupliactes
             // 
@@ -526,6 +526,7 @@
             this.bnDupliactes.TabIndex = 64;
             this.bnDupliactes.Text = "Remove Duplicates";
             this.bnDupliactes.UseVisualStyleBackColor = true;
+            this.bnDupliactes.Click += new System.EventHandler(this.bnDupliactes_Click);
             // 
             // bnFlushDNSCache
             // 
@@ -687,7 +688,7 @@
             this.bnCustomEditor.Name = "bnCustomEditor";
             this.bnCustomEditor.Size = new System.Drawing.Size(28, 20);
             this.bnCustomEditor.TabIndex = 78;
-            this.bnCustomEditor.Text = "...";
+            this.bnCustomEditor.Text = "---";
             this.bnCustomEditor.UseVisualStyleBackColor = false;
             // 
             // txtCustomEditor
@@ -1306,19 +1307,16 @@
             // 
             // wbWebbrowserHelp
             // 
-            this.wbWebbrowserHelp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wbWebbrowserHelp.Location = new System.Drawing.Point(0, 0);
             this.wbWebbrowserHelp.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbWebbrowserHelp.Name = "wbWebbrowserHelp";
-            this.wbWebbrowserHelp.Size = new System.Drawing.Size(653, 380);
+            this.wbWebbrowserHelp.Size = new System.Drawing.Size(642, 384);
             this.wbWebbrowserHelp.TabIndex = 0;
             // 
             // tabAbout
             // 
             this.tabAbout.BackColor = System.Drawing.Color.Black;
             this.tabAbout.Controls.Add(this.bnCheckForUpdates);
-            this.tabAbout.Controls.Add(this.label17);
-            this.tabAbout.Controls.Add(this.label16);
             this.tabAbout.Controls.Add(this.pictureBox3);
             this.tabAbout.Controls.Add(this.label12);
             this.tabAbout.Controls.Add(this.label13);
@@ -1346,25 +1344,6 @@
             this.bnCheckForUpdates.UseVisualStyleBackColor = true;
             this.bnCheckForUpdates.Click += new System.EventHandler(this.bnCheckForUpdates_Click);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(478, 305);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 13);
-            this.label17.TabIndex = 61;
-            this.label17.Text = "Denis Müller";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(422, 305);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(55, 13);
-            this.label16.TabIndex = 60;
-            this.label16.Text = "Support:";
-            // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
@@ -1379,7 +1358,7 @@
             // label12
             // 
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(327, 302);
+            this.label12.Location = new System.Drawing.Point(391, 301);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 18);
             this.label12.TabIndex = 19;
@@ -1390,7 +1369,7 @@
             // 
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(272, 302);
+            this.label13.Location = new System.Drawing.Point(336, 301);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 18);
             this.label13.TabIndex = 18;
@@ -1400,7 +1379,7 @@
             // label14
             // 
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(175, 302);
+            this.label14.Location = new System.Drawing.Point(239, 301);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(100, 18);
             this.label14.TabIndex = 17;
@@ -1411,7 +1390,7 @@
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(85, 300);
+            this.label15.Location = new System.Drawing.Point(149, 299);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(94, 23);
             this.label15.TabIndex = 16;
@@ -1568,7 +1547,6 @@
             this.groupBox1.PerformLayout();
             this.tabHelp.ResumeLayout(false);
             this.tabAbout.ResumeLayout(false);
-            this.tabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -1627,8 +1605,6 @@
         public System.Windows.Forms.Label lblName;
         public System.Windows.Forms.Label lblVersion;
         public System.Windows.Forms.PictureBox pictureBox3;
-        public System.Windows.Forms.Label label17;
-        public System.Windows.Forms.Label label16;
         public System.Windows.Forms.TabControl tabCtrlOptions;
         public System.Windows.Forms.TabPage tabOptionsStevenBlack;
         public System.Windows.Forms.Label cbAddsTracking;
