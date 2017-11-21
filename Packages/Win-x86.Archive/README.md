@@ -32,6 +32,7 @@ https://github.com/LV-Crew/hosts<br>
 <h3><b>What we already included in the program:</b></h3>
 - Feature: Auto Update of hosts file<br>
 - Feature: Create backup at first run (1x Auto-Backup)<br>
+- Main: Counting 'Entries'<br>
 - Tools: Edit hosts file with internal or external editor<br>
 - Tools: 'Remove Duplicates'<br>
 - Tools: 'Reset Hosts File'<br>
@@ -53,6 +54,7 @@ https://github.com/LV-Crew/hosts<br>
 - Geeks: Use local Readme.html as 'Help'<br>
 - Geeks: Included Readme.md<br>
 - Geeks: Use .HostsManager.bak<br>
+- Geeks: Multi-Threading<br>
 - Dev: Branding is saved in a INI<br>
 <br>
 - Integrated LV-Crew/certgen (https://github.com/LV-Crew/certgen)<br>

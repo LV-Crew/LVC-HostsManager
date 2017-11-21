@@ -37,3 +37,5 @@ C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Release\HostsManager.csproj.
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Release\HostsManager.csproj.CoreCompileInputs.cache
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Release\HostsManager.exe
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Release\HostsManager.pdb
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x64\Release\System.Runtime.dll
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x64\Release\Bass.Net.xml

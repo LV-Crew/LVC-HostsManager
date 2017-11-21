@@ -47,3 +47,9 @@ C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\ManagedBass.xml
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\nBASS.pdb
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\Bass.Net.dll
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\Bass.Net.xml
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\System.Runtime.dll
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\Bass.Net.xml
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\Dll1.pdb
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\ManagedBass.pdb
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\ManagedBass.xml
+C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\nBASS.pdb
