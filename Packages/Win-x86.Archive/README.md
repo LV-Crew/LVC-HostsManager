@@ -25,8 +25,24 @@ https://hosts-file.net/<br>
 https://github.com/StevenBlack/hosts<br>
 <br>
 <br>
+<h3><b>Which host files are included by Steven Black:</b></h3>
+https://adaway.org/<br>
+https://github.com/FadeMind/hosts.extras<br>
+https://github.com/mitchellkrogza/Badd-Boyz-Hosts<br>
+https://github.com/azet12/KADhosts<br>
+http://www.malwaredomainlist.com/<br>
+http://winhelp2002.mvps.org/<br>
+http://someonewhocares.org/hosts/<br>
+https://github.com/tyzbit/hosts/blob/master/data/tyzbit/hosts<br>
+https://pgl.yoyo.org/adservers/<br>
+<br>
+<br>
 <h3><b>Which addional hosts files can be used?</b></h3>
 https://github.com/LV-Crew/hosts<br>
+https://github.com/racaljk/hosts<br>
+https://github.com/vokins/yhosts<br>
+https://github.com/sy618/hosts<br>
+https://github.com/beimunizhou/hosts<br>
 <br>
 <br>
 <h3><b>What we already included in the program:</b></h3>
@@ -84,3 +100,7 @@ https://github.com/LV-Crew/HostsManager/wiki/Some-Dev-Notes<br>
 <br>
 <h3><b>To-Dos & Ideas:</b></h3>
 https://github.com/LV-Crew/HostsManager/wiki/To-Dos-&-Ideas-(Roadmap)<br>
+<br>
+<br>
+<h3><b>...and more blocking:</b></h3>
+https://github.com/LV-Crew/HostsManager/wiki/More-Blocking<br>
