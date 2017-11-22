@@ -27,7 +27,6 @@ C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\HostsManager.exe.config
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\HostsManager.exe
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\HostsManager.pdb
-C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.csprojResolveAssemblyReference.cache
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.frmDialog.resources
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.frmNotifyAntivirus.resources
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.frmCore.resources
@@ -41,3 +40,11 @@ C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\Dll1.dll
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\Dll1.pdb
 C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x64\Debug\System.Runtime.dll
 C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x64\Debug\Bass.Net.xml
+C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\Bass.Net.dll
+C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\ManagedBass.dll
+C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\nBASS.dll
+C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\System.Runtime.dll
+C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\Bass.Net.xml
+C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\ManagedBass.pdb
+C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\ManagedBass.xml
+C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\nBASS.pdb

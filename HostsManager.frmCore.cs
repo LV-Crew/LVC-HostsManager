@@ -100,7 +100,7 @@ namespace HostsManager
             }            
         }
 
-
+        int music = 0;
         
         //Load main form
         private void frmHostsManager_Load(object sender, EventArgs e)
@@ -112,8 +112,8 @@ namespace HostsManager
                 {
                     if (Bass.BASS_Init(-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero))
                     {
-                        int i = Bass.BASS_MusicLoad(clsBrandingData.BackgroundSound, 0, 0, BASSFlag.BASS_DEFAULT, 0);
-                        Bass.BASS_ChannelPlay(i, true);
+                        music = Bass.BASS_MusicLoad(clsBrandingData.BackgroundSound, 0, 0, BASSFlag.BASS_DEFAULT, 0);
+                        Bass.BASS_ChannelPlay(music, true);
                     }
                 }
             }
@@ -503,12 +503,15 @@ namespace HostsManager
             if (cbBackgroundMusic.Checked)
             {
                 if (clsSettingsData.player != null)
-                    clsSettingsData.player.Play();
+                {
+                    music = Bass.BASS_MusicLoad(clsBrandingData.BackgroundSound, 0, 0, BASSFlag.BASS_DEFAULT, 0);
+                    Bass.BASS_ChannelPlay(music, true);
+                }
             }
             else
             {
                 if (clsSettingsData.player != null)
-                    clsSettingsData.player.Stop();
+                    Bass.BASS_MusicFree(music);
             }
         }
 
@@ -911,10 +914,10 @@ namespace HostsManager
                         if (li <= 0)
                             li = sz.LastIndexOf(",");
                         sz = sz.Substring(0, li);
-                        lblCurrent.Text = hf.Length.ToString() + " Entrys; " + sz + " KB";
+                        lblCurrent.Text = hf.Length.ToString() + " Entries; " + sz + " KB";
                     }
                     else
-                        lblCurrent.Text = hf.Length.ToString() + " Entrys; " + fi.Length.ToString() + " Bytes";
+                        lblCurrent.Text = hf.Length.ToString() + " Entries; " + fi.Length.ToString() + " Bytes";
                 }
                 catch (Exception)
                 {
