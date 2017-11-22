@@ -38,6 +38,7 @@ https://pgl.yoyo.org/adservers/<br>
 <br>
 <br>
 <h3><b>Which addional hosts files can be used?</b></h3>
+http://sysctl.org/cameleon/<br>
 https://github.com/LV-Crew/hosts<br>
 https://github.com/racaljk/hosts<br>
 https://github.com/vokins/yhosts<br>
@@ -48,8 +49,9 @@ https://github.com/beimunizhou/hosts<br>
 <h3><b>What we already included in the program:</b></h3>
 - Feature: Auto Update of hosts file<br>
 - Feature: Create backup at first run (1x Auto-Backup)<br>
+- Main: Default source is https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
 - Main: Counting 'Entries'<br>
-- Tools: Edit hosts file with internal or external editor<br>
+- Tools: Edit hosts file with internal or external editor (or Wordpad)<br>
 - Tools: 'Remove Duplicates'<br>
 - Tools: 'Reset Hosts File'<br>
 - Tools: 'Flush DNS Cache'<br>
@@ -75,20 +77,13 @@ https://github.com/beimunizhou/hosts<br>
 <br>
 - Integrated LV-Crew/certgen (https://github.com/LV-Crew/certgen)<br>
 - Download-URL saved in registry<br>
-- Default source: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
-- External Editor Wordpad<br>
 - Also: Blockpage on http://46.163.76.11/<br>
 - Also: Blockpage with SSL<br>
 - Also: certutil already included (imports the SSL certificate into the Mozilla-Firefox certificate store)<br>
 - Also: http://HostsManager.LV-Crew.org -> http://46.163.76.11/<br>
-- Install to %PROGRAMFILES(X86)%\LV-Crew\HostsManager\<br>
-- Register in Windows (system integration)<br>
 <br>
 - Removed Readme.txt?<br>
-- Blockpage intern as Blockpage (is DefaultBlankHost)<br>
-- "Downloading"-Msg<br>
 - Use Temp-Folder<br>
-- No replace of IP when URL have big letters<br>
 - Antivir-Form in app or new icon + window name<br>
 - Editor-Form: icon + window name?<br>
 - "Reset Host File" to Backup<br>
