@@ -12,7 +12,7 @@ The Hosts-Files-List is saved by the app - the update can be automated.<br>
 More informations to the hosts-file can be found here: https://en.wikipedia.org/wiki/Hosts_(file)<br>
 The manual of the HostsManager (with screenshots) can be found here: http://hostsmanager.lv-crew.org/readme.html<br>
 LV-Crew HostsManager is broth to you by: Dennis M. Heine & Tobias B. Besemer<br>
-The latest version of the LV-Crew HostsManager can be downloaded here: https://github.com/LV-Crew/HostsManager/releases/<br>
+The latest version of the LVC-HostsManager can be downloaded here: https://github.com/LV-Crew/HostsManager/releases/<br>
 <br>
 <br>
 <h3><b>What you need:</b></h3>
