@@ -97,5 +97,9 @@ https://github.com/LV-Crew/HostsManager/wiki/Some-Dev-Notes<br>
 https://github.com/LV-Crew/HostsManager/wiki/To-Dos-&-Ideas-(Roadmap)<br>
 <br>
 <br>
-<h3><b>...and more blocking:</b></h3>
+<h3><b>...and more blocking...:</b></h3>
 https://github.com/LV-Crew/HostsManager/wiki/More-Blocking<br>
+<br>
+<br>
+<h3><b>...and stats:</b></h3>
+https://githubstats.com/LV-Crew/HostsManager<br>
