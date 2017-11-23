@@ -85,7 +85,7 @@ namespace HostsManager
             }
 
             
-            (new Settings.clsSettingsFunctions(this)).loadSettings();
+          
             //Check whether to run silently
             String[] arguments = Environment.GetCommandLineArgs();
             if (arguments.Length > 1)
@@ -145,6 +145,7 @@ namespace HostsManager
             }
             catch (Exception) { }
             Settings.clsSettingsFunctions s=new Settings.clsSettingsFunctions(this);
+            s.loadSettings();
             s.loadOptions();
             updateStats();
         }
@@ -502,15 +503,14 @@ namespace HostsManager
         {
             if (cbBackgroundMusic.Checked)
             {
-                if (clsSettingsData.player != null)
-                {
+              
                     music = Bass.BASS_MusicLoad(clsBrandingData.BackgroundSound, 0, 0, BASSFlag.BASS_DEFAULT, 0);
                     Bass.BASS_ChannelPlay(music, true);
-                }
+            
             }
             else
             {
-                if (clsSettingsData.player != null)
+                //if (clsSettingsData.player != null)
                     Bass.BASS_MusicFree(music);
             }
         }

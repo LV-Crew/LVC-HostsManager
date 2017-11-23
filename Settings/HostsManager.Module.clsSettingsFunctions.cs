@@ -128,7 +128,7 @@ namespace HostsManager.Settings
                         clsSettingsData.replaceMethod = clsSettingsData.mIPReplaceMethod.SET_CUSTOM;
                         clsSettingsData.replaceIP = (String)mexampleRegistryKey.GetValue("replaceIP");
                     }
-                    b = (String)mexampleRegistryKey.GetValue("UseHostsFileBlacklist ");
+                    b = (String)mexampleRegistryKey.GetValue("UseHostsFileBlacklist");
                     if (b == null) b = "FALSE";
                     clsSettingsData.UseHostsFileBlacklist = b.Equals("TRUE") ? true : false;
                     b = (String)mexampleRegistryKey.GetValue("UseCustomBlacklist ");

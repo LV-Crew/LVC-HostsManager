@@ -48,3 +48,4 @@ C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\Bass.Net.xml
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\ManagedBass.pdb
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\ManagedBass.xml
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\nBASS.pdb
+C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.csprojResolveAssemblyReference.cache
