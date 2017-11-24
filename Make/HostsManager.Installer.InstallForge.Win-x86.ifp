@@ -2,7 +2,7 @@
 ProjectFileVersion = "1.1"
 [General]
 Program name = HostsManager
-Program version = 2017.11.21a
+Program version = 2017.11.23a
 Windows 2000 = 0
 Windows XP = 0
 Windows Server 2003 = 0
@@ -27,7 +27,7 @@ Windows style = 1
 XpStyle = 1
 [Files]
 Include Zipfile = 0
-Zipfile = C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.zip
+Zipfile = C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.zip
 Installation path = <programfiles>\<company>\<appname>\
 Autcip = 1
 [Uninstall]
@@ -57,7 +57,7 @@ Time = 2
 PlaySound = 0
 Allow = 0
 [Build]
-File = C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.InstallForge.exe
+File = C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.InstallForge.exe
 [Updater]
 Allow = 0
 1 = <appname>
@@ -73,41 +73,50 @@ Execdlls = 0
 [Languages]
 3
 [Files/Dirs]
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\certutil\
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\certutil\
 n/a
 [Folder]
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\BGND.wav
-12.9 MB
-wav
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\Branding.ini
-291 Byte
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\bass.dll
+109.2 KB
+dll
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\Bass.Net.dll
+660 KB
+dll
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\Bass.Net.xml
+5 MB
+xml
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\Branding.ini
+304 Byte
 ini
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\cert.pem
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\cert.pem
 1.2 KB
 pem
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\Default_hosts.tpl
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\CORE_-_cracktroll1.xm
+23 KB
+xm
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\Default_hosts.tpl
 760 Byte
 tpl
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\License.rtf
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\License.rtf
 83.8 KB
 rtf
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\LV-Crew.HostsManager.Banner.png
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\LV-Crew.HostsManager.Banner.png
 29.2 KB
 png
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\LV-Crew.HostsManager.exe
-239.5 KB
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\LV-Crew.HostsManager.exe
+703 KB
 exe
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\LV-Crew.HostsManager.Icon.ico
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\LV-Crew.HostsManager.Icon.ico
 54 KB
 ico
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\LV-Crew.HostsManager.Logo.png
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\LV-Crew.HostsManager.Logo.png
 107.3 KB
 png
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\Readme.html
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\Readme.html
 4.3 KB
 html
-C:\Users\dehe\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\README.md
-2.4 KB
+C:\Users\Administrator\Documents\GitHub\HostsManager\Packages\Win-x86.Archive\README.md
+4.8 KB
 md
 [Licence_Begin]
 38636
