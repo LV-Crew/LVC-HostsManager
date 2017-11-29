@@ -45,6 +45,7 @@ https://github.com/racaljk/hosts<br>
 https://github.com/vokins/yhosts<br>
 https://github.com/sy618/hosts<br>
 https://github.com/beimunizhou/hosts<br>
+https://hosts-file.net/download/yahoo_servers.zip<br>
 (And anyone else you can find...)<br>
 <br>
 <br>
