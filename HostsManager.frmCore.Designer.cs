@@ -167,7 +167,7 @@
             this.pbPicture.InitialImage = null;
             this.pbPicture.Location = new System.Drawing.Point(2, 0);
             this.pbPicture.Name = "pbPicture";
-            this.pbPicture.Size = new System.Drawing.Size(168, 179);
+            this.pbPicture.Size = new System.Drawing.Size(168, 192);
             this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPicture.TabIndex = 31;
             this.pbPicture.TabStop = false;
@@ -182,7 +182,7 @@
             this.bnMenuMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuMain.Location = new System.Drawing.Point(1, 179);
+            this.bnMenuMain.Location = new System.Drawing.Point(1, 180);
             this.bnMenuMain.Name = "bnMenuMain";
             this.bnMenuMain.Size = new System.Drawing.Size(169, 34);
             this.bnMenuMain.TabIndex = 34;
@@ -199,7 +199,7 @@
             this.bnMenuOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuOptions.Location = new System.Drawing.Point(1, 252);
+            this.bnMenuOptions.Location = new System.Drawing.Point(1, 253);
             this.bnMenuOptions.Name = "bnMenuOptions";
             this.bnMenuOptions.Size = new System.Drawing.Size(169, 34);
             this.bnMenuOptions.TabIndex = 35;
@@ -216,7 +216,7 @@
             this.bnMenuAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuAbout.Location = new System.Drawing.Point(1, 320);
+            this.bnMenuAbout.Location = new System.Drawing.Point(1, 321);
             this.bnMenuAbout.Name = "bnMenuAbout";
             this.bnMenuAbout.Size = new System.Drawing.Size(169, 34);
             this.bnMenuAbout.TabIndex = 36;
@@ -233,7 +233,7 @@
             this.bnMenuExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuExit.Location = new System.Drawing.Point(1, 354);
+            this.bnMenuExit.Location = new System.Drawing.Point(1, 355);
             this.bnMenuExit.Name = "bnMenuExit";
             this.bnMenuExit.Size = new System.Drawing.Size(169, 34);
             this.bnMenuExit.TabIndex = 37;
@@ -1455,7 +1455,7 @@
             this.bnMenuHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuHelp.Location = new System.Drawing.Point(1, 286);
+            this.bnMenuHelp.Location = new System.Drawing.Point(1, 287);
             this.bnMenuHelp.Name = "bnMenuHelp";
             this.bnMenuHelp.Size = new System.Drawing.Size(169, 34);
             this.bnMenuHelp.TabIndex = 52;
@@ -1482,7 +1482,7 @@
             this.bnMenuTools.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.bnMenuTools.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bnMenuTools.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnMenuTools.Location = new System.Drawing.Point(1, 213);
+            this.bnMenuTools.Location = new System.Drawing.Point(1, 214);
             this.bnMenuTools.Name = "bnMenuTools";
             this.bnMenuTools.Size = new System.Drawing.Size(169, 39);
             this.bnMenuTools.TabIndex = 54;
@@ -1497,13 +1497,13 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(813, 389);
             this.ControlBox = false;
+            this.Controls.Add(this.bnMenuExit);
             this.Controls.Add(this.bnMenuTools);
             this.Controls.Add(this.lblPage);
             this.Controls.Add(this.bnMenuHelp);
             this.Controls.Add(this.bnMinimizeForm);
             this.Controls.Add(this.bnCloseForm);
             this.Controls.Add(this.bnOK);
-            this.Controls.Add(this.bnMenuExit);
             this.Controls.Add(this.bnMenuAbout);
             this.Controls.Add(this.bnMenuOptions);
             this.Controls.Add(this.bnMenuMain);

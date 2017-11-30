@@ -117,8 +117,7 @@ namespace HostsManager
                     }
                 }
             }
-            catch (Exception ex) {
-                int a = 0;
+            catch (Exception) {
             }
 
             //Hide tabs
@@ -1079,7 +1078,7 @@ namespace HostsManager
         public void removeDuplicates()
         {
             FileInfo fi = new FileInfo(Environment.GetEnvironmentVariable("windir") + "\\system32\\drivers\\etc\\hosts");
-            bool cont=true;
+          
             if(fi.Length>2097152)
             {
                 frmDialog d = new frmDialog();

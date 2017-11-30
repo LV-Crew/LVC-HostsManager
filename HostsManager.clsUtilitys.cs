@@ -99,8 +99,7 @@ namespace HostsManager
                     dlg = new frmDialog();
                     dlg.action = ((dlgOptions)d).txt;
                     dlg.showCancel = true;                    
-                    DialogResult r = DialogResult.OK;
-                 
+                                     
                     if (((dlgOptions)d).frm.InvokeRequired)
                         ((dlgOptions)d).frm.Invoke(new delegThrd(subThrd), new object[] { d });
                     else

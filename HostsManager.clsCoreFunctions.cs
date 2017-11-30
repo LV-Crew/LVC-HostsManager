@@ -156,6 +156,7 @@ namespace HostsManager
                     start = new Thread(new ParameterizedThreadStart(clsUtilitys.Dialogs.showDialog));
                     start.Start(o1);
                 }
+                clsUtilitys.executeNoWindow("ipconfig.exe", "/flushdns");
             }
             catch (Exception ex) //Hosts file update
             {

@@ -37,15 +37,7 @@ C:\Users\dehe\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.csproj.Ge
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.csproj.CoreCompileInputs.cache
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.exe
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.pdb
-C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\Dll1.dll
-C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\Dll1.pdb
-C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\ManagedBass.dll
-C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\nBASS.dll
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\System.Runtime.dll
-C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\ManagedBass.pdb
-C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\ManagedBass.xml
-C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\nBASS.pdb
-C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\Bass.Net.dll
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\Bass.Net.xml
 C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\System.Runtime.dll
 C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\Bass.Net.xml

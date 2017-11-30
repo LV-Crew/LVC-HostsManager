@@ -119,16 +119,7 @@
     <Reference Include="Bass.Net">
       <HintPath>..\..\..\Downloads\bassDotNET\v4.5\Bass.Net.dll</HintPath>
     </Reference>
-    <Reference Include="Dll1">
-      <HintPath>..\..\..\source\repos\Dll1\Debug\Dll1.dll</HintPath>
-    </Reference>
-    <Reference Include="ManagedBass">
-      <HintPath>..\..\..\Downloads\ManagedBass-master\src\Bass\Portable\bin\Debug\netstandard1.4\ManagedBass.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="nBASS">
-      <HintPath>..\..\..\Downloads\nbass\bin\Debug\nBASS.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />

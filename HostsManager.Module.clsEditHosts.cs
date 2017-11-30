@@ -70,7 +70,7 @@ namespace HostsManager
                     f.mText="";
                 }
             }
-            catch (Exception e) {
+            catch (Exception) {
                 clsUtilitys.Dialogs.dlgOptions o1 = new clsUtilitys.Dialogs.dlgOptions();
                 o1.frm = (frmCore)frm;
                 o1.txt = "Error reading/writing hosts file.";
