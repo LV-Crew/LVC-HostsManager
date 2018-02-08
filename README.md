@@ -40,7 +40,9 @@ https://pgl.yoyo.org/adservers/<br>
 <br>
 <h3><b>Which addional hosts files can be used?</b></h3>
 http://sysctl.org/cameleon/<br>
-https://github.com/LV-Crew/hosts<br>
+https://github.com/ZeroDot1/CoinBlockerLists (prevent cryptomining)<br>
+https://github.com/hoshsadiq/adblock-nocoin-list (prevent cryptomining)<br>
+https://github.com/LV-Crew/hosts (different lists)<br>
 https://github.com/racaljk/hosts<br>
 https://github.com/vokins/yhosts<br>
 https://github.com/sy618/hosts<br>
