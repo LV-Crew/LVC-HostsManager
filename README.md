@@ -39,15 +39,17 @@ https://pgl.yoyo.org/adservers/<br>
 <br>
 <br>
 <h3><b>Which addional hosts files can be used?</b></h3>
-http://sysctl.org/cameleon/<br>
+http://sysctl.org/cameleon/ (blocks web-adverts)<br>
+https://github.com/eladkarako/hosts (AdBlock)<br>
 https://github.com/ZeroDot1/CoinBlockerLists (prevent cryptomining)<br>
 https://github.com/hoshsadiq/adblock-nocoin-list (prevent cryptomining)<br>
 https://github.com/LV-Crew/hosts (different lists)<br>
-https://github.com/racaljk/hosts<br>
-https://github.com/vokins/yhosts<br>
-https://github.com/sy618/hosts<br>
-https://github.com/beimunizhou/hosts<br>
-https://hosts-file.net/download/yahoo_servers.zip<br>
+https://github.com/Googlehosts/hosts (镜像)<br>
+https://github.com/racaljk/hosts (最新可用的google hosts文件。)<br>
+https://github.com/vokins/yhosts (AD hosts爱好群 群号:201973909)<br>
+https://github.com/sy618/hosts (已停更)<br>
+https://github.com/beimunizhou/hosts (forked from sy618/hosts)<br>
+https://hosts-file.net/download/yahoo_servers.zip (Optional addition containing the Yahoo servers for those that wish to block them -> out-dated!)<br>
 (And anyone else you can find...)<br>
 <br>
 <br>
