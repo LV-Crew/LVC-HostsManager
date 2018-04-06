@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
+	<head>
+		<!--favicon.ico--->
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+		
     <meta charset="utf-8" />
     <meta name="readme.html" content="width=device-width, initial-scale=1.0" />
     <title>readme.html</title>
 	<style>
-      body      { background-color: black; color: white; font-family: arial, sans-serif; width: 30em; }
+      body      { background-color: black; color: white; font-family: arial, sans-serif; }
       p         { background-color: black; color: white; font-size: 18px; font-weight: bold; line-height: 1.5em; }
       h1        { background-color: black; color: white; }
       h2        { background-color: black; color: white; }
@@ -14,12 +33,12 @@
       a:visited { background-color: black; color: blue; }
       span      { background-color: black; color: white; }
     </style>
-  </head>
-  <body>
-	<p>
+	</head>
+	<body>
+		<p>
 <h3><b>LV-Crew HostsManager</b></h3>
 This program allows you to update your hosts file with a downloaded blacklist.<br>
-The blacklisted traffic is being redirected to a blockpage (or a URL/localhost).<br>
+The blacklisted traffic is being redirected to a blockpage (or a IP/localhost).<br>
 Therefore tracking is being reduced to a minimum.<br>
 You are also being protected from spam ads and more.<br>
 (In short...)<br>
@@ -27,13 +46,104 @@ You are also being protected from spam ads and more.<br>
 <br>
 <br>
 <h3><b>And now in long... ;-)</b></h3>
-- The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL).<br>
-- The Hosts-Files-List is saved by the app.<br>
-More to the hosts-file: https://en.wikipedia.org/wiki/Hosts_(file)<br>
+The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL) you want.<br>
+The Hosts-Files-List is saved by the app - the update can be automated.<br>
+More informations to the hosts-file can be found here: <a href="https://en.wikipedia.org/wiki/Hosts_(file)">https://en.wikipedia.org/wiki/Hosts_(file)</a><br>
+The latest manual of the HostsManager (with screenshots) can be found here: <a href="http://hostsmanager.lv-crew.org/readme.html">http://hostsmanager.lv-crew.org/readme.html</a><br>
+The latest builds of the LVC-HostsManager can be downloaded here: <a href="https://github.com/LV-Crew/HostsManager/tree/master/Packages">https://github.com/LV-Crew/HostsManager/tree/master/Packages</a><br>
+The latest release of the LVC-HostsManager can be downloaded here: <a href="https://github.com/LV-Crew/HostsManager/releases/">https://github.com/LV-Crew/HostsManager/releases/</a><br>
 <br>
 <br>
 <br>
-<h3><b>Antivirus</b></h3>
+<h3><b>Which hosts-files we use by default:</b></h3>
+<a href="https://hosts-file.net/">https://hosts-file.net/</a><br>
+<a href="https://github.com/StevenBlack/hosts">https://github.com/StevenBlack/hosts</a> (default setting)<br>
+(Steven Black's hosts-file(s) have categories that can be set in the options of the HostsManager!)<br>
+<br>
+<br>
+<br>
+<h3><b>Which host files are included by Steven Black's hosts-file(s):</b></h3>
+<a href="https://adaway.org/">https://adaway.org/</a><br>
+<a href="https://github.com/FadeMind/hosts.extras">https://github.com/FadeMind/hosts.extras</a><br>
+<a href="https://github.com/mitchellkrogza/Badd-Boyz-Hosts">https://github.com/mitchellkrogza/Badd-Boyz-Hosts</a><br>
+<a href="https://github.com/azet12/KADhosts">https://github.com/azet12/KADhosts</a><br>
+<a href="http://www.malwaredomainlist.com/">http://www.malwaredomainlist.com/</a><br>
+<a href="http://winhelp2002.mvps.org/">http://winhelp2002.mvps.org/</a><br>
+<a href="http://someonewhocares.org/hosts/">http://someonewhocares.org/hosts/</a><br>
+<a href="https://github.com/tyzbit/hosts/blob/master/data/tyzbit/hosts">https://github.com/tyzbit/hosts/blob/master/data/tyzbit/hosts</a><br>
+<a href="https://pgl.yoyo.org/adservers/">https://pgl.yoyo.org/adservers/</a><br>
+<br>
+<br>
+<br>
+<h3><b>Which addional hosts files can be used?</b></h3>
+<a href="http://sysctl.org/cameleon/">http://sysctl.org/cameleon/</a> (Blocks web-adverts!)<br>
+<a href="https://github.com/eladkarako/hosts">https://github.com/eladkarako/hosts</a> (AdBlock!)<br>
+<a href="https://github.com/ZeroDot1/CoinBlockerLists">https://github.com/ZeroDot1/CoinBlockerLists</a> (Prevent cryptomining!)<br>
+<a href="https://github.com/hoshsadiq/adblock-nocoin-list">https://github.com/hoshsadiq/adblock-nocoin-list</a> (Prevent cryptomining!)<br>
+<a href="https://github.com/LV-Crew/hosts">https://github.com/LV-Crew/hosts</a> (Different lists!)<br>
+<a href="https://github.com/racaljk/hosts">https://github.com/racaljk/hosts</a> (Latest available Google hosts file!) (Chinese!)<br>
+<a href="https://github.com/Googlehosts/hosts">https://github.com/Googlehosts/hosts</a> (Domestic image of Google hosts file!) (Chinese!)<br>
+<a href="https://github.com/vokins/yhosts">https://github.com/vokins/yhosts</a> (Uphosts - AD hosts hobby group: 201973909) (Chinese!)<br>
+<a href="https://github.com/sy618/hosts">https://github.com/sy618/hosts</a> (Stopped!) (Chinese!)<br>
+<a href="https://github.com/beimunizhou/hosts">https://github.com/beimunizhou/hosts</a> (Forked from sy618/hosts!) (Chinese!)<br>
+<a href="https://hosts-file.net/download/yahoo_servers.zip">https://hosts-file.net/download/yahoo_servers.zip</a> (Optional addition containing the Yahoo servers for those that wish to block them!) (Out-dated!)<br>
+(And anyone else you can find...)<br>
+<br>
+<br>
+<br>
+<h3><b>What we already included in the program:</b></h3>
+- Feature: Auto Update of hosts-file (via Windows-Tasks-Scheduler)<br>
+- Feature: Create backup at first run (1x Auto-Backup to keep your original hosts-file saved)<br>
+- Main: Default source is <a href="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts">https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts</a><br>
+- Main: Counting 'Entries'<br>
+- Main: Show size of hosts-file<br>
+- Main: Turn of our background-sound<br>
+- Tools: 'Edit Hosts File' with internal or external editor (or Wordpad)<br>
+- Tools: 'Remove Duplicates' from the hosts-file<br>
+- Tools: 'Reset Hosts File' to Windows-Defaults<br>
+- Tools: 'Flush DNS Cache'<br>
+- Tools: 'Disable DNS Service' (needed by bigger hosts-files)<br>
+- Tools: 'Set DNS Server to Google'<br>
+- Tools: 'Set DNS Server to OpenDNS'<br>
+- Tools: 'Set DNS Server to Custom Value'<br>
+- Help: A Offline-Help that pulls the screenshots (temporary) from the web<br>
+- Options: Set the redirection to localhost, our blockpage, or a own IP<br>
+- Options: Set the editor for the hosts-file<br>
+- Options: Set option for daily auto-update<br>
+- Options: Set the categories that should be used from Steven Black's list<br>
+- Options: 'Custom hosts files URLs'<br>
+- Options: Own hostnames can be saved in blacklist.xml<br>
+- Options: Backup-Function<br>
+<br>
+<br>
+<br>
+<h3><b>And what else?</b></h3>
+- Feature: Detects Antivirus-Apps and warns<br>
+- Feature: File permissions are being reset after update<br>
+- Feature: CR/LF-Detection/Addition<br>
+- Geeks: Included Readme.html<br>
+- Geeks: Use local Readme.html as 'Help'<br>
+- Geeks: Included Readme.md<br>
+- Geeks: Use .HostsManager.bak for backup-files<br>
+- Geeks: Multi-Threading<br>
+- Dev: Branding is saved in a INI<br>
+<br>
+- Integrated LV-Crew/certgen (<a href="https://github.com/LV-Crew/certgen)">https://github.com/LV-Crew/certgen</a><br>
+- Download-URL saved in registry<br>
+- Also: Blockpage on <a href="http://46.163.76.11/">http://46.163.76.11/</a><br>
+- Also: Blockpage with SSL<br>
+- Also: certutil already included (imports the SSL certificate into the Mozilla-Firefox certificate store)<br>
+- Also: <a href="http://HostsManager.LV-Crew.org">http://HostsManager.LV-Crew.org</a> -> <a href="http://46.163.76.11/">http://46.163.76.11/</a><br>
+<br>
+- Removed Readme.txt?<br>
+- Use Temp-Folder<br>
+- Antivir-Form in app or new icon + window name<br>
+- Editor-Form: icon + window name?<br>
+- 'Reset Host File' to Backup<br>
+<br>
+<br>
+<br>
+<h3><b>Antivirus Detection</b></h3>
 <img src="https://raw.githubusercontent.com/LV-Crew/HostsManager/master/Screenshots/HostsManager_-_Alert_AV.png" alt="Picture"/><br>
 <br>
 Many antivirus programs do block the hosts file in a way, that we can't unblock it.<br>
@@ -94,10 +204,38 @@ Add hosts to blacklist: Aditional hostnames that should be blacklisted.<br>
 <br>
 <br>
 <br>
-LV-Crew HostsManager is broth to you by Dennis M. Heine & Tobias B. Besemer.<br>
+LV-Crew HostsManager is broth to you by: Dennis M. Heine & Tobias B. Besemer<br>
 <br>
 <a href="https://HostsManager.LV-Crew.org">https://HostsManager.LV-Crew.org</a><br>
 <a href="https://github.com/LV-Crew/HostsManager">https://github.com/LV-Crew/HostsManager</a>
+<br>
+<br>
+<br>
+<h3><b>Some Dev Notes:</b></h3>
+<a href="https://github.com/LV-Crew/HostsManager/wiki/Some-Dev-Notes">https://github.com/LV-Crew/HostsManager/wiki/Some-Dev-Notes</a><br>
+<br>
+<br>
+<br>
+<h3><b>To-Dos & Ideas:</b></h3>
+<a href="https://github.com/LV-Crew/HostsManager/wiki/To-Dos-&-Ideas-(Roadmap)">https://github.com/LV-Crew/HostsManager/wiki/To-Dos-&-Ideas-(Roadmap)</a><br>
+<br>
+<br>
+<br>
+<h3><b>...and more blocking...:</b></h3>
+<a href="https://github.com/LV-Crew/HostsManager/wiki/More-Blocking">https://github.com/LV-Crew/HostsManager/wiki/More-Blocking</a><br>
+<br>
+<br>
+<br>
+<h3><b>...and stats:</b></h3>
+<a href="https://githubstats.com/LV-Crew/HostsManager">https://githubstats.com/LV-Crew/HostsManager</a><br>
+<br>
+<br>
+<br>
+<h3><b>LV-Crew HostsManager is broth to you by:</b></h3>
+- Tobias B. Besemer<br>
+- Dennis M. Heine<br>
+- Denis Müller<br>
+- And You ???<br>
 <br>
 <br>
 Overwrite hosts file URLs:<br>
@@ -118,9 +256,6 @@ Automatically update hosts file hourly:<br>
 =================================================================<br>
 This allows you to automatically update the hosts file. <br>
 It creates a new task in windows' task planer.<br>
-<br>
-Possible Hosts-Files:<br>
-https://github.com/LV-Crew/hosts<br>
-	</p>
-  </body>
+		</p>
+	</body>
 </html>
