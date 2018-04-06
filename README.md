@@ -100,7 +100,7 @@ https://hosts-file.net/download/yahoo_servers.zip (Optional addition containing 
 - Use Temp-Folder<br>
 - Antivir-Form in app or new icon + window name<br>
 - Editor-Form: icon + window name?<br>
-- "Reset Host File" to Backup<br>
+- 'Reset Host File' to Backup<br>
 <br>
 <br>
 <h3><b>Some Dev Notes:</b></h3>
