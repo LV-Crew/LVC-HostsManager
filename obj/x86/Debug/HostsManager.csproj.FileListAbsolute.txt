@@ -39,5 +39,5 @@ C:\Users\dehe\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.exe
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.pdb
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\System.Runtime.dll
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x86\Debug\Bass.Net.xml
-C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\System.Runtime.dll
 C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x86\Debug\Bass.Net.xml
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x86\Debug\HostsManager.csproj.CopyComplete

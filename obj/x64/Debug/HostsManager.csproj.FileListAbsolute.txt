@@ -36,8 +36,8 @@ C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.csproj.Ge
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.csproj.CoreCompileInputs.cache
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.exe
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.pdb
-C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x64\Debug\System.Runtime.dll
 C:\Users\Administrator\Documents\GitHub\HostsManager\bin\x64\Debug\Bass.Net.xml
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\System.Runtime.dll
 C:\Users\dehe\Documents\GitHub\HostsManager\bin\x64\Debug\Bass.Net.xml
 C:\Users\dehe\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\HostsManager\obj\x64\Debug\HostsManager.csproj.CopyComplete
