@@ -10,7 +10,7 @@ You are also being protected from spam ads and more.<br>
 The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL) you want.<br>
 The Hosts-Files-List is saved by the app - the update can be automated.<br>
 More informations to the hosts-file can be found here: https://en.wikipedia.org/wiki/Hosts_(file)<br>
-The manual of the HostsManager (with screenshots) can be found here: http://hostsmanager.lv-crew.org/readme.html<br>
+The latest manual of the HostsManager (with screenshots) can be found here: http://hostsmanager.lv-crew.org/readme.html<br>
 The latest build of the LVC-HostsManager can be downloaded here: https://github.com/LV-Crew/HostsManager/releases/<br>
 <br>
 <br>
