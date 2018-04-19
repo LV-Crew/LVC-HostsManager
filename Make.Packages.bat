@@ -105,25 +105,25 @@ echo.
 echo copy .\README.md .\Packages\Win.Setup\
 copy .\README.md .\Packages\Win.Setup\
 echo.
-echo copy .\docs\readme.html .\bin\x86\Debug\Readme.html
+echo copy .\docs.VPS\readme.html .\bin\x86\Debug\Readme.html
 copy .\docs\readme.html .\bin\x86\Debug\Readme.html
 echo.
-echo copy .\docs\readme.html .\bin\x64\Debug\Readme.html
+echo copy .\docs.VPS\readme.html .\bin\x64\Debug\Readme.html
 copy .\docs\readme.html .\bin\x64\Debug\Readme.html
 echo.
-echo copy .\docs\readme.html .\bin\x86\Release\Readme.html
+echo copy .\docs.VPS\readme.html .\bin\x86\Release\Readme.html
 copy .\docs\readme.html .\bin\x86\Release\Readme.html
 echo.
-echo copy .\docs\readme.html .\bin\x64\Release\Readme.html
+echo copy .\docs.VPS\readme.html .\bin\x64\Release\Readme.html
 copy .\docs\readme.html .\bin\x64\Release\Readme.html
 echo.
-echo copy .\docs\readme.html .\Packages\Win-x64.Archive\Readme.html
+echo copy .\docs.VPS\readme.html .\Packages\Win-x64.Archive\Readme.html
 copy .\docs\readme.html .\Packages\Win-x64.Archive\Readme.html
 echo.
-echo copy .\docs\readme.html .\Packages\Win-x86.Archive\Readme.html
+echo copy .\docs.VPS\readme.html .\Packages\Win-x86.Archive\Readme.html
 copy .\docs\readme.html .\Packages\Win-x86.Archive\Readme.html
 echo.
-echo copy .\docs\readme.html .\Packages\Win.Setup\Readme.html
+echo copy .\docs.VPS\readme.html .\Packages\Win.Setup\Readme.html
 copy .\docs\readme.html .\Packages\Win.Setup\Readme.html
 echo.
 echo copy .\License.rtf .\Packages\Win-x64.Archive\
