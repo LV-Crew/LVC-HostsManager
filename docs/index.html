@@ -1,358 +1,113 @@
-<!DOCTYPE html>
-
-<html lang="en" class="no-js">
-   
-    <head>
-		<!--favicon.ico--->
-		<link rel="apple-touch-icon" sizes="57x57" href="/favicon.ico/apple-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="/favicon.ico/apple-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="/favicon.ico/apple-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico/apple-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="/favicon.ico/apple-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="/favicon.ico/apple-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="/favicon.ico/apple-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="/favicon.ico/apple-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico/apple-icon-180x180.png">
-		<link rel="icon" type="image/png" sizes="192x192"  href="/favicon.ico/android-icon-192x192.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico/favicon-16x16.png">
-		<link rel="manifest" href="/favicon.ico/manifest.json">
-		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="/favicon.ico/ms-icon-144x144.png">
-		<meta name="theme-color" content="#ffffff">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
 		
-        <meta charset="utf-8"/>
-        <title>LV-Crew HostsManager</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <meta content="The LV-Crew HostsManager reduces tracking to a minimum." name="description"/>
-        <meta content="LV-Crew" name="author"/>
-        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link href="vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css/animate.css" rel="stylesheet">
-        <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css/layout.min.css" rel="stylesheet" type="text/css"/>
+		<!-- <title> search-engines.html </title> -->
 		
-		<!--
-		<link rel="shortcut icon" href="/favicon.ico"/>
-		<link rel="icon" href="/favicon.ico" type="image/x-icon">
-		--->
-    </head>
-   
-  
-    <body id="body" data-spy="scroll" data-target=".header">
-
-          <header class="header navbar-fixed-top">
-              <nav class="navbar" role="navigation">
-                <div class="container">
-                      <div class="menu-container js_nav-item">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="toggle-icon"></span>
-                        </button>
-                    </div>
-                    <div class="collapse navbar-collapse nav-collapse">
-					
-					<!--div class="language-switcher">
-					  <ul class="nav-lang">
-                        <li><a class="active" href="#">EN</a></li>
-					    <li><a href="#">DE</a></li>
-						<li><a href="#">FR</a></li>
-					  </ul>
-					</div---> 
-					
-                        <div class="menu-container">
-							<ul class="nav navbar-nav navbar-nav-right">
-								<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#">Home</a>	</li>
-								<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="http://imgur.com/NWDHch1" target="_blank">Screenshot</a></li>
-								<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="readme.html" target="_blank">Documentation</a></li>
-								<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="https://github.com/LV-Crew/HostsManager/releases/" target="_blank">Download</a></li>
-								<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="https://tinyurl.com/yadbpook">Contact</a></li>
-							</ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-			</header>
-       
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <div class="container">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                </ol>
-            </div>
-
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img class="img-responsive" src="img/1920x1080/01.jpg" alt="Slider Image">
-                    <div class="container">
-                        <div class="carousel-centered">
-                            <div class="margin-b-40">
-                                <h2 class="carousel-title">LV-Crew&nbsp;&nbsp;HostsManager</h2>
-                                <p class="color-white">
-									The LV-Crew HostsManager allows you to update your hosts file with a downloaded blacklist.<br>
-									The blacklisted traffic is being redirected to a blockpage (or a IP/localhost).<br>
-									Therefore tracking is being reduced to a minimum.<br>
-									You are also being protected from spam ads and more.<br>
-									<br>
-									Number domains blocked: <b>Up to over 920,000</b><br>
-									LV-Crew HostsManager is <b>OpenSource</b> and therefore <b>100% free!</b></p>
-                            </div>
-                            <a href="https://github.com/LV-Crew/HostsManager/releases/" class="btn-theme btn-theme-sm btn-white-brd text-uppercase" target="_blank">Download</a>
-                        </div>
-                    </div>
-                </div>
-<!--
-                <div class="item">
-                    <img class="img-responsive" src="img/1920x1080/02.jpg" alt="Slider Image">
-                    <div class="container">
-                        <div class="carousel-centered">
-                            <div class="margin-b-40">
-                                <h2 class="carousel-title">LV-Crew&nbsp;&nbsp;HostsManager</h2>
-                                <p class="color-white">The LV-Crew HostsManager downloads a hosts file from the internet<br>and overwrites your windows hosts file with it.<br>This hosts file contains a blacklist with blocked spam- and trackingdomains. Thanks to this, you will see nearly no more ads, and tracking is being reduced to a minimum.</p>
-                            </div>
-                            <a href="download.php" class="btn-theme btn-theme-sm btn-white-brd text-uppercase" target="_blank">Download</a>
-                        </div>
-                    </div>
-                </div>
--->
-            </div>
-        </div>
-        <!--========== SLIDER ==========-->
-
-        <!--========== PAGE LAYOUT ==========-->
-        <!-- About -->
-        <div id="about">
-            <div class="content-lg container">
-                <!-- Masonry Grid -->
-                <div class="masonry-grid row">
-                    <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
-                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 sm-margin-b-30">
-                        <div class="margin-b-60">
-                            <h2>No more worries</h2>
-                            <p>Your hosts file is being updated every hour, if you wish. You can enable auto-update in the settings dialog.<br><br><br></p>
-                        </div>
-                        <img class="full-width img-responsive wow fadeInUp" src="img/500x500/01.jpg" alt="Portfolio Image" data-wow-duration=".3" data-wow-delay=".2s">
-                    </div>
-                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
-                        <div class="margin-b-60">
-                          <h2>Easy Integration</h2>
-                          <p>All you have to do is to start the program and hit "Update hosts file". That's all! The program will take care of the rest.<br><br></p>  
-                        </div>
-						 <img class="full-width img-responsive wow fadeInUp" src="img/500x500/02.jpg" alt="Portfolio Image" data-wow-duration=".3" data-wow-delay=".3s">
-                    </div>
-                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
-                        <div class="margin-t-60 margin-b-60">
-                            <h2>Additional features</h2>
-                            <p>Additional features include the possibility to overwrite the URLs where you collect the hosts files from, overwriting the redirect IP, as well as automatic updates.</p>
-                        </div>
-                        <img class="full-width img-responsive wow fadeInUp" src="img/500x500/03.jpg" alt="Portfolio Image" data-wow-duration=".3" data-wow-delay=".4s">
-                    </div>
-				</div>
-                <!-- End Masonry Grid -->
-            </div>
-            
-            <div class="bg-color-sky-light">
-                <div class="content-lg container">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-5 md-margin-b-60">
-                            <div class="margin-t-50 margin-b-30">
-                                <h2>Why Us?</h2>
-                                <p>LV-Crew HostsManager redirects the traffic to a <b>blockpage</b>. Due to this, you won't see any more "Page not found" errors. Furthermore,<br>LV-Crew HostsManager is the only hosts manager which allows <b>automatic updates</b>. We do even take care of <b>file permissions</b>!<br>Currently, there are <b>36.164 blocked domains</b> in our hosts file.<br><br>And the best thing about LV-Crew HostsManager: It is Open Source!</p>
-                            </div>
-                            <a href="https://github.com/LV-Crew/HostsManager/releases/latest" class="btn-theme btn-theme-sm btn-white-bg text-uppercase" target="_blank">Download</a>
-                        </div>
-                        <div class="col-md-5 col-sm-7 col-md-offset-2">
-                            <!-- Accordion -->
-                            <div class="accordion">
-                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="headingOne">
-                                            <h4 class="panel-title">
-                                                <a class="panel-title-child" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    Blockpage
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                            <div class="panel-body">
-                                                All traffic is being redirected to our blockpage. Due to that, there won't be any more "Page not Found" errors, which occur with other solutions.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="headingTwo">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed panel-title-child" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    Automatic updates
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                            <div class="panel-body">
-                                                After enabling it in the Settings dialog, automatic updates will fetch and update the hosts file every hour. No user interaction is required, and it's happening silently.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading" role="tab" id="headingThree">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed panel-title-child" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    Hosts file editor
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                            <div class="panel-body">
-                                                You can now edit your hosts file right from within<br>LV-Crew HostsManager. It is also possible to to use wordpad as an external editor, if you wish.<br> File permissions are being handled by us, you won't have to worry about them.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Accodrion -->
-                        </div>
-                    </div>
-                    <!--// end row -->
-                </div>
-            </div>
-        </div>
-        <!-- End About -->
-
-        <!-- Latest Products -->
-        <div id="products">
-            <div class="content-lg container">
-                <div class="row margin-b-40">
-                    <div class="col-sm-6">
-                        <h2>Other Projects</h2>
-                        <p>The HostsManager isn't LV-Crew's only project. Here's a small overview of other projects maintained by us.</p>
-                    </div>
-                </div>
-                <!--// end row -->
-
-                <div class="row">
-                    <!-- Latest Products -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <div class="margin-b-20">
-
-                        </div>
-                        <h4><a href="http://www.secuvox-browser.com" target="_blank">Secuvox-Browser</a> <span class="text-uppercase margin-l-20">Webbrowser</span></h4>
-                        <p>Secuvox is a Mozila Firefox based browser aiming at privacy. Its main features are an adblocker, tracking protection and profiling protection!<br><br></p>
-                        <a class="link" href="http://www.secuvox-browser.com" target="_blank">Details</a>
-                    </div>
-                    <!-- End Latest Products -->
-
-                    <!-- Latest Products -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <div class="margin-b-20">
-
-                        </div>
-                        <h4><a href="https://github.com/LV-Crew/ajaxweb" target="_blank">Ajax Visual Webeditor</a> <span class="text-uppercase margin-l-20">Webeditor</span></h4>
-                        <p>Ajaxweb allows you to create feature rich forms and pages, based on JavaScript. The Editor is in WYSIWYG style which means that you can easily edit pages using point&click.</p>
-                        <a class="link" href="https://github.com/LV-Crew/ajaxweb">Details</a>
-                    </div>
-                    <!-- End Latest Products -->
-
-                    <!-- Latest Products -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <div class="margin-b-20">
-
-                        </div>
-                        <h4><a href="https://github.com/LV-Crew/FNUtils" target="_blank">FNUtils</a> <span class="text-uppercase margin-l-20">Databases</span></h4>
-                        <p>Datanorm4-Interface and DBase-Manipulation-Tool<br>written in Clipper5<br><br><br></p>
-                        <a class="link" href="https://github.com/LV-Crew/FNUtils">Details</a>
-                    </div>
-                    <!-- End Latest Products -->
-                </div>
-                <!--// end row -->
-            </div>
-        </div>
-        <!-- End Latest Products -->
-
-     
-
-        <!-- Contact -->
-        <div id="contact" class="bg-color-sky-light">
-            <!-- Contact List -->
-            <div class="section-seperator">
-                <div class="content-lg container" >
-                    <div class="row">
-                        <!-- Contact List -->
-			<p style="line-height:0px;margin-bottom: 0px;margin-top: 0px;"><center><h2>LV-Crew</h2></center></p><p>
-			<a href="https://tinyurl.com/yadbpook"><center><h4>Contact</h4></center></a></p>
-                        <div class="col-sm-4 sm-margin-b-50">
-                            <h3><a href="https://tinyurl.com/ydh4fs5d">Dennis M. Heine</a> <span class="margin-l-20"><font color="grey">CODING</font></span></h3>
-                        </div>
-                        <!-- End Contact List -->
-
-                        <!-- Contact List -->
-                        <div class="col-sm-4 sm-margin-b-50">
-                        </div>
-                        <!-- End Contact List -->
-
-                        <!-- Contact List -->
-                        <div class="col-sm-4 sm-margin-b-50">
-                            <h3><a href="#">Tobias B. Besemer</a> <span class="text-uppercase margin-l-20"><font color="grey">CEO</font></span></h3>
-                        </div>
-                        <!-- End Contact List -->
-                    </div>
-                    <!--// end row -->
-                </div>
-            </div>
-            <!-- End Contact List -->
-            
-        </div>
-        <!-- End Contact -->
-        <!--========== END PAGE LAYOUT ==========-->
-
-        <!--========== FOOTER ==========-->
-        <footer class="footer">
-        
-
-            <!-- Copyright -->
-            <div class="content container">
-                <div class="row">
-                    <div class="col-xs-6">
-                        LV-Crew HostsManager (c) 2017 by LV-Crew | <a href="impressum.html">Impressum</a>
-                    </div>
-                    <div class="col-xs-6 text-right">
-
-                    </div>
-                </div>
-                <!--// end row -->
-            </div>
-            <!-- End Copyright -->
-        </footer>
-        <!--========== END FOOTER ==========-->
-
-        <!-- Back To Top -->
-        <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
-
-        <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-        <!-- CORE PLUGINS -->
-        <script src="vendor/jquery.min.js" type="text/javascript"></script>
-        <script src="vendor/jquery-migrate.min.js" type="text/javascript"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-
-        <!-- PAGE LEVEL PLUGINS -->
-        <script src="vendor/jquery.easing.js" type="text/javascript"></script>
-        <script src="vendor/jquery.back-to-top.js" type="text/javascript"></script>
-        <script src="vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
-        <script src="vendor/jquery.wow.min.js" type="text/javascript"></script>
-        <script src="vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
-        <script src="vendor/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
-        <script src="vendor/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
-
-        <!-- PAGE LEVEL SCRIPTS -->
-        <script src="js/layout.min.js" type="text/javascript"></script>
-        <script src="js/components/wow.min.js" type="text/javascript"></script>
-        <script src="js/components/swiper.min.js" type="text/javascript"></script>
-        <script src="js/components/masonry.min.js" type="text/javascript"></script>
-
-    </body>
-    <!-- END BODY -->
+		<title>Besemer Gert Elektro-Service GbR</title>
+		
+		<!-- <meta content="search-engines.html" name="description"> -->
+		
+		<meta name="Description" content="Service vom Markenprofi !!! Wir sind für Sie da seit 1978 !!!">
+		
+		<meta name="Keywords" content="
+			Elektro-Service, Elektroservice, Electro-Service, Electroservice, Elektrogeräte-Service, Elektrogeräteservice, Elektrotechnik-Service, Elektrotechnik-Service, IT-Service,
+			e-Shop, easy-Shop, Online Shop,
+			Nürtingen-Reudern, Reuderner Strasse, Reudernerstrasse, Reudener Straße,
+			Werkskundendienst, Vertragspartner, AEG, Miele, Imperial, Liebherr,
+			Elektrogerät, Elektro-Gerät, E-Gerät, Kühlgerät, Gefriergerät, Waschmaschine, Trockner, Herd, Staubsauger,
+			e-Check,
+			Gebiet,
+			Nürtingen, Nürtingen-Reudern, Reudern, Kirchheim unter Teck, Kirchheim, Kirchheim / Teck, Oberbohingen, Beuren, Dettingen / Teck, Esslingen, Frickenhausen, Grafenberg, Großbettlingen, Grötzingen, Jesingen,
+			Aich, Aichelberg / Aichw., Aichschieß, Aichwald, Albershausen, Altbach, Altdorf, Altenriet, Apfelstetten, Auingen, Bad Urach, Baltmannsweiler, Bempflingen, Berkheim, Bernhausen, Holzmaden, Köngen, Linsenhofen, Metzingen, Nabern, Neckarhausen, Neckartailfingen, Neckartenzlingen, Neuffen,Oberensingen, Ötlingen, Owen, Raidwangen, Unterensingen, Wendlingen, Wernau, Wolfschlugen, Zizishausen,
+			Bissingen, Böblingen, Böhringen, Boll, Bonlanden, Brucken, Deizisau, Denkendorf, Dettenhausen, Dettingen / Erms, Donstetten, Dörnach, Dottingen, Dürnau, Ebersbach, Echterdingen, Erkenbrechtsweiler, Feldstetten, Filderstadt, Gniebel, Grabenstetten, Gruibingen, Gutenberg, Hardt, Harthausen, Häslach, Hattenhofen, Hepsisau, Hochdorf, Hochwang, Hülben, Kappishäusern, Kemnat, Kleinbettlingen, Kohlberg, Krebsstein, Krummhardt, Laichingen, Leinfelden, Lenningen, Lindorf, Machtolsheim, Merklingen, Mittelstatt, Mühlhausen, Münsingen, Musberg, Neidlingen, Nellingen, Neuenhaus / Aichtal, Neuhausen / Filder, Notzingen, Oberaichen, Oberesslingen, Oberlennigen, Ochsenwang, Ohmden, Plattenhardt, Pliezhausen, Plochingen, Reichenbach, Reicheneck, Reutlingen, Riederich, Rietheim, Römerstein, Roßwälden, Rübgarten, Ruit, Schanbach, Scharnhausen, Schlaitdorf, Schlierbach, Schönaich, Schopfloch, Sielmingen, Sparwiesen, Steinenbronn, Stetten, Stuttgart, Tischardt, Trailfingen, Uhingen, Unterlenningen, Walddorf, Waldenbuch,
+			Weil im Schönbuch, Weilheim, Wellingen, Westerheim, Wiesensteig, Zainingen, Zell, Kirchentellinsfurt, Plieningen, Kusterdingen, Rommelsbach, Holzgerlingen, Pfrondorf, Mehrstetten, Metzingen Neuhausen, Unteraichen,
+			Postleitzahl, PLZ,
+			72631, 73773, 73773, 73773, 73095, 73776, 72655, 72657, 72525, 72525, 72574, 73666, 72658, 73734, 70794, 72660, 73266, 72587, 73087, 70794, 73252, 73779, 73770, 72135, 72581, 73265, 72587, 72124, 72525, 73105, 73061, 70771, 73268, 89150, 70794, 72636, 72124, 72582, 72661, 72663, 72631, 73344, 73252, 72622, 70794, 72141, 73110, 73235, 73269, 73252, 73271, 72584, 73230, 72639, 73760, 73230, 72658, 72664, 73257, 73252, 73773, 89150, 70771, 73252, 72636, 89150, 89188, 72555, 72766, 73347, 72525, 70771, 73230, 72622, 72666, 72654, 73272, 73760, 72631, 72639, 73765, 73274, 72622, 70771, 72644, 72622, 73252, 73266, 73275, 73277, 70794, 72124, 73207, 72622, 73262, 72766, 72622, 72760, 72585, 72525, 72587, 73061, 72124, 73760, 73773, 73760, 72667, 73278, 71101, 70794, 73066, 71144, 70771, 72636, 72525, 73066, 72669, 73252, 72141, 71111, 71093, 73235, 73274, 73240, 73249, 72589, 73349, 72649, 72587, 73119, 72622, 72138, 72555, 70000
+		">
+		
+		<meta name="Author" content="slim23, Tobias B. Besemer">
+		<meta name="Copyright" content="slim23, Tobias B. Besemer">
+		<meta name="Publisher" content="http://lV-crew.org">
+		
+		<meta name="generator" content="hardcore-hand-coded, KompoZer, NVU, Composer">
+		
+		<meta name="robots" content="INDEX,FOLLOW">
+		<meta name="Content-language" content="de">
+		
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		
+		<meta http-equiv="refresh" content="0; URL=https://Menu23v2018.LV-Crew.org/home.html">
+		
+		<!-- Version: 2018-04-17 Tobias B. Besemer -->
+		
+	</head>
+	
+	
+	
+	<body>
+		<div style="text-align: center;">
+			Seite für Suchmaschinen - Sie werden auf die Hauptseite weitergeleitet ...<br>
+			<br>
+			Sollte die Weiterleitung nicht gehen, klicken Sie bitte folgenden <a href="https://Menu23v2018.LV-Crew.org/home.html">Link</a>.<br>
+		</div>
+		
+		<div>
+			<br>
+			<span style="color: rgb(255, 255, 255);">
+				&nbsp;&nbsp;&nbsp; &lt;meta name="Keywords" content="<br>&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; Elektro-Service, Elektroservice, Electro-Service,
+				Electroservice, Elektrogeräte-Service, Elektrogeräteservice,
+				Elektrotechnik-Service, Elektrotechnik-Service, IT-Service,<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; e-Shop, easy-Shop, Online Shop,<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Nürtingen-Reudern, Reuderner Strasse, Reudernerstrasse, Reudener Straße,<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Werkskundendienst, Vertragspartner, AEG, Miele, Imperial, Liebherr,<br>&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; Elektrogerät, Elektro-Gerät, E-Gerät, Kühlgerät,
+				Gefriergerät, Waschmaschine, Trockner, Herd, Staubsauger,<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; e-Check,<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Gebiet,<br>&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; Nürtingen, Nürtingen-Reudern, Reudern, Kirchheim
+				unter Teck, Kirchheim, Kirchheim / Teck, Oberbohingen, Beuren,
+				Dettingen / Teck, Esslingen, Frickenhausen, Grafenberg, Großbettlingen,
+				Grötzingen, Jesingen,<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Aich,
+				Aichelberg / Aichw., Aichschieß, Aichwald, Albershausen, Altbach,
+				Altdorf, Altenriet, Apfelstetten, Auingen, Bad Urach, Baltmannsweiler,
+				Bempflingen, Berkheim, Bernhausen, Holzmaden, Köngen, Linsenhofen,
+				Metzingen, Nabern, Neckarhausen, Neckartailfingen, Neckartenzlingen,
+				Neuffen,Oberensingen, Ötlingen, Owen, Raidwangen, Unterensingen,
+				Wendlingen, Wernau, Wolfschlugen, Zizishausen,<br>&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; Bissingen, Böblingen, Böhringen, Boll, Bonlanden,
+				Brucken, Deizisau, Denkendorf, Dettenhausen, Dettingen / Erms,
+				Donstetten, Dörnach, Dottingen, Dürnau, Ebersbach, Echterdingen,
+				Erkenbrechtsweiler, Feldstetten, Filderstadt, Gniebel, Grabenstetten,
+				Gruibingen, Gutenberg, Hardt, Harthausen, Häslach, Hattenhofen,
+				Hepsisau, Hochdorf, Hochwang, Hülben, Kappishäusern, Kemnat,
+				Kleinbettlingen, Kohlberg, Krebsstein, Krummhardt, Laichingen,
+				Leinfelden, Lenningen, Lindorf, Machtolsheim, Merklingen, Mittelstatt,
+				Mühlhausen, Münsingen, Musberg, Neidlingen, Nellingen, Neuenhaus /
+				Aichtal, Neuhausen / Filder, Notzingen, Oberaichen, Oberesslingen,
+				Oberlennigen, Ochsenwang, Ohmden, Plattenhardt, Pliezhausen,
+				Plochingen, Reichenbach, Reicheneck, Reutlingen, Riederich, Rietheim,
+				Römerstein, Roßwälden, Rübgarten, Ruit, Schanbach, Scharnhausen,
+				Schlaitdorf, Schlierbach, Schönaich, Schopfloch, Sielmingen,
+				Sparwiesen, Steinenbronn, Stetten, Stuttgart, Tischardt, Trailfingen,
+				Uhingen, Unterlenningen, Walddorf, Waldenbuch,<br>&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; Weil im Schönbuch, Weilheim, Wellingen, Westerheim,
+				Wiesensteig, Zainingen, Zell, Kirchentellinsfurt, Plieningen,
+				Kusterdingen, Rommelsbach, Holzgerlingen, Pfrondorf, Mehrstetten,
+				Metzingen Neuhausen, Unteraichen,<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Postleitzahl, PLZ,<br>&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; 72631, 73773, 73773, 73773, 73095, 73776, 72655,
+				72657, 72525, 72525, 72574, 73666, 72658, 73734, 70794, 72660, 73266,
+				72587, 73087, 70794, 73252, 73779, 73770, 72135, 72581, 73265, 72587,
+				72124, 72525, 73105, 73061, 70771, 73268, 89150, 70794, 72636, 72124,
+				72582, 72661, 72663, 72631, 73344, 73252, 72622, 70794, 72141, 73110,
+				73235, 73269, 73252, 73271, 72584, 73230, 72639, 73760, 73230, 72658,
+				72664, 73257, 73252, 73773, 89150, 70771, 73252, 72636, 89150, 89188,
+				72555, 72766, 73347, 72525, 70771, 73230, 72622, 72666, 72654, 73272,
+				73760, 72631, 72639, 73765, 73274, 72622, 70771, 72644, 72622, 73252,
+				73266, 73275, 73277, 70794, 72124, 73207, 72622, 73262, 72766, 72622,
+				72760, 72585, 72525, 72587, 73061, 72124, 73760, 73773, 73760, 72667,
+				73278, 71101, 70794, 73066, 71144, 70771, 72636, 72525, 73066, 72669,
+				73252, 72141, 71111, 71093, 73235, 73274, 73240, 73249, 72589, 73349,
+				72649, 72587, 73119, 72622, 72138, 72555, 70000<br>&nbsp;&nbsp;&nbsp; "&gt;<br>
+			</span>
+		</div>
+		
+	</body>
 </html>
