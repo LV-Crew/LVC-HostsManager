@@ -10,9 +10,9 @@ You are also being protected from spam ads and more.<br>
 The Hosts-File-Downloader & -Updater pulls a new/updated hosts-file from any online source (URL) you want.<br>
 The Hosts-Files-List is saved by the app - the update can be automated.<br>
 More informations to the hosts-file can be found here: https://en.wikipedia.org/wiki/Hosts_(file)<br>
-The latest manual of the HostsManager (with screenshots) can be found here: https://www.LVC-HostsManager.net/readme.html<br>
-The latest builds of the LVC-HostsManager can be downloaded here: https://github.com/LV-Crew/HostsManager/tree/master/Packages<br>
-The latest release of the LVC-HostsManager can be downloaded here: https://github.com/LV-Crew/HostsManager/releases/<br>
+The latest manual of the LVC-HostsManager (with screenshots) can be found here: https://www.LVC-HostsManager.net/readme.html<br>
+The latest builds of the LVC-HostsManager can be downloaded here: https://github.com/LV-Crew/LVC-HostsManager/tree/master/Packages<br>
+The latest release of the LVC-HostsManager can be downloaded here: https://github.com/LV-Crew/LVC-HostsManager/releases/<br>
 <br>
 <br>
 <h3><b>What you need:</b></h3>
@@ -21,19 +21,19 @@ Microsoft .NET v4.0 or above<br>
 <br>
 <br>
 <h3><b>Some Dev Notes:</b></h3>
-https://github.com/LV-Crew/HostsManager/wiki/Some-Dev-Notes<br>
+https://github.com/LV-Crew/LVC-HostsManager/wiki/Some-Dev-Notes<br>
 <br>
 <br>
 <h3><b>To-Dos & Ideas:</b></h3>
-https://github.com/LV-Crew/HostsManager/wiki/To-Dos-&-Ideas-(Roadmap)<br>
+https://github.com/LV-Crew/LVC-HostsManager/wiki/To-Dos-&-Ideas-(Roadmap)<br>
 <br>
 <br>
 <h3><b>...and more blocking...:</b></h3>
-https://github.com/LV-Crew/HostsManager/wiki/More-Blocking<br>
+https://github.com/LV-Crew/LVC-HostsManager/wiki/More-Blocking<br>
 <br>
 <br>
 <h3><b>...and stats:</b></h3>
-https://githubstats.com/LV-Crew/HostsManager<br>
+https://githubstats.com/LV-Crew/LVC-HostsManager<br>
 <br>
 <br>
 <h3><b>LV-Crew HostsManager is broth to you by:</b></h3>
