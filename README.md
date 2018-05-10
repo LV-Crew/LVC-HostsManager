@@ -1,4 +1,4 @@
-# HostsManager
+# LVC-HostsManager
 This program allows you to update your hosts file with a downloaded blacklist.<br>
 The blacklisted traffic is being redirected to a blockpage (or a IP/localhost).<br>
 Therefore tracking is being reduced to a minimum.<br>
